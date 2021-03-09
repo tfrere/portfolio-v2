@@ -4,17 +4,40 @@ title = "Thibaud FRERE Portfolio"
 sectionPagesMenu = "main"
 [menu]
   [[menu.main]]
-    name = "Home"
-    pre = "home"
-    url = "/"
-    weight = 1
-  [[menu.main]]
-    name = "Posts"
+  	identifier = "projects"
+    name = "Projects"
     pre = "pen-tool"
-    url = "/posts/"
+    url = "/projects/"
     weight = 2
   [[menu.main]]
-    name = "Tags"
-    pre = "tag"
-    url = "/tags/"
+  	identifier = "Photos"
+    name = "Photos"
+    pre = "photos"
+    url = "/photos/"
     weight = 3
+  [[menu.main]]
+  	identifier = "About"
+    name = "About"
+    pre = "about"
+    url = "/about/"
+    weight = 4
+  [[menu.main]]
+  	identifier = "Contact"
+    name = "Contact"
+    pre = "contact"
+    url = "/contact/"
+    weight = 5
+
+# Highest width is 2500px for landscape and 1500px for portrait.
+# This will give both orientations roughly the same resolution and size.
+# Every landscape image will also be scaled down to 1500px and 1000px,
+# and portrait photos to 1000px and 750px wide.
+[params]
+landscapePhotoWidths = [2500, 1500, 1000]
+portraitPhotoWidths = [1500, 1000, 750]
+
+[imaging]
+quality = 70
+
+[build]   
+  publishResources = false

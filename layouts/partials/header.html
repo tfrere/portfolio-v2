@@ -1,14 +1,12 @@
-<div id="nav-border" class="container">
-    <nav id="nav" class="nav justify-content-center">
+<nav class="nav">
+    <h1><a href="{{ .Site.BaseURL }}">Thibaud frere</a></h1>
+    <ul>
+        {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
-        <a class="nav-link" href="{{ .URL }}">
-        {{ if .Pre }}
-        {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
-        {{ $icon }}
-        {{ end }}
+        <li class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}" ><a   href="{{ .URL }}">
         {{ $text := print .Name | safeHTML }}
-        {{ $text }}
-        </a>
+        <span>{{ $text }}</span>
+        </a></li>
         {{ end }}
-    </nav>
-</div>
+    </ul>
+</nav>

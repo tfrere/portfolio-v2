@@ -1,5 +1,17 @@
 {{ define "main" }}
-<div>
-  <h1 class="title">{{ .Site.Title }}</h1>
+<div class="landing">
+  <canvas id="canvas"></canvas>
+  <div>
+    <h1>
+      <span class="word"><span class="word__content--first">Hello,</span></span>
+      <br/>
+      <span class="word"><span class="word__content">i'm</span></span>
+      <span class="word"><span class="word__content">a</span></span>
+      <span class="word white"><span class="word__content">french</span></span>
+      <br/>
+      <span class="word"><span class="word__content">designer</span></span>
+    </h1><a class="wanna-see-my-work" href="/projects">
+      <div class="wanna-see-my-work__content"><span>Wanna see my work ?</span><img src="https://assets.codepen.io/238916/arrow.svg"/></div></a>
+  </div>
 </div>
 {{ end }}

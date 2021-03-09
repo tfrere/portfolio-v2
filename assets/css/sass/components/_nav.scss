@@ -1,0 +1,93 @@
+$color: black;
+$background-color: #dacc98;
+$anim-curve: cubic-bezier(0.23, 1, 0.32, 1);
+$anim-timing: 0.3s;
+
+.nav {
+  @apply absolute right-0 z-50 flex items-center w-full pt-2 px-4;
+
+  h1 a {
+    @apply px-0;
+  }
+
+  ul {
+    @apply ml-auto flex;
+  }
+
+  a {
+    @apply relative;
+  }
+
+  a:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: background-color $anim-timing $anim-curve;
+  }
+
+  .green:hover:after {
+    background-color: #95d0a9;
+  }
+
+  .orange:hover:after {
+    background-color: #f37021;
+  }
+
+  .yellow:hover:after {
+    background-color: #ffce01;
+  }
+
+  .pink:hover:after {
+    background-color: #f497af;
+  }
+
+  a {
+    @apply px-4 py-2 inline-block;
+  }
+
+  span {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    font-family: "Varela Round", sans-serif;
+    position: relative;
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1;
+    white-space: nowrap;
+    color: $color;
+  }
+
+  span:after {
+    content: "";
+    background: $color;
+    width: 100%;
+    height: 0.125rem;
+    display: block;
+    margin-top: 0.125rem;
+    border-radius: 3px;
+    position: absolute;
+    top: 100%;
+    transform: scaleX(0) rotate(0.001deg);
+    transform-origin: left center;
+    transition: transform $anim-timing $anim-curve,
+      transform-origin 0s $anim-timing;
+  }
+
+  li.active a span:after {
+    max-width: 0.9rem;
+    transform: rotate(0.001deg);
+    transition: max-width $anim-timing $anim-curve;
+  }
+
+  a:hover span:after,
+  li.active a:hover span:after {
+    max-width: 100%;
+    transform: scaleX(1) rotate(0.001deg);
+    transform-origin: right center;
+  }
+}

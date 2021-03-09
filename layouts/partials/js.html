@@ -1,0 +1,8 @@
+{{- $transpiled := resources.Get "js/index.js" | babel  -}}
+{{- $blob := resources.Get "js/components/Blob.js" | babel  -}}
+{{- $anime := resources.Get "js/lib/anime.min.js" -}}
+
+<script src={{$anime.Permalink}} type="text/javascript"></script>
+<script src={{$blob.Permalink}} type="text/javascript" ></script>
+<script src={{$transpiled.Permalink}} type="text/javascript" ></script>
+

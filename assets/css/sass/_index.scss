@@ -1,1 +1,50 @@
-@import "mystuff";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght:wght@400;500;600;700;800;900&family=Varela+Round&display=swap");
+@import "components/nav";
+@import "components/landing";
+
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 150%;
+  margin: 0;
+  background-color: $background-color;
+  @apply antialiased;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.page {
+  @apply pt-24;
+}
+
+.container {
+  @apply .w-full .px-3 .mx-auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
