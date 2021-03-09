@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>just a test page</title>
-  {{ partialCached "css.html" . }}
-</head>
-<body>
-  <h1 class="text-6xl font-bold font-serif block bg-green-500">This is a header</h1>
-  <article>
-  {{ .Content }}
-  </article>
-</body>
-</html>
+{{ define "main" }}
+<div>
+  <h1 class="title">{{ .Site.Title }}</h1>
+</div>
+{{ end }}
