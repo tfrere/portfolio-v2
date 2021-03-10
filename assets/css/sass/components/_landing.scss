@@ -1,5 +1,6 @@
 .landing {
-  @apply w-full flex items-center pt-16 overflow-hidden relative;
+  @apply w-full flex items-center pt-16 overflow-hidden relative bg-green;
+  transition: background-color 200ms ease;
   height: calc(100%);
   padding-left: 15%;
   h1 {

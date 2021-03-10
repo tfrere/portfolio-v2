@@ -29,26 +29,6 @@ $anim-timing: 0.3s;
     transition: background-color $anim-timing $anim-curve;
   }
 
-  .green:hover:after {
-    background-color: #95d0a9;
-  }
-
-  .orange:hover:after {
-    background-color: #f37021;
-  }
-
-  .yellow:hover:after {
-    background-color: #ffce01;
-  }
-
-  .pink:hover:after {
-    background-color: #f497af;
-  }
-
-  .blue:hover:after {
-    background-color: #82bdc6;
-  }
-
   a {
     @apply px-4 py-2 inline-block;
   }

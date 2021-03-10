@@ -1,6 +1,6 @@
 ---
 title: "Cité des sciences « Le banquet »"
-date: 2021-03-02T01:00:04+01:00
+date: 2021-10-02T01:00:04+01:00
 draft: false
 tags: ["app"]
 ---
