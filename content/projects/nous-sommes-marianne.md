@@ -1,10 +1,10 @@
 ---
-title: "Nous sommes marianne"
-date: 2021-06-02T01:00:04+01:00
-draft: false
-tags: ["app"]
----
+title: Nous sommes marianne
+date: 2021-06-09T00:00:04+00:00
+tags:
+- app
 
+---
 Obvious experience
 
 <!--more-->
