@@ -215,7 +215,7 @@ class Blob {
 
       //       // Fill with gradient
       //       ctx.fillStyle = grd;
-      ctx.fillStyle = "rgba(0,0,0,1)";
+      ctx.fillStyle = this.color;
       ctx.fill();
     }
     ctx.closePath();
@@ -284,11 +284,16 @@ class Blob {
     // ctx.fillStyle = color;
     // ctx.fillRect(this.mousePosition.x-4 / 2, this.mousePosition.y-4 / 2, 4, 4);
 
-    this.drawCircle(true);
-    ctx.save();
-    ctx.globalCompositeOperation = "destination-out";
-    this.drawCircle(false);
-    ctx.restore();
+    for (var i = 0; i < 1; i++) {
+      this.drawCircle(true);
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-out";
+      this.drawCircle(false);
+      ctx.restore();
+      this.size = this.size - 0.1;
+    }
+
+    this.size = this.size + 0.1;
 
     this.points.map((point) => {
       if (Math.random() > 0.99) {

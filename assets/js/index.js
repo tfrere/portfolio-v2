@@ -1,5 +1,12 @@
 (function () {
-  var color = "grey";
+  $(".nav li, .nav h1").on("mouseenter", function (e) {
+    $(".page, .landing").addClass("bg-" + $(this).attr("id"));
+  });
+  $(".nav li, .nav h1").on("mouseleave", function (e) {
+    $(".page, .landing").removeClass("bg-" + $(this).attr("id"));
+  });
+
+  var color = "rgb(50,50,50)";
   var margin = 50;
   var numPoints = 32;
 
@@ -32,7 +39,7 @@
       targets: ".word__content--first",
       translateY: "-=150px",
       easing: "easeInOutQuad",
-      delay: anime.stagger(60),
+      delay: anime.stagger(100),
     })
     .add({
       targets: ".word__content--first",
@@ -42,20 +49,20 @@
       targets: ".word__content",
       translateY: "-=150px",
       easing: "easeInOutQuad",
-      delay: anime.stagger(60),
+      delay: anime.stagger(100),
     })
     .add({
       targets: ".wanna-see-my-work__content",
       translateY: "-=150px",
       easing: "easeInOutQuad",
-      delay: anime.stagger(60),
+      delay: anime.stagger(100),
     })
     .add({
       targets: ".nav",
       translateY: "+=150px",
       easing: "easeInOutQuad",
-      delay: anime.stagger(60),
+      delay: anime.stagger(100),
     });
 
-  document.querySelector(".restart-demo").onclick = animation.restart;
+  //   document.querySelector(".restart-demo").onclick = animation.restart;
 })();

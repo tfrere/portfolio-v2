@@ -10,23 +10,17 @@ sectionPagesMenu = "main"
     url = "/projects/"
     weight = 2
   [[menu.main]]
-  	identifier = "Photos"
+  	identifier = "photos"
     name = "Photos"
     pre = "photos"
     url = "/photos/"
     weight = 3
   [[menu.main]]
-  	identifier = "About"
+  	identifier = "about"
     name = "About"
     pre = "about"
     url = "/about/"
     weight = 4
-  [[menu.main]]
-  	identifier = "Contact"
-    name = "Contact"
-    pre = "contact"
-    url = "/contact/"
-    weight = 5
 
 # Highest width is 2500px for landscape and 1500px for portrait.
 # This will give both orientations roughly the same resolution and size.

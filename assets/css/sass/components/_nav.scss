@@ -1,5 +1,5 @@
 $color: black;
-$background-color: #dacc98;
+$background-color: #95d0a9;
 $anim-curve: cubic-bezier(0.23, 1, 0.32, 1);
 $anim-timing: 0.3s;
 
@@ -43,6 +43,10 @@ $anim-timing: 0.3s;
 
   .pink:hover:after {
     background-color: #f497af;
+  }
+
+  .blue:hover:after {
+    background-color: #82bdc6;
   }
 
   a {

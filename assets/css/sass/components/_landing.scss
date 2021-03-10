@@ -1,5 +1,7 @@
 .landing {
-  @apply w-full h-full flex items-center;
+  @apply w-full flex items-center pt-16 overflow-hidden relative;
+  height: calc(100%);
+  padding-left: 15%;
   h1 {
     @apply font-black select-none;
     font-family: "Playfair Display";
@@ -31,13 +33,11 @@
   }
 
   #canvas {
-    position: absolute;
-    right: 0;
-    top: 12.5%;
-    bottom: 0;
-    width: 50%;
-    height: 75%;
-    z-index: 0;
+    @apply absolute right-0 bottom-0 z-0;
+    width: 90%;
+    height: 125%;
+    bottom: -35%;
+    right: -10%;
   }
 
   button {
