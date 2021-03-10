@@ -1,10 +1,10 @@
 ---
-title: "Cité des sciences « Le banquet »"
-date: 2021-10-02T01:00:04+01:00
-draft: false
-tags: ["app"]
----
+title: Cité des sciences « Le banquet »
+date: 2021-10-10T00:00:04+00:00
+tags:
+- app
 
+---
 Obvious experience
 
 <!--more-->
