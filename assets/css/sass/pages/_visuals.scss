@@ -1,0 +1,120 @@
+.visuals {
+  @apply pb-0;
+}
+
+.visuals__container {
+  @apply ml-32 overflow-hidden;
+  width: fit-content;
+}
+
+.visuals__container-content {
+  @apply flex flex-row justify-center items-center w-auto;
+  height: calc(100vh - 4rem);
+}
+
+.visuals__container__introduction {
+  @apply px-16;
+  width: 35vw;
+}
+
+.visuals__container__introduction__title {
+  @apply text-7xl font-serif mb-4 select-none;
+}
+
+.visuals__container__introduction__desc {
+  @apply text-2xl;
+}
+
+.visuals__container__galleries {
+  @apply flex flex-row block py-6 px-6 pr-32;
+}
+
+.visuals__container__gallery-item {
+  @apply flex flex-col relative mr-12 w-full;
+  width: 40vw;
+}
+
+.visuals__container__gallery-item__image {
+  @apply relative z-10 w-full;
+  height: 450px;
+  transition: all 200ms ease;
+  &:before,
+  &:after,
+  &__canvas {
+    content: "";
+    z-index: 1;
+    @apply w-full h-full shadow absolute transform top-0 bg-white;
+    // left: -5px;
+    transform: rotate(0deg);
+    transition: all 200ms ease;
+  }
+  &:after {
+    z-index: 2;
+  }
+  &:hover {
+    &:before {
+      transform: rotate(2deg);
+    }
+    &:after {
+      transform: rotate(-2deg);
+    }
+  }
+  img {
+    @apply w-full px-4 py-4 relative object-cover z-40 bg-white shadow;
+    height: 100%;
+  }
+}
+
+.visuals__container__gallery-item__image__info-overlay {
+  @apply absolute top-0 left-0 bottom-0 right-0 mx-4 my-4 w-full h-full z-50 flex justify-center items-center flex-col;
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+  background: transparent;
+}
+
+.visuals__container__gallery-item__image__info-overlay__title {
+  @apply font-serif text-center text-4xl text-white z-50 h-12 overflow-hidden;
+  span {
+    @apply block;
+    transform: translateY(3rem);
+    transition: all 50ms ease-out;
+    transition-delay: 0ms;
+    opacity: 0;
+  }
+}
+
+.visuals__container__gallery-item__image__info-overlay__desc {
+  @apply font-sans text-center tracking-widest uppercase text-lg text-white font-light z-50 h-6 overflow-hidden;
+  span {
+    @apply block;
+    transform: translateY(1.5rem);
+    transition: all 50ms ease-out;
+    transition-delay: 0ms;
+    opacity: 0;
+  }
+}
+
+.visuals__container__gallery-item:hover {
+  .visuals__container__gallery-item__image {
+    @apply shadow-2xl;
+  }
+  .visuals__container__gallery-item__image__info-overlay {
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .visuals__container__gallery-item__image__info-overlay__title {
+    span {
+      transition: all 200ms ease-out;
+      transform: translateY(0rem);
+      transition-delay: 100ms;
+      opacity: 1;
+    }
+  }
+  .visuals__container__gallery-item__image__info-overlay__desc {
+    span {
+      transition: all 200ms ease-out;
+      transform: translateY(0rem);
+      transition-delay: 200ms;
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+.landing {
+  @apply w-full flex items-center pt-16 overflow-hidden relative;
+  --background-color: #{$green};
+  background-color: var(--background-color);
+  transition: background-color 200ms ease;
+  height: calc(100%);
+  padding-left: 15%;
+  h1 {
+    @apply relative italic select-none font-serif text-9xl font-black text-left text-black;
+    pointer-events: none;
+    margin: 0;
+    margin-left: 40px;
+    z-index: 1;
+    .white {
+      color: white;
+    }
+  }
+
+  .word {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    padding: 0px 0 20px 0;
+  }
+
+  .word__content,
+  .word__content--first {
+    display: inline-block;
+  }
+
+  #canvas {
+    @apply absolute right-0 bottom-0 z-0;
+    width: 90%;
+    height: 125%;
+    bottom: -35%;
+    right: -10%;
+  }
+
+  button {
+    position: relative;
+    z-index: 3;
+  }
+
+  .wanna-see-my-work {
+    margin-top: 20px;
+    margin-left: 40px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    height: 40px;
+    .wanna-see-my-work__text {
+      @apply text-xl;
+    }
+    img {
+      @apply inline-block;
+      margin-left: 20px;
+      // transform: translateX(0px);
+      transition: all 200ms ease;
+    }
+    &:hover img {
+      margin-left: 40px;
+      // transform: translateX(20px);
+    }
+  }
+
+  .restart-demo {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

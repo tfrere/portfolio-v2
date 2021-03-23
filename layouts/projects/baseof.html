@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
     {{- partial "head.html" . -}}
-    <body>
-        {{- partial "header.html" . -}}
-        {{- block "main" . }}{{- end }}
-        {{- partial "js.html" . -}}
-    </body>
+    {{- block "main" . }}{{- end }}
 </html>
 

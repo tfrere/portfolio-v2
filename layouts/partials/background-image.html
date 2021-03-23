@@ -1,0 +1,6 @@
+{{- $images := (.Page.Resources.Match (printf "%s*" "images/background")) -}}
+{{ range $images }}
+    <div class="project__hero__parallax-holder">
+        {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "project__hero__parallax-holder__image" )) }}
+    </div>
+{{ end }}

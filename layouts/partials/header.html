@@ -1,12 +1,16 @@
-<nav class="nav">
-    <h1 id="green"><a href="{{ .Site.BaseURL }}">Thibaud frere</a></h1>
-    <ul>
-        {{ $currentPage := . }}
-        {{ range .Site.Menus.main }}
-        <li id="{{ if $.IsNode }}{{ if eq .Identifier "projects" }}blue{{ end }}{{ if eq .Identifier "photos" }}yellow{{ end }}{{ if eq .Identifier "contact" }}green{{ end }}{{ if eq .Identifier "about" }}pink{{ end }}{{ end }}" class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}" ><a   href="{{ .URL }}">
-        {{ $text := print .Name | safeHTML }}
-        <span>{{ $text }}</span>
-        </a></li>
-        {{ end }}
-    </ul>
+<nav class="nav {{ .Scratch.Get "class" }}">
+    <div class="nav__list">
+        <h1 id="green"><a class="nav-link" href="{{ .Site.BaseURL }}">Thibaud Frere</a></h1>
+        <ul>
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+                <li id="{{ if eq .Identifier "projects" }}blue{{ end }}{{ if eq .Identifier "visuals" }}yellow{{ end }}{{ if eq .Identifier "contact" }}green{{ end }}{{ if eq .Identifier "about" }}pink{{ end }}" class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}" >
+                    <a class="nav-link"   href="{{ .URL }}">
+                        {{ $text := print .Name | safeHTML }}
+                        <span>{{ $text }}</span>
+                    </a>
+                </li>
+            {{ end }}
+        </ul>
+    </div>
 </nav>

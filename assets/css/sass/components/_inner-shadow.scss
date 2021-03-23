@@ -1,0 +1,9 @@
+.inner-shadow {
+  background: var(--darken-background-color);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px var(--background-color);
+  transition: all var(--background-transition-duration) ease;
+  color: rgba(0, 0, 0, 0.3);
+}

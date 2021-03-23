@@ -4,18 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "npm run develop" : "hugo server",
+    "npm run develop": "hugo server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "postcss": "^8.2.8",
     "postcss-cli": "^7.1.0",
     "tailwind": "^4.0.0",
-    "@babel/cli": "^7.13.10",
-    "@babel/core": "^7.13.10"
+    "tailwindcss": "^2.0.3",
+    "tailwindcss-font-inter": "^2.0.2"
   }
 }

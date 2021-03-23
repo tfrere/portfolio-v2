@@ -7,11 +7,95 @@
       <br/>
       <span class="word"><span class="word__content">i'm</span></span>
       <span class="word"><span class="word__content">a</span></span>
-      <span class="word white"><span class="word__content">french</span></span>
+      <span class="word white"><span class="word__content">French</span></span>
       <br/>
       <span class="word"><span class="word__content">designer</span></span>
     </h1><a id="blue" class="nav-link wanna-see-my-work" href="/projects">
-      <div class="wanna-see-my-work__content"><span>Wanna see my work ?</span><img src="https://assets.codepen.io/238916/arrow.svg"/></div></a>
+      <div class="wanna-see-my-work__content"><span class="wanna-see-my-work__text">Wanna see my work ?</span><img src="https://assets.codepen.io/238916/arrow.svg"/></div></a>
   </div>
 </div>
+{{- partial "footer.html" . -}}
+<script>
+
+(function () {
+
+  var color = "rgb(230,230,230)";
+  var margin = 100;
+  var numPoints = 32;
+
+  canvas = document.getElementById("canvas");
+
+  var blobInstance = new Blob(canvas, color, numPoints, margin);
+
+  blobInstance.render();
+  //   blobInstance.turbulence();
+
+  var timeline = anime.timeline({
+    loop: false,
+    duration: 400,
+  });
+
+  anime.set(".word__content, .word__content--first", {
+    translateY: "+=150px",
+  });
+
+  anime.set(".wanna-see-my-work__content", {
+    translateY: "+=150px",
+  });
+
+  // anime.set(".nav", {
+  //   translateY: "-=150px",
+  // });
+
+  anime.set("#canvas", {
+    opacity: 0,
+  });
+
+  var animation = timeline
+    .add({
+      targets: ".word__content--first",
+      translateY: "-=150px",
+      easing: "easeOutQuart",
+      delay: 150,
+    })
+    .add({
+      targets: ".word__content--first",
+      delay: 50,
+    })
+    .add({
+      targets: ".word__content",
+      translateY: "-=150px",
+      easing: "easeOutQuart",
+      delay: anime.stagger(50),
+    })
+    .add({
+      targets: ".wanna-see-my-work__content",
+      translateY: "-=150px",
+      easing: "easeOutQuart",
+      delay: 300,
+    })
+    // .add(
+    //   {
+    //     targets: ".nav",
+    //     translateY: "+=150px",
+    //     easing: "easeOutQuart",
+    //     delay: 300,
+    //   },
+    //   "-=600"
+    // )
+    .add(
+      {
+        targets: "#canvas",
+        opacity: 1,
+        delay: 1500,
+        duration: 2750
+
+      },
+      "-=1200"
+    );
+
+  //   document.querySelector(".restart-demo").onclick = animation.restart;
+})();
+
+</script>
 {{ end }}

@@ -1,0 +1,41 @@
+<ul class="grid">
+    
+    {{ with .Page.Resources.ByType "image" }}
+        {{ range $image := . }}
+        <li class="grid__item">
+            <a class="img-fluidbox" href="{{ $image.RelPermalink }}">
+            {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "masonry__item__image" )) }}
+            </a>
+        </li>
+        
+        {{ end }}
+    {{ end }}
+</ul>
+<style>
+    .grid {
+      width:100%;
+    }
+    .grid__item {
+      width:calc(50% - 2rem);
+      padding:1rem;
+      margin:1rem;
+      box-sizing: border-box;
+        display:inline;
+    }
+  </style>
+<script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+        $(function () {
+        var $grid = $('.grid').imagesLoaded( function() {
+            $grid.masonry({
+            itemSelector: '.grid__item',
+            percentPosition: true
+            });
+        });
+        $('a.img-fluidbox').fluidbox();
+        $(window).on("scroll", function(){
+          $('a.img-fluidbox').trigger('close.fluidbox');
+        })
+    });
+  });
+</script>

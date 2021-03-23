@@ -29,4 +29,4 @@
 {{ end }}
 {{ $attributes = (delimit $attributes " ") }}
 
-<img src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
+<img alt="" src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>

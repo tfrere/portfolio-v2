@@ -1,9 +1,121 @@
 
 {{ define "main" }}
-<div class="page bg-yellow">
-<h1>{{ .Title }}</h1>
-{{ partial "metadata.html" . }}
-<br><br>
-{{ .Content }}
-</div>
+    {{ .Scratch.Set "class" "nav--white" }}
+    {{- partial "header.html" . }}
+    <div class="page page--without-padding bg-blue">
+        <div class="project">
+            <div class="project__nav project__nav--next">
+                    {{ if .NextPage }}
+                    {{ if eq .NextPage.Section "projects" }}
+                    <a class="project__nav__link" href="{{ .NextPage.Permalink }}">
+                        {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
+                    </a>
+                    {{ end }}
+                {{ end }}
+            </div>
+            
+            <div class="project__nav project__nav--previous">
+                    {{ if .PrevPage }}
+                    {{ if eq .PrevPage.Section "projects" }}
+                    <a class="project__nav__link" href="{{ .PrevPage.Permalink }}"> 
+                        {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
+                    </a>
+                    {{ end }}
+                {{ end }}
+            </div>
+            <div class="project__hero">
+                {{ partial "background-image" . }}
+                <div class="project__hero__content">
+                    <h5 class="project__hero__content__sub-title">
+                        {{ with .Params.tags }}
+                            {{ range . }}
+                                {{ $href := print (absURL "tags/") (urlize .) }}
+                                {{ . }}
+                            {{ end }}
+                        {{ end }}
+                    </h5>
+                    <h1 class="project__hero__content__title">{{ .Title }}</h1>
+                    <div class="project__hero__content__tags">
+                        {{ with .Params.roles }}
+                        {{ range . }}
+                            <span class="tag">{{ . }}</span>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+            <div class="container project__container">
+                {{with .Params.center }}
+                {{ end }}
+                <div class="project__container__shadow"></div>
+                <div class="project__container__gradient"></div>
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+    {{- partial "footer.html" . -}}
+    <script>
+        var computeNavColor = function() {
+            const offset = ($(".project__hero").height() / 2) - ($(".project__nav").height());
+            if($(window).scrollTop() < offset) {
+                $(".project__nav").addClass("project__nav--white");
+            }
+            else {
+                $(".project__nav").removeClass("project__nav--white");
+            }
+        }
+
+        var convertRange = function (value, r1, r2, rounded = true) {
+            value = ((value - r1[0]) * (r2[1] - r2[0])) / (r1[1] - r1[0]) + r2[0];
+            if (rounded) {
+                return Math.round(value);
+            } else {
+                return Math.round(value * 10) / 10;
+            }
+        };
+
+        var computeBackgroundParallax = function() {
+            const offset = ($(window).scrollTop() / 4).toFixed(0);
+            const contentOffset = -($(window).scrollTop() / 6).toFixed(0);
+            const realContentOffset = contentOffset < -60 ? -60 : contentOffset;
+            console.log(realContentOffset);
+            $(".project__hero__parallax-holder__image").css({
+            "transform": "translate3d(0," + offset + "px, 0)"
+            });
+            // $(".project__container").css({
+            //     "transform": "translate3d(0," + realContentOffset + "px, 0)"
+            // });
+            // $(".project__container__shadow").css({
+            //     "box-shadow": "0 1px 5px rgba(0,0,0," + (offset / 100 ) / 3 + ")"
+            // });
+
+            // $(".project__hero__content").css({
+            //     "transform": "translate3d(0," + -realContentOffset + "px, 0)"
+            // });
+
+
+            // var offset = $(".three-dimensional-rotate").offset().top;
+            // var scrollTop = $(window).scrollTop();
+
+            // convertRange
+
+            $(".three-dimensional-rotate").css({
+                "transform": "rotateX(" + $(window).scrollTop() / 80 + "deg) rotateY(" + $(window).scrollTop() / 150 + "deg)"
+            });
+
+            // rotateY(" + $(window).scrollTop() / 80 + "deg)"
+
+        }
+        
+        $(window).on("scroll", function(){
+            $(".invite-to-scroll").addClass("hidden");
+            computeNavColor();
+            computeBackgroundParallax();
+        });
+
+        computeNavColor();
+        computeBackgroundParallax();
+
+    </script>
+
 {{ end }}

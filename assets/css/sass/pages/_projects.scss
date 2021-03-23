@@ -1,0 +1,64 @@
+.projects {
+  @apply pt-36 pl-12;
+}
+
+.projects__year-block {
+  @apply mb-32;
+}
+
+.projects__year-block__year {
+  @apply font-serif italic text-7xl font-black mb-12;
+  @apply select-none;
+}
+
+.projects__year-block__projects {
+  @apply pb-12;
+}
+
+.projects__year-block__project {
+  @apply block relative mb-6;
+  &:hover {
+    .projects__year-block__project__title-block__title {
+      background-size: 100% 100%;
+      cursor: pointer;
+    }
+  }
+}
+
+.projects__year-block__project__title-block {
+  @apply flex flex-row align-bottom;
+}
+
+.projects__year-block__project__title-block__title {
+  @apply text-5xl font-serif inline no-underline relative;
+  background-image: linear-gradient(180deg, transparent 1%, #f497af 0);
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.4s ease;
+}
+
+.projects__year-block__project__title-block__line {
+  @apply flex-grow mx-4 border-b border-dashed;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.projects__year-block__project__title-block__square {
+  @apply border w-12 h-12 flex justify-center items-center;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.projects__year-block__project__title-block__square__index {
+  @apply font-serif text-xl;
+}
+
+.projects__year-block__project__info {
+  @apply flex flex-row items-center mt-2;
+}
+
+.projects__year-block__project__info__tag {
+  @apply uppercase font-sans font-light tracking-wide  mr-2;
+}
+
+.projects__year-block__project__info__desc {
+  @apply text-xl opacity-50;
+}

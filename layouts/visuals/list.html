@@ -1,0 +1,59 @@
+{{ define "main" }}
+    <div class="visuals__container">
+        <div class="visuals__container-content">
+            <div class="visuals__container__introduction">
+                <h1 class="visuals__container__introduction__title">Visuals</h1>
+                <p class="visuals__container__introduction__desc">Random bits of decontextualized visuals from deep painting to graphism passing by photography.</p>
+            </div>
+            <div class="visuals__container__galleries">
+                {{ range .Pages }} 
+                    {{$title := .Title }}
+                    <a href="{{ .RelPermalink }}" class="visuals__container__gallery-item nav-link">
+                        {{ $images := .Resources }}
+                        {{ with .Resources.ByType "image" }}
+                            {{ range last 1 . }}
+                                <div class="visuals__container__gallery-item__image three-dimensional-hover">
+                                    <div class="visuals__container__gallery-item__image__canvas"></div>
+                                    <div class="visuals__container__gallery-item__image__info-overlay">
+                                        <h3 class="visuals__container__gallery-item__image__info-overlay__title">
+                                            <span>{{ $title }}</span>
+                                        </h3>
+                                        <h5 class="visuals__container__gallery-item__image__info-overlay__desc">
+                                            <span>{{ len $images }} images</span>
+                                        </h5>
+                                        
+                                    </div>
+                                    {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "portfolio-photo" )) }}
+                                </div>
+                            {{ end }}
+                        {{ end }}
+                        <div class="visuals__container__gallery-item__content hidden">
+                            <h3 class="visuals__container__gallery-item__content__title">{{ .Title }}</h3>
+                            {{ with .Params.tags }}
+                                {{ range . }}
+                                    {{ $href := print (absURL "tags/") (urlize .) }}
+                                    {{ . }}
+                                {{ end }}
+                            {{ end }}
+                            <p class="visuals__container__gallery-item__content__summary">{{ .Summary | replaceRE "<p>" "" | safeHTML }}</p>
+                        </div>
+                    </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+    <script>
+        window.addEventListener("DOMContentLoaded", (event) => {
+            $(function() {
+                $(".visuals").mousewheel(function(evt, chg) {
+                    // console.log(evt.originalEvent.wheelDeltaX);
+                    // if (evt.originalEvent.wheelDeltaX < 10) {
+                    //     this.scrollLeft -= (chg); //need a value to speed up the change
+                    // }
+                    this.scrollLeft -= (chg); //need a value to speed up the change
+                    evt.preventDefault();
+                });
+            });
+        });
+    </script>
+{{ end }}

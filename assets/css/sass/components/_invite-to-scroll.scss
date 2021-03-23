@@ -1,0 +1,53 @@
+@keyframes drop {
+  0% {
+    top: 2px;
+    opacity: 0;
+  }
+  30% {
+    top: 6px;
+    opacity: 1;
+  }
+  100% {
+    top: 10px;
+    opacity: 0;
+  }
+}
+
+$invite-to-scroll-color: white;
+
+.invite-to-scroll {
+  position: absolute;
+  border: 1px solid $invite-to-scroll-color;
+  border-radius: 15px;
+  background-clip: padding-box;
+  height: 25px;
+  width: 16px;
+  margin: 0 0 0 -7.5px;
+  display: block;
+  bottom: 20px;
+  left: 50%;
+  z-index: 40;
+  opacity: 1;
+  transition: all 200ms ease;
+  &.hidden {
+    opacity: 0;
+  }
+  &:before {
+    content: "";
+    display: block;
+    position: relative;
+    border-radius: 5px;
+    background-clip: padding-box;
+    background: $invite-to-scroll-color;
+    width: 2px;
+    height: 4px;
+    top: 5px;
+    margin: 0 auto;
+    animation-name: drop;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+  }
+}

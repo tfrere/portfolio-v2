@@ -1,0 +1,128 @@
+$greenHue: 140;
+$greenSaturation: 39%;
+$greenLightness: 70%;
+$green: hsl($greenHue, $greenSaturation, $greenLightness);
+$darken-green: darken($green, 15%);
+
+$blueHue: 188;
+$blueSaturation: 37%;
+$blueLightness: 64%;
+$blue: hsl($blueHue, $blueSaturation, $blueLightness);
+$darken-blue: darken($blue, 15%);
+
+$pinkHue: 345;
+$pinkSaturation: 81%;
+$pinkLightness: 77%;
+$pink: hsl($pinkHue, $pinkSaturation, $pinkLightness);
+$darken-pink: darken($pink, 15%);
+
+$orangeHue: 23;
+$orangeSaturation: 88%;
+$orangeLightness: 62%;
+$orange: hsl($orangeHue, $orangeSaturation, $orangeLightness);
+$darken-orange: darken($orange, 15%);
+
+$yellowHue: 48;
+$yellowSaturation: 100%;
+$yellowLightness: 57%;
+$yellow: hsl($yellowHue, $yellowSaturation, $yellowLightness);
+$darken-yellow: darken($yellow, 15%);
+
+:root {
+  --background-color: #{$green};
+  --background-hue: #{$greenHue};
+  --background-saturation: #{$greenSaturation};
+  --background-lightness: #{$greenLightness};
+  --background-transition-duration: 200ms;
+  --background-transition-ease: ease;
+  --nav-color: black;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.bg-green {
+  --background-color: #{$green};
+  --background-hue: #{$greenHue};
+  --background-saturation: #{$greenSaturation};
+  --background-lightness: #{$greenLightness};
+  --darken-background-color: #{$darken-green};
+}
+
+.bg-orange {
+  --background-color: #{$orange};
+  --darken-background-color: #{$darken-orange};
+  --background-hue: #{$orangeHue};
+  --background-saturation: #{$orangeSaturation};
+  --background-lightness: #{$orangeLightness};
+}
+
+.bg-yellow {
+  --background-color: #{$yellow};
+  --darken-background-color: #{$darken-yellow};
+  --background-hue: #{$yellowHue};
+  --background-saturation: #{$yellowSaturation};
+  --background-lightness: #{$yellowLightness};
+}
+
+.bg-pink {
+  --background-color: #{$pink};
+  --darken-background-color: #{$darken-pink};
+  --background-hue: #{$pinkHue};
+  --background-saturation: #{$pinkSaturation};
+  --background-lightness: #{$pinkLightness};
+}
+
+.bg-blue {
+  --background-color: #{$blue};
+  --darken-background-color: #{$darken-blue};
+  --background-hue: #{$blueHue};
+  --background-saturation: #{$blueSaturation};
+  --background-lightness: #{$blueLightness};
+}
+
+.bg-green--important {
+  --background-color: #{$green};
+  --darken-background-color: #{$darken-green};
+  --background-hue: #{$greenHue};
+  --background-saturation: #{$greenSaturation};
+  --background-lightness: #{$greenLightness};
+}
+
+.bg-orange--important {
+  background-color: $green !important;
+  --background-color: #{$orange};
+  --darken-background-color: #{$darken-orange};
+  --background-hue: #{$orangeHue};
+  --background-saturation: #{$orangeSaturation};
+  --background-lightness: #{$orangeLightness};
+  background-color: $orange !important;
+}
+
+.bg-yellow--important {
+  --background-color: #{$yellow};
+  --darken-background-color: #{$darken-yellow};
+  --background-hue: #{$yellowHue};
+  --background-saturation: #{$yellowSaturation};
+  --background-lightness: #{$yellowLightness};
+  background-color: $yellow !important;
+}
+
+.bg-pink--important {
+  --background-color: #{$pink};
+  --darken-background-color: #{$darken-pink};
+  --background-hue: #{$pinkHue};
+  --background-saturation: #{$pinkSaturation};
+  --background-lightness: #{$pinkLightness};
+  background-color: $pink !important;
+}
+
+.bg-blue--important {
+  --background-color: #{$blue};
+  --darken-background-color: #{$darken-blue};
+  --background-hue: #{$blueHue};
+  --background-saturation: #{$blueSaturation};
+  --background-lightness: #{$blueLightness};
+  background-color: $blue !important;
+}

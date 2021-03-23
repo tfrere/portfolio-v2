@@ -2,6 +2,12 @@ baseURL = "http://tfrere.me/"
 languageCode = "en-us"
 title = "Thibaud FRERE Portfolio"
 sectionPagesMenu = "main"
+buildFuture = true
+staticDir = ["static"]
+
+[markup.goldmark.renderer]
+  hardWraps = true
+
 [menu]
   [[menu.main]]
   	identifier = "projects"
@@ -10,10 +16,10 @@ sectionPagesMenu = "main"
     url = "/projects/"
     weight = 2
   [[menu.main]]
-  	identifier = "photos"
-    name = "Photos"
-    pre = "photos"
-    url = "/photos/"
+  	identifier = "visuals"
+    name = "Visuals"
+    pre = "visuals"
+    url = "/visuals/"
     weight = 3
   [[menu.main]]
   	identifier = "about"

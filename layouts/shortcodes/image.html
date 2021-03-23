@@ -1,0 +1,11 @@
+{{- $image_src := .Get "src" -}}
+
+{{- /* Find all files with filename (without suffix) matching "src" parameter. */ -}}
+{{- $image_files := (.Page.Resources.Match (printf "%s*" $image_src)) -}}
+
+{{- /* Find in page bundle all valid video files with matching name. */ -}}
+{{ with $image_files }}
+    {{ range $image := . }}
+    <img src="{{ $image.RelPermalink }}"/>
+    {{ end }}
+{{ end }}

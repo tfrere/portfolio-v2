@@ -1,0 +1,24 @@
+.section-divider {
+  margin-top: 52px;
+  margin-bottom: 42px;
+  display: block;
+  border: 0;
+  text-align: center;
+  overflow: visible;
+  background: none !important;
+}
+
+.section-divider:before {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 30px;
+  letter-spacing: 0.6em;
+  content: "...";
+  display: inline-block;
+  margin-left: 0.6em;
+  color: var(--main-text-color);
+  opacity: 0.6;
+  position: relative;
+  top: -7px;
+}

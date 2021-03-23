@@ -1,0 +1,84 @@
+.about {
+}
+
+.about__container {
+  @apply pt-36 relative;
+}
+
+.about__container__title {
+  @apply text-8xl font-serif italic font-black z-20 relative;
+}
+
+.about__container__desc {
+  @apply text-2xl mt-8 z-20 relative;
+}
+
+.about__container__losange {
+  @apply absolute z-10;
+  width: 350px;
+  height: 350px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  left: 15px;
+  top: 115px;
+  transform: rotate(45deg);
+}
+
+.about__content__socials {
+  @apply flex flex-row mt-32 mb-8;
+}
+
+.about__content__socials__item {
+  @apply flex items-center justify-center px-4 py-4 mr-4;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+}
+
+.about__content__socials__item__image {
+}
+
+.about__content__lead {
+  @apply inline-block text-black font-text2 text-4xl mb-12 leading-normal;
+}
+
+.about__content__text {
+  @apply text-2xl mb-4 font-text font-light text-black leading-normal;
+  columns: 2;
+  column-gap: 4rem;
+}
+
+.about__content__prices {
+  @apply flex flex-row items-center justify-between my-16 mb-24;
+}
+
+.about__content__prices__item {
+  @apply flex flex-col items-center justify-between px-6 pt-12 pb-4;
+  width: 31%;
+  border-radius: 8px;
+}
+
+.about__content__prices__item__image {
+  @apply mb-8;
+  width: 50%;
+}
+
+.about__content__prices__item__title {
+  @apply font-serif font-bold text-2xl text-center;
+}
+
+.about__content__prices__item__place {
+  @apply font-serif font-normal text-xl mb-4 text-center;
+}
+
+.about__content__prices__item__date {
+  @apply font-sans font-normal text-sm uppercase opacity-50 text-center;
+}
+
+.about__content__clients {
+  @apply flex flex-row flex-wrap w-full justify-between mb-16;
+}
+
+.about__content__social__clients__image {
+  @apply object-contain pb-12;
+  width: 30%;
+}

@@ -1,0 +1,97 @@
+{{ define "main" }}
+<div class="visual container">
+    <div class="visual__nav visual__nav--next">
+        {{ if .NextPage }}
+        {{ if eq .NextPage.Section "visuals" }}
+        <a class="visual__nav__link" href="{{ .NextPage.Permalink }}">
+          {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
+        </a>
+        
+        <!-- {{ .NextPage.Title | truncate 50 "..." }} -->
+        {{ end }}
+        {{ end }}
+  </div>
+
+  <div class="visual__nav visual__nav--previous">
+      {{ if .PrevPage }}
+      {{ if eq .PrevPage.Section "visuals" }}
+      <a class="visual__nav__link" href="{{ .PrevPage.Permalink }}">
+        {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
+      </a>
+      <!-- {{ .PrevPage.Title | truncate 50 "..."}} -->
+        {{ end }}
+      {{ end }}
+  </div>
+  <div class="visual__hero">
+    <div class="visual__hero__text">
+      <span class="visual__hero__text__label">Gallery</span>
+      <h1 class="visual__hero__text__title">{{ .Title }}</h1>
+      <p class="visual__hero__text__p">
+        {{ .Summary | replaceRE "<p>" "" | safeHTML }}
+      </p>
+
+    </div>
+
+    {{ with .Resources.ByType "image" }}
+      {{ range last 1 . }}
+            <div class="visual__hero__image">
+                <div class="visual__hero__image__canvas"></div>
+                <div class="visual__hero__image__img">
+                  <a class="img-fluidbox" href="{{ .RelPermalink }}">
+                      {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "" )) }}
+                  </a>
+                </div>
+            </div>
+      {{ end }}
+    {{ end }}
+
+ 
+  </div>
+  <ul class="grid">
+  {{ with .Resources.ByType "image" }}
+    {{ range $image := . }}
+    <li class="grid__item">
+        <a class="img-fluidbox" href="{{ $image.RelPermalink }}">
+          {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "masonry__item__image" )) }}
+        </a>
+    </li>
+    
+    {{ end }}
+  {{ end }}
+  </ul>
+
+</div>
+<style>
+  .grid {
+    width:100%;
+  }
+  .grid__item {
+    width:calc(50% - 2rem);
+    padding:1rem;
+    margin:1rem;
+    box-sizing: border-box;
+	  display:inline;
+  }
+</style>
+<script>
+
+  window.addEventListener("DOMContentLoaded", (event) => {
+    $(function () {
+      var $grid = $('.grid').imagesLoaded( function() {
+        $grid.masonry({
+          itemSelector: '.grid__item',
+          percentPosition: true
+        });
+      });
+        $('a.img-fluidbox').fluidbox();
+
+        $(window).on("scroll", function(){
+          console.log(1)
+          $('a.img-fluidbox').trigger('close.fluidbox');
+        })
+    });
+  });
+
+
+</script>
+{{ end }}
