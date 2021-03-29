@@ -13,7 +13,7 @@ steps:
 
   - name: node
     entrypoint: npm
-    args: ['run build']
+    args: ['run-script build']
 
   - name: gcr.io/cloud-builders/gsutil
     args: ["-m", "rsync", "-r", "-c", "-d", "./public", "gs://tfrere-portfolio-bucket"]
