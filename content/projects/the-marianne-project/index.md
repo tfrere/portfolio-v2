@@ -26,32 +26,46 @@ This artistic project aims to collect images of French women, and to ask AI to c
 
 We wish to propose the work as a candidate to be printed on the next editions of postage stamps. We also wish to offer a physical copy to the President of the Republic.
 
-{{< rawhtml >}}
-
-  </div>
-  <div class="project__screen">
-    <div class="project__screen__content">
-      <div class="project__screen__content__text-container">
-        <h3>Website</h3>
-        <p>They work with the latest research-driven machine learning algorithms to explore the creative potential of artificial intelligence.</p>
-      </div>
-      <div class="project__screen__content__image three-dimensional-rotate">
-        {{< image src="images/website" >}}
-      </div>
-    </div>
-  </div>
-  <div class="container project__container">
-{{< /rawhtml >}}
-
-<!-- ## Obvious -->
-
-Obvious is an artist collective that uses artificial intelligence to create art.
-
 <!-- {{< delimiter >}} -->
 
-They work with the latest research-driven machine learning algorithms to explore the creative potential of artificial intelligence. They are behind the first work of this type auctioned at Christie's. Their work is a way to share their vision of artificial intelligence and question its use in society.
+## The artist collective
 
-<!-- {{< image src="images/obvious" >}}
-{{< video src="images/face-morph" controls="false" muted="true" autoplay="true" loop="true" >}}
-{{< vimeo 70308089 >}}
-{{< gallery >}} -->
+{{< leading text="Obvious is a collective of researchers, artists, and friends, working with the latest models of deep learning to explore the creative potential of artificial intelligence." >}}
+
+
+{{< rawhtml >}}
+
+  <div class="float-right" style="width:50%">
+    {{< image src="images/obvious-team" >}}
+  </div>
+{{< /rawhtml >}}
+
+They are behind the sale of the first AI artwork to go through a major auction house. They use their work to share their vision of artificial intelligence and its implementation in our society. They are working with enterprises such as LVMH, Cité des sciences, Quai Branly, Nike, Christie's
+They are behind the sale of the first AI artwork to go through a major auction house. They use their work to share their vision of artificial intelligence and its implementation in our society. They are working with enterprises such as LVMH, Cité des sciences, Quai Branly, Nike, Christie's
+
+
+{{< rawhtml >}}
+
+  <div class="separator"></div>
+  </div>
+    <div class="project__screen">
+      <div class="project__screen__content">
+        <div class="project__screen__content__text-container">
+          <h3>Website</h3>
+          <p>They work with the latest research-driven machine learning algorithms to explore the creative potential of artificial intelligence.</p>
+        <a href="#" target="_blank" class="special-button">
+          <span class="content">Visit website</span>
+          <span class="extra first"></span>
+          <span class="extra last"></span>
+        </a>
+        </div>
+        <div class="project__screen__content__image">
+          {{< image src="images/website-mockup" >}}
+        </div>
+      </div>
+    </div>
+
+  <div class="container project__container">
+  <div class="separator"></div>
+{{< /rawhtml >}}
+

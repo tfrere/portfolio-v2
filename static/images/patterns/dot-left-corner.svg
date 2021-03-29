@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">
+  <g fill="none" fill-rule="evenodd">
+    <g fill="#000">
+      <circle cx="1.5" cy="1.5" r="1.5"/>
+      <circle cx="10.507" cy="1.5" r="1.5"/>
+      <circle cx="19.573" cy="1.5" r="1.5"/>
+      <circle cx="28.579" cy="1.5" r="1.5"/>
+      <circle cx="37.47" cy="1.5" r="1.5"/>
+      <circle cx="46.476" cy="1.5" r="1.5"/>
+      <circle cx="1.5" cy="10.525" r="1.5"/>
+      <circle cx="10.507" cy="10.525" r="1.5"/>
+      <circle cx="19.573" cy="10.525" r="1.5"/>
+      <circle cx="28.579" cy="10.525" r="1.5"/>
+      <circle cx="37.47" cy="10.525" r="1.5"/>
+      <circle cx="46.476" cy="10.525" r="1.5"/>
+      <circle cx="1.5" cy="19.581" r="1.5"/>
+      <circle cx="10.507" cy="19.581" r="1.5"/>
+      <circle cx="19.573" cy="19.581" r="1.5"/>
+      <circle cx="28.579" cy="19.581" r="1.5"/>
+      <circle cx="37.47" cy="19.581" r="1.5"/>
+      <circle cx="46.476" cy="19.581" r="1.5"/>
+      <circle cx="1.5" cy="28.463" r="1.5"/>
+      <circle cx="10.507" cy="28.463" r="1.5"/>
+      <circle cx="19.573" cy="28.463" r="1.5"/>
+      <circle cx="28.579" cy="28.463" r="1.5"/>
+      <circle cx="37.47" cy="28.463" r="1.5"/>
+      <circle cx="46.476" cy="28.463" r="1.5"/>
+      <circle cx="1.5" cy="37.506" r="1.5"/>
+      <circle cx="10.507" cy="37.506" r="1.5"/>
+      <circle cx="19.573" cy="37.506" r="1.5"/>
+      <circle cx="28.579" cy="37.506" r="1.5"/>
+      <circle cx="37.47" cy="37.506" r="1.5"/>
+      <circle cx="46.476" cy="37.506" r="1.5"/>
+      <circle cx="1.5" cy="46.476" r="1.5"/>
+      <circle cx="10.507" cy="46.476" r="1.5"/>
+      <circle cx="19.573" cy="46.476" r="1.5"/>
+      <circle cx="28.579" cy="46.476" r="1.5"/>
+      <circle cx="37.47" cy="46.476" r="1.5"/>
+    </g>
+    <circle cx="46.476" cy="46.476" r="1.5" fill="#000"/>
+  </g>
+</svg>

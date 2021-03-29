@@ -2,6 +2,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="{{ .Site.BaseURL }}">
+
+    {{- $blob := resources.Get "js/components/Blob.js" | babel  -}}
+    {{- $anime := resources.Get "js/lib/anime.min.js" -}}
+    {{- $jquery := resources.Get "js/lib/jquery.min.js" -}}
+    {{- $debounce := resources.Get "js/lib/jquery.debounce.min.js" -}}
+    {{- $mousewheel := resources.Get "js/lib/jquery.mousewheel.min.js" -}}
+    {{- $scrollmagic := resources.Get "js/lib/jquery.scrollmagic.min.js" -}}
+    {{- $imageloaded := resources.Get "js/lib/jquery.imageloaded.min.js" -}}
+    {{- $fluidbox := resources.Get "js/lib/jquery.fluidbox.min.js" -}}
+    {{- $masonry := resources.Get "js/lib/jquery.masonry.min.js" -}}
+    
+    <script src={{$anime.Permalink}} type="text/javascript"></script>
+    <script src={{$jquery.Permalink}} type="text/javascript"></script>
+    <script src={{$debounce.Permalink}} type="text/javascript"></script>
+    <script src={{$mousewheel.Permalink}} type="text/javascript"></script>
+    <script src={{$scrollmagic.Permalink}} type="text/javascript"></script>
+    <script src={{$imageloaded.Permalink}} type="text/javascript"></script>
+    <script src={{$fluidbox.Permalink}} type="text/javascript"></script>
+    <script src={{$masonry.Permalink}} type="text/javascript" ></script>
+    <script src={{$blob.Permalink}} type="text/javascript" ></script>
     {{ partialCached "css.html" . }}
     {{ $title := print .Site.Title " | " .Title }}
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}

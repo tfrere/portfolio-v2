@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="visual container">
-    <div class="visual__nav visual__nav--next">
+    <div class="visual__nav visual__nav--previous">
         {{ if .NextPage }}
         {{ if eq .NextPage.Section "visuals" }}
         <a class="visual__nav__link" href="{{ .NextPage.Permalink }}">
@@ -12,7 +12,7 @@
         {{ end }}
   </div>
 
-  <div class="visual__nav visual__nav--previous">
+  <div class="visual__nav visual__nav--next">
       {{ if .PrevPage }}
       {{ if eq .PrevPage.Section "visuals" }}
       <a class="visual__nav__link" href="{{ .PrevPage.Permalink }}">
@@ -59,8 +59,9 @@
     {{ end }}
   {{ end }}
   </ul>
-
 </div>
+{{- partial "footer.html" . -}}
+
 <style>
   .grid {
     width:100%;
@@ -72,6 +73,7 @@
     box-sizing: border-box;
 	  display:inline;
   }
+
 </style>
 <script>
 

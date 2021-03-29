@@ -285,11 +285,11 @@ class Blob {
     // ctx.fillRect(this.mousePosition.x-4 / 2, this.mousePosition.y-4 / 2, 4, 4);
 
     for (var i = 0; i < 1; i++) {
-      this.drawCircle(true);
-      ctx.save();
-      ctx.globalCompositeOperation = "destination-out";
+      // this.drawCircle(true);
+      // ctx.save();
+      // ctx.globalCompositeOperation = "destination-out";
       this.drawCircle(false);
-      ctx.restore();
+      // ctx.restore();
       this.size = this.size - 0.1;
     }
 

@@ -8,12 +8,20 @@
 @import "components/section-divider";
 @import "components/title-separator";
 @import "components/line-separator";
+@import "components/text-dig-effect";
 
 html {
   height: 100%;
   margin: 0;
   @apply antialiased;
   font-synthesis: none;
+}
+
+
+.footer {
+  text-align: center;
+  color: var(--darken-background-color);
+  text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
 }
 
 .test {
@@ -45,6 +53,7 @@ body {
 @import "lib/fluidbox";
 @import "components/inner-shadow";
 @import "components/invite-to-scroll";
+@import "components/button";
 
 .font-text,
 .font-serif {
@@ -54,7 +63,7 @@ body {
 }
 
 .page {
-  @apply pt-16 pb-24 min-h-full;
+  @apply pt-16 pb-8 min-h-full;
   overflow: overlay;
   transition: background-color var(--background-transition-duration)
     var(--background-transition-ease);
@@ -138,6 +147,25 @@ body {
   @apply left-0 ml-8;
   transform: rotate(180deg);
 }
+
+
+@keyframes levitate{
+  0% {
+      transform: translateY(-10px);
+  }
+  50% {
+      transform: translateY(0px);
+  }
+  100%{
+      transform: translateY(-10px);
+  }
+
+}
+
+.levitation {
+  animation: levitate 3s alternate ease-in-out infinite;
+}
+
 
 @import "pages/landing";
 @import "pages/projects";

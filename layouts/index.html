@@ -1,7 +1,9 @@
 {{ define "main" }}
 <div class="landing">
   <canvas id="canvas"></canvas>
-  <div>
+  <div class="landing__container">
+    <!-- <div class="landing__container__losange"></div> -->
+    {{ partial "home-dot-pattern" }}
     <h1>
       <span class="word"><span class="word__content--first">Hello,</span></span>
       <br/>
@@ -14,12 +16,14 @@
       <div class="wanna-see-my-work__content"><span class="wanna-see-my-work__text">Wanna see my work ?</span><img src="https://assets.codepen.io/238916/arrow.svg"/></div></a>
   </div>
 </div>
-{{- partial "footer.html" . -}}
+{{- partial "js.html" . -}}
 <script>
+        console.log(1);
+
 
 (function () {
-
-  var color = "rgb(230,230,230)";
+  
+  var color = "rgba(0,0,0,0.04)";
   var margin = 100;
   var numPoints = 32;
 
@@ -36,16 +40,13 @@
   });
 
   anime.set(".word__content, .word__content--first", {
-    translateY: "+=150px",
+    translateY: "+=180px",
   });
 
   anime.set(".wanna-see-my-work__content", {
     translateY: "+=150px",
   });
 
-  // anime.set(".nav", {
-  //   translateY: "-=150px",
-  // });
 
   anime.set("#canvas", {
     opacity: 0,
@@ -54,7 +55,7 @@
   var animation = timeline
     .add({
       targets: ".word__content--first",
-      translateY: "-=150px",
+      translateY: "-=180px",
       easing: "easeOutQuart",
       delay: 150,
     })
@@ -64,7 +65,7 @@
     })
     .add({
       targets: ".word__content",
-      translateY: "-=150px",
+      translateY: "-=180px",
       easing: "easeOutQuart",
       delay: anime.stagger(50),
     })

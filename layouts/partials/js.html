@@ -1,22 +1,7 @@
 {{- $transpiled := resources.Get "js/index.js" | babel  -}}
-{{- $blob := resources.Get "js/components/Blob.js" | babel  -}}
-{{- $anime := resources.Get "js/lib/anime.min.js" -}}
-{{- $jquery := resources.Get "js/lib/jquery.min.js" -}}
-{{- $debounce := resources.Get "js/lib/jquery.debounce.min.js" -}}
-{{- $mousewheel := resources.Get "js/lib/jquery.mousewheel.min.js" -}}
-{{- $scrollmagic := resources.Get "js/lib/jquery.scrollmagic.min.js" -}}
-{{- $imageloaded := resources.Get "js/lib/jquery.imageloaded.min.js" -}}
-{{- $fluidbox := resources.Get "js/lib/jquery.fluidbox.min.js" -}}
-{{- $masonry := resources.Get "js/lib/jquery.masonry.min.js" -}}
+{{- $instantclick := resources.Get "js/lib/instantclick.min.js" -}}
 
-<script src={{$anime.Permalink}} type="text/javascript"></script>
-<script src={{$jquery.Permalink}} type="text/javascript"></script>
-<script src={{$debounce.Permalink}} type="text/javascript"></script>
-<script src={{$mousewheel.Permalink}} type="text/javascript"></script>
-<script src={{$scrollmagic.Permalink}} type="text/javascript"></script>
-<script src={{$imageloaded.Permalink}} type="text/javascript"></script>
-<script src={{$fluidbox.Permalink}} type="text/javascript"></script>
-<script src={{$masonry.Permalink}} type="text/javascript" ></script>
-<script src={{$blob.Permalink}} type="text/javascript" ></script>
 <script src={{$transpiled.Permalink}} type="text/javascript" ></script>
-
+<!-- 
+<script src={{$instantclick.Permalink}} data-no-instant></script>
+<script data-no-instant>InstantClick.init();</script> -->

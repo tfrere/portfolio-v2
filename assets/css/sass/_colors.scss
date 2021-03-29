@@ -88,10 +88,10 @@ $darken-yellow: darken($yellow, 15%);
   --background-hue: #{$greenHue};
   --background-saturation: #{$greenSaturation};
   --background-lightness: #{$greenLightness};
+  background-color: $green !important;
 }
 
 .bg-orange--important {
-  background-color: $green !important;
   --background-color: #{$orange};
   --darken-background-color: #{$darken-orange};
   --background-hue: #{$orangeHue};

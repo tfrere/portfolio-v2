@@ -4,7 +4,7 @@
         <ul>
             {{ $currentPage := . }}
             {{ range .Site.Menus.main }}
-                <li id="{{ if eq .Identifier "projects" }}blue{{ end }}{{ if eq .Identifier "visuals" }}yellow{{ end }}{{ if eq .Identifier "contact" }}green{{ end }}{{ if eq .Identifier "about" }}pink{{ end }}" class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}" >
+                <li id="{{ if eq .Identifier "projects" }}blue{{ end }}{{ if eq .Identifier "visuals" }}orange{{ end }}{{ if eq .Identifier "contact" }}green{{ end }}{{ if eq .Identifier "about" }}pink{{ end }}" class="{{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}" >
                     <a class="nav-link"   href="{{ .URL }}">
                         {{ $text := print .Name | safeHTML }}
                         <span>{{ $text }}</span>

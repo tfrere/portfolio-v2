@@ -1,27 +1,35 @@
 .about {
 }
 
-.about__container {
-  @apply pt-36 relative;
+.about__hero {
+  @apply relative flex items-center justify-center;
+  min-height:50vh;
 }
 
-.about__container__title {
-  @apply text-8xl font-serif italic font-black z-20 relative;
+.about__hero__container {
+  @apply relative mt-32;
 }
 
-.about__container__desc {
-  @apply text-2xl mt-8 z-20 relative;
+.about__hero__container__title {
+  @apply text-7xl font-serif italic font-black z-20 relative;
+  font-size:5.5rem;
 }
 
-.about__container__losange {
-  @apply absolute z-10;
-  width: 350px;
-  height: 350px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  left: 15px;
-  top: 115px;
-  transform: rotate(45deg);
+.about__hero__container__desc {
+  @apply text-2xl mt-8 z-20 relative px-2 inline-block;
+  background-color: var(--background-color);
+  transition: background-color var(--background-transition-duration) var(--background-transition-ease);
 }
+
+.about__hero__container__losange {
+  @apply absolute top-0 left-0 bg-cover;
+  z-index: 0;
+  width:500px * 1.4;
+  height:300px * 1.4;
+  left:0px;
+  top:-40px;
+}
+
 
 .about__content__socials {
   @apply flex flex-row mt-32 mb-8;
@@ -29,6 +37,7 @@
 
 .about__content__socials__item {
   @apply flex items-center justify-center px-4 py-4 mr-4;
+  // border:2px solid white;
   width: 60px;
   height: 60px;
   border-radius: 60px;
@@ -38,11 +47,11 @@
 }
 
 .about__content__lead {
-  @apply inline-block text-black font-text2 text-4xl mb-12 leading-normal;
+  @apply inline-block text-black font-text2 text-4xl mb-12 leading-normal text-dig-effect;
 }
 
 .about__content__text {
-  @apply text-2xl mb-4 font-text font-light text-black leading-normal;
+  @apply text-2xl mb-4 font-text font-light text-black leading-normal text-dig-effect;
   columns: 2;
   column-gap: 4rem;
 }

@@ -1,16 +1,17 @@
 ---
 title: "Wort.lu dataviz"
-date: 2019-03-02T01:00:04+01:00
+date: 2020-03-02T01:00:04+01:00
 draft: false
 tags: ["web"]
 roles:
   - UX/UI Design
   - Developement
+description: Chart builder for journalists
 ---
 
 Website redesign
 
-<!--more-->
+{{< image src="images/dataviz" >}}
 
 Ac ut consequat semper viverra nam. Hac habitasse platea dictumst vestibulum
 rhoncus. Amet porttitor eget dolor morbi non. Justo eget magna fermentum

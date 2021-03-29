@@ -1,5 +1,4 @@
 .visuals {
-  @apply pb-0;
 }
 
 .visuals__container {
@@ -9,20 +8,30 @@
 
 .visuals__container-content {
   @apply flex flex-row justify-center items-center w-auto;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - 6rem);
 }
 
 .visuals__container__introduction {
-  @apply px-16;
+  @apply px-16 relative;
   width: 35vw;
 }
 
+.visuals__container__introduction__rectangle {
+  @apply absolute top-0 left-0 bg-cover;
+  z-index: 0;
+  width:245px;
+  height:139px;
+  left:40px;
+  top:-20px;
+}
+
 .visuals__container__introduction__title {
-  @apply text-7xl font-serif mb-4 select-none;
+  @apply text-7xl font-serif mb-4 select-none z-10 relative;
 }
 
 .visuals__container__introduction__desc {
-  @apply text-2xl;
+
+  @apply text-2xl z-10 relative;
 }
 
 .visuals__container__galleries {

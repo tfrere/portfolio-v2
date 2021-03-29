@@ -2,6 +2,8 @@
     <div class="visuals__container">
         <div class="visuals__container-content">
             <div class="visuals__container__introduction">
+                <!-- <div class="visuals__container__introduction__rectangle"></div> -->
+                {{ partial "visuals-dot-pattern" }}
                 <h1 class="visuals__container__introduction__title">Visuals</h1>
                 <p class="visuals__container__introduction__desc">Random bits of decontextualized visuals from deep painting to graphism passing by photography.</p>
             </div>
@@ -45,6 +47,7 @@
     <script>
         window.addEventListener("DOMContentLoaded", (event) => {
             $(function() {
+
                 $(".visuals").mousewheel(function(evt, chg) {
                     // console.log(evt.originalEvent.wheelDeltaX);
                     // if (evt.originalEvent.wheelDeltaX < 10) {

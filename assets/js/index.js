@@ -1,4 +1,44 @@
 (function () {
+
+
+  let shapes = [
+    {
+      points:
+        "0.496109976 7.0996935 235.565804 1.4104571 208 111 15.1317792 103.951343"
+    },
+    {
+      points:
+        "38.8418198 -1.65865987 228.100294 11.0035193 197.324804 116.715815 3.12811183 118.154472"
+    },
+    {
+      points:
+        "-0.390576618 13.1342473 198.600622 1.24477432 196.559847 102.237595 8.01584392 98.9193749"
+    }
+  ];
+
+  var delay = 5000;
+  var duration = 1500;
+
+  function randomIntFromInterval(min, max) {
+    // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  window.setInterval(function () {
+    window.setTimeout(function () {
+      $(".rectangle").each(function(){
+        anime({
+          targets: this,
+          points: [
+            { value: shapes[randomIntFromInterval(0, shapes.length - 1)].points }
+          ],
+          duration: duration
+        });
+      });
+    }, Math.random() * 500);
+  }, delay);
+
+
   var canColorBeUpdated = true;
   $(".nav li, .nav h1, .nav-link").on("mouseenter", function (e) {
     if (!$(this).hasClass("active") && canColorBeUpdated) {

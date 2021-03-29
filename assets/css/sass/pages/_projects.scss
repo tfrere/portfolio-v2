@@ -3,12 +3,26 @@
 }
 
 .projects__year-block {
-  @apply mb-32;
+  @apply mb-32 relative;
+}
+
+.projects__year-block__projects {
+  @apply relative;
 }
 
 .projects__year-block__year {
   @apply font-serif italic text-7xl font-black mb-12;
-  @apply select-none;
+  @apply select-none relative;
+  z-index: 1;
+}
+
+.projects__year-block__shape {
+  @apply absolute top-0 left-0 bg-cover;
+  z-index: 0;
+  width:500px * 0.43;
+  height:300px * 0.40;
+  left:-20px;
+  top:0px;
 }
 
 .projects__year-block__projects {

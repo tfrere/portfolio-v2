@@ -1,6 +1,6 @@
 
 {{ define "main" }}
-    {{ .Scratch.Set "class" "nav--white" }}
+    {{ .Scratch.Set "class" "nav--test" }}
     {{- partial "header.html" . }}
     <div class="page page--without-padding bg-blue">
         <div class="project">
@@ -24,46 +24,48 @@
                 {{ end }}
             </div>
             <div class="project__hero">
-                {{ partial "background-image" . }}
                 <div class="project__hero__content">
-                    <h5 class="project__hero__content__sub-title">
-                        {{ with .Params.tags }}
-                            {{ range . }}
-                                {{ $href := print (absURL "tags/") (urlize .) }}
-                                {{ . }}
+                    {{ partial "project-dot-pattern" }}
+                    <div class="project__hero__content__text">
+                        <h5 class="project__hero__content__text__sub-title">
+                            {{ with .Params.tags }}
+                                {{ range . }}
+                                    {{ $href := print (absURL "tags/") (urlize .) }}
+                                    {{ . }}
+                                {{ end }}
                             {{ end }}
-                        {{ end }}
-                    </h5>
-                    <h1 class="project__hero__content__title">{{ .Title }}</h1>
-                    <div class="project__hero__content__tags">
-                        {{ with .Params.roles }}
-                        {{ range . }}
-                            <span class="tag">{{ . }}</span>
-                        {{ end }}
-                        {{ end }}
+                        </h5>
+                        <h1 class="project__hero__content__text__title">{{ .Title }}</h1>
+                        <!-- <h1 class="project__hero__content__date">{{ .PublishDate.Format "2006" }}</h1> -->
+                        <div class="project__hero__content__text__tags">
+                            {{ with .Params.roles }}
+                            {{ range . }}
+                                <span class="tag">{{ . }}</span>
+                            {{ end }}
+                            {{ end }}
+                        </div>
                     </div>
+                    {{ partial "background-image" . }}
                 </div>
             </div>
             <div class="container project__container">
                 {{with .Params.center }}
                 {{ end }}
-                <div class="project__container__shadow"></div>
-                <div class="project__container__gradient"></div>
                 {{ .Content }}
             </div>
         </div>
+        {{- partial "footer.html" . -}}
     </div>
-    {{- partial "footer.html" . -}}
     <script>
-        var computeNavColor = function() {
-            const offset = ($(".project__hero").height() / 2) - ($(".project__nav").height());
-            if($(window).scrollTop() < offset) {
-                $(".project__nav").addClass("project__nav--white");
-            }
-            else {
-                $(".project__nav").removeClass("project__nav--white");
-            }
-        }
+        // var computeNavColor = function() {
+        //     const offset = ($(".project__hero").height() / 2) - ($(".project__nav").height());
+        //     if($(window).scrollTop() < offset) {
+        //         $(".project__nav").addClass("project__nav--white");
+        //     }
+        //     else {
+        //         $(".project__nav").removeClass("project__nav--white");
+        //     }
+        // }
 
         var convertRange = function (value, r1, r2, rounded = true) {
             value = ((value - r1[0]) * (r2[1] - r2[0])) / (r1[1] - r1[0]) + r2[0];
@@ -75,10 +77,13 @@
         };
 
         var computeBackgroundParallax = function() {
+            
             const offset = ($(window).scrollTop() / 4).toFixed(0);
             const contentOffset = -($(window).scrollTop() / 6).toFixed(0);
             const realContentOffset = contentOffset < -60 ? -60 : contentOffset;
+            
             console.log(realContentOffset);
+            
             $(".project__hero__parallax-holder__image").css({
             "transform": "translate3d(0," + offset + "px, 0)"
             });
@@ -99,9 +104,9 @@
 
             // convertRange
 
-            $(".three-dimensional-rotate").css({
-                "transform": "rotateX(" + $(window).scrollTop() / 80 + "deg) rotateY(" + $(window).scrollTop() / 150 + "deg)"
-            });
+            // $(".three-dimensional-rotate").css({
+            //     "transform": "rotateX(" + $(window).scrollTop() / 80 + "deg) rotateY(" + $(window).scrollTop() / 150 + "deg)"
+            // });
 
             // rotateY(" + $(window).scrollTop() / 80 + "deg)"
 

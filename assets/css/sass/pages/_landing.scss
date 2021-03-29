@@ -7,20 +7,39 @@
   padding-left: 15%;
   h1 {
     @apply relative italic select-none font-serif text-9xl font-black text-left text-black;
+    font-size:9rem;
     pointer-events: none;
     margin: 0;
     margin-left: 40px;
     z-index: 1;
+    line-height:0.6;
     .white {
       color: white;
     }
+  }
+
+  .landing__container {
+    @apply relative;
+    pointer-events: none;
+  }
+
+  .landing__container__losange {
+    @apply absolute top-0 left-0 bg-cover select-none;
+    pointer-events: none;
+    z-index: 0;
+    width:879px * 1.1;
+    height:533px * 1.4;
+    left:-60px;
+    top:-120px;
   }
 
   .word {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    padding: 0px 0 20px 0;
+    padding: 10px 10px 50px 0;
+    pointer-events: none;
+
   }
 
   .word__content,
@@ -30,10 +49,10 @@
 
   #canvas {
     @apply absolute right-0 bottom-0 z-0;
-    width: 90%;
-    height: 125%;
-    bottom: -35%;
-    right: -10%;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    right: -20%;
   }
 
   button {
@@ -42,7 +61,7 @@
   }
 
   .wanna-see-my-work {
-    margin-top: 20px;
+    margin-top: 50px;
     margin-left: 40px;
     overflow: hidden;
     position: relative;
@@ -50,13 +69,14 @@
     text-decoration: none;
     color: black;
     height: 40px;
+    pointer-events:all;
     .wanna-see-my-work__text {
       @apply text-xl;
     }
     img {
       @apply inline-block;
       margin-left: 20px;
-      // transform: translateX(0px);
+      transform: translateY(-2px);
       transition: all 200ms ease;
     }
     &:hover img {

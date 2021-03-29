@@ -6,6 +6,7 @@
                 {{ range .Pages.GroupByDate "2006" }}
                     <div class="projects__year-block__projects">
                         <h3 class="projects__year-block__year">{{ .Key }}</h3>
+                        {{ partial "projects-dot-pattern" }}
                         {{ range $index, $element := .Pages }}
                             <a class="projects__year-block__project" href="{{ .RelPermalink }}">
                                 <div class="projects__year-block__project__title-block">
@@ -34,6 +35,6 @@
                 {{ end }}
             </div>
         </div>
+        {{- partial "footer.html" . -}}
     </div>
-    {{- partial "footer.html" . -}}
 {{ end }}

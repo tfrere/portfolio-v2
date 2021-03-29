@@ -2,6 +2,7 @@
 title: We are Marianne
 date: 2021-08-09T00:00:04+00:00
 aliases: [/projects/test/]
+draft: true
 tags:
   - app
 roles:
@@ -48,9 +49,12 @@ Erat imperdiet sed euismod nisi porta. Nisl suscipit adipiscing bibendum est ult
       <div class="project__screen__content__text-container">
         <h3>Website</h3>
         <p>They work with the latest research-driven machine learning algorithms to explore the creative potential of artificial intelligence.</p>
+        <a href="#" target="_blank" class="button">
+        Visit website
+        </a>
       </div>
-      <div class="project__screen__content__image three-dimensional-rotate">
-        {{< image src="images/website" >}}
+      <div class="project__screen__content__image">
+        {{< image src="images/website-mockup" >}}
       </div>
     </div>
   </div>
@@ -58,6 +62,14 @@ Erat imperdiet sed euismod nisi porta. Nisl suscipit adipiscing bibendum est ult
 {{< /rawhtml >}}
 
 ## Title
+
+Erat imperdiet sed euismod nisi porta. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Viverra suspendisse potenti nullam ac. Tincidunt id aliquet risus feugiat in. Varius quam quisque id diam vel. Egestas erat imperdiet sed euismod nisi. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Ut faucibus pulvinar elementum integer. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl.
+
+Erat imperdiet sed euismod nisi porta. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Viverra suspendisse potenti nullam ac. Tincidunt id aliquet risus feugiat in. Varius quam quisque id diam vel. Egestas erat imperdiet sed euismod nisi. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Ut faucibus pulvinar elementum integer. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl.
+
+{{< image src="images/dataviz" >}}
+
+Erat imperdiet sed euismod nisi porta. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Viverra suspendisse potenti nullam ac. Tincidunt id aliquet risus feugiat in. Varius quam quisque id diam vel. Egestas erat imperdiet sed euismod nisi. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Ut faucibus pulvinar elementum integer. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl.
 
 Erat imperdiet sed euismod nisi porta. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Viverra suspendisse potenti nullam ac. Tincidunt id aliquet risus feugiat in. Varius quam quisque id diam vel. Egestas erat imperdiet sed euismod nisi. Scelerisque felis imperdiet proin fermentum leo vel orci porta non. Ut faucibus pulvinar elementum integer. Fermentum odio eu feugiat pretium nibh ipsum consequat nisl.
 
