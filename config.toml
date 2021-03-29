@@ -4,6 +4,7 @@ title = "Thibaud FRERE Portfolio"
 sectionPagesMenu = "main"
 buildFuture = true
 staticDir = ["static"]
+uglyurls = true
 
 [markup.goldmark.renderer]
   hardWraps = true
