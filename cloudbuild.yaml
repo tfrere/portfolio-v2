@@ -4,19 +4,9 @@ steps:
     entrypoint: npm
     args: ['install']
 
-  # - name: node:12
-  #   entrypoint: '/bin/sh'
-  #   args:
-  #   - '-c'
-  #   - |
-  #     curl -sL https://github.com/gohugoio/hugo/releases/download/v0.81.0/hugo_0.81.0_Linux-64bit.tar.gz | tar -zxv
-  #     ./hugo
-  
-  - name: gcr.io/$PROJECT_ID/hugo-extended
-
-  # - name: node:12
-  #   entrypoint: npm
-  #   args: ['run build']
+  - name: node:12
+    entrypoint: 'bash'
+    args: ["./node_modules/hugo-extended/vendor/hugo"]
 
   - name: gcr.io/cloud-builders/gsutil
     args: ["-m", "rsync", "-r", "-c", "-d", "./public", "gs://tfrere-portfolio-bucket"]
