@@ -17,6 +17,7 @@
   "devDependencies": {
     "@babel/cli": "^7.13.10",
     "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
     "postcss": "^8.2.8",
     "postcss-cli": "^7.1.0",
     "tailwind": "^4.0.0",
