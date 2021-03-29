@@ -1,10 +1,9 @@
-baseURL = "http://storage.googleapis.com/tfrere-portfolio-bucket/"
+baseURL = "https://storage.googleapis.com/tfrere-portfolio-bucket/"
 languageCode = "en-us"
 title = "Thibaud FRERE Portfolio"
 sectionPagesMenu = "main"
 buildFuture = true
 staticDir = ["static"]
-uglyurls = true
 
 [markup.goldmark.renderer]
   hardWraps = true
