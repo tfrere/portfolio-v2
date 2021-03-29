@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
-    "node": "12.18.0" 
+    "node": "12.18.0"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "@babel/cli": "^7.13.10",
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
+    "hugo-extended": "^0.82.0",
     "postcss": "^8.2.8",
     "postcss-cli": "^7.1.0",
     "tailwind": "^4.0.0",
