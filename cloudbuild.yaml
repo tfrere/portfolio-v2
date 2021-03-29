@@ -18,4 +18,4 @@ steps:
     args: ["-lah","/workspace"]
 
   - name: gcr.io/cloud-builders/gsutil
-    args: ["-m", "rsync", "-r", "-c", "-d", "./public", "gs://tfrere-portfolio-bucket"]
+    args: ["-m", "rsync", "-r", "-c", "-d", "-D", "./public", "gs://tfrere-portfolio-bucket"]
