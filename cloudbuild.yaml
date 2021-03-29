@@ -4,7 +4,7 @@ steps:
     entrypoint: npm
     args: ['install']
 
-  - name: 'gcr.io/cloud-builders/curl'
+  - name: node:12
     entrypoint: '/bin/sh'
     args:
     - '-c'
