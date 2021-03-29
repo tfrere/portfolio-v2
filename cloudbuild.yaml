@@ -14,7 +14,7 @@ steps:
 
   - name: node:12
     entrypoint: '/bin/sh'
-    args: [./hugo]
+    args: [./node_modules/hugo-extended/vendor/hugo]
 
   # - name: node:12
   #   entrypoint: npm
