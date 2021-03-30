@@ -1,4 +1,4 @@
-baseURL = "https://storage.googleapis.com/tfrere-portfolio-bucket/"
+baseURL = "https://www.tfrere.com"
 languageCode = "en-us"
 title = "Thibaud FRERE Portfolio"
 sectionPagesMenu = "main"
