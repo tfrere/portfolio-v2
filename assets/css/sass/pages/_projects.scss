@@ -1,5 +1,27 @@
 .projects {
   @apply pt-36 pl-12;
+
+  .shape-container {
+    @apply absolute top-0 left-0 bg-cover;
+    z-index: 0;
+    width:500px * 0.43;
+    height:300px * 0.40;
+    left: -70px;
+    top: -17px;
+  }
+
+  .word {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    padding: 0px 4px 13px 5px;
+    pointer-events: none;
+  }
+
+  .word__content,
+  .word__content--first {
+    display: inline-block;
+  }
 }
 
 .projects__year-block {
@@ -7,22 +29,13 @@
 }
 
 .projects__year-block__projects {
-  @apply relative;
+  @apply relative mb-12;
 }
 
 .projects__year-block__year {
   @apply font-serif italic text-7xl font-black mb-12;
   @apply select-none relative;
   z-index: 1;
-}
-
-.projects__year-block__shape {
-  @apply absolute top-0 left-0 bg-cover;
-  z-index: 0;
-  width:500px * 0.43;
-  height:300px * 0.40;
-  left:-20px;
-  top:0px;
 }
 
 .projects__year-block__projects {

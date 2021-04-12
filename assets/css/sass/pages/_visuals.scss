@@ -1,4 +1,19 @@
 .visuals {
+
+
+  .word {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    pointer-events: none;
+  }
+
+  .word__content,
+  .word__content--first {
+    display: inline-block;
+  }
+
+
 }
 
 .visuals__container {
@@ -16,13 +31,13 @@
   width: 35vw;
 }
 
-.visuals__container__introduction__rectangle {
-  @apply absolute top-0 left-0 bg-cover;
+.shape-container {
+  @apply absolute top-0 left-0 bg-cover opacity-75;
   z-index: 0;
-  width:245px;
-  height:139px;
-  left:40px;
-  top:-20px;
+  width: 150px;
+  height: 150px;
+  left: 30px;
+  top: -40px;
 }
 
 .visuals__container__introduction__title {
@@ -30,8 +45,7 @@
 }
 
 .visuals__container__introduction__desc {
-
-  @apply text-2xl z-10 relative;
+  @apply text-2xl z-10 relative text-dig-effect;
 }
 
 .visuals__container__galleries {

@@ -1,14 +1,20 @@
 .landing {
   @apply w-full flex items-center pt-16 overflow-hidden relative;
-  --background-color: #{$green};
   background-color: var(--background-color);
-  transition: background-color 200ms ease;
-  height: calc(100%);
-  padding-left: 15%;
+  transition: all 200ms ease;
+  height: 100%;
+  &>div {
+    opacity: 0;
+    transition: all 200ms ease;
+    padding-left: 15%;
+  }
+  &.page--dom-loaded > div {
+    opacity: 1;
+  }
   h1 {
     @apply relative italic select-none font-serif text-9xl font-black text-left text-black;
     font-size:9rem;
-    pointer-events: none;
+    pointer-events: none; 
     margin: 0;
     margin-left: 40px;
     z-index: 1;
@@ -18,19 +24,45 @@
     }
   }
 
+  .landing__container__rectangle {
+    @apply relative;
+    perspective: 2000px;
+    &:after {
+      content: "";
+      @apply absolute;
+      width: 110%;
+      left:-5%;
+      height:110%;
+      top:-5%;
+      transition: background-color var(--background-transition-duration) var(--background-transition-ease), clip-path ease-in-out var(--background-transition-ease);
+      background-color: var(--complement-color);
+      clip-path: polygon(18% 67%, 63% 72%, 73% 73%, 28% 68%);
+      z-index: -1;
+    }
+    &--active:after {
+      animation: test 600ms ease;
+      animation-fill-mode: forwards;
+    }
+  }
+
+  @keyframes test {
+    50% { clip-path: polygon(35% 46%, 67% 49%, 73% 73%, 27% 71%); }
+    100% { clip-path: polygon(0 3%, 100% 0, 92% 93%, 2% 92%); }
+  }
+
   .landing__container {
     @apply relative;
     pointer-events: none;
   }
 
-  .landing__container__losange {
-    @apply absolute top-0 left-0 bg-cover select-none;
+  .shape-container {
+    @apply absolute top-0 left-0 bg-cover select-none opacity-75;
     pointer-events: none;
     z-index: 0;
-    width:879px * 1.1;
-    height:533px * 1.4;
-    left:-60px; 
-    top:-120px;
+    width: 1266.9px;
+    height: 996.2px;
+    left: -256px;
+    top: -240px;
   }
 
   .word {
@@ -39,7 +71,6 @@
     display: inline-block;
     padding: 10px 10px 50px 0;
     pointer-events: none;
-
   }
 
   .word__content,
@@ -61,29 +92,55 @@
   }
 
   .wanna-see-my-work {
-    margin-top: 50px;
-    margin-left: 40px;
-    overflow: hidden;
+    @apply px-4 py-2;
+    margin-top: 30px;
+    margin-left: 30px;
     position: relative;
     display: inline-block;
     text-decoration: none;
     color: black;
-    height: 40px;
     pointer-events:all;
+
     .wanna-see-my-work__text {
-      @apply text-xl;
+      @apply text-2xl;
+      display: block;
+      position: relative;
+      text-decoration: none;
+      font-family: "Varela Round", sans-serif;
+      position: relative;
+      margin: 0;
+      line-height: 1;
+      white-space: nowrap;
+      color: $color;
+      transition: color var(--background-transition-duration) ease;
     }
-    img {
-      @apply inline-block;
-      margin-left: 20px;
-      transform: translateY(-2px);
-      transition: all 200ms ease;
+  
+    .wanna-see-my-work__text:after {
+      content: "";
+      background-color: $color;
+      transition: background-color var(--background-transition-duration) ease;
+      width: 100%;
+      height: 0.125rem;
+      display: block;
+      margin-top: 0.225rem;
+      border-radius: 3px;
+      position: absolute;
+      top: 100%;
+      transform: scaleX(0.1) rotate(0.001deg);
+      transform-origin: left center;
+      transition: transform $anim-timing $anim-curve,
+        transform-origin 0s $anim-timing;
     }
-    &:hover img {
-      margin-left: 40px;
-      // transform: translateX(20px);
-    }
+
   }
+
+    
+  .wanna-see-my-work:hover .wanna-see-my-work__text:after {
+    max-width: 100%;
+    transform: scaleX(1) rotate(0.001deg);
+    transform-origin: left center;
+  }
+
 
   .restart-demo {
     position: absolute;

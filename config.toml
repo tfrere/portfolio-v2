@@ -27,6 +27,12 @@ staticDir = ["static"]
     pre = "about"
     url = "/about/"
     weight = 4
+  [[menu.main]]
+  	identifier = "contact"
+    name = "Contact"
+    pre = "contact"
+    url = "/contact/"
+    weight = 5
 
 # Highest width is 2500px for landscape and 1500px for portrait.
 # This will give both orientations roughly the same resolution and size.

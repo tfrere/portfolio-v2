@@ -10,11 +10,9 @@ roles:
 description: Get color meanings from all around the world !
 ---
 
-Ce projet a démaré avec le besoin de pouvoir digguer dans la visualisation faite par david mccandless il y a quelques années.
-Il fut pour la premiere fois incarné par une librairie javascript ( disponible sur npm ). Puis par une single page app qui permet de trier l'information de differentes manieres.
+This project started with the need to dig into the data visualization made by David McCandless a few years ago.
+It was for the first time embodied by a javascript library (available on npm). Then by a single page app that allows you to sort information in different ways.
 
 Get cultural meanings from all around the world. Based on the excellent work of David McCandless.
-
-Originally a javascript plugin.
 
 {{< image src="images/website" >}}

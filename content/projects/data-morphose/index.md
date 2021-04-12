@@ -1,5 +1,5 @@
 ---
-title: "Data<morphose>"
+title: "Data <morphose>"
 date: 2017-03-02T01:00:04+01:00
 draft: false
 tags: ["art"]

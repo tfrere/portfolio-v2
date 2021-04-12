@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "header.html" . -}}
+        <div class="contact page bg-yellow">
+            <div class="page__background"></div>
+            <div class="contact__content">
+                {{ partial "shape3" (dict "context" . "dotSize" 160) }}
+                <h1 class="contact__content__title">
+                    <span class="word"><span class="word__content">A</span></span>
+                    <span class="word"><span class="word__content italic">cool</span></span>
+                    <span class="word"><span class="word__content italic">project</span></span>
+                    <span class="word"><span class="word__content">in</span></span>
+                    <span class="word"><span class="word__content">mind</span></span>
+                    <span class="word"><span class="word__content">and</span></span>
+                    <span class="word"><span class="word__content">you</span></span>
+                    <span class="word"><span class="word__content">think</span></span>
+                    <span class="word"><span class="word__content">that</span></span>
+                    <span class="word"><span class="word__content italic">i</span></span>
+                    <span class="word"><span class="word__content italic">can</span></span>
+                    <span class="word"><span class="word__content italic">contribute</span></span>
+                    <span class="word"><span class="word__content">?</span></span>
+                </h1>
+                <p class="contact__content__email">Write me an email at <a href="mailto:write@tfrere.fr" class="contact__content__email__value">write@tfrere.com</a></p>
+                <p class="contact__content__remote">I’m available in <span class="underline underline--small">full remote</span> from Metz, France</p>
+                <div class="contact__content__socials">
+                    <a target="_blank" class="contact__content__socials__item" href="https://github.com/tfrere"><img class="contact__content__socials__item__image" src="{{ .Site.BaseURL }}images/github.svg"/></a>
+                    <a target="_blank" class="contact__content__socials__item" href="https://www.linkedin.com/in/thibaud-frere-3462b264"><img class="contact__content__socials__item__image" src="{{ .Site.BaseURL }}images/linkedin.svg"/></a>
+                    <a target="_blank" class="contact__content__socials__item" href="https://www.behance.net/frerethibaud9207"><img class="contact__content__socials__item__image" src="{{ .Site.BaseURL }}images/behance.svg"/></a>
+                    <a target="_blank" class="contact__content__socials__item" href="https://codepen.io/tfrere"><img class="contact__content__socials__item__image" src="{{ .Site.BaseURL }}images/codepen.svg"/></a>
+                </div>
+            </div>
+        </div>
+        {{- partial "js.html" . -}}
+        </div>
+        <script>
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $(function() {
+
+                    var timeline = anime.timeline({
+                    loop: false,
+                    duration: 400,
+                    });
+
+                    anime.set(".word__content", {
+                    translateY: "+=180px",
+                    });
+
+                    anime.set(".shape", {
+                    translateY: "+=50px",
+                    opacity:0
+                    });
+
+                    anime.set(".contact__content__email", {
+                    translateY: "+=25px",
+                    opacity:0
+                    });
+
+                    anime.set(".contact__content__remote", {
+                    translateY: "+=25px",
+                    opacity:0
+                    });
+
+                    anime.set(".contact__content__socials__item", {
+                    translateY: "+=25px",
+                    opacity:0
+                    });
+
+                    var animation = timeline
+                    .add({
+                        targets: ".shape",
+                        translateY: "-=50px",
+                        easing: "easeOutQuart",
+                        opacity:1,
+                        duration: 450,
+                    })
+                    .add({
+                        targets: ".word__content",
+                        translateY: "-=180px",
+                        easing: "easeOutQuart",
+                        delay: anime.stagger(50),
+                    }, "-=300")
+                    .add({
+                        targets: ".contact__content__email",
+                        delay: 250,
+                    })
+                    .add({
+                        targets: ".contact__content__email",
+                        translateY: "-=25px",
+                        easing: "easeOutQuart",
+                        opacity:1,
+                        duration: 250,
+                    }, "-=150")
+                    .add({
+                        targets: ".contact__content__remote",
+                        translateY: "-=25px",
+                        easing: "easeOutQuart",
+                        opacity:1,
+                        duration: 250,
+                    }, "-=150")
+                    .add({
+                        targets: ".contact__content__socials__item",
+                        translateY: "-=25px",
+                        easing: "easeOutQuart",
+                        opacity:1,
+                        delay: anime.stagger(100, {from: 'center'}),
+                    })
+
+                });
+            });
+        </script>
+    </body>
+</html>
+

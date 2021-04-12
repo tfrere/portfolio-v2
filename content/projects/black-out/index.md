@@ -1,13 +1,13 @@
 ---
-title: "Black Out"
+title: "Black Out Short Movie"
 date: 2020-03-02T01:00:04+01:00
 draft: false
-tags: ["movie"]
+tags: ["cinema"]
 roles:
   - Sf consulting
   - UI Design
   - Developement
-description: Femis short movie
+description: Science fiction La Femis movie
 ---
 
 {{< leading text="The science fiction piece takes place entirely indoors in a space shuttle on its return from Mars where five astronauts try to unmask the alien that has infiltrated their ship. " >}}

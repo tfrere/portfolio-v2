@@ -1,0 +1,6 @@
+<div class="project__container__title">
+<h2>
+    {{ .Get "text" | markdownify }}
+</h2>
+{{ partial "shape2" (dict "context" . "dotSize" 100) }}
+</div>

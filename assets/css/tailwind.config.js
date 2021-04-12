@@ -47,6 +47,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Varela Round", "sans-serif"],
+      subhead: ["Mort Modern Subhead Condensed", "serif"],
       text: ["Mort Modern Text", "serif"],
       text2: ["Mort Modern Text No2", "serif"],
       serif: ["Mort Modern", "serif"],

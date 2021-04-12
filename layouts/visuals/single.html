@@ -3,7 +3,7 @@
     <div class="visual__nav visual__nav--previous">
         {{ if .NextPage }}
         {{ if eq .NextPage.Section "visuals" }}
-        <a class="visual__nav__link" href="{{ .NextPage.Permalink }}">
+        <a class="visual__nav__link nav-link" href="{{ .NextPage.Permalink }}">
           {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
         </a>
         
@@ -15,7 +15,7 @@
   <div class="visual__nav visual__nav--next">
       {{ if .PrevPage }}
       {{ if eq .PrevPage.Section "visuals" }}
-      <a class="visual__nav__link" href="{{ .PrevPage.Permalink }}">
+      <a class="visual__nav__link nav-link" href="{{ .PrevPage.Permalink }}">
         {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
       </a>
       <!-- {{ .PrevPage.Title | truncate 50 "..."}} -->
@@ -25,7 +25,16 @@
   <div class="visual__hero">
     <div class="visual__hero__text">
       <span class="visual__hero__text__label">Gallery</span>
-      <h1 class="visual__hero__text__title">{{ .Title }}</h1>
+      <h1 class="visual__hero__text__title">
+        {{ $test := split .Title " "}}
+        {{range $test }}
+          <span class="word">
+            <span class="word__content">
+              {{.}}
+            </span>
+          </span>
+        {{end}}
+      </h1>
       <p class="visual__hero__text__p">
         {{ .Summary | replaceRE "<p>" "" | safeHTML }}
       </p>
@@ -33,7 +42,7 @@
     </div>
 
     {{ with .Resources.ByType "image" }}
-      {{ range last 1 . }}
+      {{ range first 1 . }}
             <div class="visual__hero__image">
                 <div class="visual__hero__image__canvas"></div>
                 <div class="visual__hero__image__img">
@@ -45,16 +54,21 @@
       {{ end }}
     {{ end }}
 
- 
+
   </div>
   <ul class="grid">
   {{ with .Resources.ByType "image" }}
-    {{ range $image := . }}
+  {{ $len := len . }}
+  
+    {{ range $i, $image := . }}
+    {{ if not (eq $i 0) }}
     <li class="grid__item">
-        <a class="img-fluidbox" href="{{ $image.RelPermalink }}">
-          {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "masonry__item__image" )) }}
-        </a>
-    </li>
+      <a class="img-fluidbox" href="{{ $image.RelPermalink }}">
+        {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "masonry__item__image" )) }}
+      </a>
+  </li>
+    {{ end }}
+
     
     {{ end }}
   {{ end }}
@@ -79,16 +93,95 @@
 
   window.addEventListener("DOMContentLoaded", (event) => {
     $(function () {
-      var $grid = $('.grid').imagesLoaded( function() {
-        $grid.masonry({
-          itemSelector: '.grid__item',
-          percentPosition: true
+
+        var $grid = $('.grid').imagesLoaded( function() {
+          $grid.masonry({
+            itemSelector: '.grid__item',
+            percentPosition: true
+          });
         });
-      });
+
+
+          anime.set(".word__content", {
+            translateY: "+=80px",
+          });
+
+
+          anime.set(".visual__hero__text__label", {
+            translateY: "+=25px",
+            opacity:0
+          });
+
+          anime.set(".visual__hero__text__p", {
+            translateY: "+=25px",
+            opacity:0
+          });
+
+          anime.set(".visual__hero__image", {
+            translateY: "+=25px",
+            opacity:0
+          });
+
+          anime.set(".grid", {
+            opacity:0
+          });
+
+
+        $grid.on( 'layoutComplete', function( event, items ) {
+
+          var timeline = anime.timeline({
+          loop: false,
+          duration: 400,
+          });
+
+          var animation = timeline
+          .add({
+              targets: ".word__content",
+              translateY: "-=80px",
+              easing: "easeOutQuart",
+              delay: anime.stagger(50),
+          }, "+=500")
+          .add({
+              targets: ".visual__hero__text__p",
+              translateY: "-=25px",
+              easing: "easeOutQuart",
+              opacity:1,
+              delay: 100,
+              duration:250
+          }, "-=300")
+          .add({
+              targets: ".visual__hero__text__label",
+              translateY: "-=25px",
+              easing: "easeOutQuart",
+              opacity:1,
+              delay: 100,
+              duration:250
+          }, "-=300")
+          .add({
+              targets: ".visual__hero__image",
+              translateY: "-=25px",
+              opacity:1,
+              duration:450,
+              easing: "easeOutQuart",
+              delay: anime.stagger(150),
+              complete: function() {
+                $(".visual__hero__image").removeAttr("style");
+              }
+          }, "-=200")
+          .add({
+              targets: ".grid",
+              opacity:1,
+              duration:850,
+              easing: "easeOutQuart",
+          }, "-=200");
+
+
+        });
+
+
         $('a.img-fluidbox').fluidbox();
 
         $(window).on("scroll", function(){
-          console.log(1)
           $('a.img-fluidbox').trigger('close.fluidbox');
         })
     });

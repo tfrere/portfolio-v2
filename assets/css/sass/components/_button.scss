@@ -13,10 +13,10 @@
 $base-text: black;
 $base-border: rgba(black, 0.2);
 
-$hover-text: var(--darken-background-color);
-$hover-border: var(--darken-background-color);
+$hover-text: var(--darken-complement-color);
+$hover-border: var(--darken-complement-color);
 
-$clicked-color: var(--darken-background-color);
+$clicked-color: var(--darken-complement-color);
 $clicked-text-color: white;
 
 $cubic-bezier: cubic-bezier(0.2, 0.3, 0.25, 0.9);

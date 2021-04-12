@@ -1,6 +1,12 @@
-<svg class="projects__year-block__shape" viewBox="0 0 235 140">
+{{ $seed := "foo" }}
+{{ $random := delimit (shuffle (split (md5 $seed) "" )) "" }}
+
+<svg class="shape-container" viewBox="0 0 600 600">
+    <!-- preserveAspectRatio="none"  -->
     <defs>
-      <pattern id="pattern-hex2" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse" width="54" height="54" viewBox="0 0 54 54">
+  
+      <pattern id="{{$random}}" x="0" y="0" width='{{ .Get "dotSize" }}' height='{{ .Get "dotSize" }}' patternTransform='rotate(30)' patternUnits="userSpaceOnUse" width="54" height="54" viewBox="0 0 54 54">
+        <rect x='0' y='0' width='100%' height='100%' fill='rgba(255,255,255,0.1)' />
         <g fill="white">
           <circle cx="1.5" cy="1.5" r="1.5" />
           <circle cx="10.507" cy="1.5" r="1.5" />
@@ -18,7 +24,7 @@
           <circle cx="10.507" cy="19.581" r="1.5" />
           <circle cx="19.573" cy="19.581" r="1.5" />
           <circle cx="28.579" cy="19.581" r="1.5" />
-          <circle cx="37.47" cy="19.581" r="1.5" /> 
+          <circle cx="37.47" cy="19.581" r="1.5" />
           <circle cx="46.476" cy="19.581" r="1.5" />
           <circle cx="1.5" cy="28.463" r="1.5" />
           <circle cx="10.507" cy="28.463" r="1.5" />
@@ -41,7 +47,11 @@
         </g>
       </pattern>
     </defs>
-    <polygon class="rectangle" fill="url(#pattern-hex2)" points="0.496109976 7.0996935 235.565804 1.4104571 208 111 15.1317792 103.951343" />
+  
+    <g class="shape">
+      <path class="rectangle" fill="url(#{{$random}})" d="M37.6051206,180.83232 C68.2251158,87.5203202 212.969554,41.7864432 290.590286,78.8936852 C368.211018,116.000927 289.001917,190.304888 483.774317,232.193527 C678.546717,274.082166 537.325116,422.482098 460.023929,459.952813 C382.722743,497.423528 140.809336,582.309741 74.0832496,498.169481 C7.35716314,414.02922 6.98512552,274.14432 37.6051206,180.83232 Z" />
+    </g>
   </svg>
+  
 
   

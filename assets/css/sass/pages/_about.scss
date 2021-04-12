@@ -1,13 +1,41 @@
 .about {
+
+  .word {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    padding: 0px 4px 13px 5px;
+    pointer-events: none;
+  }
+
+  .word__content,
+  .word__content--first {
+    display: inline-block;
+  }
+
 }
 
 .about__hero {
   @apply relative flex items-center justify-center;
-  min-height:50vh;
+  min-height:60vh;
+
+  .shape-container {
+    @apply absolute top-0 left-0 bg-cover opacity-50;
+    z-index: 0;
+    width: 990px;
+    height: 660px;
+    left: -140px;
+    top: -190px;
+  }
+  
 }
 
 .about__hero__container {
   @apply relative mt-32;
+}
+
+.about__content {
+  @apply mb-24 relative z-10;
 }
 
 .about__hero__container__title {
@@ -16,44 +44,50 @@
 }
 
 .about__hero__container__desc {
-  @apply text-2xl mt-8 z-20 relative px-2 inline-block;
-  background-color: var(--background-color);
-  transition: background-color var(--background-transition-duration) var(--background-transition-ease);
+  @apply mt-8 text-3xl z-20 relative not-italic tracking-wider font-light inline-block font-sans;
+  &:before {
+    content:"";
+    position: absolute;
+    height: 3px;
+    width:80px;
+    top:-23px;
+    left:10px;
+    background-color:black;
+  }
+  .word {
+    line-height:1;
+    // background-color: var(--background-color);
+    // transition: background-color var(--background-transition-duration) var(--background-transition-ease);
+    padding: 5px 10px 4px 10px !important;
+  }
 }
 
-.about__hero__container__losange {
-  @apply absolute top-0 left-0 bg-cover;
-  z-index: 0;
-  width:500px * 1.4;
-  height:300px * 1.4;
-  left:0px;
-  top:-40px;
-}
 
-
-.about__content__socials {
-  @apply flex flex-row mt-32 mb-8;
-}
-
-.about__content__socials__item {
-  @apply flex items-center justify-center px-4 py-4 mr-4;
-  // border:2px solid white;
-  width: 60px;
-  height: 60px;
-  border-radius: 60px;
-}
-
-.about__content__socials__item__image {
+.about__content__subtitle {
+  @apply text-7xl font-serif z-20 relative my-24;
+  .shape-container {
+    @apply z-0;
+    width: 180px;
+    height: 200px;
+    left: -10px;
+    top: 10px;
+  }
+  span {
+    @apply relative z-10;
+  }
 }
 
 .about__content__lead {
-  @apply inline-block text-black font-text2 text-4xl mb-12 leading-normal text-dig-effect;
+  @apply inline-block text-black font-text2 text-4xl mt-32 mb-12 leading-normal text-dig-effect;
 }
 
 .about__content__text {
   @apply text-2xl mb-4 font-text font-light text-black leading-normal text-dig-effect;
   columns: 2;
   column-gap: 4rem;
+  strong {
+    font-weight: 600;
+  }
 }
 
 .about__content__prices {

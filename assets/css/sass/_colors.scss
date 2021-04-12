@@ -14,7 +14,7 @@ $pinkHue: 345;
 $pinkSaturation: 81%;
 $pinkLightness: 77%;
 $pink: hsl($pinkHue, $pinkSaturation, $pinkLightness);
-$darken-pink: darken($pink, 15%);
+$darken-pink: darken($pink, 10%);
 
 $orangeHue: 23;
 $orangeSaturation: 88%;
@@ -30,7 +30,10 @@ $darken-yellow: darken($yellow, 15%);
 
 :root {
   --background-color: #{$green};
+  --darken-background-color: #{$darken-green};
   --background-hue: #{$greenHue};
+  --complement-color: #{$orange};
+  --darken-complement-color: #{darken($orange, 15%)};
   --background-saturation: #{$greenSaturation};
   --background-lightness: #{$greenLightness};
   --background-transition-duration: 200ms;
@@ -44,15 +47,19 @@ $darken-yellow: darken($yellow, 15%);
 
 .bg-green {
   --background-color: #{$green};
+  --complement-color: #{$orange};
+  --darken-background-color: #{$darken-green};
+  --darken-complement-color: #{darken($orange, 15%)};
   --background-hue: #{$greenHue};
   --background-saturation: #{$greenSaturation};
   --background-lightness: #{$greenLightness};
-  --darken-background-color: #{$darken-green};
 }
 
 .bg-orange {
   --background-color: #{$orange};
+  --complement-color: #{$green};
   --darken-background-color: #{$darken-orange};
+  --darken-complement-color: #{darken($green, 15%)};
   --background-hue: #{$orangeHue};
   --background-saturation: #{$orangeSaturation};
   --background-lightness: #{$orangeLightness};
@@ -60,7 +67,9 @@ $darken-yellow: darken($yellow, 15%);
 
 .bg-yellow {
   --background-color: #{$yellow};
+  --complement-color: #{$green};
   --darken-background-color: #{$darken-yellow};
+  --darken-complement-color: #{darken($green, 15%)};
   --background-hue: #{$yellowHue};
   --background-saturation: #{$yellowSaturation};
   --background-lightness: #{$yellowLightness};
@@ -68,7 +77,9 @@ $darken-yellow: darken($yellow, 15%);
 
 .bg-pink {
   --background-color: #{$pink};
+  --complement-color: #{$yellow};
   --darken-background-color: #{$darken-pink};
+  --darken-complement-color: #{darken($yellow, 15%)};
   --background-hue: #{$pinkHue};
   --background-saturation: #{$pinkSaturation};
   --background-lightness: #{$pinkLightness};
@@ -76,7 +87,9 @@ $darken-yellow: darken($yellow, 15%);
 
 .bg-blue {
   --background-color: #{$blue};
+  --complement-color: #{$pink};
   --darken-background-color: #{$darken-blue};
+  --darken-complement-color: #{darken($pink, 15%)};
   --background-hue: #{$blueHue};
   --background-saturation: #{$blueSaturation};
   --background-lightness: #{$blueLightness};
@@ -84,7 +97,9 @@ $darken-yellow: darken($yellow, 15%);
 
 .bg-green--important {
   --background-color: #{$green};
+  --complement-color: #{$orange};
   --darken-background-color: #{$darken-green};
+  --darken-complement-color: #{darken($orange, 15%)};
   --background-hue: #{$greenHue};
   --background-saturation: #{$greenSaturation};
   --background-lightness: #{$greenLightness};
@@ -93,7 +108,9 @@ $darken-yellow: darken($yellow, 15%);
 
 .bg-orange--important {
   --background-color: #{$orange};
+  --complement-color: #{$green};
   --darken-background-color: #{$darken-orange};
+  --darken-complement-color: #{darken($green, 15%)};
   --background-hue: #{$orangeHue};
   --background-saturation: #{$orangeSaturation};
   --background-lightness: #{$orangeLightness};
@@ -102,7 +119,9 @@ $darken-yellow: darken($yellow, 15%);
 
 .bg-yellow--important {
   --background-color: #{$yellow};
+  --complement-color: #{$green};
   --darken-background-color: #{$darken-yellow};
+  --darken-complement-color: #{darken($green, 15%)};
   --background-hue: #{$yellowHue};
   --background-saturation: #{$yellowSaturation};
   --background-lightness: #{$yellowLightness};
@@ -111,7 +130,9 @@ $darken-yellow: darken($yellow, 15%);
 
 .bg-pink--important {
   --background-color: #{$pink};
+  --complement-color: #{$yellow};
   --darken-background-color: #{$darken-pink};
+  --darken-complement-color: #{darken($yellow, 15%)};
   --background-hue: #{$pinkHue};
   --background-saturation: #{$pinkSaturation};
   --background-lightness: #{$pinkLightness};
@@ -120,7 +141,9 @@ $darken-yellow: darken($yellow, 15%);
 
 .bg-blue--important {
   --background-color: #{$blue};
+  --complement-color: #{$pink};
   --darken-background-color: #{$darken-blue};
+  --darken-complement-color: #{darken($pink, 15%)};
   --background-hue: #{$blueHue};
   --background-saturation: #{$blueSaturation};
   --background-lightness: #{$blueLightness};

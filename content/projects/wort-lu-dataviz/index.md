@@ -1,5 +1,5 @@
 ---
-title: "Wort.lu dataviz"
+title: "Wort.lu dataviz project"
 date: 2020-03-02T01:00:04+01:00
 draft: false
 tags: ["web"]

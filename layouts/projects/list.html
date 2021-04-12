@@ -1,19 +1,26 @@
 {{ define "main" }}
     {{- partial "header.html" . -}}
     <div class="page bg-blue">
+        <div class="page__background"></div>
         <div class="container projects">
             <div class="projects__year-block">
                 {{ range .Pages.GroupByDate "2006" }}
                     <div class="projects__year-block__projects">
-                        <h3 class="projects__year-block__year">{{ .Key }}</h3>
-                        {{ partial "projects-dot-pattern" }}
+                        <h3 class="projects__year-block__year">
+                            <span class="word">
+                                <span class="word__content">
+                                    {{ .Key }}
+                                </span>
+                            </span>
+                        </h3>
+                        {{ partial "shape" (dict "context" . "dotSize" 160) }}
                         {{ range $index, $element := .Pages }}
-                            <a class="projects__year-block__project" href="{{ .RelPermalink }}">
+                            <a class="projects__year-block__project projects__year-block__project-{{$index}}" href="{{ .RelPermalink }}">
                                 <div class="projects__year-block__project__title-block">
                                     <h3 class="projects__year-block__project__title-block__title">{{ .Title }}</h3>
                                     <div class="projects__year-block__project__title-block__line"></div>
                                     <div class="projects__year-block__project__title-block__square">
-                                        <span class="projects__year-block__project__title-block__square__index">0{{ add $index 1}}</span>
+                                        <span class="projects__year-block__project__title-block__square__index">{{ partial "romanize" (dict "context" . "number" $index) }}</span>
                                     </div>
                                 </div>
                                 <div class="projects__year-block__project__info">
@@ -36,5 +43,67 @@
             </div>
         </div>
         {{- partial "footer.html" . -}}
+
+        <script>
+ 
+            window.addEventListener("DOMContentLoaded", (event) => {
+                $(function () {
+
+                    anime.set(".word__content", {
+                    translateY: "+=80px",
+                    });
+
+                    anime.set(".shape", {
+                    translateY: "+=50px",
+                    opacity:0
+                    });
+
+                    anime.set(".projects__year-block__project", {
+                    translateY: "+=25px",
+                    opacity:0
+                    });
+
+
+                    $(".projects__year-block__projects").each(function(index, elem){
+
+                        var that = this;
+                        window.setTimeout(function(){
+
+                            var timeline = anime.timeline({
+                                loop: false,
+                                duration: 400,
+                            });
+                            
+                            var animation = timeline
+                            .add({
+                                targets: $(that).find(".shape").get(),
+                                translateY: "-=25px",
+                                easing: "easeOutQuart",
+                                opacity:1,
+                                delay: 100,
+                                duration:250
+                            })
+                            .add({
+                                targets: $(that).find(".word__content").get(),
+                                translateY: "-=80px",
+                                easing: "easeOutQuart",
+                                delay: anime.stagger(150),
+                            }, "-=300")
+                            .add({
+                                targets: $(elem).find(".projects__year-block__project").get(),
+                                translateY: "-=25px",
+                                opacity:1,
+                                duration:450,
+                                easing: "easeOutQuart",
+                                delay: anime.stagger(150),
+                            }, "-=200");
+                        }, index * 500);
+
+                    });
+
+
+                });
+            });
+        </script>
     </div>
 {{ end }}
