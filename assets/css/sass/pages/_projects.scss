@@ -33,7 +33,7 @@
 }
 
 .projects__year-block__year {
-  @apply font-serif italic text-7xl font-black mb-12;
+  @apply font-serif italic text-7xl font-black mb-12 pointer-events-none select-none;
   @apply select-none relative;
   z-index: 1;
 }

@@ -25,6 +25,9 @@ $darken-orange: darken($orange, 15%);
 $yellowHue: 48;
 $yellowSaturation: 100%;
 $yellowLightness: 57%;
+// $yellowHue: 48;
+// $yellowSaturation: 87%;
+// $yellowLightness: 54%;
 $yellow: hsl($yellowHue, $yellowSaturation, $yellowLightness);
 $darken-yellow: darken($yellow, 15%);
 

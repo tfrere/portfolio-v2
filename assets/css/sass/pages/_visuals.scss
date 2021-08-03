@@ -41,7 +41,7 @@
 }
 
 .visuals__container__introduction__title {
-  @apply text-7xl font-serif mb-4 select-none z-10 relative;
+  @apply text-7xl font-serif mb-4 select-none z-10 relative pointer-events-none;
 }
 
 .visuals__container__introduction__desc {

@@ -70,7 +70,7 @@ class Blob {
   }
   
   createTexture() {
-    const data = Uint32Array.from( {length: this.canvas.width*this.canvas.height }, () => Math.random() > 0.8 ? 0xFF000000 : 0);
+    const data = Uint32Array.from( {length: this.canvas.width*this.canvas.height }, () => Math.random() > 0.3 ? 0xFF000000 : 0);
     this.img = new ImageData( new Uint8ClampedArray( data.buffer ), this.canvas.width, this.canvas.height );
   }
   
@@ -175,11 +175,16 @@ class Blob {
     else {
       
       // GRADIENT 
-//       var grd = ctx.createLinearGradient(0, 0, 700, 700);
-//       grd.addColorStop(0, "rgba(0,0,0,0.1)");
-//       grd.addColorStop(1, "rgba(0,0,0,0.5)");
-//       ctx.fillStyle = grd;
-      
+      // var newColor = chroma($(".page, .landing").css("background-color")).set('hsl.l', "-.2").set('hsl.s', "+.01");
+      // var grd = ctx.createLinearGradient(0, 0, 700, 700);
+      // grd.addColorStop(0, "rgba(0,0,0,0.1)");
+      // grd.addColorStop(1, newColor);
+      // ctx.fillStyle = grd;
+      // ctx.fill();
+
+      // COLOR 
+      // ctx.fillStyle = newColor;
+      // ctx.fill();
 //       //       
       // TEXTURE 
 
@@ -204,7 +209,7 @@ class Blob {
         ctx.fill();
 
       
-      
+      // ? 
       // var texture = document.getElementById("texture");
       // var pFill = ctx.createPattern(noise, "repeat");
       // ctx.fillStyle = pFill;

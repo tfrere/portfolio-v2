@@ -4,8 +4,9 @@
     overflow: hidden;
     position: relative;
     display: inline-block;
-    padding: 0px 4px 13px 0px;
+    padding: 0px 4px 20px 0px;
     pointer-events: none;
+    margin-top: -30px;
   }
 
   .word__content,
@@ -19,36 +20,40 @@
 }
 
 .project__hero {
-  @apply w-full flex items-end justify-center relative z-30 relative;
-  min-height: 70vh;
+  @apply w-full flex items-center justify-center relative z-30 relative;
+  min-height: 90vh;
 }
 
 .project__hero__content {
-  @apply z-40 relative flex flex-row items-end justify-center container;
+  @apply z-40 relative flex flex-row items-center justify-center container;
 }
 
-
 .project__hero__content__text {
-  @apply w-full mb-12;
+  @apply w-full;
 }
 
 .project__hero__content__image {
-  width:100%;
+  @apply w-full flex items-center justify-center;
 }
 
 .project__hero__content__text__sub-title {
-  @apply text-base font-sans uppercase tracking-widest text-center;
+  @apply text-base font-sans uppercase tracking-widest mb-4;
+  a {
+    // text-decoration: underline;
+    color: rgba(9,9,9,0.3);
+    
+  }
 }
 
 .project__hero__content__text__title {
-  @apply text-8xl font-serif text-center;
-  font-weight: 700;
+  @apply text-9xl font-serif;
   max-width:80%;
-  margin: 0 auto;
+  font-weight: 700;
 }
 
 .project__hero__content__text__tags {
-  @apply flex flex-row justify-center items-center mt-8;
+  @apply flex flex-row justify-start items-center mt-8;
+  
 }
 
 .project__hero__content__summary {
@@ -86,7 +91,7 @@
 }
 
 .project__container {
-  @apply pt-8 pb-16 z-50 mt-8 relative;
+  @apply pb-16 z-50 relative;
   &--align-center {
     @apply text-center;
   }
@@ -106,13 +111,13 @@
   }
   .float-left {
     @apply mr-8;
-    width: 30%;
-    margin-left: -50px;
+    width: 40%;
+    margin-left: -140px;
   }
   .float-right {
     @apply ml-8;
-    width: 30%;
-    margin-right: -50px;
+    width: 40%;
+    margin-right: -140px;
   }
   strong {
     @apply font-bold;
@@ -120,13 +125,13 @@
   .project__container__title {
     @apply relative mb-16  mt-16;
     h2 {
-      @apply text-7xl italic font-serif relative;
+      @apply text-7xl font-serif relative;
       z-index: 1;
       font-weight: 600;
     }
     .shape-container {
       @apply z-0;
-      width: 180px;
+      width: 200px;
       height: 200px;
       left: -10px;
       top: 10px;

@@ -13,7 +13,7 @@
                                 </span>
                             </span>
                         </h3>
-                        {{ partial "shape" (dict "context" . "dotSize" 160) }}
+                        {{ partial "shape-projects" (dict "context" . "dotSize" 160) }}
                         {{ range $index, $element := .Pages }}
                             <a class="projects__year-block__project projects__year-block__project-{{$index}}" href="{{ .RelPermalink }}">
                                 <div class="projects__year-block__project__title-block">
@@ -46,7 +46,6 @@
 
         <script>
  
-            window.addEventListener("DOMContentLoaded", (event) => {
                 $(function () {
 
                     anime.set(".word__content", {
@@ -103,7 +102,6 @@
 
 
                 });
-            });
         </script>
     </div>
 {{ end }}

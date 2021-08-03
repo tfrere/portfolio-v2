@@ -5,7 +5,7 @@
     <img class="hidden" id="texture" src="{{ .Site.BaseURL }}/images/grain-gradient.png"/>
     <canvas id="canvas"></canvas>
     <div class="landing__container">
-      {{ partial "shape" (dict "context" . "dotSize" 100) }}
+      {{ partial "shape-landing" }}
       <h1>
         <span class="word"><span class="word__content--first">Hello,</span></span>
         <br/>
@@ -27,22 +27,6 @@
 
 (function () {
 
-
-  var shapes = [
-    {
-      d:
-        "M27.4169394,212.410435 C64.7520229,119.030148 133.479442,73.3063118 233.599197,75.2389271 C383.77883,78.13785 381.343698,200.331774 507.142227,200.194949 C632.940756,200.058124 605.395973,424.137846 489.830259,435.568029 C374.264545,446.998211 123.282014,540.721694 54.0840213,461.964277 C7.95202594,409.459332 -0.93700137,326.274718 27.4169394,212.410435 Z"
-    },
-    {
-      d:
-      "M69.1535103,234.331451 C109.860124,146.638143 83.4195646,72.3400041 233.599197,75.2389271 C383.77883,78.13785 457.486646,128.44354 510.304612,200.117522 C563.122578,271.791504 605.395973,424.137846 489.830259,435.568029 C374.264545,446.998211 123.282014,540.721694 54.0840213,461.964277 C-15.1139718,383.20686 28.4468966,322.024758 69.1535103,234.331451 Z"
-    } 
-  ];
-
-  $(".shape").each(function () {
-    var shape = new MorphingShape($(this)[0], shapes);
-  });
-   
   var color = "#F38949"; //"rgba(0,0,0,0.04)";
   var margin = 100;
   var numPoints = 32;
@@ -64,7 +48,7 @@
   });
 
   anime.set(".wanna-see-my-work", {
-    translateX: "-=25px",
+    translateY: "+=25px",
     opacity:0
   });
 
@@ -80,7 +64,7 @@
 
   window.setTimeout(function(){
     $(".landing__container__rectangle").addClass("landing__container__rectangle--active");
-  },100);
+  },1200); // 100
 
    var animation = timeline
     .add({
@@ -116,9 +100,10 @@
     })
     .add({
       targets: ".wanna-see-my-work",
-      translateX: "+=25px",
+      translateY: "-=25px",
       easing: "easeOutQuart",
       opacity:1,
+      delay:350,
       duration:150
     })
 })();

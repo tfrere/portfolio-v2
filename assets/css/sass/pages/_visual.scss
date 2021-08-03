@@ -26,6 +26,11 @@
 
 .visual__hero__text__label {
   @apply text-base font-sans tracking-widest uppercase ;
+  a {
+    // text-decoration: underline;
+    color: rgba(9,9,9,0.3);
+    
+  }
 } 
 
 .visual__hero__text__p {

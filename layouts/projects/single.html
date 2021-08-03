@@ -25,8 +25,11 @@
             </div>
             <div class="project__hero">
                 <div class="project__hero__content">
+                    {{ partial "background-image" . }}
+
                     <div class="project__hero__content__text">
                         <h5 class="project__hero__content__text__sub-title">
+                            <a class="nav-link" href="{{ .Site.BaseURL }}projects">projects</a> ·
                             {{ with .Params.tags }}
                                 {{ range . }}
                                     {{ $href := print (absURL "tags/") (urlize .) }}
@@ -44,8 +47,6 @@
                               </span>
                             {{end}}
                         </h1>
-                        {{ $toto := .PublishDate.Format "2006"}}
-                        <!-- {{ partial "shape4" (dict "context" . "year" $toto ) }} -->
                         <div class="project__hero__content__text__tags">
                             {{ with .Params.roles }}
                             {{ range . }}
@@ -54,8 +55,8 @@
                             {{ end }}
                         </div>
                     </div>
-                    <span class="project__hero__content__date">{{ .PublishDate.Format "2006" }}</span>
-                    <!-- {{ partial "background-image" . }} -->
+
+                    <!-- <span class="project__hero__content__date">{{ .PublishDate.Format "2006" }}</span> -->
                 </div>
 
             </div>
@@ -69,20 +70,26 @@
     </div>
     <script>
 
-        window.addEventListener("DOMContentLoaded", (event) => {
             $(function () {
                 $(document).ready(function(){
                     $(window).scrollTop(0);
                 });
 
                 anime.set(".word__content", {
-                translateY: "+=90px",
+                translateY: "+=130px",
                 });
 
                 anime.set(".project__hero__content__text__sub-title", {
                 translateY: "+=25px",
                 opacity:0
                 });
+
+
+                anime.set(".project__hero__content__image", {
+                translateY: "+=25px",
+                opacity:0
+                });
+
 
                 anime.set(".tag, .project__container, .project__hero__content__text__date", {
                 translateY: "+=25px",
@@ -97,14 +104,20 @@
 
                 var animation = timeline
                 .add({
-                    targets: ".project__hero__content__text__sub-title",
+                    targets: ".project__hero__content__image",
                     translateY: "-=25px",
                     opacity: 1,
                     easing: "easeOutQuart",
                 }, "+=200")
                 .add({
+                    targets: ".project__hero__content__text__sub-title",
+                    translateY: "-=25px",
+                    opacity: 1,
+                    easing: "easeOutQuart",
+                }, "-=200")
+                .add({
                     targets: ".word__content",
-                    translateY: "-=90px",
+                    translateY: "-=130px",
                     easing: "easeOutQuart",
                     delay: anime.stagger(50),
                 }, "-=200")
@@ -126,7 +139,6 @@
 
 
             });
-        });
 
 
         var convertRange = function (value, r1, r2, rounded = true) {
@@ -147,7 +159,6 @@
             const realContentOffset = contentOffset < -60 ? -60 : contentOffset;
 
             
-            // console.log(realContentOffset);
             // $(".shape-container").css({
             //     "transform": "translate3d(0," + realContentOffset + "px, 0)"
             // });
@@ -155,7 +166,6 @@
         }
         
         $(window).on("scroll", function(){
-            // $(".invite-to-scroll").addClass("hidden");
             computeBackgroundParallax();
         });
 

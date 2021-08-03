@@ -6,7 +6,7 @@
         <div class="contact page bg-yellow">
             <div class="page__background"></div>
             <div class="contact__content">
-                {{ partial "shape3" (dict "context" . "dotSize" 160) }}
+                {{ partial "shape-contact" }}
                 <h1 class="contact__content__title">
                     <span class="word"><span class="word__content">A</span></span>
                     <span class="word"><span class="word__content italic">cool</span></span>
@@ -22,7 +22,7 @@
                     <span class="word"><span class="word__content italic">contribute</span></span>
                     <span class="word"><span class="word__content">?</span></span>
                 </h1>
-                <p class="contact__content__email">Write me an email at <a href="mailto:write@tfrere.fr" class="contact__content__email__value">write@tfrere.com</a></p>
+                <p class="contact__content__email">Feel free to write me an email at <a href="mailto:write@tfrere.fr" class="contact__content__email__value">write@tfrere.com</a></p>
                 <p class="contact__content__remote">I’m available in <span class="underline underline--small">full remote</span> from Metz, France</p>
                 <div class="contact__content__socials">
                     <a target="_blank" class="contact__content__socials__item" href="https://github.com/tfrere"><img class="contact__content__socials__item__image" src="{{ .Site.BaseURL }}images/github.svg"/></a>
@@ -35,7 +35,6 @@
         {{- partial "js.html" . -}}
         </div>
         <script>
-            window.addEventListener("DOMContentLoaded", (event) => {
                 $(function() {
 
                     var timeline = anime.timeline({
@@ -108,7 +107,6 @@
                     })
 
                 });
-            });
         </script>
     </body>
 </html>

@@ -2,11 +2,11 @@
     <div class="visuals__container">
         <div class="visuals__container-content">
             <div class="visuals__container__introduction">
-                {{ partial "shape" (dict "context" . "dotSize" 150) }}
+                {{ partial "shape-visuals" (dict "context" . "dotSize" 150) }}
                 <h1 class="visuals__container__introduction__title">
                     <span class="word"><span class="word__content">Visuals</span></span>
                     </h1>
-                <p class="visuals__container__introduction__desc">Random bits of decontextualized visuals from deep painting to graphism passing by photography.</p>
+                <p class="visuals__container__introduction__desc">A Showcase of random visual projects that i've done in the past.</p>
             </div>
             <div class="visuals__container__galleries">
                 {{ range .Pages }} 
@@ -46,24 +46,8 @@
         </div>
     </div>
     <script>
-        window.addEventListener("DOMContentLoaded", (event) => {
             $(function() {
 
-
-                    var shapes = [
-                        {
-                        d:
-                            "M10.7135105,97.0497966 C224.479278,110.844586 331.362162,117.74198 331.362162,117.74198 C331.362162,117.74198 513.713511,127.215679 513.713511,127.215679 C513.713511,127.215679 440.970091,470.113868 440.970091,470.113868 C440.970091,470.113868 43.4407909,503.049797 43.4407909,503.049797 C43.4407909,503.049797 32.5316974,367.716463 10.7135105,97.0497966 Z"
-                        },
-                        {
-                        d:
-                        "M-0.28648947,128.778075 C204.227804,113.10971 306.484951,105.275528 306.484951,105.275528 C306.484951,105.275528 533.713511,87.5042993 533.713511,87.5042993 C533.713511,87.5042993 494.034132,487.441005 494.034132,487.441005 C494.034132,487.441005 60.9052982,523.504299 60.9052982,523.504299 C60.9052982,523.504299 40.5080357,391.928891 -0.28648947,128.778075 Z"
-                        }
-                    ];
-
-                    $(".shape").each(function () {
-                        var shape = new MorphingShape($(this)[0], shapes);
-                    });
 
                     var timeline = anime.timeline({
                     loop: false,
@@ -158,6 +142,5 @@
                     );
                 });
             });
-        });
     </script>
 {{ end }}

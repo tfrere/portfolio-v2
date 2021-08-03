@@ -10,7 +10,9 @@ roles:
 description: Science fiction La Femis movie
 ---
 
-{{< leading text="The science fiction piece takes place entirely indoors in a space shuttle on its return from Mars where five astronauts try to unmask the alien that has infiltrated their ship. " >}}
+{{< leading text="This project is a collaboration with a team a La Femis" >}}
+
+The science fiction piece takes place entirely indoors in a space shuttle on its return from Mars where five astronauts try to unmask the alien that has infiltrated their ship. 
 
 https://www.arri.com/en/company/arri-news/news-stories/news-stories-2020/neuer-inhalt-1-
 

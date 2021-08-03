@@ -24,7 +24,7 @@
   </div>
   <div class="visual__hero">
     <div class="visual__hero__text">
-      <span class="visual__hero__text__label">Gallery</span>
+      <span class="visual__hero__text__label"><a class="nav-link" href="{{ .Site.BaseURL }}visuals">Visuals</a> > Gallery</span>
       <h1 class="visual__hero__text__title">
         {{ $test := split .Title " "}}
         {{range $test }}
@@ -42,17 +42,18 @@
     </div>
 
     {{ with .Resources.ByType "image" }}
-      {{ range first 1 . }}
+
+        {{ range first 1 . }}
             <div class="visual__hero__image">
-                <div class="visual__hero__image__canvas"></div>
+              <div class="visual__hero__image__canvas"></div>
                 <div class="visual__hero__image__img">
                   <a class="img-fluidbox" href="{{ .RelPermalink }}">
                       {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "" )) }}
                   </a>
                 </div>
             </div>
+        {{ end }}
       {{ end }}
-    {{ end }}
 
 
   </div>
@@ -62,11 +63,14 @@
   
     {{ range $i, $image := . }}
     {{ if not (eq $i 0) }}
+    {{ if not (in . "exclude") }}
+
     <li class="grid__item">
       <a class="img-fluidbox" href="{{ $image.RelPermalink }}">
         {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "masonry__item__image" )) }}
       </a>
   </li>
+  {{ end }}
     {{ end }}
 
     
@@ -91,7 +95,6 @@
 </style>
 <script>
 
-  window.addEventListener("DOMContentLoaded", (event) => {
     $(function () {
 
         var $grid = $('.grid').imagesLoaded( function() {
@@ -136,21 +139,20 @@
 
           var animation = timeline
           .add({
+              targets: ".visual__hero__text__label",
+              translateY: "-=25px",
+              easing: "easeOutQuart",
+              opacity:1,
+              duration:250
+          }, "+=450")
+          .add({
               targets: ".word__content",
               translateY: "-=80px",
               easing: "easeOutQuart",
               delay: anime.stagger(50),
-          }, "+=500")
+          }, "+=100")
           .add({
               targets: ".visual__hero__text__p",
-              translateY: "-=25px",
-              easing: "easeOutQuart",
-              opacity:1,
-              delay: 100,
-              duration:250
-          }, "-=300")
-          .add({
-              targets: ".visual__hero__text__label",
               translateY: "-=25px",
               easing: "easeOutQuart",
               opacity:1,
@@ -185,7 +187,6 @@
           $('a.img-fluidbox').trigger('close.fluidbox');
         })
     });
-  });
 
 
 </script>

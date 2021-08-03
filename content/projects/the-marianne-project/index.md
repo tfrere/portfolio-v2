@@ -14,11 +14,23 @@ center: true
 {{< leading text="Highlight **diversity** and **French spirit** through art by creating the next representation of Marianne with new **artificial intelligence algorithms**." >}}
 
 {{< rawhtml >}}
-
-  <div class="float-left">
+  <div class="float-right">
     {{< video src="images/face-morph" controls="false" muted="true" autoplay="true" loop="true" >}}
   </div>
 {{< /rawhtml >}}
+
+<!-- {{< rawhtml >}}
+  <div class="float-right shape-outside" >
+    {{< image src="images/gif" >}}
+  </div>
+  <style>
+    /* .shape-outside {
+       shape-outside: url(projects/the-marianne-project/images/gif.svg);
+       shape-margin: 20px;
+    }
+    .shape-outside img {padding:0;} */
+  </style>
+{{< /rawhtml >}} -->
 
 **New technologies** make it possible to analyze a **large number of images** and train an **artificial intelligence** to create a new example from these images.
 
@@ -35,7 +47,7 @@ We wish to propose the work as a candidate to be printed on the next editions of
       <div class="project__screen__content">
         <div class="project__screen__content__image">
           {{< image src="images/website-mockup" >}}
-          {{< shape4 dotSize="60" >}}
+          {{< screen-shape >}}
         </div>
         
         <div class="project__screen__content__text-container">
@@ -55,9 +67,9 @@ We wish to propose the work as a candidate to be printed on the next editions of
 
 <!-- {{< delimiter >}} -->
 
-{{< title text="The artist collective">}}
+<!-- {{< title text="The artist collective">}}
 
-{{< leading text="There are **researchers, artists, and friends**, working with the **latest models of deep learning** to explore the **creative potential of artificial intelligence**." >}}
+{{< leading text="There are **researchers, artists, and friends**, working with the **latest models of deep learning** to explore the **creative potential of artificial intelligence**." >}} -->
 
 <!-- 
 {{< rawhtml >}}
@@ -67,4 +79,4 @@ We wish to propose the work as a candidate to be printed on the next editions of
   </div>
 {{< /rawhtml >}} -->
 
-They are behind the sale of the first AI artwork to go through a major auction house. They use their work to share their vision of artificial intelligence and its implementation in our society. They are working with enterprises such as LVMH, Cité des sciences, Quai Branly, Nike, Christie's
+<!-- They are behind the sale of the first AI artwork to go through a major auction house. They use their work to share their vision of artificial intelligence and its implementation in our society. They are working with enterprises such as LVMH, Cité des sciences, Quai Branly, Nike, Christie's -->
