@@ -5,9 +5,18 @@ module.exports = {
     applyComplexClasses: true,
   },
   purge: {
-    content: ["./layouts/**/*.html"],
+    // enabled: process.env.HUGO_ENVIRONMENT === "production",
+    enabled: true,
+    content: [
+      "./layouts/**/*.html",
+      "./content/**/*.md",
+      "./content/**/*.html",
+    ],
   },
   theme: {
+    // fontSize: {
+    //   "10xl": ["9rem", "10rem"],
+    // },
     zIndex: {
       0: 0,
       10: 10,
@@ -46,12 +55,12 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["Varela Round", "sans-serif"],
-      subheadcondensed: ["Mort Modern Subhead Condensed", "serif"],
-      subheadlarge: ["Mort Modern Large Condensed", "serif"],
-      text: ["Mort Modern Text", "serif"],
-      text2: ["Mort Modern Text No2", "serif"],
-      serif: ["Mort Modern", "serif"],
+      sans: ["Inter", "sans"],
+      subheadcondensed: ["Inter", "sans"],
+      subheadlarge: ["Inter", "sans"],
+      text: ["Inter", "sans"],
+      text2: ["Inter", "sans"],
+      serif: ["Inter", "sans"],
     },
   },
   variants: {},

@@ -4,12 +4,13 @@ $anim-curve: cubic-bezier(0.23, 1, 0.32, 1);
 $anim-timing: 0.3s;
 
 .nav {
-  @apply fixed right-0 z-100 w-full;
+  @apply fixed right-0 w-full;
   @apply absolute;
 
-  &__list {
-    @apply flex items-center pt-4 px-4;
-  }
+  z-index: 999;
+
+  background-color: var(--nav-background-color);
+  transition: background-color var(--background-transition-duration) ease;
 
   &--white {
     --nav-color: white;
@@ -36,78 +37,159 @@ $anim-timing: 0.3s;
     );
     z-index: -1;
   }
+}
 
-  h1 a {
-    @apply px-0 pl-2;
-    @apply text-xl;
-    color: var(--nav-color);
-    transition: color var(--background-transition-duration) ease;
-  }
+.nav__list {
+  @apply flex items-center py-6 px-6;
+}
 
-  ul {
-    @apply ml-auto flex;
-  }
+.nav__title {
+  @apply absolute top-0 left-0 py-6 pl-6;
+  padding-top: 1.75rem;
+}
 
-  a {
-    @apply relative;
-  }
+.nav__title__link {
+  @apply px-0 pl-2 text-xl;
+  color: var(--nav-color);
+  transition: color var(--background-transition-duration) ease;
+}
 
-  a:after {
+.nav__section-menu {
+  @apply flex mx-auto;
+}
+
+.nav__section-menu__item__link {
+  @apply relative;
+}
+
+.nav__section-menu__item__link:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: background-color $anim-timing $anim-curve;
+}
+
+.nav__section-menu__item__link {
+  @apply px-6 py-2 inline-block;
+}
+
+// NEW
+
+.nav__section-menu__item__link__text {
+  @apply text-xl block relative no-underline m-0 whitespace-nowrap;
+  font-family: "Varela Round", sans-serif;
+  line-height: 1;
+  color: $color;
+  transition: color var(--background-transition-duration) ease;
+
+  &::after,
+  &::before {
     content: "";
     position: absolute;
+    bottom: -32px;
+    // right    : -10%;
+    right: 0;
+    width: 0;
+    height: 3px;
+  }
+
+  &::before {
+    transition: width 0.4s cubic-bezier(0.51, 0.18, 0, 0.88) 0.1s;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &::after {
+    transition: width 0.2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
+    background: rgba(0, 0, 0, 1);
+  }
+}
+
+.nav__section-menu__item__link:hover {
+  .nav__section-menu__item__link__text::after,
+  .nav__section-menu__item__link__text::before {
+    left: 0;
+    width: 100%;
+  }
+}
+
+.nav__section-menu__item.active {
+  // .nav__section-menu__item__link__text::after,
+  .nav__section-menu__item__link__text::before {
+    width: 100%;
+  }
+}
+
+// .nav__section-menu__item.active {
+//   .nav__section-menu__item__link__text::after,
+//   .nav__section-menu__item__link__text::before {
+//     width: 100%;
+//   }
+// }
+
+// OLD
+
+// .nav__section-menu__item__link__text {
+//   @apply text-xl block relative no-underline m-0 whitespace-nowrap;
+//   font-family: "Varela Round", sans-serif;
+//   line-height: 1;
+//   color: $color;
+//   transition: color var(--background-transition-duration) ease;
+// }
+// .nav__section-menu__item__link__text:after {
+//   content: "";
+//   background-color: $color;
+//   transition: background-color var(--background-transition-duration) ease;
+//   width: 100%;
+//   height: 0.175rem;
+//   display: block;
+//   margin-top: 1.825rem;
+//   position: absolute;
+//   top: 100%;
+//   transform: scaleX(0) rotate(0.001deg);
+//   transform-origin: left center;
+//   transition: transform $anim-timing $anim-curve,
+//     transform-origin 0s $anim-timing;
+// }
+
+// .nav__section-menu__item.active
+//   .nav__section-menu__item__link
+//   .nav__section-menu__item__link__text:after {
+//   // max-width: 0.9rem;
+//   width: 100%;
+//   transform: rotate(0.001deg);
+//   transition: max-width $anim-timing $anim-curve;
+// }
+
+// .nav__section-menu__item__link:hover
+//   .nav__section-menu__item__link__text:after {
+//   max-width: 100%;
+//   transform: scaleX(1) rotate(0.001deg);
+//   transform-origin: right center;
+// }
+
+.nav__socials {
+  @apply flex absolute top-0 right-0 py-6 pr-6;
+}
+
+.nav__socials__item {
+}
+
+.nav__socials__item__link {
+  @apply flex items-center justify-center;
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  transform: rotate(0deg);
+  transition: all 200ms ease;
+  svg {
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: background-color $anim-timing $anim-curve;
   }
-
-  a {
-    @apply px-4 py-2 inline-block;
-  }
-
-  span {
-    @apply text-xl;
-    display: block;
-    position: relative;
-    text-decoration: none;
-    font-family: "Varela Round", sans-serif;
-    position: relative;
-    margin: 0;
-    line-height: 1;
-    white-space: nowrap;
-    color: $color;
-    transition: color var(--background-transition-duration) ease;
-  }
-
-  span:after {
-    content: "";
-    background-color: $color;
-    transition: background-color var(--background-transition-duration) ease;
-    width: 100%;
-    height: 0.125rem;
-    display: block;
-    margin-top: 0.125rem;
-    border-radius: 3px;
-    position: absolute;
-    top: 100%;
-    transform: scaleX(0) rotate(0.001deg);
-    transform-origin: left center;
-    transition: transform $anim-timing $anim-curve,
-      transform-origin 0s $anim-timing;
-  }
-
-  li.active a span:after {
-    max-width: 0.9rem;
-    transform: rotate(0.001deg);
-    transition: max-width $anim-timing $anim-curve;
-  }
-
-  a:hover span:after,
-  li.active a:hover span:after {
-    max-width: 100%;
-    transform: scaleX(1) rotate(0.001deg);
-    transform-origin: right center;
+  &:hover {
+    transform: rotate(360deg);
   }
 }

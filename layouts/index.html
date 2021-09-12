@@ -1,112 +1,100 @@
 {{ define "main" }}
-<div class="landing">
+<div class="landing hero page page--with-bottom-border bg-green">
   <div class="page__background"></div>
   <div>
-    <img class="hidden" id="texture" src="{{ .Site.BaseURL }}/images/grain-gradient.png"/>
     <canvas id="canvas"></canvas>
-    <div class="landing__container">
-      {{ partial "shape-landing" }}
-      <h1>
-        <span class="word"><span class="word__content--first">Hello,</span></span>
+    <div class="hero__content container">
+      <h1 class="hero__content__title">
+        <span class="hero__content__title__word"><span class="hero__content__title__word__content--first">Hello,</span></span>
         <br/>
-        <span class="word"><span class="word__content">i'm</span></span>
-        <span class="word"><span class="word__content">a</span></span>
-        <span class="word"><span class="word__content">French</span></span>
+        <span class="hero__content__title__word"><span class="hero__content__title__word__content">I'm</span></span>
+        <span class="hero__content__title__word"><span class="hero__content__title__word__content">a</span></span>
+        <span class="hero__content__title__word"><span class="hero__content__title__word__content">French</span></span>
         <br/>
-        <span class="landing__container__rectangle"><span class="word white"><span class="word__content">designer</span></span></span>
+        <span class="hero__content__rectangle"><span class="hero__content__title__word"><span class="typewrite hero__content__title__word__content hero__content__title__word__content--last word__content--special" data-period="4000" skip-first="true" data-type="[ &quot;designer&quot;, &quot;developer&quot;, &quot;artist&quot; ]">designer</span></span></span>
       </h1>
-      <a id="blue" class="nav-link wanna-see-my-work" href="{{ .Site.BaseURL }}projects">
-        <span class="wanna-see-my-work__text">Wanna see my work ?</span>
+    </div>
+    <div class="container">
+      <a id="blue" class="nav-link button" href="{{ .Site.BaseURL }}projects">
+        <span class="button__content">Wanna see my work ?</span>
       </a>
-        <!-- <img src="https://assets.codepen.io/238916/arrow.svg"/> -->
-    </div> 
+    </div>
   </div>
 </div>
 {{- partial "js.html" . -}}
 <script>
 
-(function () {
+$(function() {
 
-  var color = "#F38949"; //"rgba(0,0,0,0.04)";
-  var margin = 100;
+  // CANVAS
+
+  var color = "white";
+  var margin = 50;
   var numPoints = 32;
-
-  canvas = document.getElementById("canvas");
-
+  var canvas = document.getElementById("canvas");
   var blobInstance = new Blob(canvas, color, numPoints, margin);
 
   blobInstance.render();
-  //   blobInstance.turbulence();
 
-  var timeline = anime.timeline({
-    loop: false,
-    duration: 400,
+  // ANIMATION 
+
+  var timeline = anime.timeline({ loop: false });
+  // var typedWordLength = 0;
+
+  anime.set(".hero__content__title__word__content, .hero__content__title__word__content--first", {
+    translateY: "+=180px"
   });
 
-  anime.set(".word__content, .word__content--first", {
-    translateY: "+=180px",
+  anime.set(".button, #canvas", {
+    opacity: 0
   });
 
-  anime.set(".wanna-see-my-work", {
-    translateY: "+=25px",
-    opacity:0
+  var animation = timeline
+  .add({
+    targets: ".hero__content__title__word__content--first",
+    delay: 300
+  })
+  .add({
+    targets: "#canvas",
+    easing: "linear",
+    duration: 250,
+    opacity: 1
+  })
+  .add({
+    targets: ".hero__content__title__word__content--first",
+    translateY: "-=180px",
+    easing: "easeOutExpo",
+    duration: 400
+  })
+  .add({
+    targets: ".hero__content__title__word__content--first",
+    delay: 250
+  })
+  .add({
+    targets: ".hero__content__title__word__content",
+    translateY: "-=180px",
+    easing: "easeOutExpo",
+    duration: 500,
+    delay: (el, i) => 50 * i
+  })
+  .add({
+    targets: ".button",
+    opacity: 1,
+    easing: "linear",
+    duration: 250,
+  })
+  .add({
+    targets: ".hero__content__title__word__content--first",
+    delay: 250
+  })
+  .add({
+    targets: ".hero__content__title__word__content--first",
+    begin: function () {
+      initTypeWritter();
+    }
   });
 
-  anime.set(".shape", {
-    translateY: "+=50px",
-    opacity:0
-  });
-
-  anime.set("#canvas", {
-    translateY: "+=25px",
-    opacity:0
-  });
-
-  window.setTimeout(function(){
-    $(".landing__container__rectangle").addClass("landing__container__rectangle--active");
-  },1200); // 100
-
-   var animation = timeline
-    .add({
-      targets: ".shape",
-      translateY: "-=50px",
-      easing: "easeOutQuart",
-      opacity:1,
-      duration: 450,
-      delay:300
-    })
-    .add({
-      targets: "#canvas",
-      translateY: "-=25px",
-      easing: "easeOutQuart",
-      opacity:1,
-      duration: 450,
-    }, "-=150")
-    .add({
-      targets: ".word__content--first",
-      translateY: "-=180px",
-      easing: "easeOutQuart",
-      delay: 50,
-    }, "-=150")
-    .add({
-      targets: ".word__content--first",
-      delay: 50,
-    })
-    .add({
-      targets: ".word__content",
-      translateY: "-=180px",
-      easing: "easeOutQuart",
-      delay: anime.stagger(50),
-    })
-    .add({
-      targets: ".wanna-see-my-work",
-      translateY: "-=25px",
-      easing: "easeOutQuart",
-      opacity:1,
-      delay:350,
-      duration:150
-    })
-})();
+});
 
 </script>
 {{ end }}

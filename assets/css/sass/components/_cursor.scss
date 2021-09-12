@@ -1,0 +1,66 @@
+// html,
+// body {
+//   cursor: none;
+// }
+
+// #cursor {
+//   position: fixed;
+//   top: calc(42px * -0.5);
+//   left: calc(42px * -0.5);
+//   pointer-events: none;
+//   mix-blend-mode: difference;
+//   filter: url(#goo);
+//   // filter: grayscale(1);
+
+//   z-index: 999999999;
+// }
+
+// .cursor-circle {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 42px;
+//   height: 42px;
+//   border-radius: 42px;
+//   background: white;
+//   transform-origin: center center;
+//   z-index: 999999999;
+// }
+
+// .goo {
+//   display: none;
+// }
+
+#cursor {
+  position: fixed;
+  top: calc(8px * -0.5);
+  left: calc(8px * -0.5);
+  pointer-events: none;
+  // mix-blend-mode: difference;
+  // filter: url(#goo);
+  // filter: grayscale(1);
+
+  z-index: 999999999;
+}
+
+.cursor-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  border: 1px solid black;
+  transform-origin: center center;
+  transition: all 200ms ease;
+  z-index: 999999999;
+}
+
+.cursor--out {
+  width: 0px;
+  height: 0px;
+}
+
+.goo {
+  display: none;
+}

@@ -4,6 +4,11 @@ title = "Thibaud FRERE Portfolio"
 sectionPagesMenu = "main"
 buildFuture = true
 staticDir = ["static"]
+extensions = [
+  "laxHtmlBlocks", # laxer block handling... let's see what this does?
+  "hardLineBreak", # newlines result in line breaks
+]
+
 
 [markup.goldmark.renderer]
   hardWraps = true

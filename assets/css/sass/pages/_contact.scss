@@ -1,87 +1,35 @@
 .contact {
-    @apply flex items-center justify-center;
-    .word {
-        overflow: hidden;
-        position: relative;
-        display: inline-block;
-        padding: 0px 4px 13px 5px;
-        pointer-events: none;
-      }
-    
-      .word__content,
-      .word__content--first {
-        display: inline-block;
-      }
-      .shape-container {
-        @apply absolute top-0 left-0 bg-cover opacity-50;
-        z-index: 0;
-        width: 1100px;
-        height: 800px;
-        left: 0;
-        top: -230px;
-        right: 0;
-      }
-}
-
-.contact__content {
-    @apply relative;
-    max-width: 65%;
-    transform: translateY(50px);
-}
-
-.contact__content__title {
-    @apply relative select-none font-serif text-8xl font-semibold text-left text-black text-center;
-}
-
-
-.contact__content__email {
-    @apply relative select-none mt-2 font-text2 text-3xl text-left text-center text-dig-effect;
-}
-
-.contact__content__email__value {
-    @apply inline-block text-dig-effect relative;
-    &:before {
-      content: "";
-      @apply w-full h-full absolute top-0 left-0;
-      width: 110%;
-      height: 110%;
-      top: 0%;
-      left: -5%;
-      z-index: -1;
-      background-color: var(--complement-color);
-      transition: all 200ms ease;
-      clip-path: polygon(1% 3%, 100% 0, 98% 97%, 4% 92%);
-    }
-    &:hover:before {
-        clip-path: polygon(3% 3%, 96% 0, 100% 95%, 2% 96%);
-      }
-}
-
-.contact__content__remote {
-    @apply relative select-none mt-4 font-sans text-xl text-left text-black text-center;
-}
-
-
-.contact__content__socials {
-    @apply flex flex-row mt-6 mb-8 justify-center;
+  .hero__content__sub-title {
+    @apply hero-text;
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
   }
+  .button {
+    text-transform: none;
+    @apply ml-4;
+  }
+  .hero__content__text {
+  }
+  .hero__content__title__word {
+    margin-bottom: -30px;
+  }
+  .underline {
+    padding: 4px 4px;
+  }
+}
 
-.contact__content__socials__item {
-    @apply flex items-center justify-center px-4 py-4 mr-4;
-    border:1px solid rgba(0,0,0,0.1);
-    background-color:var(--background-color);
-    transition: background-color var(--background-transition-duration) var(--background-transition-ease);
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
-    transform: rotate(0turn);
-    &:hover .contact__content__socials__item__image {
-        transition: all var(--background-transition-duration) var(--background-transition-ease);
-        transform: rotate(1turn);
-    }
+.click-to-copy-container {
+  @apply relative inline;
+  line-height: 0.8;
+}
+
+.click-to-copy-container__info-message {
+  @apply absolute small-text left-4 opacity-0 -bottom-8 font-semibold;
+  transition: all 100ms ease;
+  &.show {
+    @apply opacity-100 -bottom-7;
+    transition: all 200ms ease;
+    opacity: 1;
   }
-  
-  .contact__content__socials__item__image {
-    transform: rotate(0turn);
-  }
-  
+}

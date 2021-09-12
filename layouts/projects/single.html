@@ -4,6 +4,61 @@
     <div class="page page--without-padding bg-blue">
         <div class="page__background"></div>
         <div class="project">
+            <div class="project-hero">
+                <div class="project-hero__content">
+                    <div class="project-hero__content__invite-to-scroll invite-to-scroll-with-text"></div>
+                    <h1 class="project-hero__content__title">
+                        {{ $test := split .Title " "}}
+                        {{range $test }}
+                            <span class="word">
+                                <span class="word__content">
+                                    {{.}}
+                                </span>
+                            </span>
+                        {{end}}
+                    </h1>
+                    <div class="project-hero__content__misc">
+                        <div class="project-hero__content__misc__type">
+                            <div class="project-hero__content__misc__border"></div>
+                            <div class="project-hero__content__misc__content">
+                                <span class="project-hero__content__misc__label"> Type</span>
+                                <!-- <a class="nav-link" href="{{ .Site.BaseURL }}projects">projects</a> · -->
+                                {{ with .Params.tags }}
+                                    {{ range . }}
+                                        {{ $href := print (absURL "tags/") (urlize .) }}
+                                        {{ . }}
+                                    {{ end }}
+                                {{ end }}
+                            </div>
+                        </div>
+                        <div class="project-hero__content__misc__client">
+                            <div class="project-hero__content__misc__border"></div>
+                            <div class="project-hero__content__misc__content">
+                                <span class="project-hero__content__misc__label"> Client</span>
+                                <!-- <a class="nav-link" href="{{ .Site.BaseURL }}projects">projects</a> · -->
+                                {{ with .Params.client }}
+                                        <span class="tag">{{ . }}</span>
+                                {{ end }}
+                            </div>
+                        </div>
+                        <div class="project-hero__content__misc__deliverables">
+                            <div class="project-hero__content__misc__border"></div>
+                            {{ $number := int .Params.number}}
+                            {{ $svgpath := print "static/images/0" $number ".svg" }}
+                            {{ readFile $svgpath | safeHTML }}
+                            <div class="project-hero__content__misc__content">
+                                <span class="project-hero__content__misc__label"> Deliverables</span>
+                                {{ range $i, $e := .Params.roles }}{{ if $i }}, {{ end }}<span class="tag">{{ $e }}</span>{{ end }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <span class="project-hero__content__date">{{ .PublishDate.Format "2006" }}</span> -->
+                </div>
+
+            </div>
+            <div class="container project__container">
+                {{ .Content }}
+            </div>
             <div class="project__nav project__nav--next">
                     {{ if .NextPage }}
                     {{ if eq .NextPage.Section "projects" }}
@@ -23,77 +78,29 @@
                     {{ end }}
                 {{ end }}
             </div>
-            <div class="project__hero">
-                <div class="project__hero__content">
-                    {{ partial "background-image" . }}
-
-                    <div class="project__hero__content__text">
-                        <h5 class="project__hero__content__text__sub-title">
-                            <a class="nav-link" href="{{ .Site.BaseURL }}projects">projects</a> ·
-                            {{ with .Params.tags }}
-                                {{ range . }}
-                                    {{ $href := print (absURL "tags/") (urlize .) }}
-                                    {{ . }}
-                                {{ end }}
-                            {{ end }}
-                        </h5>
-                        <h1 class="project__hero__content__text__title">
-                            {{ $test := split .Title " "}}
-                            {{range $test }}
-                              <span class="word">
-                                <span class="word__content">
-                                  {{.}}
-                                </span>
-                              </span>
-                            {{end}}
-                        </h1>
-                        <div class="project__hero__content__text__tags">
-                            {{ with .Params.roles }}
-                            {{ range . }}
-                                <span class="tag">{{ . }}</span>
-                            {{ end }}
-                            {{ end }}
-                        </div>
-                    </div>
-
-                    <!-- <span class="project__hero__content__date">{{ .PublishDate.Format "2006" }}</span> -->
-                </div>
-
-            </div>
-            <div class="container project__container">
-                {{with .Params.center }}
-                {{ end }}
-                {{ .Content }}
-            </div>
         </div>
         {{- partial "footer.html" . -}}
     </div>
     <script>
 
             $(function () {
-                $(document).ready(function(){
-                    $(window).scrollTop(0);
-                });
 
                 anime.set(".word__content", {
-                translateY: "+=130px",
+                translateY: "+=160px",
                 });
 
-                anime.set(".project__hero__content__text__sub-title", {
+                anime.set(".project-hero__content__misc__content", {
                 translateY: "+=25px",
                 opacity:0
                 });
 
-
-                anime.set(".project__hero__content__image", {
-                translateY: "+=25px",
-                opacity:0
+                anime.set(".project-hero__content__misc__border", {
+                width: "0px",
                 });
 
-
-                anime.set(".tag, .project__container, .project__hero__content__text__date", {
-                translateY: "+=25px",
-                opacity:0
+                anime.set(".invite-to-scroll-with-text", {
+                    translateX: "+=25px",
+                    opacity:0
                 });
 
 
@@ -104,72 +111,44 @@
 
                 var animation = timeline
                 .add({
-                    targets: ".project__hero__content__image",
-                    translateY: "-=25px",
-                    opacity: 1,
-                    easing: "easeOutQuart",
-                }, "+=200")
+                    targets: ".project-hero__content svg path",
+                    duration: 300
+                })
                 .add({
-                    targets: ".project__hero__content__text__sub-title",
-                    translateY: "-=25px",
-                    opacity: 1,
+                    targets: ".project-hero__content svg path",
+                    strokeDashoffset: [3000, 0],
                     easing: "easeOutQuart",
-                }, "-=200")
+                    duration: 2000
+                }, "+=100")
                 .add({
                     targets: ".word__content",
-                    translateY: "-=130px",
+                    translateY: "-=160px",
                     easing: "easeOutQuart",
                     delay: anime.stagger(50),
-                }, "-=200")
+                }, "-=2000")
                 .add({
-                    targets: ".tag",
+                    targets: ".project-hero__content__misc__border",
+                    width: "100%",
+                    easing: "easeOutQuint",
+                    delay: anime.stagger(50),
+                }, "-=1800")
+                .add({
+                    targets: ".project-hero__content__misc__content",
                     translateY: "-=25px",
                     opacity:1,
                     easing: "easeOutQuart",
                     delay: anime.stagger(50),
-                }, "-=200")
+                }, "-=1600")
                 .add({
-                    targets: ".project__container",
-                    translateY: "-=25px",
+                    targets: ".invite-to-scroll-with-text",
+                    translateX: "-=25px",
                     opacity:1,
                     easing: "easeOutQuart",
-                    delay: anime.stagger(50),
-                }, "-=200")
+                }, "-=1600")
 
 
 
             });
-
-
-        var convertRange = function (value, r1, r2, rounded = true) {
-            value = ((value - r1[0]) * (r2[1] - r2[0])) / (r1[1] - r1[0]) + r2[0];
-            if (rounded) {
-                return Math.round(value);
-            } else {
-                return Math.round(value * 10) / 10;
-            }
-        };
-        
-        // $(".project__hero__content__date").fitText();
- 
-        var computeBackgroundParallax = function() {
-            
-            const offset = ($(window).scrollTop() / 4).toFixed(0);
-            const contentOffset = -($(window).scrollTop() / 6).toFixed(0);
-            const realContentOffset = contentOffset < -60 ? -60 : contentOffset;
-
-            
-            // $(".shape-container").css({
-            //     "transform": "translate3d(0," + realContentOffset + "px, 0)"
-            // });
-
-        }
-        
-        $(window).on("scroll", function(){
-            computeBackgroundParallax();
-        });
-
-        computeBackgroundParallax();
 
     </script>
 

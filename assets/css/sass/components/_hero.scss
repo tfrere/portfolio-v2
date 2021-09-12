@@ -1,0 +1,53 @@
+.hero {
+  @apply w-full flex items-center overflow-hidden relative justify-center;
+  // height: calc(100vh - #{$nav-height});
+  height: 100vh;
+  padding-top: $nav-height;
+  & > div {
+    @apply opacity-0;
+    transition: all 200ms ease;
+  }
+
+  &.page--dom-loaded > div {
+    opacity: 1;
+  }
+
+  .hero__content {
+    @apply relative container pointer-events-none;
+    z-index: 1;
+  }
+
+  .hero__content__title {
+    @apply relative select-none font-serif text-9xl font-black text-left text-black  pointer-events-none m-0 leading-none;
+    font-size: 9rem;
+    z-index: 1;
+  }
+
+  .hero__content__title-container {
+    pointer-events: none;
+  }
+
+  .hero__content__title__word {
+    @apply overflow-hidden relative inline-block pointer-events-none p-0 -my-3;
+  }
+
+  .hero__content__title__word__content,
+  .hero__content__title__word__content--first {
+    @apply relative inline-block  pt-1 pb-3  pointer-events-none overflow-hidden;
+  }
+}
+
+.typewrite .cursor {
+  border-right: 0.08em solid black;
+  padding-right: 12px;
+}
+
+.typewrite .cursor.blinking {
+  animation: blink-animation 1.5s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

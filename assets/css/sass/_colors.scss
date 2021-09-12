@@ -3,37 +3,41 @@ $greenSaturation: 39%;
 $greenLightness: 70%;
 $green: hsl($greenHue, $greenSaturation, $greenLightness);
 $darken-green: darken($green, 15%);
+$nav-green: #83c79a;
 
 $blueHue: 188;
 $blueSaturation: 37%;
 $blueLightness: 64%;
 $blue: hsl($blueHue, $blueSaturation, $blueLightness);
 $darken-blue: darken($blue, 15%);
+$nav-blue: #78b0b8;
 
 $pinkHue: 345;
 $pinkSaturation: 81%;
 $pinkLightness: 77%;
 $pink: hsl($pinkHue, $pinkSaturation, $pinkLightness);
 $darken-pink: darken($pink, 10%);
+$nav-pink: #e790a6;
 
+// F38949
 $orangeHue: 23;
 $orangeSaturation: 88%;
 $orangeLightness: 62%;
 $orange: hsl($orangeHue, $orangeSaturation, $orangeLightness);
 $darken-orange: darken($orange, 15%);
+$nav-orange: #ec8444;
 
 $yellowHue: 48;
 $yellowSaturation: 100%;
 $yellowLightness: 57%;
-// $yellowHue: 48;
-// $yellowSaturation: 87%;
-// $yellowLightness: 54%;
 $yellow: hsl($yellowHue, $yellowSaturation, $yellowLightness);
 $darken-yellow: darken($yellow, 15%);
+$nav-yellow: #f4cc25; //#f8cf26;
 
 :root {
   --background-color: #{$green};
   --darken-background-color: #{$darken-green};
+  --nav-background-color: #{$nav-green};
   --background-hue: #{$greenHue};
   --complement-color: #{$orange};
   --darken-complement-color: #{darken($orange, 15%)};
@@ -52,50 +56,75 @@ $darken-yellow: darken($yellow, 15%);
   --background-color: #{$green};
   --complement-color: #{$orange};
   --darken-background-color: #{$darken-green};
+  --nav-background-color: #{$nav-green};
   --darken-complement-color: #{darken($orange, 15%)};
   --background-hue: #{$greenHue};
   --background-saturation: #{$greenSaturation};
   --background-lightness: #{$greenLightness};
 }
 
+.bg-nav-green {
+  --nav-background-color: #{$nav-green};
+}
+
 .bg-orange {
   --background-color: #{$orange};
   --complement-color: #{$green};
   --darken-background-color: #{$darken-orange};
+  --nav-background-color: #{$nav-orange};
   --darken-complement-color: #{darken($green, 15%)};
   --background-hue: #{$orangeHue};
   --background-saturation: #{$orangeSaturation};
   --background-lightness: #{$orangeLightness};
 }
 
+.bg-nav-orange {
+  --nav-background-color: #{$nav-orange};
+}
+
 .bg-yellow {
   --background-color: #{$yellow};
   --complement-color: #{$green};
   --darken-background-color: #{$darken-yellow};
+  --nav-background-color: #{$nav-yellow};
   --darken-complement-color: #{darken($green, 15%)};
   --background-hue: #{$yellowHue};
   --background-saturation: #{$yellowSaturation};
   --background-lightness: #{$yellowLightness};
 }
 
+.bg-nav-yellow {
+  --nav-background-color: #{$nav-yellow};
+}
+
 .bg-pink {
   --background-color: #{$pink};
   --complement-color: #{$yellow};
   --darken-background-color: #{$darken-pink};
+  --nav-background-color: #{$nav-pink};
   --darken-complement-color: #{darken($yellow, 15%)};
   --background-hue: #{$pinkHue};
   --background-saturation: #{$pinkSaturation};
   --background-lightness: #{$pinkLightness};
 }
 
+.bg-nav-pink {
+  --nav-background-color: #{$nav-pink};
+}
+
 .bg-blue {
   --background-color: #{$blue};
   --complement-color: #{$pink};
   --darken-background-color: #{$darken-blue};
+  --nav-background-color: #{$nav-blue};
   --darken-complement-color: #{darken($pink, 15%)};
   --background-hue: #{$blueHue};
   --background-saturation: #{$blueSaturation};
   --background-lightness: #{$blueLightness};
+}
+
+.bg-nav-blue {
+  --nav-background-color: #{$nav-blue};
 }
 
 .bg-green--important {
@@ -103,10 +132,15 @@ $darken-yellow: darken($yellow, 15%);
   --complement-color: #{$orange};
   --darken-background-color: #{$darken-green};
   --darken-complement-color: #{darken($orange, 15%)};
+  --nav-background-color: #{$nav-green};
   --background-hue: #{$greenHue};
   --background-saturation: #{$greenSaturation};
   --background-lightness: #{$greenLightness};
   background-color: $green !important;
+}
+
+.bg-nav-green--important {
+  --nav-background-color: #{$nav-green};
 }
 
 .bg-orange--important {
@@ -114,10 +148,15 @@ $darken-yellow: darken($yellow, 15%);
   --complement-color: #{$green};
   --darken-background-color: #{$darken-orange};
   --darken-complement-color: #{darken($green, 15%)};
+  --nav-background-color: #{$nav-orange};
   --background-hue: #{$orangeHue};
   --background-saturation: #{$orangeSaturation};
   --background-lightness: #{$orangeLightness};
   background-color: $orange !important;
+}
+
+.bg-nav-orange--important {
+  --nav-background-color: #{$nav-orange};
 }
 
 .bg-yellow--important {
@@ -125,10 +164,15 @@ $darken-yellow: darken($yellow, 15%);
   --complement-color: #{$green};
   --darken-background-color: #{$darken-yellow};
   --darken-complement-color: #{darken($green, 15%)};
+  --nav-background-color: #{$nav-yellow};
   --background-hue: #{$yellowHue};
   --background-saturation: #{$yellowSaturation};
   --background-lightness: #{$yellowLightness};
   background-color: $yellow !important;
+}
+
+.bg-nav-yellow--important {
+  --nav-background-color: #{$nav-yellow};
 }
 
 .bg-pink--important {
@@ -136,10 +180,15 @@ $darken-yellow: darken($yellow, 15%);
   --complement-color: #{$yellow};
   --darken-background-color: #{$darken-pink};
   --darken-complement-color: #{darken($yellow, 15%)};
+  --nav-background-color: #{$nav-pink};
   --background-hue: #{$pinkHue};
   --background-saturation: #{$pinkSaturation};
   --background-lightness: #{$pinkLightness};
   background-color: $pink !important;
+}
+
+.bg-nav-pink--important {
+  --nav-background-color: #{$nav-pink};
 }
 
 .bg-blue--important {
@@ -147,8 +196,13 @@ $darken-yellow: darken($yellow, 15%);
   --complement-color: #{$pink};
   --darken-background-color: #{$darken-blue};
   --darken-complement-color: #{darken($pink, 15%)};
+  --nav-background-color: #{$nav-blue};
   --background-hue: #{$blueHue};
   --background-saturation: #{$blueSaturation};
   --background-lightness: #{$blueLightness};
   background-color: $blue !important;
+}
+
+.bg-nav-blue--important {
+  --nav-background-color: #{$nav-blue};
 }

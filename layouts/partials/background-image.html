@@ -1,6 +1,6 @@
 {{- $images := (.Page.Resources.Match (printf "%s*" "images/background")) -}}
 {{ range $images }}
-    <div class="project__hero__content__image">
+    <div data-scroll data-scroll-delay='0.05' data-scroll-speed='6' data-scroll-offset="25%, 25%" data-scroll-class="is-in-viewport" class="projects__project__content__image">
         <img alt="" src="{{.RelPermalink}}">
     </div>
 {{ end }}

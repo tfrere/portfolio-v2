@@ -6,6 +6,6 @@
 {{- /* Find in page bundle all valid video files with matching name. */ -}}
 {{ with $image_files }}
     {{ range $image := . }}
-    <img src="{{ $image.RelPermalink }}"/>
+        <img src="{{ $image.RelPermalink }}"/>
     {{ end }}
 {{ end }}

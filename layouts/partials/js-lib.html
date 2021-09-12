@@ -1,0 +1,41 @@
+
+    {{- $blob := resources.Get "js/components/Blob.js" | babel  -}}
+    {{- $boids := resources.Get "js/components/Boids.js" | babel  -}}
+    {{- $wave := resources.Get "js/components/Wave.js" | babel  -}}
+    {{- $textType := resources.Get "js/components/TextType.js" | babel  -}}
+    {{- $anime := resources.Get "js/lib/anime.min.js" -}}
+    {{- $chroma := resources.Get "js/lib/chroma.min.js" -}}
+    {{- $jquery := resources.Get "js/lib/jquery.min.js" -}}
+    {{- $jsCookie := resources.Get "js/lib/js.cookie.min.js" -}}
+    {{- $debounce := resources.Get "js/lib/jquery.debounce.min.js" -}}
+    {{- $mousewheel := resources.Get "js/lib/jquery.mousewheel.min.js" -}}
+    {{- $imageloaded := resources.Get "js/lib/jquery.imageloaded.min.js" -}}
+    {{- $fluidbox := resources.Get "js/lib/jquery.fluidbox.min.js" -}}
+    {{- $colcade := resources.Get "js/lib/colcade.js" -}}
+    {{- $lazyload := resources.Get "js/lib/lazyload.min.js" -}}
+    {{- $romanize := resources.Get "js/lib/romanize.js" -}}
+    {{- $fittext := resources.Get "js/lib/fittext.jquery.js" -}} 
+    {{- $locomotivescroll := resources.Get "js/lib/locomotivescroll.min.js" -}} 
+    {{- $gridLoadingEffect := resources.Get "js/components/GridLoadingEffect.js" -}} 
+    {{- $colorDrop := resources.Get "js/components/ColorDrop.js" -}} 
+
+    <script src={{$anime.Permalink}} type="text/javascript"></script>
+    <script src={{$jquery.Permalink}} type="text/javascript"></script>
+    <script src={{$jsCookie.Permalink}} type="text/javascript"></script>
+    <script src={{$chroma.Permalink}} type="text/javascript" ></script>
+    <script src={{$debounce.Permalink}} type="text/javascript"></script>
+    <script src={{$mousewheel.Permalink}} type="text/javascript"></script>
+    <script src={{$imageloaded.Permalink}} type="text/javascript"></script>
+    <script src={{$fluidbox.Permalink}} type="text/javascript"></script>
+    <script src={{$colcade.Permalink}} type="text/javascript" ></script>
+    <script src={{$lazyload.Permalink}} type="text/javascript" ></script>
+    <script src={{$blob.Permalink}} type="text/javascript" ></script>
+    <script src={{$boids.Permalink}} type="text/javascript" ></script>
+    <script src={{$wave.Permalink}} type="text/javascript" ></script>
+    <script src={{$romanize.Permalink}} type="text/javascript" ></script>
+    <script src={{$fittext.Permalink}} type="text/javascript" ></script>
+    <script src={{$textType.Permalink}} type="text/javascript" ></script>
+    <script src={{$locomotivescroll.Permalink}} type="text/javascript" ></script>
+    <script src={{$gridLoadingEffect.Permalink}} type="text/javascript" ></script>
+    <script src={{$colorDrop.Permalink}} type="text/javascript" ></script>
+    

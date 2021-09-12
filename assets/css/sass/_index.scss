@@ -1,42 +1,105 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght:wght@400;500;600;700;800;900&family=Varela+Round&display=swap");
-
 @import "lib/luminance";
+@import "lib/locomotivescroll.min";
 
 @import "components/nav";
 @import "components/wave";
 @import "components/underline";
-@import "components/three-dimensional-hover";
 @import "components/section-divider";
 @import "components/title-separator";
 @import "components/line-separator";
-@import "components/text-dig-effect";
+@import "components/marquee";
+@import "components/text";
+@import "components/cursor";
+@import "components/burger-menu";
+@import "components/stamp";
+
+$canvas-z-index: 0;
+$wave-z-index: 998;
+$nav-z-index: 999;
+$nav-height: 84px;
+$border-size: 30px;
+$page-z-index: 1;
+
+body {
+  overscroll-behavior-y: none;
+}
 
 html {
   height: 100%;
   margin: 0;
   @apply antialiased;
   font-synthesis: none;
+  *::selection {
+    color: white;
+    background-color: var(--complement-color);
+  }
 }
 
+// DEBUG VERTICAL RYTHM
 
-.footer {
-  text-align: center;
-  color: var(--darken-background-color);
-  text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+// .page::before {
+//   content: "";
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: 999999999999;
+//   display: block;
+//   background: linear-gradient(
+//     to bottom,
+//     rgba(0, 0, 0, 0.1),
+//     rgba(0, 0, 0, 0.1) 1px,
+//     transparent 1px,
+//     transparent
+//   );
+//   background-size: 100% 24px;
+// }
+
+//
+
+.hide-on-mobile {
+  @apply w-full h-full absolute top-0 left-0 flex items-center justify-center;
+  z-index: 99999999999;
+  background-color: var(--background-color);
+}
+
+@media only screen and (min-width: 1200px) {
+  .hide-on-mobile {
+    @apply hidden;
+  }
+}
+
+#canvas {
+  @apply absolute z-0;
+  width: calc(100% - #{$border-size * 2});
+  height: calc(100% - #{$nav-height + $border-size});
+  top: $nav-height;
+  left: $border-size;
+  z-index: 0;
+  opacity: 1;
+}
+
+.color-drop {
+  @apply absolute top-0 left-0 w-full h-full pointer-events-none;
+  z-index: 99999999999;
+}
+
+#wave,
+#wave2 {
+  @apply fixed pointer-events-none left-0 top-0;
+  width: 100%;
+  height: 100%;
+  // z-index: 998;
+  z-index: 99999999;
 }
 
 body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   scroll-behavior: smooth;
 }
-
-// .shape-outside {
-//   shape-outside: url(../../../projects/the-marianne-project/images/gif.svg);
-//   shape-margin: 20px;
-// }
-// .shape-outside img {padding:0;}
 
 @import "colors";
 @import "components/levels";
@@ -46,143 +109,20 @@ body {
 @import "components/inner-shadow";
 @import "components/invite-to-scroll";
 @import "components/button";
+@import "components/container";
+@import "components/page";
 
-.font-text,
-.font-serif {
-  font-feature-settings: "salt";
-  font-variant-ligatures: common-ligatures;
-  -webkit-font-smoothing: antialiased;
+// SCREEN SIZE
+
+.screen-size {
+  @apply relative w-full h-full flex justify-center items-center py-8;
+  min-height: calc(100vh - 84px);
+  width: calc(100% - 60px) !important;
+  margin: 0 30px;
 }
 
-.page__background {
-  position: absolute;
-}
-
-.page__background:after {
-  content: "";
-  @apply pointer-events-none select-none;
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background-image:url(../images/background-grain.png);
-  // background-image:url(../images/dots-transparent.png);
-  opacity: 1;
-  // background-image: radial-gradient(var(--darken-background-color) .8px,transparent .8px);
-  // background-size: 40px 40px;
-  // background-position: 0 0,16px 16px; 
-  z-index: 0;
-  &--fixed {
-  position: fixed;
-  }
-}
-
-.page {
-  @apply pt-16 pb-8 min-h-full;
-  overflow: overlay;
-  transition: background-color var(--background-transition-duration)
-    var(--background-transition-ease);
-
-  &--without-padding {
-    @apply pt-0;
-  }
-
-  & > div {
-    opacity: 0!important;
-    transition: opacity 350ms ease;
-  }
-
-  &--dom-loaded > div {
-    opacity: 1 !important;
-  }
-}
-
-.container {
-  @apply w-full mx-auto;
-}
-
-@media (min-width: 576px) {
-  .container {
-    max-width: 576px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 992px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-  }
-}
-
-.project__nav,
-.visual__nav {
-  @apply fixed bottom-0 top-0 my-auto;
-  z-index: 60;
-  width: 40px;
-  height: 40px;
-}
-
-.project__nav svg {
-  transition: fill var(--background-transition-duration)
-    var(--background-transition-ease);
-  fill: black;
-  width: 40px;
-  height: 40px;
-}
-
-.project__nav--white svg {
-  fill: white;
-}
-
-.project__nav__link,
-.visual__nav__link {
-  @apply block;
-  width: 40px;
-  height: 40px;
-}
-
-.project__nav--next,
-.visual__nav--next {
-  @apply right-0 mr-8;
-}
-
-.project__nav--previous,
-.visual__nav--previous {
-  @apply left-0 ml-8;
-  transform: rotate(180deg);
-}
-
-
-@keyframes levitate{
-  0% {
-      transform: translateY(-10px);
-  }
-  50% {
-      transform: translateY(0px);
-  }
-  100%{
-      transform: translateY(-10px);
-  }
-
-}
-
-.levitation {
-  animation: levitate 3s alternate ease-in-out infinite;
-}
-
-
+@import "components/hero";
+@import "components/footer";
 @import "pages/landing";
 @import "pages/projects";
 @import "pages/project";
@@ -190,3 +130,6 @@ body {
 @import "pages/contact";
 @import "pages/visuals";
 @import "pages/visual";
+
+// put this at the end to be sure it will override all other component properties
+@import "components/apparitions";

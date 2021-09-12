@@ -1,0 +1,52 @@
+.container {
+  @apply w-full mx-auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 576px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.large-container {
+  width: 80%;
+  margin: 0 10%;
+}
+
+@media (min-width: 576px) {
+  .large-container {
+  }
+}
+
+@media (min-width: 768px) {
+  .large-container {
+  }
+}
+
+@media (min-width: 992px) {
+  .large-container {
+  }
+}
+
+@media (min-width: 1200px) {
+  .large-container {
+  }
+}

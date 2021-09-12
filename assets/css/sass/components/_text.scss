@@ -1,0 +1,64 @@
+.hero-title {
+  @apply relative select-none font-serif text-9xl font-black text-left text-black;
+  font-size: 9rem;
+
+  // SKETCH
+  //   font-family: Inter-ExtraBold;
+  //   font-size: 158px;
+  //   letter-spacing: 0;
+  //   line-height: 163px;
+}
+
+.hero-subtitle {
+  border: 0 solid #000000;
+  font-family: Inter-ExtraBold;
+  font-size: 100px;
+  letter-spacing: 0;
+}
+
+.hero-text {
+  font-family: Inter-Regular;
+  font-size: 34px;
+}
+
+.lead-text {
+  font-family: Inter-Regular;
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.project-misc-text {
+  font-family: Inter-Bold;
+  font-size: 28px;
+  line-height: 42px;
+}
+
+.small-title {
+  font-family: Inter-ExtraBold;
+  font-size: 64px;
+  line-height: 72px;
+}
+
+.base-text {
+  font-family: Inter-Light;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.small-text {
+  font-family: Inter-Light;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.label {
+  font-family: Inter-Regular;
+  font-size: 18px;
+  letter-spacing: 3.8px;
+  @apply text-base font-sans tracking-widest uppercase;
+  letter-spacing: 0.15rem;
+  a {
+    // text-decoration: underline;
+    color: rgba(9, 9, 9, 0.3);
+  }
+}

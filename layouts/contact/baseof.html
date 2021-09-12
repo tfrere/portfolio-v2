@@ -1,105 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     {{- partial "head.html" . -}}
     <body>
         {{- partial "header.html" . -}}
-        <div class="contact page bg-yellow">
+        <div class="hero contact page page--with-bottom-border bg-yellow">
             <div class="page__background"></div>
-            <div class="contact__content">
-                {{ partial "shape-contact" }}
-                <h1 class="contact__content__title">
-                    <span class="word"><span class="word__content">A</span></span>
-                    <span class="word"><span class="word__content italic">cool</span></span>
-                    <span class="word"><span class="word__content italic">project</span></span>
-                    <span class="word"><span class="word__content">in</span></span>
-                    <span class="word"><span class="word__content">mind</span></span>
-                    <span class="word"><span class="word__content">and</span></span>
-                    <span class="word"><span class="word__content">you</span></span>
-                    <span class="word"><span class="word__content">think</span></span>
-                    <span class="word"><span class="word__content">that</span></span>
-                    <span class="word"><span class="word__content italic">i</span></span>
-                    <span class="word"><span class="word__content italic">can</span></span>
-                    <span class="word"><span class="word__content italic">contribute</span></span>
-                    <span class="word"><span class="word__content">?</span></span>
-                </h1>
-                <p class="contact__content__email">Feel free to write me an email at <a href="mailto:write@tfrere.fr" class="contact__content__email__value">write@tfrere.com</a></p>
-                <p class="contact__content__remote">I’m available in <span class="underline underline--small">full remote</span> from Metz, France</p>
-                <div class="contact__content__socials">
-                    <a target="_blank" class="contact__content__socials__item" href="https://github.com/tfrere"><img class="contact__content__socials__item__image" src="{{ .Site.BaseURL }}images/github.svg"/></a>
-                    <a target="_blank" class="contact__content__socials__item" href="https://www.linkedin.com/in/thibaud-frere-3462b264"><img class="contact__content__socials__item__image" src="{{ .Site.BaseURL }}images/linkedin.svg"/></a>
-                    <a target="_blank" class="contact__content__socials__item" href="https://www.behance.net/frerethibaud9207"><img class="contact__content__socials__item__image" src="{{ .Site.BaseURL }}images/behance.svg"/></a>
-                    <a target="_blank" class="contact__content__socials__item" href="https://codepen.io/tfrere"><img class="contact__content__socials__item__image" src="{{ .Site.BaseURL }}images/codepen.svg"/></a>
+            <div>
+                <canvas id="canvas"></canvas>
+                <div class="hero__content">
+                    <h1 class="hero__content__title">
+                        <span class="hero__content__title__word"><span class="hero__content__title__word__content">Always</span></span>
+                        <span class="hero__content__title__word"><span class="hero__content__title__word__content">keen</span></span>
+                        <br/>
+                        <span class="hero__content__title__word"><span class="hero__content__title__word__content">for</span></span>
+                        <span class="hero__content__title__word"><span class="hero__content__title__word__content">a</span></span>
+                        <span class="hero__content__title__word"><span class="hero__content__title__word__content">good</span></span>
+                        <br/>
+                        <span class="hero__content__title__word"><span class="hero__content__title__word__content">collab</span></span>
+                    </h1>
+                </div>
+                <div class="container">
+                    <p class="hero__content__sub-title">
+                        Feel free to write me an email at
+                        <span class="click-to-copy-container">
+                            <a id="click-to-copy" href="mailto:write@tfrere.fr" class="button">
+                                <span class="button__content">write@tfrere.com</span>
+                            </a>
+                            <span class="click-to-copy-container__info-message">Copied to clipboard !</span>
+                        </span>
+                    </p>
+                    <p class="hero__content__text">I’m available in <span class="underline underline--small">full remote</span> from Metz, France</p>
                 </div>
             </div>
+
         </div>
         {{- partial "js.html" . -}}
         </div>
         <script>
                 $(function() {
 
+                    let clickToCopyTimeout = null;
+
+                    $("#click-to-copy").on("click",(e)=>{
+                        e.preventDefault();
+                        e.stopPropagation();
+                        navigator.clipboard.writeText("write@tfrere.fr").then(function() {
+                            $(".click-to-copy-container__info-message").addClass("show");
+                            clearTimeout(clickToCopyTimeout);
+                            clickToCopyTimeout = window.setTimeout(()=>{
+                                $(".click-to-copy-container__info-message").removeClass("show");
+                            }, 1000);
+                        }, function() {
+                            window.location.href = "mailto:write@tfrere.fr";
+                        });
+                    });
+
+                    // let color = "white";
+                    // let speed = 2;
+                    // let size = 6;
+                    // let number_of_boids = 500;
+                    
+                    // canvas = document.getElementById('canvas');
+                    
+                    // var boidsInstance = new Boids(canvas, speed, size, number_of_boids);
+                    
+                    // boidsInstance.render();
+
                     var timeline = anime.timeline({
                     loop: false,
                     duration: 400,
                     });
 
-                    anime.set(".word__content", {
+                    anime.set("#canvas", {
+                        opacity: 0
+                    });
+
+                    anime.set(".hero__content__title__word__content", {
                     translateY: "+=180px",
                     });
 
-                    anime.set(".shape", {
-                    translateY: "+=50px",
-                    opacity:0
-                    });
-
-                    anime.set(".contact__content__email", {
+                    anime.set(".hero__content__sub-title", {
                     translateY: "+=25px",
                     opacity:0
                     });
 
-                    anime.set(".contact__content__remote", {
+                    anime.set(".hero__content__text", {
                     translateY: "+=25px",
                     opacity:0
                     });
 
-                    anime.set(".contact__content__socials__item", {
+                    anime.set(".hero__content__socials__item", {
                     translateY: "+=25px",
                     opacity:0
                     });
 
                     var animation = timeline
                     .add({
-                        targets: ".shape",
-                        translateY: "-=50px",
-                        easing: "easeOutQuart",
-                        opacity:1,
-                        duration: 450,
+                        targets: ".hero__content__title__word__content--first",
+                        delay: 500
                     })
                     .add({
-                        targets: ".word__content",
+                        targets: ".hero__content__title__word__content",
                         translateY: "-=180px",
                         easing: "easeOutQuart",
                         delay: anime.stagger(50),
                     }, "-=300")
                     .add({
-                        targets: ".contact__content__email",
-                        delay: 250,
-                    })
+                        targets: "#canvas",
+                        opacity: 1,
+                        easing: "linear",
+                        duration:300
+                    }, "-=200")
                     .add({
-                        targets: ".contact__content__email",
+                        targets: ".hero__content__sub-title",
                         translateY: "-=25px",
                         easing: "easeOutQuart",
                         opacity:1,
                         duration: 250,
                     }, "-=150")
                     .add({
-                        targets: ".contact__content__remote",
+                        targets: ".hero__content__text",
                         translateY: "-=25px",
                         easing: "easeOutQuart",
                         opacity:1,
                         duration: 250,
                     }, "-=150")
                     .add({
-                        targets: ".contact__content__socials__item",
+                        targets: ".hero__content__socials__item",
                         translateY: "-=25px",
                         easing: "easeOutQuart",
                         opacity:1,

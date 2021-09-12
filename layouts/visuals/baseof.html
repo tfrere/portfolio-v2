@@ -1,13 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     {{- partial "head.html" . -}}
-    <body>
+    <body data-scroll-container>
         {{- partial "header.html" . -}}
-        <div class="visuals page bg-orange">
-            <div class="page__background page__background--fixed"></div>
-            {{- block "main" . }}{{- end }}
-            {{- partial "js.html" . -}}
-        </div>
+        {{- block "main" . }}{{- end }}
     </body>
 </html>
 

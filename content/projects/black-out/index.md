@@ -1,18 +1,20 @@
 ---
-title: "Black Out Short Movie"
+title: "The BlackOut Project"
 date: 2020-03-02T01:00:04+01:00
-draft: false
-tags: ["cinema"]
+draft: true
+tags: ["sci-fi short movie"]
 roles:
   - Sf consulting
   - UI Design
   - Developement
-description: Science fiction La Femis movie
+client: La Femis
+number: 03
+description: A La Femis short movie. The science fiction piece takes place entirely indoors in a space shuttle on its return from Mars where five astronauts try to unmask the alien that has infiltrated their ship.
 ---
 
 {{< leading text="This project is a collaboration with a team a La Femis" >}}
 
-The science fiction piece takes place entirely indoors in a space shuttle on its return from Mars where five astronauts try to unmask the alien that has infiltrated their ship. 
+The science fiction piece takes place entirely indoors in a space shuttle on its return from Mars where five astronauts try to unmask the alien that has infiltrated their ship.
 
 https://www.arri.com/en/company/arri-news/news-stories/news-stories-2020/neuer-inhalt-1-
 

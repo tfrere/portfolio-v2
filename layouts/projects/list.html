@@ -1,107 +1,130 @@
 {{ define "main" }}
     {{- partial "header.html" . -}}
-    <div class="page bg-blue">
-        <div class="page__background"></div>
-        <div class="container projects">
-            <div class="projects__year-block">
-                {{ range .Pages.GroupByDate "2006" }}
-                    <div class="projects__year-block__projects">
-                        <h3 class="projects__year-block__year">
-                            <span class="word">
-                                <span class="word__content">
-                                    {{ .Key }}
-                                </span>
+    <div class="page page--with-bottom-border projects bg-blue" >
+
+        <div>
+            <div class="page__background"></div>
+
+            <div data-scroll-section class="projects__header">
+                <div class="projects__header__content">
+                    <h1 data-scroll data-scroll-speed='0.5' class="projects__header__title word">
+                        <span class="word__content">Projects.</span>
+                    </h1>
+                    <div class="projects__header__illustration">
+                        <div data-scroll data-scroll-speed='2' id="text-start" class="">
+                            {{ readFile "static/images/projects-type.svg" | safeHTML }}
+                        </div>
+                    </div>   
+                    <div class="invite-to-scroll"></div>             
+                </div>
+            </div>
+
+
+            {{ range $index, $element := .Pages }}
+                <div data-scroll-section id="project-{{$index}}" class="projects__project projects__project-{{$index}}">
+                    <h3 class="projects__project__index">0{{add $index  1 }}.</h3>
+                    <a class="projects__project__content nav-link" href="{{ .RelPermalink }}">
+                        <div class="projects__project__content__info">
+                            <h3 data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="projects__project__content__info__title fade-in-top">{{ .Title }}</h3>
+                            <span  data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="projects__project__content__info__tag fade-in">
+                                {{ with .Params.tags }}
+                                    {{ range . }}
+                                        {{ $href := print (absURL "tags/") (urlize .) }}
+                                        {{ . }}
+                                    {{ end }}
+                                {{ end }}
                             </span>
-                        </h3>
-                        {{ partial "shape-projects" (dict "context" . "dotSize" 160) }}
-                        {{ range $index, $element := .Pages }}
-                            <a class="projects__year-block__project projects__year-block__project-{{$index}}" href="{{ .RelPermalink }}">
-                                <div class="projects__year-block__project__title-block">
-                                    <h3 class="projects__year-block__project__title-block__title">{{ .Title }}</h3>
-                                    <div class="projects__year-block__project__title-block__line"></div>
-                                    <div class="projects__year-block__project__title-block__square">
-                                        <span class="projects__year-block__project__title-block__square__index">{{ partial "romanize" (dict "context" . "number" $index) }}</span>
-                                    </div>
+                            <p data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="projects__project__content__info__desc fade-in-top">{{ .Description | replaceRE "<p>" "" | safeHTML | markdownify }}</p>
+                        </div>
+                        {{- $images := (.Page.Resources.Match (printf "%s*" "images/background")) -}}
+                        {{ range $images }}
+                            <div data-scroll data-scroll-delay='0.1' data-scroll-speed='1.2' data-scroll-offset="25%, 25%" data-scroll-class="is-in-viewport" class="projects__project__content__image">
+                                <div class="projects__project__content__image__img">
+                                    <div data-scroll data-scroll-speed='-1.05' class="projects__project__content__image__img__bg" style="background-image:url({{.RelPermalink}})"></div>
                                 </div>
-                                <div class="projects__year-block__project__info">
-                                    <span class="projects__year-block__project__info__tag">
-                                        {{ with .Params.tags }}
-                                            {{ range . }}
-                                                {{ $href := print (absURL "tags/") (urlize .) }}
-                                                {{ . }}
-                                            {{ end }}
-                                        {{ end }}
-                                    </span>
-                                    <p class="projects__year-block__project__info__desc">{{ .Description }}</p>
-        
-                                </div>
-                            </a>
+                                <!-- <div data-scroll data-scroll-delay='0.1' data-scroll-speed='1.5' class="projects__project__content__image__square"></div> -->
+                            </div>
                         {{ end }}
-                        <!-- <div class="line-separator"></div> -->
-                    </div>
-                {{ end }}
+                        </a>
+                </div>
+            {{ end }}
+
+            <div data-scroll-section class="projects__footer">
+                <div class="" >
+                    <h2 data-scroll  data-scroll-offset="25%, 25%" data-scroll-call="popTitle" data-scroll-class="is-in-viewport" class="projects__footer__title">
+                        <span class="word"><span class="word__content">And</span></span>
+                        <span class="word"><span class="word__content">more.</span></span>
+                    </h2>
+                    <a data-scroll data-scroll-class="is-in-viewport" data-scroll-offset="25%, 25%"  id="orange" class="nav-link button fade-in-top" href="/visuals" ><span class="button__content">Give a look</span></a>
+                </div>
             </div>
         </div>
-        {{- partial "footer.html" . -}}
-
+    </div>
+     
         <script>
- 
-                $(function () {
 
-                    anime.set(".word__content", {
-                    translateY: "+=80px",
-                    });
-
-                    anime.set(".shape", {
-                    translateY: "+=50px",
-                    opacity:0
-                    });
-
-                    anime.set(".projects__year-block__project", {
-                    translateY: "+=25px",
-                    opacity:0
-                    });
-
-
-                    $(".projects__year-block__projects").each(function(index, elem){
-
-                        var that = this;
-                        window.setTimeout(function(){
-
-                            var timeline = anime.timeline({
-                                loop: false,
-                                duration: 400,
-                            });
-                            
-                            var animation = timeline
-                            .add({
-                                targets: $(that).find(".shape").get(),
-                                translateY: "-=25px",
-                                easing: "easeOutQuart",
-                                opacity:1,
-                                delay: 100,
-                                duration:250
-                            })
-                            .add({
-                                targets: $(that).find(".word__content").get(),
-                                translateY: "-=80px",
-                                easing: "easeOutQuart",
-                                delay: anime.stagger(150),
-                            }, "-=300")
-                            .add({
-                                targets: $(elem).find(".projects__year-block__project").get(),
-                                translateY: "-=25px",
-                                opacity:1,
-                                duration:450,
-                                easing: "easeOutQuart",
-                                delay: anime.stagger(150),
-                            }, "-=200");
-                        }, index * 500);
-
-                    });
-
-
+            $(function() {
+                window.locomotiveScroll2 = new LocomotiveScroll({
+                    el: document.querySelector("[data-scroll-container]"),
+                    smooth: true,
                 });
+
+                window.locomotiveScroll2.on("call", function (func) {
+                    window[func]();
+                });
+
+                var timeline = anime.timeline({
+                loop: false,
+                duration: 400,
+                });
+
+                anime.set("h2 .word__content", {
+                    translateY: "+=180px",
+                });
+
+                window.popTitle = function() {
+                    console.log(1);
+                    anime.timeline({duration: 400}).add({
+                        targets: "h2 .word__content",
+                        translateY: "-=180px",
+                        easing: "easeOutQuart",
+                        delay: anime.stagger(50),
+                    }, );
+                };
+
+                anime.set(".word__content", {
+                    translateY: "+=160px",
+                });
+
+                anime.set(".invite-to-scroll", {
+                    opacity: "0",
+                });
+
+                var animation = timeline
+                .add({
+                    targets: ".projects__header__illustration svg path",
+                    duration: 300,
+                })
+                .add({
+                    targets: ".projects__header__illustration svg path",
+                    strokeDashoffset: [800, 0],
+                    easing: "easeOutQuart",
+                    duration: 2000
+                }, "+=300")
+                .add({
+                    targets: ".word__content",
+                    translateY: "-=160px",
+                    easing: "easeOutQuart",
+                    delay: anime.stagger(50),
+                }, "-=1800")
+                .add({
+                    targets: ".invite-to-scroll",
+                    opacity: "1",
+                    easing: "linear",
+                    duration: 200
+                })
+            });
+
         </script>
     </div>
 {{ end }}

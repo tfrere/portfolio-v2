@@ -1,0 +1,42 @@
+{{- $image_src := .Get "src" -}}
+{{- $image_files := (.Page.Resources.Match (printf "%s*" $image_src)) -}}
+{{ with $image_files }}
+    {{ range $image := . }}
+        {{ $width := float $image.Width }}
+        {{ $height := float $image.Height }}
+        {{ $toto := div $height $width }}
+        {{ $toto2 := mul $toto 100 }}
+        <div class="relative">
+            <!-- "data-scroll-delay" "0.1" -->
+            <div class="project__image" style="padding-bottom:{{ print $toto2 }}%;">
+            {{ partial "responsive-image" (dict "Site" $.Site 
+            "image" $image 
+            "attrs" (dict "class" "portfolio-photo" "data-scroll" "" "data-scroll-speed" "1.05")) }}
+        </div>
+
+        <svg class="stamp" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+            <title>Visit Site Link</title>
+          <defs>
+              <path d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250" id="textcircle">
+                  <animateTransform
+                      attributeName="transform"
+                      begin="0s"
+                      dur="30s"
+                      type="rotate"
+                      from="0 250 250"
+                      to="360 250 250"
+                      repeatCount="indefinite" 
+                      />
+              </path>
+          </defs>
+              <text class="stamp__asterisk"  dx="0" dy="0">
+                  *
+              </text>
+              <text class="stamp__text" dx="0" dy="0" textLength="1220">
+                  <textPath xlink:href="#textcircle">Carefuly crafting things since 2008 •</textPath>
+              </text>
+          </svg>
+
+        </div>
+    {{ end }}
+{{ end }}

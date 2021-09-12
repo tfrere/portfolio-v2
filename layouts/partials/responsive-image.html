@@ -26,7 +26,6 @@
 {{ $attributes := slice }}
 {{ range $name, $value := .attrs }}
   {{ $attributes = $attributes | append (printf "%s=%q" $name $value) }}
-{{ end }}
+  {{ end }}
 {{ $attributes = (delimit $attributes " ") }}
-
-<img alt="" class="lazy" src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
+<img alt="{{$image.Title}}" class="lazy" src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>

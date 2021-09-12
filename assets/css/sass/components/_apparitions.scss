@@ -1,0 +1,24 @@
+.fade-in-top {
+  @apply opacity-0 transform -translate-y-4;
+  transition: all 350ms ease-in-out;
+  &.is-in-viewport {
+    @apply opacity-100 transform translate-y-0;
+  }
+  &.fade-in-top--delay-1 {
+    @apply delay-100;
+  }
+  &.fade-in-top--delay-2 {
+    @apply delay-300;
+  }
+  &.fade-in-top--delay-3 {
+    @apply delay-500;
+  }
+}
+
+.fade-in {
+  @apply opacity-0;
+  transition: all 350ms ease-in-out;
+  &.is-in-viewport {
+    @apply opacity-100;
+  }
+}

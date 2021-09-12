@@ -1,33 +1,36 @@
 {{ define "main" }}
-<div class="visual container">
-    <div class="visual__nav visual__nav--previous">
+<div class="visuals page bg-orange">
+  <div class="page__background"></div>
+
+<div class="visual">
+    <!-- <div class="visual__nav visual__nav--previous">
         {{ if .NextPage }}
         {{ if eq .NextPage.Section "visuals" }}
         <a class="visual__nav__link nav-link" href="{{ .NextPage.Permalink }}">
           {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
         </a>
-        
-        <!-- {{ .NextPage.Title | truncate 50 "..." }} -->
+        {{ .NextPage.Title | truncate 50 "..." }}
         {{ end }}
         {{ end }}
   </div>
-
   <div class="visual__nav visual__nav--next">
       {{ if .PrevPage }}
       {{ if eq .PrevPage.Section "visuals" }}
       <a class="visual__nav__link nav-link" href="{{ .PrevPage.Permalink }}">
         {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
       </a>
-      <!-- {{ .PrevPage.Title | truncate 50 "..."}} -->
         {{ end }}
       {{ end }}
-  </div>
-  <div class="visual__hero">
-    <div class="visual__hero__text">
-      <span class="visual__hero__text__label"><a class="nav-link" href="{{ .Site.BaseURL }}visuals">Visuals</a> > Gallery</span>
-      <h1 class="visual__hero__text__title">
-        {{ $test := split .Title " "}}
-        {{range $test }}
+  </div> -->
+
+
+  <div class="large-container visual__hero">
+    <div class="visual__hero">
+      <!-- <a class="nav-link" href="{{ .Site.BaseURL }}visuals">Visuals</a> > -->
+      <span class="visual__hero__label"> Gallery</span>
+      <h1 class="visual__hero__title">
+        {{ $title := split .Title " "}}
+        {{range $title }}
           <span class="word">
             <span class="word__content">
               {{.}}
@@ -35,87 +38,64 @@
           </span>
         {{end}}
       </h1>
-      <p class="visual__hero__text__p">
+      <p class="visual__hero__p">
         {{ .Summary | replaceRE "<p>" "" | safeHTML }}
       </p>
-
+      <div class="invite-to-scroll"></div>
     </div>
-
-    {{ with .Resources.ByType "image" }}
-
-        {{ range first 1 . }}
-            <div class="visual__hero__image">
-              <div class="visual__hero__image__canvas"></div>
-                <div class="visual__hero__image__img">
-                  <a class="img-fluidbox" href="{{ .RelPermalink }}">
-                      {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "" )) }}
-                  </a>
-                </div>
-            </div>
-        {{ end }}
-      {{ end }}
-
-
   </div>
-  <ul class="grid">
-  {{ with .Resources.ByType "image" }}
-  {{ $len := len . }}
-  
-    {{ range $i, $image := . }}
-    {{ if not (eq $i 0) }}
-    {{ if not (in . "exclude") }}
 
-    <li class="grid__item">
-      <a class="img-fluidbox" href="{{ $image.RelPermalink }}">
-        {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "masonry__item__image" )) }}
-      </a>
-  </li>
-  {{ end }}
-    {{ end }}
+  <ul id="grid" class="large-container grid {{ .Title }}" >
+    <li class="grid__column"></li>
+    <li class="grid__column"></li>
+    {{ with .Resources.ByType "image" }}
+      {{ $len := len . }}
+      {{ range $i, $image := . }}
 
-    
+        {{ if not (eq $i 0) }}
+          {{ if not (in . "exclude") }}
+            <div class="grid__item grid__item--{{ $i }}" data-scroll data-scroll-offset="25%, 25%" data-scroll-class="animate" data-scroll-call="testFn" >
+              {{ $test := $image.Resize "1600x 80q" }}
+                <a class="img-fluidbox" href="{{ $test.RelPermalink }}">
+                  {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "masonry__item__image" )) }}
+                </a>
+            </div>
+          {{ end }}
+        {{ end }}
+
+      {{ end }}
     {{ end }}
-  {{ end }}
   </ul>
+
 </div>
 {{- partial "footer.html" . -}}
 
-<style>
-  .grid {
-    width:100%;
-  }
-  .grid__item {
-    width:calc(50% - 2rem);
-    padding:1rem;
-    margin:1rem;
-    box-sizing: border-box;
-	  display:inline;
-  }
-
-</style>
 <script>
 
     $(function () {
 
-        var $grid = $('.grid').imagesLoaded( function() {
-          $grid.masonry({
-            itemSelector: '.grid__item',
-            percentPosition: true
-          });
-        });
-
+          window.testFn = function(obj) {
+            console.log("test", obj);
+            window.setTimeout(()=>{
+              $(obj.el).addClass("animated");
+            }, 650);
+          }
 
           anime.set(".word__content", {
-            translateY: "+=80px",
+            translateY: "+=180px",
           });
 
-
-          anime.set(".visual__hero__text__label", {
+          anime.set(".visual__hero__label", {
             translateY: "+=25px",
             opacity:0
           });
 
-          anime.set(".visual__hero__text__p", {
+          anime.set(".invite-to-scroll", {
+            translateY: "+=25px",
+            opacity:0
+          });
+
+          anime.set(".visual__hero__p", {
             translateY: "+=25px",
             opacity:0
           });
@@ -129,9 +109,6 @@
             opacity:0
           });
 
-
-        $grid.on( 'layoutComplete', function( event, items ) {
-
           var timeline = anime.timeline({
           loop: false,
           duration: 400,
@@ -139,37 +116,38 @@
 
           var animation = timeline
           .add({
-              targets: ".visual__hero__text__label",
+              targets: ".visual__hero__label",
+              duration:250
+          })
+          .add({
+              targets: ".visual__hero__label",
               translateY: "-=25px",
               easing: "easeOutQuart",
               opacity:1,
               duration:250
-          }, "+=450")
+          })
           .add({
               targets: ".word__content",
-              translateY: "-=80px",
+              translateY: "-=180px",
               easing: "easeOutQuart",
               delay: anime.stagger(50),
-          }, "+=100")
+          }, "-=100")
           .add({
-              targets: ".visual__hero__text__p",
+              targets: ".visual__hero__p",
               translateY: "-=25px",
               easing: "easeOutQuart",
               opacity:1,
               delay: 100,
               duration:250
-          }, "-=300")
+          }, "-=250")
           .add({
-              targets: ".visual__hero__image",
+              targets: ".invite-to-scroll",
               translateY: "-=25px",
-              opacity:1,
-              duration:450,
               easing: "easeOutQuart",
-              delay: anime.stagger(150),
-              complete: function() {
-                $(".visual__hero__image").removeAttr("style");
-              }
-          }, "-=200")
+              opacity:1,
+              delay: 100,
+              duration:250
+          }, "-=250")
           .add({
               targets: ".grid",
               opacity:1,
@@ -177,17 +155,10 @@
               easing: "easeOutQuart",
           }, "-=200");
 
-
-        });
-
-
-        $('a.img-fluidbox').fluidbox();
-
-        $(window).on("scroll", function(){
-          $('a.img-fluidbox').trigger('close.fluidbox');
-        })
     });
 
-
 </script>
+
+{{- partial "js.html" . -}}
+</div>
 {{ end }}

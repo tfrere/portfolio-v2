@@ -1,0 +1,23 @@
+.stamp {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  bottom: -50px;
+  right: 50px;
+}
+
+.stamp__text {
+  font-size: 70px;
+  font-family: "Inter";
+  font-weight: 500;
+  fill: #111;
+  background: #333;
+}
+
+.stamp__asterisk {
+  font-size: 450px;
+  transform: translate(133px, 485px);
+  line-height: 1;
+  font-family: "Inter";
+  font-weight: 500;
+}

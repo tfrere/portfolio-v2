@@ -1,142 +1,199 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     {{- partial "head.html" . -}}
-    <body>
+    <body data-scroll-container>
         {{- partial "header.html" . -}}
         <div class="about page bg-pink">
             <div class="page__background"></div>
 
-            <div>
-            <div class="about__hero">
-                <div class="container about__hero__container">
-                    {{ partial "shape-about" }}
-                    <h1 class="about__hero__container__title">
-                        <span class="word"><span class="word__content">Web</span></span>
-                        <span class="word"><span class="word__content">designer</span></span>
-                        <span class="word"><span class="word__content text-white">&</span></span>
-                        <span class="word"><span class="word__content">Creative</span></span>
-                        <span class="word"><span class="word__content">programmer</span></span>
+            <div class="hero screen-size">
+                <div class="hero__content">
+                    <div class="about__svg" data-scroll data-scroll-delay='0.1' data-scroll-speed='1.2'>
+                        {{ readFile "static/images/about-background.svg" | safeHTML }}
+                    </div>
+                    <div class="invite-to-scroll-with-text"></div>
+                    <h1 class="hero__content__title">
+                        <span class="hero__content__title__word"><span class="hero__content__title__word__content">Designer</span></span>
+                        <br/>
+                        <span class="hero__content__title__word"><span class="hero__content__title__word__content">Creative</span></span>
+                        <br/>
+                        <span class="hero__content__title__word"><span class="hero__content__title__word__content">Programmer</span></span>
                     </h1>                     
-                    <span class="about__hero__container__desc">
-                        <span class="word "><span class="word__content">Carefully crafting things since 2008</span></span>
+                    <span class="hero__content__sub-title">
+                        Carefully crafting things since 2008
                     </span>   
                 </div>
             </div>
-            <div class="container about__content">
-                <p class="about__content__lead">
-                    I lead front-end development for companies and organizations, building <strong class="underline">resilient UI foundations</strong> for their online experiences. I’ve worked on projects of different scales — from <strong class="underline">small micro-sites</strong> to <strong class="underline">larger Web applications</strong>.
 
-                </p>
-                <p class="about__content__text">
-                    I’m a design-minded front-end developer. Sometimes people who do what I do are also called front-end designers, UI developers, UI engineers, or design engineers.
-                    That is, <strong>my work lies at the intersection of design and back-end</strong>. I write HTML, CSS, SVG, and presentational JavaScript that powers Web user interfaces. With a <strong>focus on responsive design, semantic markup, and performance</strong>. I build <strong>resilient, inclusive foundations for user interfaces</strong>, marrying cutting-edge techniques with foundational Web standards.
-                    I collaborate with designers — preferrably in the design phase — to <strong>translate designs into live prototypes</strong>, resilient Web user interafces, and design systems. As a design engineer, <strong>I provide feedback to designers to ensure that the design translates well to the browser</strong>, ensuring usability of the product by as many people as possible, regardless of their context and how they use it (screen readers, mobile phones, various browsers, etc.)
-                </p>
-                <h3 class="about__content__subtitle">
-                    <span class="">Prices</span>
-                    {{ partial "shape-title" (dict "context" . "dotSize" 100) }}
+            <div class="about__content">
+                <div class="screen-size">
+                    <div class="container">
+                        <p data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="about__content__lead fade-in-top">
+                            I lead front-end development for companies and organizations, building <strong class="underline">resilient UI foundations</strong> for their online experiences. I’ve worked on projects of different scales — from <strong class="underline">small micro-sites</strong> to <strong class="underline">larger Web applications</strong>.
+                        </p>
+                        <p data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="about__content__text fade-in-top">
+                            I’m a design-minded front-end developer. Sometimes people who do what I do are also called front-end designers, UI developers, UI engineers, or design engineers.
+                            That is, <strong>my work lies at the intersection of design and back-end</strong>. I write HTML, CSS, SVG, and presentational JavaScript that powers Web user interfaces. With a <strong>focus on responsive design, semantic markup, and performance</strong>. I build <strong>resilient, inclusive foundations for user interfaces</strong>, marrying cutting-edge techniques with foundational Web standards.
+                            I collaborate with designers — preferrably in the design phase — to <strong>translate designs into live prototypes</strong>, resilient Web user interfaces, and design systems. As a design engineer, <strong>I provide feedback to designers to ensure that the design translates well to the browser</strong>, ensuring usability of the product by as many people as possible, regardless of their context and how they use it (screen readers, mobile phones, various browsers, etc.)
+                            <!-- Jerem : well et by a reverifier -->
+                        </p>
 
-                </h3>
-                <div class="about__content__prices">
-                    <a href="https://www.ideo.com/" class="about__content__prices__item level-1 transform translate-y-6">
-                        <img class="about__content__prices__item__image" src="{{ .Site.BaseURL }}images/ideo.png"/>
-                        <h3 class="about__content__prices__item__title">Design thinking</h3>
-                        <p class="about__content__prices__item__place">IDEO @ HEC Paris</p>
-                        <span class="about__content__prices__item__date">November 2016</span>
-                    </a>
-                    <a href="https://twitter.com/wearhacks"  class="about__content__prices__item level-1">
-                        <img class="about__content__prices__item__image" src="{{ .Site.BaseURL }}images/wearhack.png"/>
-                        <h3 class="about__content__prices__item__title">Wearhacks Myo</h3>
-                        <p class="about__content__prices__item__place">42 Paris</p>
-                        <span class="about__content__prices__item__date">May 2015</span>
-                    </a>
-                    <a href="https://www.telecom-paris.fr/"  class="about__content__prices__item level-1 transform translate-y-6">
-                        <img class="about__content__prices__item__image" src="{{ .Site.BaseURL }}images/telecomparis.png"/>
-                        <h3 class="about__content__prices__item__title">Innovators in motion</h3>
-                        <p class="about__content__prices__item__place">Telecom Paris</p>
-                        <span class="about__content__prices__item__date">March 2014</span>
-                    </a>
+                        <!-- I’m Tiffanie, I’m from and live in New Caledonia where I am a freelance designer. I studied design at IPESAA (Private Institute of Higher Education of Applied Arts) in Montpellier, France. I focus on concept-driven approach and thorough research, to build strong, functional and meaningful design, with an eye for typography. My work is mainly focused on branding and interface design, and aims to get out of established conventions and to challenge traditional thinking. -->
+
+
+                    </div>
                 </div>
-                <h3 class="about__content__subtitle mt-36">
-                    <span class="">Clients</span>
-                    {{ partial "shape-title" }} 
-                </h3>
+                <div class="screen-size">
+                    <div class="container">
+                        <h3 data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="about__content__sub-title fade-in-top mt-36">
+                            <span class="">Clients</span>
+                        </h3>
+                        
+
+                        {{$site := .Site}}
+                        <div data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="fade-in">
+                            <div class="marquee">
+                                <div class="marquee__content">
+                                    {{ range $index, $num := (seq 3) }}
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/matthieuricard.png"/></div>
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/luxtimes.png"/></div>
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/bdrc.png"/></div>
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/amapa.png"/></div>
+                                    {{ end }}
+
+                                </div>
+                            </div>                    
+                            <div class="marquee marquee--2">
+                                <div class="marquee__content">
+                                    {{ range $index, $num := (seq 3) }}
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/femis.png"/></div>
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/humabio.png"/></div>
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/labrh.png"/></div>
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/cite-des-sciences.png"/></div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                            <div class="marquee marquee--3">
+                                <div class="marquee__content">
+                                    {{ range $index, $num := (seq 3) }}
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/landskies.png"/></div>
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/wort.png"/></div>
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/bpifrance.png"/></div>
+                                        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/radio-latina.png"/></div>
+                                    {{ end }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen-size">
+                    <div class="container">
+                        <h3 data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="about__content__sub-title fade-in-top">
+                            <span class="">Prices</span>
+                        </h3>
+                        <div  class="about__content__prices">
+                            <a data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" href="https://www.ideo.com/" class="about__content__prices__item fade-in-top fade-in-top--delay-1">
+                                <img class="about__content__prices__item__image" src="{{ .Site.BaseURL }}images/ideo.png"/>
+                                <h3 class="about__content__prices__item__title">Design thinking</h3>
+                                <p class="about__content__prices__item__place">IDEO @ HEC Paris</p>
+                                <span class="about__content__prices__item__date">November 2016</span>
+                            </a>
+                            <a data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" href="https://twitter.com/wearhacks"  class="about__content__prices__item fade-in-top fade-in-top--delay-2">
+                                <img class="about__content__prices__item__image" src="{{ .Site.BaseURL }}images/wearhack.png"/>
+                                <h3 class="about__content__prices__item__title">Wearhacks Myo</h3>
+                                <p class="about__content__prices__item__place">42 Paris</p>
+                                <span class="about__content__prices__item__date">May 2015</span>
+                            </a>
+                            <a data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" href="https://www.telecom-paris.fr/"  class="about__content__prices__item fade-in-top fade-in-top--delay-3">
+                                <img class="about__content__prices__item__image" src="{{ .Site.BaseURL }}images/telecomparis.png"/>
+                                <h3 class="about__content__prices__item__title">Innovators in motion</h3>
+                                <p class="about__content__prices__item__place">Telecom Paris</p>
+                                <span class="about__content__prices__item__date">March 2014</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="about__content__clients">
-                    <img class="about__content__social__clients__image" src="{{ .Site.BaseURL }}images/bdrc.png"/>
-                    <img class="about__content__social__clients__image" src="{{ .Site.BaseURL }}images/humabio.png"/>
-                    <img class="about__content__social__clients__image" src="{{ .Site.BaseURL }}images/matthieuricard.png"/>
-                    <img class="about__content__social__clients__image" src="{{ .Site.BaseURL }}images/luxtimes.png"/>
-                    <img class="about__content__social__clients__image" src="{{ .Site.BaseURL }}images/wort.png"/>
-                    <img class="about__content__social__clients__image" src="{{ .Site.BaseURL }}images/landskies.png"/>
-                    <img class="about__content__social__clients__image mt-6 transform translate-y-3 " src="{{ .Site.BaseURL }}images/bpifrance.png"/>
-                    <img class="about__content__social__clients__image mt-6 " src="{{ .Site.BaseURL }}images/femis.png"/>
-                    <img class="about__content__social__clients__image mt-6 transform translate-y-4" src="{{ .Site.BaseURL }}images/labrh.png"/>
+                <div class="screen-size hero about__hire-me">
+                    <div class="container">`
+                        <h2 data-scroll data-scroll-offset="15%, 25%" data-scroll-call="popHeroTitle" class="hero__content__title">
+                            <span class="hero__content__title__word"><span class="hero__content__title__word__content">Wanna</span></span>
+                            <br/>
+                            <span class="hero__content__title__word"><span class="hero__content__title__word__content">hire</span></span>
+                            <span class="hero__content__title__word"><span class="hero__content__title__word__content">me</span></span>
+                            <span class="hero__content__title__word"><span class="hero__content__title__word__content">?</span></span>
+                        </h2>    
+                        <a id="yellow" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport" class="button nav-link fade-in-top" href="/contact"><span class="button__content">Let's talk together !</span></a>
+                    </div>
                 </div>
 
             </div>
-        </div>
             {{- partial "footer.html" . -}}
+        </div>
             {{- partial "js.html" . -}}
         </div>
         <script>
                 $(function() {
 
                     var timeline = anime.timeline({
-                    loop: false,
-                    duration: 400,
+                        loop: false,
+                        duration: 400,
                     });
 
-                    anime.set(".word__content", {
-                    translateY: "+=180px",
+                    anime.set(".hero__content__title__word__content", {
+                        translateY: "+=180px",
                     });
 
-                    anime.set(".about__hero__container__desc", {
-                    translateY: "+=25px",
-                    opacity:0
+                    anime.set(".hero__content__sub-title", {
+                        translateY: "+=25px",
+                        opacity:0
                     });
 
-                    anime.set(".shape", {
-                    translateY: "+=50px",
-                    opacity:0
+                    anime.set(".invite-to-scroll-with-text", {
+                        translateX: "-=25px",
+                        opacity:0
                     });
 
-                    anime.set(".about__content", {
-                    translateY: "+=25px",
-                    opacity:0
-                    });
-
+                    window.popHeroTitle = function() {
+                        anime.timeline().add({
+                            targets: "h2 .hero__content__title__word__content",
+                            translateY: "-=180px",
+                            easing: "easeOutQuart",
+                            delay: anime.stagger(50),
+                        });
+                    };
 
                     var animation = timeline
                     .add({
-                        targets: ".shape",
-                        translateY: "-=50px",
-                        easing: "easeOutQuart",
-                        opacity:1,
-                        duration: 450,
+                        targets: "h1 .hero__content__title__word__content",
+                        delay: 500
                     })
                     .add({
-                        targets: ".word__content",
+                        targets: ".hero svg path",
+                        strokeDashoffset: [3000, 0],
+                        easing: "easeOutQuart",
+                        duration: 2000
+                    }, "-=100")
+                    .add({
+                        targets: "h1 .hero__content__title__word__content",
                         translateY: "-=180px",
                         easing: "easeOutQuart",
                         delay: anime.stagger(50),
-                    }, "-=300")
+                    }, "-=1700")
                     .add({
-                        targets: ".about__hero__container__desc",
+                        targets: ".hero__content__sub-title",
                         translateY: "-=25px",
                         easing: "easeOutQuart",
                         opacity:1,
-                        delay: 100,
-                        duration:150
-                    }, "-=400")
+                        duration: 250,
+                    }, "-=1350")
                     .add({
-                        targets: ".about__content",
-                        translateY: "-=25px",
+                        targets: ".invite-to-scroll-with-text",
+                        translateX: "+=25px",
                         easing: "easeOutQuart",
                         opacity:1,
-                        delay: 100,
-                        duration:250
-                    }, "-=50");
+                        duration: 100,
+                    }, "-=800")
 
                 });
         </script>

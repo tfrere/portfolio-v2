@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "develop": "hugo server",
+    "dev": " hugo server  --disableFastRender --environment=dev",
     "build": "hugo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

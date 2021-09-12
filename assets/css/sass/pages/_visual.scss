@@ -1,75 +1,90 @@
 .visual {
   @apply pb-32;
 
-
   .word {
     padding: 0px 4px 13px 0px;
   }
 
+  .invite-to-scroll {
+    height: 4vh;
+    bottom: 6vh;
+    &:before {
+      height: 4vh;
+    }
+  }
 }
 
 .visual__hero {
-  @apply flex items-center justify-center;
+  @apply flex relative flex-col items-center justify-center text-center;
   min-height: 80vh;
-  width: 120%;
-  margin-left: -10%;
 }
 
-.visual__hero__text {
-  @apply pr-24;
-  max-width: 50%;
+.visual__hero__label {
+  @apply label mt-24;
 }
 
-.visual__hero__text__title {
-  @apply text-6xl font-serif mb-2;
+.visual__hero__title {
+  @apply text-6xl text-center break-normal;
+  @apply hero-title;
+  @apply text-center;
 }
 
-.visual__hero__text__label {
-  @apply text-base font-sans tracking-widest uppercase ;
+.visual__hero__p {
+  @apply text-2xl leading-normal w-6/12;
   a {
-    // text-decoration: underline;
-    color: rgba(9,9,9,0.3);
-    
+    text-decoration: underline;
   }
-} 
-
-.visual__hero__text__p {
-  @apply text-xl text-dig-effect;
 }
 
-.visual__hero__image {
-  @apply relative;
-  width: 100%;
-  .visual__hero__image__canvas {
-    @apply px-4 py-4;
-    @apply bg-white shadow relative;
-    @apply w-full h-full shadow absolute transform top-0 bg-white;
-    z-index: 3;
-  }
-  &:before {
-    content: "";
-    z-index: 1;
-    @apply w-full h-full shadow absolute transform top-0 bg-white;
-    left: -5px;
-    transform: rotate(1deg);
-  }
-  &:after {
-    content: "";
-    @apply w-full h-full shadow-xl absolute transform top-0 bg-white;
-    left: -5px;
-    transform: rotate(-1deg);
-    z-index: 2;
-  }
-  .visual__hero__image__img {
-    @apply px-4 py-4;
-    z-index: 4;
-  }
-  img {
-    z-index: 4;
-  }
+.grid {
+  display: flex !important;
+}
+
+.grid__column {
+  flex-grow: 1;
 }
 
 .grid__item {
-  @apply px-4 py-4;
   @apply bg-white shadow;
+  padding: 1rem;
+  margin: 1rem;
+  margin-bottom: 2rem;
 }
+
+// transform: none !important;
+// animation: none !important;
+
+.grid__item:not(.grid__item--1):not(.grid__item--2) {
+  opacity: 1;
+}
+
+.grid__item--1,
+.grid__item--2 {
+  transform: none !important;
+  animation: none !important;
+}
+
+// .grid .grid__item.animate {
+//   transform: translateY(50px);
+//   animation: moveUp 0.65s ease forwards;
+// }
+
+// .grid .grid__item.animated {
+//   transform: none;
+//   animation: none;
+//   opacity: 1;
+// }
+
+// @keyframes moveUp {
+//   0% {
+//   }
+//   // 99% {
+//   //   transform: translateY(0);
+//   //   opacity: 1;
+//   // }
+//   100% {
+//     transform: translateY(0);
+//     // transform: none;
+//     opacity: 1;
+//   }
+// }
