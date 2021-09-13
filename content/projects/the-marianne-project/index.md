@@ -18,17 +18,7 @@ center: true
 
 ### Website.
 
-{{< rawhtml >}}
-
-</div>
-{{< /rawhtml >}}
-
 {{< parallax-image src="images/website" >}}
-
-{{< rawhtml >}}
-
-<div class="container project__container">
-{{< /rawhtml >}}
 
 {{< rawhtml >}}
 
