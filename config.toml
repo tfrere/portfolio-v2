@@ -8,6 +8,7 @@ extensions = [
   "laxHtmlBlocks", # laxer block handling... let's see what this does?
   "hardLineBreak", # newlines result in line breaks
 ]
+timeout = 600000
 
 [markup.goldmark.renderer]
   hardWraps = true

@@ -30,10 +30,6 @@ center: true
     {{< simple-image src="images/buste" text="03. Million faces marianne" >}}
   </div>
 </div>
-{{< /rawhtml >}}
-
-{{< rawhtml >}}
-
   <div class="project-screen">
     <div>
       <h2 id="press fade-in-top" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport">Press.</h2>
