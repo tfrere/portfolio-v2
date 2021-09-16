@@ -1,6 +1,5 @@
-// html,
-// body {
-//   cursor: none;
+// * {
+//   cursor: none !important;
 // }
 
 // #cursor {
@@ -33,27 +32,30 @@
 
 #cursor {
   position: fixed;
-  top: calc(8px * -0.5);
-  left: calc(8px * -0.5);
+  top: calc(12px * -0.5);
+  left: calc(12px * -0.5);
   pointer-events: none;
-  // mix-blend-mode: difference;
+  mix-blend-mode: exclusion;
   // filter: url(#goo);
-  // filter: grayscale(1);
-
+  filter: grayscale(1);
   z-index: 999999999;
+  display: none;
 }
 
 .cursor-circle {
   position: absolute;
   top: 0;
   left: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 8px;
-  border: 1px solid black;
+  width: 12px;
+  height: 12px;
+  border-radius: 12px;
+  background-color: white;
   transform-origin: center center;
-  transition: all 200ms ease;
+  // transition: all 200ms ease;
+  mix-blend-mode: exclusion;
+  filter: grayscale(1);
   z-index: 999999999;
+  display: none;
 }
 
 .cursor--out {

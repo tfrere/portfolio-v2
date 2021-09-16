@@ -1,5 +1,16 @@
+$canvas-z-index: 0;
+$wave-z-index: 998;
+$nav-z-index: 999;
+$lightbox-z-index: 1000;
+$nav-height: 84px;
+$border-size: 30px;
+$page-z-index: 1;
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+@import "fonts";
+
 @import "lib/luminance";
 @import "lib/locomotivescroll.min";
+@import "lib/fluidbox";
 
 @import "components/nav";
 @import "components/wave";
@@ -13,22 +24,17 @@
 @import "components/burger-menu";
 @import "components/stamp";
 
-$canvas-z-index: 0;
-$wave-z-index: 998;
-$nav-z-index: 999;
-$nav-height: 84px;
-$border-size: 30px;
-$page-z-index: 1;
-
-body {
-  overscroll-behavior-y: none;
-}
+// body {
+//   overscroll-behavior-y: none;
+// }
 
 html {
   height: 100%;
   margin: 0;
   @apply antialiased;
   font-synthesis: none;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
   *::selection {
     color: white;
     background-color: var(--complement-color);
@@ -73,15 +79,15 @@ html {
 #canvas {
   @apply absolute z-0;
   width: calc(100% - #{$border-size * 2});
-  height: calc(100% - #{$nav-height + $border-size});
-  top: $nav-height;
+  height: calc(100% - #{$border-size});
+  top: 0;
   left: $border-size;
   z-index: 0;
   opacity: 1;
 }
 
 .color-drop {
-  @apply absolute top-0 left-0 w-full h-full pointer-events-none;
+  @apply fixed top-0 left-0 w-full h-full pointer-events-none;
   z-index: 99999999999;
 }
 
@@ -104,28 +110,46 @@ body {
 @import "colors";
 @import "components/levels";
 
-@import "fonts";
-@import "lib/fluidbox";
 @import "components/inner-shadow";
 @import "components/invite-to-scroll";
 @import "components/button";
 @import "components/container";
 @import "components/page";
 
+[data-scroll-container],
+[data-scroll-container-horizontal] {
+  will-change: transform;
+}
+
 // SCREEN SIZE
 
 .screen-size {
   @apply relative w-full h-full flex justify-center items-center py-8;
-  min-height: calc(100vh - 84px);
+  min-height: calc(100vh - 114px);
   width: calc(100% - 60px) !important;
   margin: 0 30px;
 }
+
+// .lazy {
+//   opacity: 0;
+//   &.is-inview {
+//     opacity: 1;
+//   }
+// }
 
 @import "components/hero";
 @import "components/footer";
 @import "pages/landing";
 @import "pages/projects";
 @import "pages/project";
+@import "pages/project-components/project-parallax-image";
+@import "pages/project-components/project-introduction";
+@import "pages/project-components/project-image";
+@import "pages/project-components/project-quote";
+@import "pages/project-components/project-hero";
+@import "pages/project-components/project-list";
+@import "pages/project-components/project-lead";
+@import "pages/project-components/project-nav";
 @import "pages/about";
 @import "pages/contact";
 @import "pages/visuals";

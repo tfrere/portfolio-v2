@@ -24,6 +24,27 @@
 
 .about__content__sub-title {
   @apply inline-block text-9xl font-serif font-black z-20 relative my-24;
+
+  .about-word {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    padding: 0px;
+    pointer-events: none;
+  }
+  .about-word__content {
+    transform: translateY(160px);
+    transition: all 400ms $easeOutQuart;
+    display: inline-block;
+    will-change: transform;
+  }
+
+  &.is-in-viewport {
+    .about-word__content {
+      transform: translateY(0px);
+    }
+  }
+
   span {
     @apply relative z-10 pointer-events-none select-none;
   }
@@ -83,6 +104,6 @@
 
 .about__hire-me {
   .button {
-    @apply mt-8;
+    @apply mt-4;
   }
 }

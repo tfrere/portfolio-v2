@@ -28,4 +28,4 @@
   {{ $attributes = $attributes | append (printf "%s=%q" $name $value) }}
   {{ end }}
 {{ $attributes = (delimit $attributes " ") }}
-<img alt="{{$image.Title}}" class="lazy" src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
+<img alt="{{$image.Title}}" src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>

@@ -1,0 +1,24 @@
+.project__list {
+  @apply list-none p-0;
+}
+
+.project__list__item {
+  @apply pl-4 pb-4 block relative;
+  &:after {
+    content: "";
+    @apply absolute -left-1 top-3 rounded-full w-2 h-2 border border-white border-solid;
+  }
+}
+
+.project__list__item__link {
+  @apply no-underline block;
+}
+
+.project__list__item__link__title {
+  @apply base-text block font-semibold -mb-1;
+}
+
+.project__list__item__link__text {
+  @apply small-text opacity-75 inline-block;
+  font-size: 18px;
+}

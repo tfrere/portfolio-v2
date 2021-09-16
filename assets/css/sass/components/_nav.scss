@@ -4,10 +4,9 @@ $anim-curve: cubic-bezier(0.23, 1, 0.32, 1);
 $anim-timing: 0.3s;
 
 .nav {
-  @apply fixed right-0 w-full;
-  @apply absolute;
+  @apply right-0 w-full;
 
-  z-index: 999;
+  z-index: $nav-z-index;
 
   background-color: var(--nav-background-color);
   transition: background-color var(--background-transition-duration) ease;
@@ -79,52 +78,51 @@ $anim-timing: 0.3s;
 
 // NEW
 
-.nav__section-menu__item__link__text {
-  @apply text-xl block relative no-underline m-0 whitespace-nowrap;
-  font-family: "Varela Round", sans-serif;
-  line-height: 1;
-  color: $color;
-  transition: color var(--background-transition-duration) ease;
+// .nav__section-menu__item__link__text {
+//   @apply text-xl block relative no-underline m-0 whitespace-nowrap;
+//   font-family: "Varela Round", sans-serif;
+//   line-height: 1;
+//   color: $color;
+//   transition: color var(--background-transition-duration) ease;
 
-  &::after,
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: -32px;
-    // right    : -10%;
-    right: 0;
-    width: 0;
-    height: 3px;
-  }
+//   &::after,
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     bottom: -32px;
+//     // right    : -10%;
+//     right: 0;
+//     width: 0;
+//     height: 3px;
+//   }
 
-  &::before {
-    transition: width 0.4s cubic-bezier(0.51, 0.18, 0, 0.88) 0.1s;
-    background: rgba(0, 0, 0, 0.2);
-  }
+//   &::before {
+//     transition: width 0.4s cubic-bezier(0.51, 0.18, 0, 0.88) 0.1s;
+//     background: rgba(0, 0, 0, 0.2);
+//   }
 
-  &::after {
-    transition: width 0.2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
-    background: rgba(0, 0, 0, 1);
-  }
-}
+//   &::after {
+//     transition: width 0.2s cubic-bezier(0.29, 0.18, 0.26, 0.83);
+//     background: rgba(0, 0, 0, 1);
+//   }
+// }
 
-.nav__section-menu__item__link:hover {
-  .nav__section-menu__item__link__text::after,
-  .nav__section-menu__item__link__text::before {
-    left: 0;
-    width: 100%;
-  }
-}
+// .nav__section-menu__item__link:hover {
+//   .nav__section-menu__item__link__text::after,
+//   .nav__section-menu__item__link__text::before {
+//     left: 0;
+//     width: 100%;
+//   }
+// }
 
-.nav__section-menu__item.active {
-  // .nav__section-menu__item__link__text::after,
-  .nav__section-menu__item__link__text::before {
-    width: 100%;
-  }
-}
+// .nav__section-menu__item__link.was-clicked {
+//   .nav__section-menu__item__link__text::after,
+//   .nav__section-menu__item__link__text::before {
+//     width: 100%;
+//   }
+// }
 
 // .nav__section-menu__item.active {
-//   .nav__section-menu__item__link__text::after,
 //   .nav__section-menu__item__link__text::before {
 //     width: 100%;
 //   }
@@ -132,44 +130,43 @@ $anim-timing: 0.3s;
 
 // OLD
 
-// .nav__section-menu__item__link__text {
-//   @apply text-xl block relative no-underline m-0 whitespace-nowrap;
-//   font-family: "Varela Round", sans-serif;
-//   line-height: 1;
-//   color: $color;
-//   transition: color var(--background-transition-duration) ease;
-// }
-// .nav__section-menu__item__link__text:after {
-//   content: "";
-//   background-color: $color;
-//   transition: background-color var(--background-transition-duration) ease;
-//   width: 100%;
-//   height: 0.175rem;
-//   display: block;
-//   margin-top: 1.825rem;
-//   position: absolute;
-//   top: 100%;
-//   transform: scaleX(0) rotate(0.001deg);
-//   transform-origin: left center;
-//   transition: transform $anim-timing $anim-curve,
-//     transform-origin 0s $anim-timing;
-// }
+.nav__section-menu__item__link__text {
+  @apply text-xl block relative no-underline m-0 whitespace-nowrap;
+  line-height: 1;
+  color: $color;
+  transition: color var(--background-transition-duration) ease;
+}
+.nav__section-menu__item__link__text:after {
+  content: "";
+  background-color: $color;
+  transition: background-color var(--background-transition-duration) ease;
+  width: 100%;
+  height: 0.175rem;
+  display: block;
+  margin-top: 1.825rem;
+  position: absolute;
+  top: 100%;
+  transform: scaleX(0) rotate(0.001deg);
+  transform-origin: left center;
+  transition: transform $anim-timing $anim-curve,
+    transform-origin 0s $anim-timing;
+}
 
-// .nav__section-menu__item.active
-//   .nav__section-menu__item__link
-//   .nav__section-menu__item__link__text:after {
-//   // max-width: 0.9rem;
-//   width: 100%;
-//   transform: rotate(0.001deg);
-//   transition: max-width $anim-timing $anim-curve;
-// }
+.nav__section-menu__item.active .nav__section-menu__item__link__text:after,
+.nav__section-menu__item__link.was-clicked
+  .nav__section-menu__item__link__text:after {
+  // max-width: 0.9rem;
+  width: 100%;
+  transform: rotate(0.001deg);
+  transition: max-width $anim-timing $anim-curve;
+}
 
-// .nav__section-menu__item__link:hover
-//   .nav__section-menu__item__link__text:after {
-//   max-width: 100%;
-//   transform: scaleX(1) rotate(0.001deg);
-//   transform-origin: right center;
-// }
+.nav__section-menu__item__link:hover
+  .nav__section-menu__item__link__text:after {
+  max-width: 100%;
+  transform: scaleX(1) rotate(0.001deg);
+  transform-origin: right center;
+}
 
 .nav__socials {
   @apply flex absolute top-0 right-0 py-6 pr-6;

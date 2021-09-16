@@ -111,7 +111,8 @@ $(function () {
     });
 
     $(".button").on("click", (e) => {
-      console.log(1);
+      e.preventDefault();
+      e.stopPropagation();
       updateCoords(e);
       animateParticules(x, y);
     });

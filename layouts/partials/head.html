@@ -1,8 +1,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content=" Thibaud FRERE"/>
+    <meta name="copyright" content=" Thibaud FRERE"/>
+    <meta name="theme-color" content="#ffffff">
     <meta name="description" content="Thibaud FRERE Portfolio and online blog.">
-    <link rel="canonical" href="https://tfrere.com/" />
+    <link rel="canonical" href="{{ .Site.BaseURL }}" />
+
+
 
     <base href="{{ .Site.BaseURL }}">
 
@@ -13,4 +18,57 @@
     <title>{{ $title }}</title>
     
 
+    {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+    
+    <!-- <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> -->
+    
+    <!-- 
+        DO NOT USE THEM ANYMORE
+    <meta name="keywords" content=""/>
+    {{ with .Params.tags }}
+        {{ range . }}
+            {{ $href := print (absURL "tags/") (urlize .) }}
+            {{ . }}
+        {{ end }}
+    {{ end }}
+    -->
+        
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="TITLE OF YOUR POST OR PAGE" />
+    <meta property="og:description" content="DESCRIPTION OF PAGE CONTENT" />
+    <meta property="og:image" content="LINK TO THE IMAGE FILE" />
+    <meta property="og:url" content="PERMALINK" />
+    <meta property="og:site_name" content="SITE NAME" />
+    
+    <meta name="twitter:title" content="TITLE OF POST OR PAGE">
+    <meta name="twitter:description" content="DESCRIPTION OF PAGE CONTENT">
+    <meta name="twitter:image" content="LINK TO IMAGE">
+    <meta name="twitter:site" content="@USERNAME">
+    <meta name="twitter:creator" content="@USERNAME">
+    
+
 </head>
+
+
+<div class="hide-on-mobile {{ .Scratch.Get "class" }} bg-{{ if in .Permalink "projects" }}blue{{ end }}{{ if in .Permalink "visuals" }}orange{{ end }}{{ if in .Permalink "contact" }}yellow{{ end }}{{ if in .Permalink "about" }}pink{{ end }} ">
+    <p class="hide-on-mobile__text">This website is not available on mobile for the moment.</p>
+</div>
+
+<canvas id="wave"></canvas>
+<canvas id="wave2"></canvas>
+
+
+<canvas class="color-drop"></canvas>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
+    <defs>
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 55 -25" result="goo"></feColorMatrix>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+        </filter>
+    </defs>
+</svg>
+
+<div id="cursor"></div>

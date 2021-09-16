@@ -28,7 +28,7 @@
         {{ end }}
         {{ $imgSrcSet = (delimit $imgSrcSet ",") }}
 
-        <img alt="" class="lazy" src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" >
+        <img alt="{{ $imgSrc }}" class="lazy" src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" >
 
     {{ end }}
 {{ end }}

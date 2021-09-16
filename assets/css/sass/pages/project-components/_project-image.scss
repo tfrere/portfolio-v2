@@ -1,0 +1,19 @@
+.project-image {
+  @apply relative;
+}
+
+.project-image__text {
+  @apply relative;
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+.animated {
+  transform: none !important;
+  animation: none !important;
+  opacity: 1 !important;
+  will-change: unset !important;
+}

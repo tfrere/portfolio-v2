@@ -2,13 +2,12 @@ baseURL = "https://tfrere.com/"
 languageCode = "en-us"
 title = "Thibaud FRERE Portfolio"
 sectionPagesMenu = "main"
-buildFuture = true
+buildFuture = false
 staticDir = ["static"]
 extensions = [
   "laxHtmlBlocks", # laxer block handling... let's see what this does?
   "hardLineBreak", # newlines result in line breaks
 ]
-
 
 [markup.goldmark.renderer]
   hardWraps = true
@@ -44,8 +43,8 @@ extensions = [
 # Every landscape image will also be scaled down to 1500px and 1000px,
 # and portrait photos to 1000px and 750px wide.
 [params]
-landscapePhotoWidths = [2500, 1500, 1000]
-portraitPhotoWidths = [1500, 1000, 750]
+landscapePhotoWidths = [2500, 1500, 1000, 500]
+portraitPhotoWidths = [1500, 1000, 750, 350]
 
 [imaging]
 quality = 70

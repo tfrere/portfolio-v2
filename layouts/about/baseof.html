@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     {{- partial "head.html" . -}}
-    <body data-scroll-container>
-        {{- partial "header.html" . -}}
-        <div class="about page bg-pink">
+    <body>
+        <div data-scroll-container>
+            <div class="about page bg-pink">
+            
+                {{- partial "header.html" . -}}
+            
             <div class="page__background"></div>
 
             <div class="hero screen-size">
                 <div class="hero__content">
-                    <div class="about__svg" data-scroll data-scroll-delay='0.1' data-scroll-speed='1.2'>
+                    <div class="about__svg" data-scroll data-scroll-speed='-1'>
                         {{ readFile "static/images/about-background.svg" | safeHTML }}
                     </div>
-                    <div class="invite-to-scroll-with-text"></div>
+                    <div class="invite-to-scroll-with-text" data-scroll data-scroll-speed='-1'></div>
                     <h1 class="hero__content__title">
                         <span class="hero__content__title__word"><span class="hero__content__title__word__content">Designer</span></span>
                         <br/>
@@ -45,8 +48,8 @@
                 </div>
                 <div class="screen-size">
                     <div class="container">
-                        <h3 data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="about__content__sub-title fade-in-top mt-36">
-                            <span class="">Clients</span>
+                        <h3 data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="about__content__sub-title mt-36">
+                            <span class="about-word"> <span class="about-word__content">Clients</span></span>
                         </h3>
                         
 
@@ -88,8 +91,8 @@
                 </div>
                 <div class="screen-size">
                     <div class="container">
-                        <h3 data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="about__content__sub-title fade-in-top">
-                            <span class="">Prices</span>
+                        <h3 data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" class="about__content__sub-title">
+                            <span class="about-word"> <span class="about-word__content">Prices</span></span>
                         </h3>
                         <div  class="about__content__prices">
                             <a data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport" href="https://www.ideo.com/" class="about__content__prices__item fade-in-top fade-in-top--delay-1">
@@ -123,7 +126,7 @@
                             <span class="hero__content__title__word"><span class="hero__content__title__word__content">me</span></span>
                             <span class="hero__content__title__word"><span class="hero__content__title__word__content">?</span></span>
                         </h2>    
-                        <a id="yellow" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport" class="button nav-link fade-in-top" href="/contact"><span class="button__content">Let's talk together !</span></a>
+                        <a id="yellow" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport" class="button nav-link" href="/contact"><span class="button__content">Let's talk together !</span></a>
                     </div>
                 </div>
 
@@ -132,6 +135,7 @@
         </div>
             {{- partial "js.html" . -}}
         </div>
+    </div>
         <script>
                 $(function() {
 
@@ -160,6 +164,7 @@
                             translateY: "-=180px",
                             easing: "easeOutQuart",
                             delay: anime.stagger(50),
+                            duration: 400,
                         });
                     };
 
@@ -179,6 +184,7 @@
                         translateY: "-=180px",
                         easing: "easeOutQuart",
                         delay: anime.stagger(50),
+
                     }, "-=1700")
                     .add({
                         targets: ".hero__content__sub-title",

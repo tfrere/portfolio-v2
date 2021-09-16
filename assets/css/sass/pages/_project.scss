@@ -3,96 +3,31 @@
 
 // PROJECT HERO --------------------
 
-.project-hero {
-  @apply screen-size relative flex items-center justify-center;
-  margin-top: 50px;
-}
-
-.project-hero__content {
-  @apply absolute container bottom-0;
-  // bottom: 10%;
-}
-
-.project-hero__content__invite-to-scroll {
-  bottom: 205px;
-}
-
-.project-hero__content__title {
-  @apply hero-title relative z-10;
-  max-width: 90%;
-  margin-left: -5px;
-  .word {
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    padding: 0px 4px 14px 0px;
-    pointer-events: none;
-  }
-
-  .word__content {
-    display: inline-block;
-  }
-}
-
-.project-hero__content svg {
-  @apply absolute w-full right-0 bottom-32;
-  path {
-    stroke-dashoffset: 2200;
-    stroke-dasharray: 2200;
-  }
-}
-
-.project-hero__content__misc {
-  @apply grid grid-cols-4 gap-4;
-  display: grid !important;
-}
-
-.project-hero__content__misc__label {
-  @apply block label opacity-50;
-  font-size: 14px;
-}
-
-.project-hero__content__misc__type,
-.project-hero__content__misc__client,
-.project-hero__content__misc__deliverables {
-  @apply pt-8 project-misc-text relative;
-}
-
-.project-hero__content__misc__border {
-  content: "";
-  @apply w-full bg-white absolute top-0 left-0;
-  height: 1px;
-}
-
-.project-hero__content__misc__deliverables {
-  @apply col-span-2 z-0;
-}
-
 // --------------------
 
 .project__container {
   @apply mt-24 mb-24;
   h1,
   h2,
-  h3,
+  h3 {
+    @apply medium-title;
+  }
   h4,
   h5,
   h6 {
-    @apply small-title mb-8 mt-16 pl-8 relative;
-    &:after {
-      @apply absolute left-0;
-      content: "";
-      height: 100%;
-      width: 1px;
-      background-color: white;
-    }
+    @apply small-title mb-8 mt-16 relative;
   }
-  p {
+  & > p {
     @apply base-text mb-8;
   }
-  p:first-of-type {
-    @apply lead-text mb-8;
-  }
+}
+
+.project-lead:first-of-type {
+  @apply lead-text mb-8;
+}
+
+.project-two-column-grid {
+  @apply grid grid-cols-2 gap-8;
 }
 
 .project__container .float-right {
@@ -126,25 +61,6 @@
 }
 
 // --------------------
-
-.project__image {
-  @apply relative;
-  height: auto;
-  z-index: 1;
-  width: 100%;
-  overflow: hidden;
-  background-color: #f1f2f5;
-}
-
-.project .project__image img {
-  @apply absolute;
-  width: 105%;
-  max-width: 105%;
-  height: 105%;
-  top: -2.5%;
-  left: -2.5%;
-  background-size: cover;
-}
 
 // ----------------------
 

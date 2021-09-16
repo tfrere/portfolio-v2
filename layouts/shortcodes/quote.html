@@ -1,0 +1,15 @@
+</div>
+<div class="project-quote">
+    <div class="project-quote__content">
+        <img class="project-quote__content__image" src="{{ .Site.BaseURL }}/images/quote.svg"/>
+        <div class="project-quote__content__text">
+            {{ .Get "text" | markdownify }}
+        </div>
+        <div class="project-quote__content__author">
+            - {{ .Get "author" | markdownify }}
+        </div>
+    </div>
+</div>
+<div class="container project__container">
+
+    

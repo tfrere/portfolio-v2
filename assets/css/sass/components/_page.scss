@@ -1,6 +1,8 @@
 .page {
   min-height: calc(100vh - #{$nav-height});
-  padding-top: $nav-height;
+  // > div {
+  //   padding-top: $nav-height;
+  // }
   overflow: hidden;
   transition: background-color var(--background-transition-duration)
     var(--background-transition-ease);
@@ -17,12 +19,15 @@
     padding-top: 0 !important;
   }
 
+  &--with-bottom-border {
+    min-height: calc(100vh - #{$nav-height + $border-size});
+  }
   &--with-bottom-border:after {
     content: "";
-    @apply fixed w-full h-full top-0 left-0 pointer-events-none;
-    transition: border-color 200ms ease;
-    border-bottom: 30px solid var(--nav-background-color);
-    border-color: var(--nav-background-color);
+    @apply fixed w-full bottom-0 left-0 pointer-events-none;
+    height: $border-size;
+    transition: background-color 200ms ease;
+    background-color: var(--nav-background-color);
     z-index: 9999999;
   }
 

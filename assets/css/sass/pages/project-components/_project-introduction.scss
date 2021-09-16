@@ -1,0 +1,24 @@
+.project-introduction {
+  @apply flex items-center w-full;
+  height: 100vh;
+}
+
+.project-introduction__content {
+  @apply grid grid-cols-4 gap-4;
+  display: grid !important;
+}
+
+.project-introduction__content__label {
+  @apply col-span-1 label mt-2 inline-block relative;
+  &:after {
+    @apply absolute right-10;
+    content: "";
+    height: 30px;
+    width: 1px;
+    background-color: white;
+  }
+}
+
+.project-introduction__content__text {
+  @apply col-span-3;
+}

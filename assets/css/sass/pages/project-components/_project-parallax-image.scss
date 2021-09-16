@@ -1,0 +1,16 @@
+.project-parallax-image {
+  @apply relative;
+}
+
+.project-parallax-image__image-container {
+  @apply relative w-full overflow-hidden;
+  background-color: #f1f2f5;
+}
+
+.project-parallax-image__image-container__image {
+  @apply absolute;
+  width: 105%;
+  height: 105%;
+  top: -2.5%;
+  background-size: cover;
+}

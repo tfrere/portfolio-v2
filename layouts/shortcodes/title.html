@@ -1,5 +1,11 @@
-<div class="project__container__title">
-    <h2>
-        {{ .Get "text" | markdownify }}
-    </h2>
-</div> 
+{{ $text := .Get "text" }}
+<h2 class="project-title fade-in-top" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport">
+{{ $test := split $text " "}}
+    {{range $test }}
+        <span class="word">
+            <span class="word__content">
+                {{.}}
+            </span>
+        </span>
+    {{end}}
+</h2>

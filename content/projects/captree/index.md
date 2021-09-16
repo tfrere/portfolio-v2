@@ -1,6 +1,8 @@
 ---
 title: "CapTree,
   the game"
+smalltitle: "CapTree,
+  the game"
 date: 2020-03-02T01:00:04+01:00
 draft: false
 tags: ["mobile game"]
@@ -10,14 +12,11 @@ roles:
   - 3D Illustrations
 client: Landskies
 number: 03
-description: La societe luxembourgeoise landskies specialise dans l'application des nouvelles technologies a la captation de données forestieres m'a contacté dans le but de créer un jeu mobile en réalité augmenté visant à crowdsourcer l'inventaire forestier planetaire.
+description: The Augmented Reality Game that plants real trees! Catch as many trees as possible near you and reforest soils around the world
 ---
-
-La societe luxembourgeoise landskies specialise dans l'application des nouvelles technologies a la captation de données forestieres m'a contacté dans le but de créer un jeu mobile en réalité augmenté visant à crowdsourcer l'inventaire forestier planetaire.
 
 <!--more-->
 
-LANDSKIES SARL is a young start-up founded by Quentin Ducenne, Aurélien James and Nils Bourland. We pursue the development of innovative solutions to climate change challenges. A large group of policy-makers and stakeholders addressing climate change issues need reliable information at fast pace. Remote sensing and companion technologies, in particular the Cloud and mobile technologies are opening new horizons. We work on a range of tools designed to acquire data at a much lower cost than ever before while providing enhanced information accuracy.
+{{< introduction lead="Landskies is a young start-up founded by Quentin Ducenne, Aurélien James and Nils Bourland. We pursue the development of innovative solutions to climate change challenges. " text="A large group of policy-makers and stakeholders addressing climate change issues need reliable information at fast pace. Remote sensing and companion technologies, in particular the Cloud and mobile technologies are opening new horizons. We work on a range of tools designed to acquire data at a much lower cost than ever before while providing enhanced information accuracy."  >}}
 
-{{< image src="images/onboarding-distance" >}}
-{{< image src="images/onboarding-scan-valid" >}}
+{{< simple-image src="images/captree-face" text="01. Mobile app views" >}}{{< simple-image src="images/captree-illustrations" text="02. Brand illustrations" >}}{{< simple-image src="images/captree-ui" text="01. Mobile app views" >}}

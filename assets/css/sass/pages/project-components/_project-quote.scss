@@ -1,0 +1,29 @@
+.project-quote {
+  @apply screen-size flex items-center justify-center;
+  height: 50vh;
+  background-color: var(--nav-background-color);
+}
+
+.project-quote__content {
+  @apply relative;
+  max-width: 50%;
+}
+
+.project-quote__content__image {
+  @apply absolute z-10 top-0 left-0 right-0 bottom-0 m-auto;
+}
+
+.project-quote__content__text {
+  @apply relative z-20;
+  font-family: Inter-Medium;
+  font-size: 32px;
+  text-align: center;
+  line-height: 52px;
+}
+
+.project-quote__content__author {
+  @apply relative z-20 mt-4;
+  text-align: center;
+  font-family: Inter-Medium;
+  font-size: 23px;
+}

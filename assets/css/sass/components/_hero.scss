@@ -1,8 +1,8 @@
 .hero {
   @apply w-full flex items-center overflow-hidden relative justify-center;
-  // height: calc(100vh - #{$nav-height});
-  height: 100vh;
-  padding-top: $nav-height;
+  height: calc(100vh - #{$nav-height});
+  // height: 100vh;
+  // padding-top: $nav-height;
   & > div {
     @apply opacity-0;
     transition: all 200ms ease;
@@ -29,6 +29,7 @@
 
   .hero__content__title__word {
     @apply overflow-hidden relative inline-block pointer-events-none p-0 -my-3;
+    margin-top: -20px;
   }
 
   .hero__content__title__word__content,

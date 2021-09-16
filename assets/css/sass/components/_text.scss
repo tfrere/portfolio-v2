@@ -1,12 +1,6 @@
 .hero-title {
   @apply relative select-none font-serif text-9xl font-black text-left text-black;
   font-size: 9rem;
-
-  // SKETCH
-  //   font-family: Inter-ExtraBold;
-  //   font-size: 158px;
-  //   letter-spacing: 0;
-  //   line-height: 163px;
 }
 
 .hero-subtitle {
@@ -31,6 +25,12 @@
   font-family: Inter-Bold;
   font-size: 28px;
   line-height: 42px;
+}
+
+.medium-title {
+  font-family: Inter-ExtraBold;
+  font-size: 94px;
+  line-height: 110px;
 }
 
 .small-title {

@@ -29,25 +29,3 @@
         </ul>
     </div>
 </nav>
-
-<div class="hide-on-mobile {{ .Scratch.Get "class" }} bg-{{ if in .Permalink "projects" }}blue{{ end }}{{ if in .Permalink "visuals" }}orange{{ end }}{{ if in .Permalink "contact" }}yellow{{ end }}{{ if in .Permalink "about" }}pink{{ end }} ">
-    <p class="hide-on-mobile__text">This website is not available on mobile for the moment.</p>
-</div>
-
-<canvas id="wave"></canvas>
-<canvas id="wave2"></canvas>
-
-
-<canvas class="color-drop"></canvas>
-
-<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
-    <defs>
-        <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 55 -25" result="goo"></feColorMatrix>
-            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
-        </filter>
-    </defs>
-</svg>
-
-<div id="cursor"></div>

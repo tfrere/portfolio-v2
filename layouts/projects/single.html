@@ -1,9 +1,10 @@
 
 {{ define "main" }}
     {{- partial "header.html" . }}
+
     <div class="page page--without-padding bg-blue">
         <div class="page__background"></div>
-        <div class="project">
+        <div class="project" data-scroll-container>
             <div class="project-hero">
                 <div class="project-hero__content">
                     <div class="project-hero__content__invite-to-scroll invite-to-scroll-with-text"></div>
@@ -54,36 +55,104 @@
                     </div>
                     <!-- <span class="project-hero__content__date">{{ .PublishDate.Format "2006" }}</span> -->
                 </div>
-
             </div>
             <div class="container project__container">
                 {{ .Content }}
-            </div>
-            <div class="project__nav project__nav--next">
-                    {{ if .NextPage }}
-                    {{ if eq .NextPage.Section "projects" }}
-                    <a class="project__nav__link nav-link" href="{{ .NextPage.Permalink }}">
-                        {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
-                    </a>
-                    {{ end }}
-                {{ end }}
-            </div>
-            
-            <div class="project__nav project__nav--previous">
-                    {{ if .PrevPage }}
-                    {{ if eq .PrevPage.Section "projects" }}
-                    <a class="project__nav__link nav-link" href="{{ .PrevPage.Permalink }}"> 
-                        {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
-                    </a>
-                    {{ end }}
-                {{ end }}
-            </div>
+                <!-- <div class="project-nav" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport" >
+                    <div>
+                        <h2 data-scroll data-scroll-offset="25%" data-scroll-call="popTitle" data-scroll-class="is-in-viewport" class="project-nav__title">
+                            <span class="word">
+                                <span class="word__content">
+                                    Other
+                                </span>
+                            </span>
+                            <span class="word">
+                                <span class="word__content">
+                                    projects.
+                                </span>
+                            </span>
+                        </h2>
+
+                        {{$posts := ($.Site.GetPage "section" "projects").Pages.ByPublishDate.Reverse}}
+                        <div class="project-nav__link-container">
+                            {{ if .NextPage }}
+                                {{ if eq .NextPage.Section "projects" }}
+                                    {{ $post := .NextPage }}
+                                    <a class="project-nav__link project-nav__link--next nav-link fade-in-top delay-1" href="{{ $post.Permalink }}" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport">
+                                        {{- $images := ($post.Resources.Match (printf "%s*" "images/background")) -}}
+                                            {{ range $images }}
+                                                {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "project-nav__link__image" )) }}
+                                            {{ end }}  
+                                        <div class="project-nav__link__content">
+                                            <p class="project-nav__link__content__title">{{ $post.Title | truncate 50 "..."}}</p>
+                                        </div>
+                                    </a>
+                                {{ else }}
+                                    {{ range last 1 $posts }}
+                                        {{ $post := . }}
+                                        <a class="project-nav__link project-nav__link--next nav-link fade-in-top delay-1" href="{{ $post.Permalink }}" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport">
+                                            {{- $images := ($post.Resources.Match (printf "%s*" "images/background")) -}}
+                                                {{ range $images }}
+                                                    {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "project-nav__link__image" )) }}
+                                                {{ end }}  
+                                            <div class="project-nav__link__content">
+                                                <p class="project-nav__link__content__title">{{ $post.Title | truncate 50 "..."}}</p>
+                                            </div>
+                                        </a>
+                                    {{ end }}
+                                {{ end }}
+                            {{ end }}
+                            {{ if .PrevPage }}
+                                {{ if eq .PrevPage.Section "projects" }}
+                                    {{ $post := .PrevPage }}
+                                    <a class="project-nav__link project-nav__link--next nav-link fade-in-top delay-3" href="{{ $post.Permalink }}" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport">
+                                        {{- $images := ($post.Resources.Match (printf "%s*" "images/background")) -}}
+                                            {{ range $images }}
+                                                {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "project-nav__link__image" )) }}
+                                            {{ end }}  
+                                        <div class="project-nav__link__content">
+                                            <p class="project-nav__link__content__title">{{ $post.Title | truncate 50 "..."}}</p>
+                                        </div>
+                                    </a>
+                                    {{ else }}
+                                        {{ range first 1 $posts }}
+                                            {{ $post := . }}    
+                                            <a class="project-nav__link project-nav__link--next nav-link fade-in-top delay-3" href="{{ $post.Permalink }}" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport">
+                                                {{- $images := ($post.Resources.Match (printf "%s*" "images/background")) -}}
+                                                    {{ range $images }}
+                                                        {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "project-nav__link__image" )) }}
+                                                    {{ end }}  
+                                                <div class="project-nav__link__content">
+                                                    <p class="project-nav__link__content__title">{{ $post.Title | truncate 50 "..."}}</p>
+                                                </div>
+                                            </a>
+                                        {{ end }}
+                                    {{ end }}
+                                {{ else }}
+                                {{ range first 1 $posts }}
+                                    {{ $post := . }}    
+                                    <a class="project-nav__link project-nav__link--next nav-link fade-in-top delay-3" href="{{ $post.Permalink }}" data-scroll data-scroll-offset="25%" data-scroll-class="is-in-viewport">
+                                        {{- $images := ($post.Resources.Match (printf "%s*" "images/background")) -}}
+                                            {{ range $images }}
+                                                {{ partial "responsive-image" (dict "Site" $.Site "image" . "attrs" (dict "class" "project-nav__link__image" )) }}
+                                            {{ end }}  
+                                        <div class="project-nav__link__content">
+                                            <p class="project-nav__link__content__title">{{ $post.Title | truncate 50 "..."}}</p>
+                                        </div>
+                                    </a>
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                </div>
+            </div> -->
         </div>
         {{- partial "footer.html" . -}}
     </div>
     <script>
 
             $(function () {
+
+
 
                 anime.set(".word__content", {
                 translateY: "+=160px",
@@ -103,6 +172,20 @@
                     opacity:0
                 });
 
+                window.hasAppeared = function(obj) {
+                    window.setTimeout(()=>{
+                        $(obj.el).addClass("animated");
+                    }, 650);
+                }
+
+                window.popTitle = function() {
+                    anime.timeline({duration: 400}).add({
+                        targets: ".project-nav__title .word__content",
+                        translateY: "-=160px",
+                        easing: "easeOutQuart",
+                        delay: anime.stagger(50),
+                    }, );
+                };
 
                 var timeline = anime.timeline({
                 loop: false,
@@ -121,7 +204,7 @@
                     duration: 2000
                 }, "+=100")
                 .add({
-                    targets: ".word__content",
+                    targets: ".project-hero .word__content",
                     translateY: "-=160px",
                     easing: "easeOutQuart",
                     delay: anime.stagger(50),
@@ -145,8 +228,6 @@
                     opacity:1,
                     easing: "easeOutQuart",
                 }, "-=1600")
-
-
 
             });
 

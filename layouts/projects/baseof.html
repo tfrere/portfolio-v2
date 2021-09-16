@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     {{- partial "head.html" . -}}
-    <body data-scroll-container>
+    <body>
         {{- block "main" . }}{{- end }}
+        {{- partial "js.html" . -}}
     </body>
-    {{- partial "js.html" . -}}
 </html>
 

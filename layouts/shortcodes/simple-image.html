@@ -1,0 +1,16 @@
+{{- $image_src := .Get "src" -}}
+{{- $class := .Get "class" -}}
+{{- $text := .Get "text" -}}
+{{- $image_files := (.Page.Resources.Match (printf "%s*" $image_src)) -}}
+{{ with $image_files }}
+    {{ range $image := . }}
+        <div class="project-image fade-in-top {{$class}}" data-scroll data-scroll-offset="25%" data-scroll-call="hasAppeared" data-scroll-class="is-in-viewport">
+            {{ $test := $image.Resize "1600x 80q" }}
+            <!-- <a class="img-fluidbox" href="{{ $test.RelPermalink }}">
+              {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "project-image__image" )) }}
+            </a> -->
+            {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "project-image__image" )) }}
+            <p class="project-image__text">{{$text}}</p>
+        </div>
+    {{ end }}
+{{ end }}

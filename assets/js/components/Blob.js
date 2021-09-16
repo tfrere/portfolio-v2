@@ -98,8 +98,10 @@ class Blob {
   mouseMove(e) {
     let pos = this.center;
 
-    let clientX = e.clientX - this.canvas.offsetLeft;
-    let clientY = e.clientY - this.canvas.offsetTop;
+    var rect = this.canvas.getBoundingClientRect();
+
+    let clientX = e.clientX - rect.left;
+    let clientY = e.clientY - rect.top;
 
     let diff = { x: clientX - pos.x, y: clientY - pos.y };
 

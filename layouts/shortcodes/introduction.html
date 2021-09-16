@@ -1,13 +1,13 @@
 {{- $lead := .Get "lead" -}}
 {{- $text := .Get "text" -}}
 
-<div class="project__container__introduction">
-  <div class="project__container__introduction__content">
-    <div class="project__container__introduction__content__label fade-in-top" data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport">
+<div class="project-introduction">
+  <div class="project-introduction__content">
+    <div class="project-introduction__content__label fade-in-top" data-scroll data-scroll-offset="20%" data-scroll-class="is-in-viewport">
       <label>Introduction</label>
     </div>
-    <div class="project__container__introduction__content__text fade-in-top" data-scroll data-scroll-offset="15%" data-scroll-class="is-in-viewport">
-        <p class="lead">
+    <div class="project-introduction__content__text fade-in-top fade-in-top--delay-2" data-scroll data-scroll-offset="20%" data-scroll-class="is-in-viewport">
+        <p class="project-lead">
             {{ $lead | markdownify }}
         </p>
         <p class="base-text">

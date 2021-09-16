@@ -60,7 +60,8 @@ $(function () {
   // });
 
   $(".nav .nav-link").on("click", function (e) {
-    $(this).addClass("active");
+    $(this).addClass("was-clicked");
+    $(".nav__section-menu__item").removeClass("active");
   });
 
   $(".nav-link").on("click", function (e) {
@@ -185,6 +186,8 @@ $(function () {
   // let mouseX = 0;
   // let mouseY = 0;
 
+  // let speedFactor = 0.65;
+
   // let cursorPosX = $(window).width() / 2;
   // let cursorPosY = $(window).height() / 2;
 
@@ -230,8 +233,8 @@ $(function () {
   //   let xDiff = mouseX - cursorPosX;
   //   let yDiff = mouseY - cursorPosY + test;
 
-  //   cursorPosX += xDiff * 0.65;
-  //   cursorPosY += yDiff * 0.65;
+  //   cursorPosX += xDiff * speedFactor;
+  //   cursorPosY += yDiff * speedFactor;
   //   div.style.transform = `translate(${cursorPosX}px, ${cursorPosY}px) scale(${cursorScale})`;
 
   //   requestAnimationFrame(updateCursor);
@@ -244,4 +247,63 @@ $(function () {
   // document.addEventListener("mouseenter", onMouseEnter, false);
 
   // updateCursor();
+
+  // CURSOR 3
+
+  const cursor = document.getElementById("cursor");
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  let speedFactor = 1;
+
+  let cursorPosX = $(window).width() / 2;
+  let cursorPosY = $(window).height() / 2;
+
+  let cursorScale = 0;
+
+  let div = document.createElement("div");
+  div.classList.add("cursor-circle");
+  cursor.append(div);
+
+  function onMouseMove(event) {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    // div.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(${cursorScale})`;
+  }
+
+  function onMouseLeave(event) {
+    cursorScale = 0;
+    // div.classList.add("cursor--out");
+  }
+
+  function onMouseEnter(event) {
+    cursorScale = 1;
+    // div.classList.remove("cursor--out");
+  }
+
+  function onMouseDown(event) {
+    cursorScale = 2;
+  }
+
+  function onMouseUp(event) {
+    cursorScale = 1;
+  }
+
+  const regex = /([-0-9]*)\)/gm;
+
+  function updateCursor() {
+    div.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(${cursorScale})`;
+    // requestAnimationFrame(updateCursor);
+  }
+
+  document.addEventListener("mousedown", onMouseDown, false);
+  document.addEventListener("mouseup", onMouseUp, false);
+  document.addEventListener("mousemove", onMouseMove, false);
+  document.addEventListener("mouseleave", onMouseLeave, false);
+  document.addEventListener("mouseenter", onMouseEnter, false);
+
+  window.setInterval(() => {
+    updateCursor();
+  }, 1000 / 60);
 });

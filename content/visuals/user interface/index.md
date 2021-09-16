@@ -1,8 +1,11 @@
 ---
 title: User interface
-date: 2020-01-01T00:00:04+00:00
-draft: false
-toto: 256
+description: "An visuals description to update"
+tags:
+  - visuals tag 1
+  - visuals tag 2
+  - visuals tag 3
+  - visuals tag 4
 weight: 2
 ---
 
