@@ -59,6 +59,7 @@
 .visuals__container__gallery-item {
   @apply flex flex-col relative mr-12 w-full;
   width: 40vw;
+  min-width: 600px;
   max-width: 650px;
 }
 

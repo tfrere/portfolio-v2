@@ -289,6 +289,8 @@ $(function () {
   function onMouseUp(event) {
     cursorScale = 1;
   }
+  document.addEventListener("mouseleave", onMouseLeave, false);
+  document.addEventListener("mouseenter", onMouseEnter, false);
 
   const regex = /([-0-9]*)\)/gm;
 

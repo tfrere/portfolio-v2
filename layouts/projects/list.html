@@ -20,18 +20,17 @@
                 <div class="projects__header">
                     <div class="projects__header__content">
                         <h1 data-scroll data-scroll-speed='2' class="projects__header__title word">
-                            <!-- <span class="word__content">Projects.</span> -->
-                            <span class="word__content">Coming soon.</span>
+                            <span class="word__content">Projects.</span>
                         </h1>
                         <div class="projects__header__illustration">
                             <div data-scroll data-scroll-speed='0.5' id="text-start" class="">
                                 {{ readFile "static/images/projects-type.svg" | safeHTML }}
                             </div>
                         </div>   
-                        <!-- <div data-scroll data-scroll-speed='0.5' class="invite-to-scroll"></div>              -->
+                        <div data-scroll data-scroll-speed='0.5' class="invite-to-scroll"></div>             
                     </div>
                 </div>
-                <!-- {{ range $index, $element := .Pages }}
+                {{ range $index, $element := .Pages }}
                     <div id="project-{{$index}}" class="projects__project projects__project-{{$index}} {{if (modBool $index 2)}}projects__project--right{{end}}">
                         {{if eq $index 0}}
 
@@ -107,9 +106,9 @@
                             {{ end }}
                             </a>
                     </div>
-                {{ end }} -->
+                {{ end }}
 
-                <!-- <div class="projects__footer">
+                <div class="projects__footer">
                     <div data-scroll data-scroll-speed='0.5' class="projects__project__geometric-shape" style="left:20%; bottom:35%;">
                         <img style="width:200px;height:200px;" src="{{ $site.BaseURL }}/images/circle.svg"/>
                     </div>
@@ -123,7 +122,7 @@
                         </h2>
                         <a data-scroll data-scroll-class="is-in-viewport" data-scroll-offset="25%"  id="orange" class="nav-link button fade-in-top" href="/visuals" ><span class="button__content">Give a look</span></a>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
