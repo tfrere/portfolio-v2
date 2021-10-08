@@ -127,6 +127,10 @@ canvas[data-blob] {
   }
 }
 
+.gray {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
 .wave-separator {
   display: none;
   position: absolute;

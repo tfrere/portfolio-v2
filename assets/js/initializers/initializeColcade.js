@@ -1,9 +1,9 @@
-import Colcade from "colcade";
+// import Colcade from "colcade";
 
-var grid = document.querySelector(".grid");
-if (grid) {
-  var colc = new Colcade(grid, {
-    columns: ".grid-col",
-    items: ".grid-item",
-  });
-}
+// var grid = document.querySelector(".grid");
+// if (grid) {
+//   var colc = new Colcade(grid, {
+//     columns: ".grid-col",
+//     items: ".grid-item",
+//   });
+// }

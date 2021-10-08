@@ -56,21 +56,17 @@ import "./components/Cursor";
 import Wave from "./components/Wave";
 import "./components/FpsCounter";
 import Magnetic from "./components/Magnetic";
-import "./components/Ticker";
 import "./components/ThreeDimensionalHover";
 import "./components/Marquee";
-import "./components/Apparition";
 import "./components/ScrollAnim";
 
 import "./components/Blob";
 import "./components/Boids";
 import "./components/Particles";
 import "./components/ColorSplat";
-import "./components/MovinLines";
+// import "./components/MovinLines";
+// import "./components/MaskHoverTextEffect";
 
-import "./components/MaskHoverTextEffect";
-
-// import "./initializers/updateProfession";
 import "./initializers/initializeColcade";
 import "./initializers/initializeFluidbox";
 
@@ -98,8 +94,10 @@ import "./initializers/initializeFluidbox";
 })();
 
 $(document).ready(function () {
-  $(window).scrollTop(0);
-  // $(document).scrollTop(0);
+  window.setTimeout(() => {
+    $(window).scrollTop(0);
+    $(document).scrollTop(0);
+  }, 0);
 });
 
 (function () {

@@ -27,4 +27,8 @@
 
 .responsive-image__content {
   @apply absolute top-0 left-0 w-full h-full;
+  // @apply hidden;
+  // &.loaded {
+  //   @apply block;
+  // }
 }

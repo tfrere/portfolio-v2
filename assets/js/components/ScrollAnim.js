@@ -9,9 +9,13 @@ export default class ScrollAnim {
     this.options = (el.dataset.options && JSON.parse(el.dataset.options)) || {
       start: "top bottom",
       end: "bottom top",
-      scrub: 0.3,
+      scrub: 0,
       refreshPriority: -14,
     };
+
+    // start: "top top", // when the top of the trigger hits the top of the viewport
+    // end: "+=500", // end after scrolling 500px beyond the start
+    // scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
     this.from = JSON.parse(el.dataset.from) || { opacity: 0 };
     this.to = JSON.parse(el.dataset.to) || { opacity: 1 };
 

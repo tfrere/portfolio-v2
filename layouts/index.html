@@ -1,5 +1,4 @@
 {{ define "main" }}
-
   <div class="cb-particles">
     <div class="cb-particles-item -black -dot -v1 -s1 -c3"></div>
     <div class="cb-particles-item -black -dot -v2 -s2 -c4"></div>
@@ -13,11 +12,6 @@
     <div class="cb-particles-item -black -dot -v10 -s3 -c1"></div>
     <div class="cb-particles-item -black -dot -v11 -s3 -c3"></div>
   </div>
-
-
-  <!-- <canvas class="cb-lines">
-  </canvas> -->
-
   <section id="landing" class="section landing">
     <div class="landing__content container" >
         <h1 class="heading-0 entity uppercase landing__title">
@@ -27,17 +21,13 @@
         </h1>
         <p class="entity text-base landing__text vr-mt-1 ml-2">Focused on creating <strong>long lasting experiences</strong>.</p>
     </div>
-    <!-- data-scroll-anim data-to='{"x": "-100"}' data-from='{"x": "75" }' -->
-    <div class="invite-to-scroll-with-text"  ></div>
+    <div class="invite-to-scroll-with-text"></div>
   </section>
-
   <div data-marquee  data-marquee-start="0" data-marquee-end="-300" class="marquee" >
     <div data-marquee-container  class="marquee__content entity">
       <h3 data-marquee-item class="marquee__content__part text-stroke"> CAREFULY CRAFTING SINCE SINCE 2008 </h3>
     </div>
   </div>
-
-
   <section class="section">
     <div class="section__content container">
         <p class="entity text-lead">
@@ -50,20 +40,13 @@
         </p>
     </div>
   </section>
-
-
-
-            <!-- {{ partial "stamp" }} -->
-
-
+  <!-- {{ partial "stamp" }} -->
   <section class="black section--with-padding section ">
     <div class="section__content">
         <div class="container mx-auto">
             <h2 class="entity heading-2 font-bold uppercase vr-mb-4">We worked<br/> together.</h2>
         </div>
-
         {{$site := .Site}}
-
         <style>
             #preloadedImages
             {
@@ -115,20 +98,12 @@
                 {{ end }}
             </div>
         </div>
-
     </div>
-
   </section>
-
-    <!-- <canvas class="canvas entity" data-blob data-blob-color="rgba(0,0,0,0.3)" data-blob-margin="20" style="z-index:0; position:absolute; top: -50%;"></canvas> -->
-    <!-- <div class="lines">
-      {{ readFile "static/images/lines-2.svg" | safeHTML }}
-    </div> -->
   <section class="section section--with-half-padding">
-
     <div class="about__content__prices-container section__content container" >
-        <h2 class="entity heading-1 entity" >AWARDS.</h2>
-        <div class="about__content__prices vr-mt-5">
+        <h2 class="entity heading-1 heading--center entity" >AWARDS.</h2>
+        <div class="about__content__prices vr-mt-3">
             <div class="about__content__prices__item">
                 <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/jpg/ideo.jpg" />
                 <div class="about__content__prices__item__infos">
@@ -153,87 +128,50 @@
         </div>
     </div>
   </section>
-
-  
-        <!-- <section class="section section--with-padding vr-mt-4">
-
-            <div class="section__content container" >
-                <h2 class="entity heading-3 w-5/12" >OVER 10 YEARS IN THE GAME</h2>
-                <div class="columns vr-mt-2">
-                    <h2 class="entity heading-4">THIS A TITLE</h2>
-                    <p class="entity text-small vr-mt-1">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua</strong>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </p>
-                    <h2 class="entity heading-4">THIS A TITLE</h2>
-                    <p class="entity text-small vr-mt-1">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua</strong>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </p>
-                </div>
-
-            </div>
-        </section> -->
-
-  <!-- <div class="wave mx-auto"></div> -->
-
-  <section class="section section--with-half-padding">
-      
+  <section class="section gray section--with-half-padding">
     <div class="section__content" >
       <div class="container mx-auto">
-              <div class="">
-                <!-- <span class="text-label">Some of my</span> -->
-                <!-- heading--center -->
-                <h2 class="heading-1 vr-mb-4 entity">WORK.</h2>
-                <!-- <p class="entity text-base vr-mt-1">
-                  Will be available soon !<br/> In the meantime, you can see it on <a class="underline"  data-cursor="-lg"  target="_blank" href="https://behance.net/frerethibaud9207">Behance</a>.
-                </p> -->
-              </div>
-        <!-- <a data-nav-link href="/visuals/art">Look at</a> -->
-      </div>
-
-
-        <div class="slider vr-mt-2">
-
-          {{ range where .Site.RegularPages "Type" "projects" }}
-              <div class="slide">
-                  <a data-cursor="-lg" data-cursor-text="see more" href="{{.Params.externalurl}}" target="_blank" rel="nofollow"  class="slide__content">
-                  {{ $images := .Resources }}
-                  {{ with .Resources.ByType "image" }}
-                      {{ range first 1 . }}
-                          {{ partial "responsive-image" (dict "Site" $.Site "image" .) }}
-                      {{ end }}
-                  {{ end }}
-                  
-                  <div class="slide__content__infos">
-
-                      <span class="slide__content__infos__label entity">
-                          {{ with .Params.tags }}
-                              {{ range . }}
-                                  {{ $href := print (absURL "tags/") (urlize .) }}
-                                  {{ . }}
-                              {{ end }}
-                          {{ end }}
-                      </span>
-                      <h3 class="slide__content__infos__title entity">{{.Title}}</h3>
-                      <span class="slide__content__infos__misc entity">{{.Params.client}} | {{  .PublishDate.Format "January 2006" }}</span>
-                  </div>
-
-                </a>
-            </div>
-          {{ end }}
-
-
+        <div class="">
+          <h2 class="heading-1 heading--center vr-mt-1 vr-mb-4 entity">WORK.</h2>
         </div>
-
+      </div>
+      <div class="slider vr-mt-2 vr-mb-4">
+        {{ range where .Site.RegularPages "Type" "projects" }}
+            <div class="slide">
+                <a data-cursor="-lg" data-cursor-text="see more" href="{{.Params.externalurl}}" target="_blank" rel="nofollow"  class="slide__content">
+                {{ $images := .Resources }}
+                {{ with .Resources.ByType "image" }}
+                    {{ range first 1 . }}
+                        {{ partial "responsive-image" (dict "Site" $.Site "image" .) }}
+                    {{ end }}
+                {{ end }}
+                <div class="slide__content__infos">
+                    <span class="slide__content__infos__label entity">
+                        {{ with .Params.tags }}
+                            {{ range . }}
+                                {{ $href := print (absURL "tags/") (urlize .) }}
+                                {{ . }}
+                            {{ end }}
+                        {{ end }}
+                    </span>
+                    <h3 class="slide__content__infos__title entity">{{.Title}}</h3>
+                    <span class="slide__content__infos__misc entity">{{.Params.client}} | {{  .PublishDate.Format "January 2006" }}</span>
+                </div>
+              </a>
+          </div>
+        {{ end }}
+      </div>
   </section>
+  <section class="black section overflow-hidden">
+    <canvas class="canvas entity" data-boids data-boids-color="rgba(255,255,255,0.5)"></canvas>
+    <div
+      class="section__content container z-0" 
+    >
 
-
-
-  <section class="black section vr-mt-4 overflow-hidden">
-    <!-- <canvas class="canvas entity" data-boids data-boids-color="rgba(255,255,255,0.5)"></canvas> -->
-
-    <!--  -->
-    <!-- data-scroll-anim data-to='{"opacity":"1","yPercent": "0", "skewY": "0"}' data-from='{"opacity":"0", "yPercent": "-10", "skewY": "5", "ease": "linear"}' data-options='{"start": "top bottom","end": "bottom top","scrub": "1","refreshPriority": "-14"}' -->
-    <div class="section__content container z-0"  > 
+    <!--       data-scroll-anim
+      data-to='{"yPercent": "0"}'
+      data-from='{"yPercent": "-99"}' 
+     -->
         <h2 class="heading-1 entity uppercase"> 
             Always keen
             <br/>
@@ -249,18 +187,16 @@
             </a>
           </p>
           <p class="text-base entity vr-mb-0">I’m available in <span class="underline underline--small">full remote</span> from Metz, France</p>
-
     </div>
   </section>
-
   <script>
-        var elem = document.getElementById('grid');
-        document.addEventListener('keydown', function(e) {
-            if(e.key == "f") {
-                elem.classList.toggle('vr-grid');
-            }
-        }, false);
+    var elem = document.getElementById('grid');
+    document.addEventListener('keydown', function(e) {
+        if(e.key == "f") {
+            elem.classList.toggle('vr-grid');
+        }
+    }, false);
   </script>    
-{{- partial "js.html" . -}}
+  {{- partial "js.html" . -}}
 
 {{ end }}
