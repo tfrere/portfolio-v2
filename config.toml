@@ -13,38 +13,6 @@ timeout = 600000
 [markup.goldmark.renderer]
   hardWraps = true
 
-[menu]
-  [[menu.main]]
-  	identifier = "projects"
-    name = "Projects"
-    pre = "pen-tool"
-    url = "/projects/"
-    weight = 2
-  [[menu.main]]
-  	identifier = "visuals"
-    name = "Visuals"
-    pre = "visuals"
-    url = "/visuals/"
-    weight = 3
-  [[menu.main]]
-  	identifier = "about"
-    name = "About"
-    pre = "about"
-    url = "/about/"
-    weight = 4
-  [[menu.main]]
-  	identifier = "contact"
-    name = "Contact"
-    pre = "contact"
-    url = "/contact/"
-    weight = 5
-  [[menu.main]]
-  	identifier = "typeface"
-    name = "Typeface"
-    pre = "typeface"
-    url = "/typeface/"
-    weight = 6
-
 # Highest width is 2500px for landscape and 1500px for portrait.
 # This will give both orientations roughly the same resolution and size.
 # Every landscape image will also be scaled down to 1500px and 1000px,
