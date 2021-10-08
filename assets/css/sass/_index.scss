@@ -1,159 +1,140 @@
-$canvas-z-index: 0;
-$wave-z-index: 998;
-$nav-z-index: 999;
-$lightbox-z-index: 1000;
-$nav-height: 84px;
-$border-size: 30px;
-$page-z-index: 1;
-$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
-@import "fonts";
+@import "_variables.scss";
 
-@import "lib/luminance";
-@import "lib/locomotivescroll.min";
-@import "lib/fluidbox";
+:root {
+  --cursor-size: 32px;
+  --cursor-color: white;
 
-@import "components/nav";
-@import "components/wave";
-@import "components/underline";
-@import "components/section-divider";
-@import "components/title-separator";
-@import "components/line-separator";
-@import "components/marquee";
-@import "components/text";
-@import "components/cursor";
-@import "components/burger-menu";
-@import "components/stamp";
+  --background-color: white; //#f5f5f7
+  --text-color: black; //#1d1d1f
 
-// body {
-//   overscroll-behavior-y: none;
+  --reverse-background-color: black; //#f5f5f7
+  --reverse-text-color: white;
+}
+
+.reverse {
+  mix-blend-mode: difference;
+}
+
+// .slide {
+//   width: 100%;
 // }
 
+@import "typeface/_index.scss";
+
+@import "components/_separator.scss";
+@import "components/_button.scss";
+
+@import "lib/_tiny-slider.scss";
+@import "lib/_fluidbox.scss";
+
+@import "components/_cursor.scss";
+@import "components/_marquee.scss";
+@import "components/_stamp.scss";
+@import "components/_particles.scss";
+@import "components/_typewrite.scss";
+@import "components/invite-to-scroll.scss";
+@import "components/underline.scss";
+@import "components/colcade.scss";
+@import "components/hover-text-effect";
+@import "components/section";
+@import "components/lazy-image";
+
+@import "sections/_nav.scss";
+@import "sections/_landing.scss";
+@import "sections/_clients.scss";
+@import "sections/_description.scss";
+@import "sections/_projects.scss";
+@import "sections/_prices.scss";
+@import "sections/_contact.scss";
+@import "sections/_more.scss";
+
+* {
+  user-select: none !important;
+  // cursor: none !important;
+}
+
+body,
 html {
-  height: 100%;
+  overflow-x: hidden;
+  background-color: var(--background-color);
+  padding: 0;
   margin: 0;
   @apply antialiased;
-  font-synthesis: none;
-  overscroll-behavior-x: contain;
-  overscroll-behavior-y: none;
+  font-family: "Oswald";
+  // scroll-behavior: smooth;
+  // overscroll-behavior-x: contain;
+  // overscroll-behavior-y: none;
+  *::selection {
+    color: black;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+a.underline[target="_blank"]::after {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+  margin: 0 3px 0 5px;
+}
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  padding-bottom: 125%;
+  // height: 200vh;
+  z-index: 1;
+  overflow: hidden;
+  svg {
+    width: 100%;
+  }
+}
+
+canvas[data-blob] {
+  z-index: 9999999;
+}
+
+.black {
+  @apply relative w-full;
+
+  background: var(--reverse-background-color);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    color: var(--reverse-text-color);
+  }
+
   *::selection {
     color: white;
-    background-color: var(--complement-color);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 
-// DEBUG VERTICAL RYTHM
-
-// .page::before {
-//   content: "";
-//   position: fixed;
-//   top: 0;
-//   right: 0;
-//   bottom: 0;
-//   left: 0;
-//   z-index: 999999999999;
-//   display: block;
-//   background: linear-gradient(
-//     to bottom,
-//     rgba(0, 0, 0, 0.1),
-//     rgba(0, 0, 0, 0.1) 1px,
-//     transparent 1px,
-//     transparent
-//   );
-//   background-size: 100% 24px;
-// }
-
-//
-
-.hide-on-mobile {
-  @apply w-full h-full absolute top-0 left-0 flex items-center justify-center;
-  z-index: 99999999999;
-  background-color: var(--background-color);
-}
-
-@media only screen and (min-width: 1200px) {
-  .hide-on-mobile {
-    @apply hidden;
+.wave-separator {
+  display: none;
+  position: absolute;
+  top: -100px;
+  width: 105vw;
+  left: -5px;
+  right: 0;
+  img {
+    width: 105vw;
   }
 }
-
-#canvas {
-  @apply absolute z-0;
-  width: calc(100% - #{$border-size * 2});
-  height: calc(100% - #{$border-size});
-  top: 0;
-  left: $border-size;
-  z-index: 0;
-  opacity: 1;
-}
-
-.color-drop {
-  @apply fixed top-0 left-0 w-full h-full pointer-events-none;
-  z-index: 99999999999;
-}
-
-#wave,
-#wave2 {
-  @apply fixed pointer-events-none left-0 top-0;
-  width: 100%;
-  height: 100%;
-  // z-index: 998;
-  z-index: 99999999;
-}
-
-body {
-  width: 100%;
-  min-height: 100%;
-  margin: 0;
-  scroll-behavior: smooth;
-}
-
-@import "colors";
-@import "components/levels";
-
-@import "components/inner-shadow";
-@import "components/invite-to-scroll";
-@import "components/button";
-@import "components/container";
-@import "components/page";
-
-[data-scroll-container],
-[data-scroll-container-horizontal] {
-  will-change: transform;
-}
-
-// SCREEN SIZE
-
-.screen-size {
-  @apply relative w-full h-full flex justify-center items-center py-8;
-  min-height: calc(100vh - 114px);
-  width: calc(100% - 60px) !important;
-  margin: 0 30px;
-}
-
-// .lazy {
-//   opacity: 0;
-//   &.is-inview {
-//     opacity: 1;
-//   }
-// }
-
-@import "components/hero";
-@import "components/footer";
-@import "pages/landing";
-@import "pages/projects";
-@import "pages/project";
-@import "pages/project-components/project-parallax-image";
-@import "pages/project-components/project-introduction";
-@import "pages/project-components/project-image";
-@import "pages/project-components/project-quote";
-@import "pages/project-components/project-hero";
-@import "pages/project-components/project-list";
-@import "pages/project-components/project-lead";
-@import "pages/project-components/project-nav";
-@import "pages/about";
-@import "pages/contact";
-@import "pages/visuals";
-@import "pages/visual";
-
-// put this at the end to be sure it will override all other component properties
-@import "components/apparitions";

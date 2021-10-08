@@ -1,186 +1,46 @@
 {{ define "main" }}
-{{- partial "header.html" . -}}
-{{$site := .Site}}
-<div >
-<!-- 
-        <div class="projects__nav">
-            <a href="#" class="projects__nav__link-active"></a>
-            <a href="#" class="projects__nav__link"></a>
-            <a href="#" class="projects__nav__link"></a>
-            <a href="#" class="projects__nav__link"></a>
-        </div>
- -->
 
- 
 
-        <div class="page page--with-bottom-border projects bg-blue" >
-            <div data-scroll-container>
-                <div class="page__background"></div>
+<div class="section">
 
-                <div class="projects__header">
-                    <div class="projects__header__content">
-                        <h1 data-scroll data-scroll-speed='2' class="projects__header__title word">
-                            <span class="word__content">Projects.</span>
-                        </h1>
-                        <div class="projects__header__illustration">
-                            <div data-scroll data-scroll-speed='0.5' id="text-start" class="">
-                                {{ readFile "static/images/projects-type.svg" | safeHTML }}
-                            </div>
-                        </div>   
-                        <div data-scroll data-scroll-speed='0.5' class="invite-to-scroll"></div>             
-                    </div>
-                </div>
-                {{ range $index, $element := .Pages }}
-                    <div id="project-{{$index}}" class="projects__project projects__project-{{$index}} {{if (modBool $index 2)}}projects__project--right{{end}}">
-                        {{if eq $index 0}}
+    <div class="section__content">
 
-                            <div data-scroll data-scroll-speed='0.5' class="projects__project__geometric-shape" style="top:15%; right:5%;">
-                                <img style="width:75px;height:75px;transform:rotate(25deg);" src="{{ $site.BaseURL }}/images/triangle.svg"/>
-                            </div>
-                            <div data-scroll data-scroll-speed='1' class="projects__project__geometric-shape" style="top:8%; left:15%;">
-                                <img style="width:80px;height:80px;" src="{{ $site.BaseURL }}/images/circle.svg"/>
-                            </div>
-                            <div data-scroll data-scroll-speed='1.2' class="projects__project__geometric-shape" style="bottom:15%; right:10%;">
-                                <img style="width:200px;height:200px; transform:rotate(30deg);" src="{{ $site.BaseURL }}/images/rectangle.svg"/>
-                            </div>
-                        {{end}}
+        <div class="my-slider">
 
-                        {{if eq $index 1}}
-                            <div data-scroll data-scroll-speed='0.8' class="projects__project__geometric-shape" style="bottom:15%; right:10%;">
-                                <img style="width:150px;height:150px;" src="{{ $site.BaseURL }}/images/circle.svg"/>
-                            </div>
-                            <div data-scroll data-scroll-speed='0.5' class="projects__project__geometric-shape" style="top:15%; left:45%;">
-                                <img style="width:100px;height:100px;" src="{{ $site.BaseURL }}/images/triangle.svg"/>
-                            </div>
-                        {{end}}
+            {{ range where .Site.RegularPages "Type" "projects" }}
+                <div class="slide">
+                    <div class="slide__content">
+                    {{ $images := .Resources }}
+                    {{ with .Resources.ByType "image" }}
+                        {{ range first 1 . }}
+                            {{ partial "responsive-image" (dict "Site" $.Site "image" .) }}
+                        {{ end }}
+                    {{ end }}
+                    
+                    <div class="slide__content__infos">
 
-                        {{if eq $index 2}}
-                            <div data-scroll data-scroll-speed='0.8' class="projects__project__geometric-shape" style="bottom:20%; right:15%;">
-                                <img style="width:150px;height:150px;" src="{{ $site.BaseURL }}/images/circle.svg"/>
-                            </div>
-                            <div data-scroll data-scroll-speed='0.9' class="projects__project__geometric-shape" style="top:15%;left:15%;">
-                                <img style="width:120px;height:120px;transform:rotate(110deg);" src="{{ $site.BaseURL }}/images/triangle.svg"/>
-                            </div>
-                            
-                        {{end}}
-
-                        {{if eq $index 2}}
-                            <div data-scroll data-scroll-speed='0.5' class="projects__project__geometric-shape" style="right:25%; bottom:-25%;">
-                                <img style="width:200px;height:200px;" src="{{ $site.BaseURL }}/images/rectangle.svg"/>
-                            </div>
-                        {{end}}
-
-                        <a class="projects__project__content nav-link" href="{{ .RelPermalink }}" >
-                            <div  data-scroll data-scroll-speed='2' class="projects__project__content__info">
-                                <h3 class="projects__project__content__info__title">
-                                    {{ $test := split .Params.SmallTitle " "}}
-                                    {{range $test }}
-                                        <span class="project-word">
-                                            <span class="project-word__content">
-                                                {{.}}
-                                            </span>
-                                        </span>
-                                    {{end}}
-                                </h3>
-                                <span  data-scroll class="projects__project__content__info__tag">
-                                    {{ with .Params.tags }}
-                                        {{ range . }}
-                                            {{ $href := print (absURL "tags/") (urlize .) }}
-                                            {{ . }}
-                                        {{ end }}
-                                    {{ end }}
-                                </span>
-                                <p data-scroll class="projects__project__content__info__desc">{{ .Description | replaceRE "<p>" "" | safeHTML | markdownify }}</p>
-                            </div>
-                            {{- $images := (.Page.Resources.Match (printf "%s*" "images/background")) -}}
-                            {{ range $images }}
-                                <div class="projects__project__content__image">
-                                    <div class="projects__project__content__image-container" >
-                                        <div class="projects__project__content__image-container__paper-layer"></div>
-                                        <div class="projects__project__content__image-container__paper-layer projects__project__content__image-container__paper-layer--2"></div>
-                                        <div class="projects__project__content__image__img">
-                                            <div class="projects__project__content__image__img__bg" style="background-image:url({{.RelPermalink}})"></div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <span class="slide__content__infos__label">
+                            {{ with .Params.tags }}
+                                {{ range . }}
+                                    {{ $href := print (absURL "tags/") (urlize .) }}
+                                    {{ . }}
+                                {{ end }}
                             {{ end }}
-                            </a>
+                        </span>
+                        <h3 class="slide__content__infos__title">{{.Title}}</h3>
+                        <span class="slide__content__infos__misc">{{.Title}} | {{  .PublishDate.Format "January 2, 2006" }}</span>
                     </div>
-                {{ end }}
 
-                <div class="projects__footer">
-                    <div data-scroll data-scroll-speed='0.5' class="projects__project__geometric-shape" style="left:20%; bottom:35%;">
-                        <img style="width:200px;height:200px;" src="{{ $site.BaseURL }}/images/circle.svg"/>
-                    </div>
-                    <div data-scroll data-scroll-speed='0.5' class="projects__project__geometric-shape" style="right:25%; bottom:25%;">
-                        <img style="width:120px;height:120px;" src="{{ $site.BaseURL }}/images/triangle.svg"/>
-                    </div>
-                    <div>
-                        <h2 data-scroll data-scroll-offset="25%" data-scroll-call="popTitle" data-scroll-class="is-in-viewport" class="projects__footer__title">
-                            <span class="word"><span class="word__content">And</span></span>
-                            <span class="word"><span class="word__content">more.</span></span>
-                        </h2>
-                        <a data-scroll data-scroll-class="is-in-viewport" data-scroll-offset="25%"  id="orange" class="nav-link button fade-in-top" href="/visuals" ><span class="button__content">Give a look</span></a>
-                    </div>
                 </div>
             </div>
+            {{ end }}
+
         </div>
+
     </div>
-        <script>
+</div>
 
-            $(function() {
 
-                var timeline = anime.timeline({
-                loop: false,
-                duration: 400,
-                });
+{{- partial "js.html" . -}}
 
-                anime.set("h2 .word__content", {
-                    translateY: "+=180px",
-                });
-
-                window.popTitle = function() {
-                    anime.timeline({duration: 400}).add({
-                        targets: "h2 .word__content",
-                        translateY: "-=180px",
-                        easing: "easeOutQuart",
-                        delay: anime.stagger(50),
-                    }, );
-                };
-
-                anime.set(".word__content", {
-                    translateY: "+=160px",
-                });
-
-                anime.set(".invite-to-scroll", {
-                    opacity: "0",
-                });
-
-                var animation = timeline
-                .add({
-                    targets: ".projects__header__illustration svg path",
-                    duration: 300,
-                })
-                .add({
-                    targets: ".projects__header__illustration svg path",
-                    strokeDashoffset: [800, 0],
-                    easing: "easeOutQuart",
-                    duration: 2000
-                }, "+=300")
-                .add({
-                    targets: ".word__content",
-                    translateY: "-=160px",
-                    easing: "easeOutQuart",
-                    delay: anime.stagger(50),
-                }, "-=1800")
-                .add({
-                    targets: ".invite-to-scroll",
-                    opacity: "1",
-                    easing: "linear",
-                    duration: 200
-                })
-            });
-
-        </script>
-    </div>
-{{ end }}
+{{end}}

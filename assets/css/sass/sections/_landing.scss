@@ -1,0 +1,16 @@
+.landing {
+  // overflow: hidden;
+  height: 100vh !important;
+  min-height: 100vh !important;
+  h1 {
+    @apply pointer-events-none;
+    // @apply text-center;
+  }
+  .blob {
+    transform: translateX(300px);
+  }
+}
+
+.landing .landing__title {
+  @apply pointer-events-none;
+}

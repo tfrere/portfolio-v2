@@ -1,9 +1,9 @@
 {{ define "main" }}
 
-<div class="visuals page page--with-bottom-border bg-orange">
+<div class="visuals page page--with-bottom-border">
     <div class="page__background"></div>
 
-    <div class="visuals__container" data-scroll-container-horizontal>
+    <div class="visuals__container" >
         <div class="visuals__container-content">
             <div class="visuals__container__introduction">
                 <h1 class="visuals__container__introduction__title">
@@ -58,7 +58,7 @@
             </div>
         </div>
     </div>
-    <script>
+    <!-- <script>
             $(function() {
 
 
@@ -149,7 +149,7 @@
                     );
                 });
             });
-    </script>
+    </script> -->
 {{- partial "js.html" . -}}
 </div>
 {{ end }}

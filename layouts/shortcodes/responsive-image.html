@@ -16,6 +16,11 @@
         {{ $widths = $.Site.Params.portraitPhotoWidths }}
         {{ end }}
 
+        {{ $width := float $image.Width }}
+        {{ $height := float $image.Height }}
+        {{ $division := div $height $width }}
+        {{ $padding := mul $division 100 }}
+
         <!--
         Add URL for each width to $imgSrcSet variable
         format: "/path/img_1000.jpg 1000w,/path/img_500.jpg 500w"
@@ -28,8 +33,16 @@
         {{ end }}
         {{ $imgSrcSet = (delimit $imgSrcSet ",") }}
 
-        <img alt="{{ $imgSrc }}" class="lazy" src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" >
+        <img alt="{{ $imgSrc }}" data-lazy data-src="{{ $imgSrc }}" data-srcset="{{ $imgSrcSet }}" style="padding-bottom:{{ print $padding }}%;" >
+
+        <!-- <picture id="overview-cameragallery-night-mode-1-1" class="overview-cameragallery-night-mode-1 loaded" data-lazy="" data-picture-loaded="">
+            <source srcset="/v/iphone-13/b/images/overview/cameragallery/night_mode_1__daaxiqngtt8i_small.jpg, /v/iphone-13/b/images/overview/cameragallery/night_mode_1__daaxiqngtt8i_small_2x.jpg 2x" media="(max-width:734px)">
+            <source srcset="/v/iphone-13/b/images/overview/cameragallery/night_mode_1__daaxiqngtt8i_medium.jpg, /v/iphone-13/b/images/overview/cameragallery/night_mode_1__daaxiqngtt8i_medium_2x.jpg 2x" media="(max-width:1068px)">
+            <source srcset="/v/iphone-13/b/images/overview/cameragallery/night_mode_1__daaxiqngtt8i_large.jpg, /v/iphone-13/b/images/overview/cameragallery/night_mode_1__daaxiqngtt8i_large_2x.jpg 2x" media="(min-width:0px)">
+            <img src="/v/iphone-13/b/images/overview/cameragallery/night_mode_1__daaxiqngtt8i_large.jpg" onload="__lp(event)" alt="A low-light photo of a person taken with Night Mode.">
+        </picture> -->
 
     {{ end }}
 {{ end }}
+
 

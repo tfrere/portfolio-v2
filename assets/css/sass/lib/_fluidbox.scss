@@ -17,7 +17,8 @@ $fluidbox__animation-bg-color: $fluidbox__overlay-bg-color !default;
 }
 
 .img-fluidbox {
-  cursor:zoom-in;
+  cursor: zoom-in;
+  cursor: none;
 }
 
 // Rules
@@ -68,6 +69,7 @@ $fluidbox__animation-bg-color: $fluidbox__overlay-bg-color !default;
     cursor: -webkit-zoom-out;
     cursor: -moz-zoom-out;
     cursor: zoom-out;
+    cursor: none;
   }
   .fluidbox--closed & {
     transition: opacity 0s $fluidbox__transition-duration,

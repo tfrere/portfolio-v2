@@ -28,4 +28,18 @@
   {{ $attributes = $attributes | append (printf "%s=%q" $name $value) }}
   {{ end }}
 {{ $attributes = (delimit $attributes " ") }}
-<img alt="{{$image.Title}}" src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
+
+
+{{ $width := float $image.Width }}
+{{ $height := float $image.Height }}
+{{ $division := div $height $width }}
+{{ $padding := mul $division 100 }}
+
+{{ $test := $image.Resize "1600x 80q" }}
+
+
+<div class="responsive-image" style="padding-bottom:{{ print $padding }}%;">
+  <!-- <a  data-cursor-text="+"  data-cursor="-lg" class="img-fluidbox" href="{{ $test.RelPermalink }}"> -->
+    <img class="responsive-image__content" alt="{{$image.Title}}" data-lazy data-src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
+  <!-- </a> -->
+</div>

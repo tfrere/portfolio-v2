@@ -1,0 +1,26 @@
+.description {
+  padding-top: 6rem !important;
+  // padding-bottom: 6rem !important;
+}
+
+.description__content {
+}
+
+.description__content__lead {
+}
+
+.description__content__text {
+}
+
+.description__content__lead {
+  @apply inline-block text-black font-text2 text-5xl mt-32 mb-12 leading-normal;
+}
+
+.description__content__text {
+  @apply text-xl mb-4 font-text font-light text-black leading-normal;
+  columns: 2;
+  column-gap: 3rem;
+  strong {
+    font-weight: 600;
+  }
+}

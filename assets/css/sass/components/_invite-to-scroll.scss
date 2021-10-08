@@ -1,56 +1,23 @@
-.invite-to-scroll {
-  width: 1px;
-  height: 10vh;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin: 10px auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 4vh;
-}
-
-.invite-to-scroll--with-text:after {
-  content: "Scroll down";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  color: white;
-  transform: rotate(90deg);
-  text-transform: uppercase;
-}
-
-.invite-to-scroll:before {
-  content: "";
-  position: absolute;
-  left: calc(50% - 1px);
-  width: 1px;
-  height: 10vh;
-  bottom: 0vh;
-  background-color: white;
-  animation: scroll 4s cubic-bezier(0.77, 0, 0.175, 1) infinite both;
-}
-
-//
-
 .invite-to-scroll-with-text {
   width: 1px;
   height: 10vh;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
   margin: 10px auto;
   position: absolute;
-  left: 40px;
-  bottom: 156px;
+  left: ($base-size * 3);
+  bottom: ($base-size * 10);
 }
 
 .invite-to-scroll-with-text:after {
-  content: "scroll down";
+  content: "Scroll down";
+  font-family: "Nunito Sans";
   position: absolute;
-  left: -40px;
+  left: -65px;
   bottom: -44px;
-  color: white;
+  color: black;
   transform: rotate(-90deg);
-  width: 80px;
-  font-size: 12px;
+  width: 130px;
+  font-size: 16px;
 }
 
 .invite-to-scroll-with-text:before {
@@ -60,7 +27,7 @@
   width: 1px;
   height: 10vh;
   bottom: 0vh;
-  background-color: white;
+  background-color: black;
   animation: scroll 4s cubic-bezier(0.77, 0, 0.175, 1) infinite both;
 }
 

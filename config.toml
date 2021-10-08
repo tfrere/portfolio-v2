@@ -38,6 +38,12 @@ timeout = 600000
     pre = "contact"
     url = "/contact/"
     weight = 5
+  [[menu.main]]
+  	identifier = "typeface"
+    name = "Typeface"
+    pre = "typeface"
+    url = "/typeface/"
+    weight = 6
 
 # Highest width is 2500px for landscape and 1500px for portrait.
 # This will give both orientations roughly the same resolution and size.

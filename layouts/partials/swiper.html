@@ -1,0 +1,31 @@
+{{ $section := .section }}
+{{ $context := .context }}
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+        
+    {{range $context.Site.RegularPages}}
+
+      {{if eq .Title $section}} 
+        
+        {{ with .Resources.ByType "image" }}
+          {{ $len := len . }}
+          
+          {{ range $i, $image := . }}
+              {{ if not (in . "exclude") }}
+                <div class="swiper-slide">
+                  <!-- {{ $test := $image.Resize "1600x 80q" }} -->
+                    <!-- <a class="img-fluidbox" href="{{ $test.RelPermalink }}"> -->
+                      {{ partial "responsive-image" (dict "Site" $context.Site "image" $image "attrs" (dict "class" "swiper-image" )) }}
+                    <!-- </a> -->
+                  </div>
+              {{ end }}
+          {{ end }}
+
+        {{ end }}
+
+      {{ end }}
+    {{ end }}
+
+  </div>
+</div>

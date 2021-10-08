@@ -1,11 +1,11 @@
-.underline {
-  width: calc(100%);
-  background-image: linear-gradient(transparent calc(100% - 40px), black 2px);
-  color: var(--background-color);
-  transition: color var(--background-transition-duration)
-    var(--background-transition-ease);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  text-decoration: none !important;
-  padding: 0 4px;
+.overline {
+  background-color: black;
+  color: white;
+  padding: 0 8px;
+}
+
+.black .overline {
+  background-color: white;
+  color: black;
+  padding: 0 8px;
 }

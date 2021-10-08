@@ -7,11 +7,64 @@
     <meta name="description" content="Thibaud FRERE Portfolio and online blog.">
     <link rel="canonical" href="{{ .Site.BaseURL }}" />
 
-
-
     <base href="{{ .Site.BaseURL }}">
 
-    {{ partialCached "js-lib.html" . }}
+    <style>
+
+
+        #fps-counter {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        z-index: 999999999999999999999999;
+        color: red;
+        font-weight: 900;
+        }
+
+        #color-splat,
+        #cursor,
+        #wave-transition {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 999999999999999999999999;
+        }
+
+        #wave-transition {
+        }
+
+        #color-splat {
+        mix-blend-mode: difference;
+        }
+
+
+        .preloader {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+            pointer-events: none;
+            z-index: 999999999999999999999999;
+            position: fixed;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+        }
+
+        .preloader__content {
+            color:white;
+            text-transform: uppercase;
+        }
+
+
+    
+    </style>
+
     {{ partialCached "css.html" . }}
     {{ $title := print .Site.Title " | " .Title }}
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
@@ -50,25 +103,3 @@
 
 </head>
 
-
-<div class="hide-on-mobile {{ .Scratch.Get "class" }} bg-{{ if in .Permalink "projects" }}blue{{ end }}{{ if in .Permalink "visuals" }}orange{{ end }}{{ if in .Permalink "contact" }}yellow{{ end }}{{ if in .Permalink "about" }}pink{{ end }} ">
-    <p class="hide-on-mobile__text">This website is not available on mobile for the moment.</p>
-</div>
-
-<canvas id="wave"></canvas>
-<canvas id="wave2"></canvas>
-
-
-<canvas class="color-drop"></canvas>
-
-<svg xmlns="http://www.w3.org/2000/svg" class="goo" version="1.1" width="100%">
-    <defs>
-        <filter id="goo">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 55 -25" result="goo"></feColorMatrix>
-            <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
-        </filter>
-    </defs>
-</svg>
-
-<div id="cursor"></div>

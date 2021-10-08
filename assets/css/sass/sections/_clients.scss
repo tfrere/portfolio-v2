@@ -1,0 +1,101 @@
+.clients__marquee {
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.clients__marquee__content {
+  display: flex;
+  // animation: reverse-clients__marquee 40s linear infinite running;
+  will-change: transform;
+  margin: 0;
+  padding: 0;
+  margin-bottom: $base-size * 2;
+}
+
+// .clients__marquee--2 .clients__marquee__content {
+//   animation: clients__marquee 50s linear infinite running;
+// }
+// .clients__marquee--3 .clients__marquee__content {
+//   animation: reverse-clients__marquee 60s linear infinite running;
+// }
+
+.clients__marquee__content__tag {
+  width: $base-size * 20;
+  height: $base-size * 20;
+  margin: 0 $base-size;
+  padding: $base-size;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+.clients__marquee__content__tag img {
+  width: 100%;
+  padding: $base-size * 2;
+}
+
+@keyframes clients__marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translate(-50%);
+  }
+}
+
+@keyframes reverse-clients__marquee {
+  0% {
+    transform: translate(-50%);
+  }
+  100% {
+    transform: translate(0%);
+  }
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($base-size * 20, 1fr));
+  grid-gap: 1rem;
+}
+
+.logo-grid__item {
+  background: white;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  &::before {
+    // for apsect ratio
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  img {
+    width: 100%;
+    padding: $base-size;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+}
+
+.logo-grid__item--stroke {
+  background: black;
+  border: 1px solid white;
+  color: white;
+}
+
+.logo-grid__item--center {
+  background: transparent;
+  border: 0px solid transparent;
+  color: white;
+  @apply flex items-center justify-center;
+}
+
+.logo-grid__item__button {
+  border-radius: 100%;
+  padding: 20px;
+  border: 1px solid white;
+}

@@ -1,165 +1,37 @@
 {{ define "main" }}
-<div class="visuals page bg-orange">
-  <div class="page__background"></div>
 
-<div class="visual" >
-    <!-- <div class="visual__nav visual__nav--previous">
-        {{ if .NextPage }}
-        {{ if eq .NextPage.Section "visuals" }}
-        <a class="visual__nav__link nav-link" href="{{ .NextPage.Permalink }}">
-          {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
-        </a>
-        {{ .NextPage.Title | truncate 50 "..." }}
-        {{ end }}
-        {{ end }}
-  </div>
-  <div class="visual__nav visual__nav--next">
-      {{ if .PrevPage }}
-      {{ if eq .PrevPage.Section "visuals" }}
-      <a class="visual__nav__link nav-link" href="{{ .PrevPage.Permalink }}">
-        {{ readFile "static/images/nav-arrow.svg" | safeHTML }}
-      </a>
-        {{ end }}
-      {{ end }}
-  </div> -->
+  <div class="section section--with-padding container mx-auto">
 
+    <div class="section__content">
+      <h1 class="heading-1"> {{ .Title }} </h1>
+      <a data-nav-link href="/">Back</a>
 
-  <div class="large-container visual__hero">
-    <div class="visual__hero">
-      <!-- <a class="nav-link" href="{{ .Site.BaseURL }}visuals">Visuals</a> > -->
-      <span class="visual__hero__label"> Gallery</span>
-      <h1 class="visual__hero__title">
-        {{ $title := split .Title " "}}
-        {{range $title }}
-          <span class="word">
-            <span class="word__content">
-              {{.}}
-            </span>
-          </span>
-        {{end}}
-      </h1>
-      <p class="visual__hero__p">
-        {{ .Summary | replaceRE "<p>" "" | safeHTML }}
-      </p>
-      <div class="invite-to-scroll"></div>
+      <div class="grid vr-mt-4">
+      
+        <div class="grid-col grid-col--1"></div>
+        <div class="grid-col grid-col--2"></div>
+        
+        {{range .Site.RegularPages}}
+
+            {{if eq .Title "Projects"}} 
+            
+            {{ with .Resources.ByType "image" }}
+                {{ $len := len . }}
+                
+                {{ range $i, $image := . }}
+                    {{ if not (in . "exclude") }}
+                    <div class="grid-item" id="{{$i}}-image">
+                        {{ partial "responsive-image" (dict "Site" $.Site "image" $image) }}
+                    </div>
+                    {{ end }}
+                {{ end }}
+
+            {{ end }}
+
+            {{ end }}
+        {{ end }}
+      </div>
     </div>
   </div>
-
-  <ul id="grid" class="large-container grid {{ .Title }}" >
-    <li class="grid__column"></li>
-    <li class="grid__column"></li>
-    {{ with .Resources.ByType "image" }}
-      {{ $len := len . }}
-      {{ range $i, $image := . }}
-
-        {{ if not (eq $i 0) }}
-          {{ if not (in . "exclude") }}
-            <!-- data-scroll data-scroll-offset="25%, 25%" data-scroll-class="animate" data-scroll-call="testFn"  -->
-            <div class="grid__item grid__item--{{ $i }}" >
-              {{ $test := $image.Resize "1600x 80q" }}
-                <a class="img-fluidbox" href="{{ $test.RelPermalink }}">
-                  {{ partial "responsive-image" (dict "Site" $.Site "image" $image "attrs" (dict "class" "masonry__item__image" )) }}
-                </a>
-            </div>
-          {{ end }}
-        {{ end }}
-
-      {{ end }}
-    {{ end }}
-  </ul>
-
-</div>
-{{- partial "footer.html" . -}}
-
-<script>
-
-    $(function () {
-
-          window.testFn = function(obj) {
-            console.log("test", obj);
-            window.setTimeout(()=>{
-              $(obj.el).addClass("animated");
-            }, 650);
-          }
-
-          anime.set(".word__content", {
-            translateY: "+=180px",
-          });
-
-          anime.set(".visual__hero__label", {
-            translateY: "+=25px",
-            opacity:0
-          });
-
-          anime.set(".invite-to-scroll", {
-            translateY: "+=25px",
-            opacity:0
-          });
-
-          anime.set(".visual__hero__p", {
-            translateY: "+=25px",
-            opacity:0
-          });
-
-          anime.set(".visual__hero__image", {
-            translateY: "+=25px",
-            opacity:0
-          });
-
-          anime.set(".grid", {
-            opacity:0
-          });
-
-          var timeline = anime.timeline({
-          loop: false,
-          duration: 400,
-          });
-
-          var animation = timeline
-          .add({
-              targets: ".visual__hero__label",
-              duration:250
-          })
-          .add({
-              targets: ".visual__hero__label",
-              translateY: "-=25px",
-              easing: "easeOutQuart",
-              opacity:1,
-              duration:250
-          })
-          .add({
-              targets: ".word__content",
-              translateY: "-=180px",
-              easing: "easeOutQuart",
-              delay: anime.stagger(50),
-          }, "-=100")
-          .add({
-              targets: ".visual__hero__p",
-              translateY: "-=25px",
-              easing: "easeOutQuart",
-              opacity:1,
-              delay: 100,
-              duration:250
-          }, "-=250")
-          .add({
-              targets: ".invite-to-scroll",
-              translateY: "-=25px",
-              easing: "easeOutQuart",
-              opacity:1,
-              delay: 100,
-              duration:250
-          }, "-=250")
-          .add({
-              targets: ".grid",
-              opacity:1,
-              duration:850,
-              easing: "easeOutQuart",
-          }, "-=200");
-
-    });
-
-</script>
-
 {{- partial "js.html" . -}}
-</div>
 {{ end }}

@@ -15,7 +15,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@ashthornton/asscroll": "^2.0.2",
+    "animejs": "^3.2.1",
+    "colcade": "^0.2.0",
+    "fluidbox": "^2.0.5",
+    "gsap": "^3.3.0",
+    "intersection-observer": "^0.11.0",
+    "jquery": "^3.6.0",
+    "smooth-scrollbar": "^8.5.2",
+    "swiper": "^7.0.6",
+    "three": "^0.133.1",
+    "tiny-slider": "^2.9.3"
+  },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
     "@babel/core": "^7.13.10",
@@ -23,6 +35,7 @@
     "postcss": "^8.2.8",
     "postcss-cli": "^7.1.0",
     "tailwind": "^4.0.0",
+    "tailwind-vertical-rhythm": "^1.2.0",
     "tailwindcss": "^2.0.3",
     "tailwindcss-font-inter": "^2.0.2"
   }

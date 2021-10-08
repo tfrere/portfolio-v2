@@ -1,0 +1,62 @@
+.projects {
+  h2 {
+    margin-bottom: 42px;
+  }
+}
+
+.slider {
+  will-change: transform;
+}
+
+.slide {
+  user-select: none;
+}
+
+a,
+button {
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-app-region: no-drag;
+}
+
+.slide .slide__content {
+  @apply block select-none relative overflow-hidden;
+
+  &:after {
+    @apply absolute bottom-0 left-0 w-full;
+    height: 80%;
+    z-index: 1;
+    content: "";
+    background: linear-gradient(180deg, transparent, #000);
+    opacity: 0.8;
+  }
+}
+
+.slide .slide__conten:after:hover {
+  &:after {
+    opacity: 1;
+  }
+}
+
+.slide .slide__content__infos {
+  @apply absolute bottom-0 left-0 text-white w-full;
+  transform: translateY(10px);
+  padding: $base-size * 3;
+  z-index: 2;
+}
+
+.slide .slide__content__infos__label {
+  @apply text-tag m-0;
+  @apply text-white;
+}
+
+.slide .slide__content__infos__title {
+  @apply heading-3 m-0;
+  @apply text-white;
+}
+
+.slide .slide__content__infos__misc {
+  @apply text-small inline-block;
+  @apply text-white m-0;
+  @apply vr-mt-1;
+}

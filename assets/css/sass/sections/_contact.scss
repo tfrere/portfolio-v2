@@ -1,0 +1,42 @@
+.contact {
+  transform: translateY(1px);
+  // text-align: center;
+  overflow: hidden;
+  .button {
+    text-transform: none;
+    @apply ml-4;
+  }
+}
+
+.click-to-copy {
+  @apply text-lead flex items-center entity vr-mt-1;
+  display: flex !important;
+  .button {
+    @apply vr-ml-1;
+  }
+}
+
+.text-center .click-to-copy {
+  @apply justify-center;
+}
+
+.click-to-copy__email {
+  opacity: 0;
+  transition: all 100ms ease;
+  &.show {
+    transition: all 100ms ease;
+    opacity: 1;
+  }
+}
+
+.click-to-copy__info-message {
+  @apply absolute font-semibold top-0 left-0 right-0 -bottom-3 m-auto w-24 text-center;
+  height: $base-size;
+  transition: all 100ms ease;
+  opacity: 0;
+  &.show {
+    @apply bottom-1;
+    transition: all 100ms ease;
+    opacity: 1;
+  }
+}

@@ -1,100 +1,266 @@
 {{ define "main" }}
-<div class="landing hero page page--with-bottom-border bg-green">
-  <div class="page__background"></div>
-  <div>
-    <canvas id="canvas"></canvas>
-    <div class="hero__content container">
-      <h1 class="hero__content__title">
-        <span class="hero__content__title__word"><span class="hero__content__title__word__content--first">Hello,</span></span>
-        <br/>
-        <span class="hero__content__title__word"><span class="hero__content__title__word__content">I'm</span></span>
-        <span class="hero__content__title__word"><span class="hero__content__title__word__content">a</span></span>
-        <span class="hero__content__title__word"><span class="hero__content__title__word__content">French</span></span>
-        <br/>
-        <span class="hero__content__rectangle"><span class="hero__content__title__word"><span class="typewrite hero__content__title__word__content hero__content__title__word__content--last word__content--special" data-period="4000" skip-first="true" data-type="[ &quot;designer&quot;, &quot;developer&quot;, &quot;artist&quot; ]">designer</span></span></span>
-      </h1>
+
+  <div class="cb-particles">
+    <div class="cb-particles-item -black -dot -v1 -s1 -c3"></div>
+    <div class="cb-particles-item -black -dot -v2 -s2 -c4"></div>
+    <div class="cb-particles-item -black -dot -v3 -s3 -c5"></div>
+    <div class="cb-particles-item -black -dot -v4 -s1 -c1"></div>
+    <div class="cb-particles-item -black -dot -v5 -s2 -c4"></div>
+    <div class="cb-particles-item -black -dot -v6 -s3 -c2"></div>
+    <div class="cb-particles-item -black -dot -v7 -s4 -c1"></div>
+    <div class="cb-particles-item -black -dot -v8 -s2 -c4"></div>
+    <div class="cb-particles-item -black -dot -v9 -s3 -c5"></div>
+    <div class="cb-particles-item -black -dot -v10 -s3 -c1"></div>
+    <div class="cb-particles-item -black -dot -v11 -s3 -c3"></div>
+  </div>
+
+
+  <!-- <canvas class="cb-lines">
+  </canvas> -->
+
+  <section id="landing" class="section landing">
+    <div class="landing__content container" >
+        <h1 class="heading-0 entity uppercase landing__title">
+            Hello,
+          <br/>
+          I'm a senior <span data-change-text data-change-text-values="Designer, Developer">designer</span>
+        </h1>
+        <p class="entity text-base landing__text vr-mt-1 ml-2">Focused on creating <strong>long lasting experiences</strong>.</p>
     </div>
-    <div class="container">
-      <a id="blue" class="nav-link button" href="{{ .Site.BaseURL }}projects">
-        <span class="button__content">Wanna see my work ?</span>
-      </a>
+    <!-- data-scroll-anim data-to='{"x": "-100"}' data-from='{"x": "75" }' -->
+    <div class="invite-to-scroll-with-text"  ></div>
+  </section>
+
+  <div data-marquee  data-marquee-start="0" data-marquee-end="-300" class="marquee" >
+    <div data-marquee-container  class="marquee__content entity">
+      <h3 data-marquee-item class="marquee__content__part text-stroke"> CAREFULY CRAFTING SINCE SINCE 2008 </h3>
     </div>
   </div>
-</div>
+
+
+  <section class="section">
+    <div class="section__content container">
+        <p class="entity text-lead">
+            I lead front-end development for companies and organizations, building <strong class="overline">resilient UI foundations</strong>. I’ve worked on projects of different scales from <strong class="">small micro-sites</strong> to <strong class="">larger Web applications</strong>.
+        </p>
+        <p class="entity text-small columns vr-mt-1">
+            I’m a design-minded front-end developer. Sometimes people who do what I do are also called front-end designers, UI developers, UI engineers, or design engineers.
+            That is, <strong>my work lies at the intersection of design and back-end</strong>. I write HTML, CSS, SVG, and presentational JavaScript that powers Web user interfaces. With a <strong>focus on responsive design, semantic markup, and performance</strong>. I build <strong>resilient, inclusive foundations for user interfaces</strong>, marrying cutting-edge techniques with foundational Web standards.
+            I collaborate with designers — preferrably in the design phase — to <strong>translate designs into live prototypes</strong>, resilient Web user interfaces, and design systems. As a design engineer, <strong>I provide feedback to designers to ensure that the design translates well to the browser</strong>, ensuring usability of the product by as many people as possible, regardless of their context and how they use it.
+        </p>
+    </div>
+  </section>
+
+
+
+            <!-- {{ partial "stamp" }} -->
+
+
+  <section class="black section--with-padding section ">
+    <div class="section__content">
+        <div class="container mx-auto">
+            <h2 class="entity heading-2 font-bold uppercase vr-mb-4">We worked<br/> together.</h2>
+        </div>
+
+        {{$site := .Site}}
+
+        <style>
+            #preloadedImages
+            {
+                width: 0px;
+                height: 0px;
+                display: inline;
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/matthieuricard.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/luxtimes.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/bdrc.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/amapa.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/bpifrance.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/radio-latina.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/femis.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/obvious.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/humabio.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/labrh.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/cite-des-sciences.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/landskies.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/wort.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/ideo.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/42.jpg);
+                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/telecomparis.jpg);
+            }
+        </style>
+        <div data-marquee data-marquee-start="-600" data-marquee-end="-500" class="clients__marquee">
+            <div data-marquee-container  class="clients__marquee__content">
+                {{ range $index, $num := (seq 3) }}
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/luxtimes.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/bdrc.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/matthieuricard.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/cite-des-sciences.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/femis.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/radio-latina.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/obvious.jpg"/></div>
+                {{ end }}
+
+            </div>
+        </div>                    
+        <div data-marquee data-marquee-start="-300" data-marquee-end="-400" class="clients__marquee clients__marquee--2">
+            <div data-marquee-container class="clients__marquee__content">
+                {{ range $index, $num := (seq 3) }}
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/humabio.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/amapa.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/labrh.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/universcience.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/landskies.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/wort.jpg"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/bpifrance.jpg"/></div>
+                {{ end }}
+            </div>
+        </div>
+
+    </div>
+
+  </section>
+
+    <!-- <canvas class="canvas entity" data-blob data-blob-color="rgba(0,0,0,0.3)" data-blob-margin="20" style="z-index:0; position:absolute; top: -50%;"></canvas> -->
+    <!-- <div class="lines">
+      {{ readFile "static/images/lines-2.svg" | safeHTML }}
+    </div> -->
+  <section class="section section--with-half-padding">
+
+    <div class="about__content__prices-container section__content container" >
+        <h2 class="entity heading-1 entity" >AWARDS.</h2>
+        <div class="about__content__prices vr-mt-5">
+            <div class="about__content__prices__item">
+                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/jpg/ideo.jpg" />
+                <div class="about__content__prices__item__infos">
+                  <h3 class="about__content__prices__item__infos__title entity">Design thinking</h3>
+                  <p class="about__content__prices__item__infos__place entity">HEC Paris</p>
+                </div>
+            </div>
+            <div class="about__content__prices__item">
+                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/jpg/42.jpg" />
+                <div class="about__content__prices__item__infos">
+                  <h3 class="about__content__prices__item__infos__title entity">Wearhacks Myo</h3>
+                  <p class="about__content__prices__item__infos__place entity">42 Paris</p>
+                </div>
+            </div>
+            <div class="about__content__prices__item">
+                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/jpg/telecomparis.jpg" />
+                <div class="about__content__prices__item__infos">
+                  <h3 class="about__content__prices__item__infos__title entity">Innovators in motion</h3>
+                  <p class="about__content__prices__item__infos__place entity">Telecom Paris</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  
+        <!-- <section class="section section--with-padding vr-mt-4">
+
+            <div class="section__content container" >
+                <h2 class="entity heading-3 w-5/12" >OVER 10 YEARS IN THE GAME</h2>
+                <div class="columns vr-mt-2">
+                    <h2 class="entity heading-4">THIS A TITLE</h2>
+                    <p class="entity text-small vr-mt-1">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua</strong>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </p>
+                    <h2 class="entity heading-4">THIS A TITLE</h2>
+                    <p class="entity text-small vr-mt-1">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et <strong>dolore magna aliqua</strong>. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </p>
+                </div>
+
+            </div>
+        </section> -->
+
+  <!-- <div class="wave mx-auto"></div> -->
+
+  <section class="section section--with-half-padding">
+      
+    <div class="section__content" >
+      <div class="container mx-auto">
+              <div class="">
+                <!-- <span class="text-label">Some of my</span> -->
+                <!-- heading--center -->
+                <h2 class="heading-1 vr-mb-4 entity">WORK.</h2>
+                <!-- <p class="entity text-base vr-mt-1">
+                  Will be available soon !<br/> In the meantime, you can see it on <a class="underline"  data-cursor="-lg"  target="_blank" href="https://behance.net/frerethibaud9207">Behance</a>.
+                </p> -->
+              </div>
+        <!-- <a data-nav-link href="/visuals/art">Look at</a> -->
+      </div>
+
+
+        <div class="slider vr-mt-2">
+
+          {{ range where .Site.RegularPages "Type" "projects" }}
+              <div class="slide">
+                  <a data-cursor="-lg" data-cursor-text="see more" href="{{.Params.externalurl}}" target="_blank" rel="nofollow"  class="slide__content">
+                  {{ $images := .Resources }}
+                  {{ with .Resources.ByType "image" }}
+                      {{ range first 1 . }}
+                          {{ partial "responsive-image" (dict "Site" $.Site "image" .) }}
+                      {{ end }}
+                  {{ end }}
+                  
+                  <div class="slide__content__infos">
+
+                      <span class="slide__content__infos__label entity">
+                          {{ with .Params.tags }}
+                              {{ range . }}
+                                  {{ $href := print (absURL "tags/") (urlize .) }}
+                                  {{ . }}
+                              {{ end }}
+                          {{ end }}
+                      </span>
+                      <h3 class="slide__content__infos__title entity">{{.Title}}</h3>
+                      <span class="slide__content__infos__misc entity">{{.Params.client}} | {{  .PublishDate.Format "January 2006" }}</span>
+                  </div>
+
+                </a>
+            </div>
+          {{ end }}
+
+
+        </div>
+
+  </section>
+
+
+
+  <section class="black section vr-mt-4 overflow-hidden">
+    <!-- <canvas class="canvas entity" data-boids data-boids-color="rgba(255,255,255,0.5)"></canvas> -->
+
+    <!--  -->
+    <!-- data-scroll-anim data-to='{"opacity":"1","yPercent": "0", "skewY": "0"}' data-from='{"opacity":"0", "yPercent": "-10", "skewY": "5", "ease": "linear"}' data-options='{"start": "top bottom","end": "bottom top","scrub": "1","refreshPriority": "-14"}' -->
+    <div class="section__content container z-0"  > 
+        <h2 class="heading-1 entity uppercase"> 
+            Always keen
+            <br/>
+            for a good
+            <br/> 
+            collab
+        </h2>
+          <p class="click-to-copy">
+              Feel free to write me an email at
+              <a data-click-to-copy id="click-to-copy" href="mailto:write@tfrere.fr" class="button" data-cursor="-lg" >
+                <span class="button__content click-to-copy__email show">write@tfrere.com</span>
+                <span class="button__content click-to-copy__info-message">Copied !</span>
+            </a>
+          </p>
+          <p class="text-base entity vr-mb-0">I’m available in <span class="underline underline--small">full remote</span> from Metz, France</p>
+
+    </div>
+  </section>
+
+  <script>
+        var elem = document.getElementById('grid');
+        document.addEventListener('keydown', function(e) {
+            if(e.key == "f") {
+                elem.classList.toggle('vr-grid');
+            }
+        }, false);
+  </script>    
 {{- partial "js.html" . -}}
-<script>
 
-$(function() {
-
-  // CANVAS
-
-  var color = "white";
-  var margin = 50;
-  var numPoints = 32;
-  var canvas = document.getElementById("canvas");
-  var blobInstance = new Blob(canvas, color, numPoints, margin);
-
-  blobInstance.render();
-
-  // ANIMATION 
-
-  var timeline = anime.timeline({ loop: false });
-  // var typedWordLength = 0;
-
-  anime.set(".hero__content__title__word__content, .hero__content__title__word__content--first", {
-    translateY: "+=180px"
-  });
-
-  anime.set(".button, #canvas", {
-    opacity: 0
-  });
-
-  var animation = timeline
-  .add({
-    targets: ".hero__content__title__word__content--first",
-    delay: 300
-  })
-  .add({
-    targets: "#canvas",
-    easing: "linear",
-    duration: 250,
-    opacity: 1
-  })
-  .add({
-    targets: ".hero__content__title__word__content--first",
-    translateY: "-=180px",
-    easing: "easeOutExpo",
-    duration: 400
-  })
-  .add({
-    targets: ".hero__content__title__word__content--first",
-    delay: 250
-  })
-  .add({
-    targets: ".hero__content__title__word__content",
-    translateY: "-=180px",
-    easing: "easeOutExpo",
-    duration: 500,
-    delay: (el, i) => 50 * i
-  })
-  .add({
-    targets: ".button",
-    opacity: 1,
-    easing: "linear",
-    duration: 250,
-  })
-  .add({
-    targets: ".hero__content__title__word__content--first",
-    delay: 250
-  })
-  .add({
-    targets: ".hero__content__title__word__content--first",
-    begin: function () {
-      initTypeWritter();
-    }
-  });
-
-});
-
-</script>
 {{ end }}

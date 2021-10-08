@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;700&display=swap");
+
+// :root {
+//   --base-size: 12px;
+//   --line-height: 1.5rem;
+
+//   --vr-spacing--1: var(--line-height);
+//   --vr-spacing--2: calc(2 * var(--line-height));
+//   --vr-spacing--3: calc(3 * var(--line-height));
+// }
+
+$base-size: 12px;
+
+$oswald-cap-height: 0.815;
+$nunito-sans-cap-height: 0.71;
+
+$vr-font-size: 24px;
+$vr-number-of-steps: 24;
+
+@import "_grid.scss";
+
+.typeface {
+  @apply w-full overflow-hidden; //pt-32
+}
+
+.typeface__switch {
+  @apply top-2 left-2;
+  position: fixed !important;
+  z-index: 99999999;
+}
+
+.text-stroke {
+  color: var(--background-color);
+  text-shadow: -1px -1px 0 var(--text-color), 1px -1px 0 var(--text-color),
+    -1px 1px 0 var(--text-color), 1px 1px 0 var(--text-color);
+}
+
+// <!-- .vr{-fontFamily?}-{lineHeight}-{fontSize} classes to set line height, font size, and possibly non-default font family at the same time. -->
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+p {
+  // pointer-events: none;
+  font-family: "Nunito Sans";
+}
+
+// TITLE
+
+.heading--center {
+  @apply text-center w-full inline-block;
+}
+
+.heading-0 {
+  // text-transform: none;
+  display: block;
+  font-size: ($base-size * 14); // to compensate strokes
+  line-height: ($base-size * 14);
+  font-family: Oswald;
+  @apply my-0 py-0 font-bold;
+  color: var(--text-color);
+  // margin-top: $base-size * 2;
+}
+
+.heading-1 {
+  // text-transform: none;
+  display: block;
+  font-size: ($base-size * 12); // to compensate strokes
+  line-height: ($base-size * 12);
+  font-family: Oswald;
+  @apply my-0 py-0 font-bold;
+  color: var(--text-color);
+  // margin-top: $base-size * 2;
+}
+
+.heading-2 {
+  // text-transform: none;
+  display: block;
+  font-size: ($base-size * 10); // to compensate strokes
+  line-height: ($base-size * 10);
+  font-family: Oswald;
+  @apply my-0 py-0 font-bold;
+  color: var(--text-color);
+  // margin-top: $base-size * 2;
+}
+
+.heading-3 {
+  // text-transform: none;
+  display: block;
+  font-size: ($base-size * 4); // to compensate strokes
+  line-height: ($base-size * 4);
+  font-family: Oswald;
+  @apply my-0 py-0 font-bold;
+  color: var(--text-color);
+  // margin-top: $base-size * 2;
+}
+
+.heading-4 {
+  // text-transform: none;
+  display: block;
+  font-size: ($base-size * 2); // to compensate strokes
+  line-height: ($base-size * 2);
+  font-family: Oswald;
+  @apply my-0 py-0 font-bold;
+  color: var(--text-color);
+  // margin-top: $base-size * 2;
+}
+
+// TITLE EFFECTS
+
+.word,
+.landing__title__word {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  pointer-events: none;
+  margin: -20px 0;
+  line-height: 1.2;
+}
+
+.word__content,
+.landing__title__word__content,
+.landing__title__word__content--first {
+  display: inline-block;
+  margin: 0;
+  line-height: 1;
+}
+
+// TEXTS
+
+.text-lead {
+  display: inline-block;
+  font-size: ($base-size * 4); // to compensate strokes
+  line-height: ($base-size * 5);
+  font-family: Nunito Sans;
+  @apply my-0 py-0;
+}
+
+.text-half-lead {
+  // width: 50ch;
+  font-size: ($base-size * 3); // to compensate strokes
+  line-height: ($base-size * 4);
+  font-family: Nunito Sans;
+  @apply my-0 py-0;
+  margin-bottom: $base-size * 2;
+}
+
+.text-base {
+  // width: 50ch;
+  font-size: ($base-size * 2); // to compensate strokes
+  line-height: ($base-size * 3);
+  font-family: Nunito Sans;
+  @apply my-0 py-0;
+  margin-bottom: $base-size * 2;
+}
+
+.text-small {
+  // width: 50ch;
+  font-size: ($base-size * 1.5); // to compensate strokes
+  line-height: ($base-size * 2.5);
+  font-family: Nunito Sans;
+  @apply my-0 py-0;
+  margin-bottom: $base-size * 2;
+}
+
+.text-tag {
+  font-size: ($base-size * 1.5); // to compensate strokes
+  line-height: ($base-size * 2.5);
+  font-family: Oswald;
+  text-transform: uppercase;
+  @apply my-0 py-0;
+  margin-bottom: $base-size * 2;
+}
+
+.text--center {
+  @apply text-center w-3/4 mx-auto block;
+}
+
+// .base:first-letter {
+//   float: left;
+//   color: white;
+//   background: black;
+//   font-size: ($base-size * 6);
+//   line-height: ($base-size * 6);
+//   width: ($base-size * 6);
+//   padding-right: 8px;
+// }
+
+// MODIFIERS
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.columns {
+  columns: 2;
+  column-gap: $base-size * 4;
+}
+
+@for $i from 0 through $vr-number-of-steps {
+  .vr-mt-#{$i} {
+    margin-top: #{$i * $vr-font-size};
+  }
+  .vr-mb-#{$i} {
+    margin-bottom: #{$i * $vr-font-size};
+  }
+  .vr-ml-#{$i} {
+    margin-left: #{$i * $vr-font-size};
+  }
+  .vr-mr-#{$i} {
+    margin-right: #{$i * $vr-font-size};
+  }
+}

@@ -1,3 +1,5 @@
+import $ from "jquery";
+
 let EasingFunctions = {
   // no easing, no acceleration
   linear: (t) => t,
@@ -54,19 +56,24 @@ let EasingFunctions = {
 
 class Blob {
   constructor(canvas, color, numPoints, margin) {
+    this.canvasElem = canvas;
     this.canvas = canvas;
     this.oldMousePoint = { x: 0, y: 0 };
     this.hover = true;
     this.margin = margin;
     this.color = color;
+    console.log(color, this.color);
     this.size = 1;
     this.sizeTime = 1;
+    this.hasToRender = true;
     this.numPoints = numPoints;
     this.isTurbulenceActive = false;
     this.turbulenceInterval = null;
     this.points = [];
     this.resize();
     this.createTexture();
+    this.observer = null;
+    this.observe();
 
     for (let i = 0; i < this.numPoints; i++) {
       let point = new Point(this.divisional * i, this);
@@ -74,7 +81,19 @@ class Blob {
     }
 
     window.addEventListener("resize", this.resize.bind(this));
+    // window.addEventListener("blur", this.onWindowBlur.bind(this));
+    // window.addEventListener("focus", this.onWindowFocus.bind(this));
     this.canvas.addEventListener("pointermove", this.mouseMove.bind(this));
+  }
+
+  start() {
+    console.log("blob has to stop");
+    this.hasToRender = false;
+  }
+
+  stop() {
+    console.log("blob has to render");
+    this.hasToRender = true;
   }
 
   resize(e) {
@@ -230,6 +249,8 @@ class Blob {
       ctx.lineWidth = 3;
       ctx.strokeStyle = this.color;
       ctx.stroke();
+      // ctx.fillStyle = "rgba(255,0,0,1)";
+      // ctx.fill();
     } else {
       //         ctx.putImageData( this.img, 0, 0 );
       //         ctx.fillStyle = ctx.createLinearGradient( 0, 0, 0, this.canvas.height );
@@ -298,34 +319,36 @@ class Blob {
   }
 
   render() {
-    let ctx = this.ctx;
-    let pointsArray = this.points;
-    let points = this.numPoints;
+    if (this.hasToRender) {
+      let ctx = this.ctx;
+      let pointsArray = this.points;
+      let points = this.numPoints;
 
-    for (let i = 0; i < points; i++) {
-      pointsArray[i].solveWith(
-        pointsArray[i - 1] || pointsArray[points - 1],
-        pointsArray[i + 1] || pointsArray[0]
-      );
-    }
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // debug mouse position
-    // ctx.fillStyle = color;
-    // ctx.fillRect(this.mousePosition.x-4 / 2, this.mousePosition.y-4 / 2, 4, 4);
-
-    this.drawCircle(true);
-    ctx.save();
-    ctx.globalCompositeOperation = "destination-out";
-    this.drawCircle(false);
-    ctx.restore();
-
-    this.points.map((point) => {
-      if (Math.random() > 0.99) {
-        point.acceleration = -0.05 + Math.random() * 0.1;
+      for (let i = 0; i < points; i++) {
+        pointsArray[i].solveWith(
+          pointsArray[i - 1] || pointsArray[points - 1],
+          pointsArray[i + 1] || pointsArray[0]
+        );
       }
-    });
+
+      ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+      // debug mouse position
+      // ctx.fillStyle = color;
+      // ctx.fillRect(this.mousePosition.x-4 / 2, this.mousePosition.y-4 / 2, 4, 4);
+
+      this.drawCircle(true);
+      ctx.save();
+      ctx.globalCompositeOperation = "destination-out";
+      this.drawCircle(false);
+      ctx.restore();
+
+      this.points.map((point) => {
+        if (Math.random() > 0.99) {
+          point.acceleration = -0.05 + Math.random() * 0.1;
+        }
+      });
+    }
 
     requestAnimationFrame(this.render.bind(this));
   }
@@ -362,11 +385,23 @@ class Blob {
     }
   }
 
+  observe() {
+    this.observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        this.stop();
+      } else {
+        this.start();
+      }
+    });
+
+    this.observer.observe(this.canvasElem);
+  }
+
   set color(value) {
     this._color = value;
   }
   get color() {
-    return this._color || "#F38949";
+    return this._color || "pink";
   }
 
   set canvas(value) {
@@ -374,7 +409,7 @@ class Blob {
       value instanceof HTMLElement &&
       value.tagName.toLowerCase() === "canvas"
     ) {
-      this._canvas = value;
+      this._canvas = this.canvasElem;
       this.ctx = this._canvas.getContext("2d");
     }
   }
@@ -527,12 +562,14 @@ class Point {
   }
 }
 
-// var color = "white";
-// var margin = 50;
-// var numPoints = 32;
-
-// canvas = document.getElementById('canvas');
-
-// var blobInstance = new Blob(canvas, color,numPoints, margin);
-
-// blobInstance.render();
+(function () {
+  $("[data-blob]").each(function () {
+    var canvas = $(this)[0];
+    var margin = $(this).data("blob-margin") || 40;
+    console.log(margin);
+    var numPoints = $(this).data("blob-points") || 32;
+    var color = $(this).data("blob-color") || "rgba(0,0,0,0.2)";
+    var blobInstance = new Blob(canvas, color, numPoints, margin);
+    blobInstance.render();
+  });
+})();

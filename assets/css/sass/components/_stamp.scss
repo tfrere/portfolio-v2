@@ -1,10 +1,13 @@
 .stamp {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  bottom: -50px;
-  right: 50px;
-  z-index: 9999;
+  width: ($base-size * 16);
+  height: ($base-size * 16);
+  display: inline-block;
+  text-align: center;
+  mix-blend-mode: difference;
+  // transform: translate(calc(50vw - 100px), 100px);
+  z-index: 999999999999;
+  border-radius: 100%;
+  background: black;
 }
 
 .stamp__text {
@@ -21,4 +24,28 @@
   line-height: 1;
   font-family: "Inter";
   font-weight: 500;
+}
+
+.black {
+  @apply relative;
+  .stamp {
+    position: absolute;
+    top: -($base-size * 16);
+    left: 0;
+    right: 0;
+    margin: auto 0;
+  }
+  .stamp path {
+    fill: white;
+  }
+
+  .stamp__text {
+    fill: white;
+    background: white;
+  }
+
+  .stamp__asterisk {
+    fill: white;
+    background: white;
+  }
 }

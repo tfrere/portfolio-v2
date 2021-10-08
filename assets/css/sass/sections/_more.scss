@@ -1,0 +1,14 @@
+.more {
+  @apply text-center;
+}
+
+.more__title {
+  @apply text-center;
+}
+
+.more__text {
+  @apply text-2xl mb-4 font-text font-light text-black leading-normal;
+  strong {
+    font-weight: 600;
+  }
+}

@@ -5,8 +5,8 @@ module.exports = {
     applyComplexClasses: true,
   },
   purge: {
-    // enabled: process.env.HUGO_ENVIRONMENT === "production",
-    enabled: true,
+    enabled: process.env.HUGO_ENVIRONMENT === "production",
+    // enabled: true,
     content: [
       "./layouts/**/*.html",
       "./content/**/*.md",
@@ -14,9 +14,23 @@ module.exports = {
     ],
   },
   theme: {
-    // fontSize: {
-    //   "10xl": ["9rem", "10rem"],
-    // },
+    fontSize: {
+      xs: ".75rem",
+      sm: ".875rem",
+      tiny: ".875rem",
+      base: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem",
+      "6xl": "4rem",
+      "7xl": "6rem",
+      "8xl": "7rem",
+      "9xl": "8rem",
+      "10xl": "9rem",
+    },
     zIndex: {
       0: 0,
       10: 10,
@@ -63,8 +77,19 @@ module.exports = {
       serif: ["Inter", "sans"],
     },
   },
+  verticalRhythm: {
+    defaultLineHeight: "loose",
+    fontCapHeight: {
+      // Calculated using https://codepen.io/sebdesign/pen/EKmbGL?editors=0011
+      default: 0.815,
+      Oswald: 0.815,
+      "Nunito Sans": 0.71,
+    },
+    height: 1.5, // Vertical rhythm in rems
+  },
   variants: {},
   plugins: [
+    require("tailwind-vertical-rhythm"),
     require("tailwindcss-font-inter")({
       importFontFace: true,
       disableUnusedFeatures: false,

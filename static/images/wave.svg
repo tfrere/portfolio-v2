@@ -1,1 +1,11 @@
-<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 4 20'><path fill='none' stroke='#000' stroke-width='1' class='st0' d='M.5,0 c 0,5,3,5,3,10 s -3,5,-3,10 c 0,5,3,5,3,10 s -3,5,-3,10'/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1455px" height="101px" viewBox="0 0 1455 101" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD" transform="translate(15.000000, -2093.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Group" transform="translate(-14.281129, 2093.759265)">
+                <path d="M460.901844,0.0433865472 C279.852592,-1.70574995 0,50.0141 0,50.0141 L0,100 L1454,100 L1454,50.0141 C1454,50.0141 1333.23722,31.1925 1255.1756,27.0276 C1110.01793,19.2816 1028.98772,53.1981 883.646286,50.0141 C717.434901,46.3727 627.14655,1.64949005 460.901844,0.0433865472 Z" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

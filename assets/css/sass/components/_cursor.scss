@@ -1,68 +1,177 @@
 // * {
-//   cursor: none !important;
-// }
-
-// #cursor {
-//   position: fixed;
-//   top: calc(42px * -0.5);
-//   left: calc(42px * -0.5);
-//   pointer-events: none;
-//   mix-blend-mode: difference;
-//   filter: url(#goo);
-//   // filter: grayscale(1);
-
-//   z-index: 999999999;
-// }
-
-// .cursor-circle {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 42px;
-//   height: 42px;
-//   border-radius: 42px;
-//   background: white;
-//   transform-origin: center center;
-//   z-index: 999999999;
-// }
-
-// .goo {
-//   display: none;
+//   cursor: none;
 // }
 
 #cursor {
   position: fixed;
-  top: calc(12px * -0.5);
-  left: calc(12px * -0.5);
+  width: 100vz;
+  height: 100vh;
+  top: calc(var(--cursor-size) * -0.5);
+  left: calc(var(--cursor-size) * -0.5);
   pointer-events: none;
-  mix-blend-mode: exclusion;
-  // filter: url(#goo);
-  filter: grayscale(1);
-  z-index: 999999999;
-  display: none;
+  mix-blend-mode: difference;
+  filter: url(#goo);
+  z-index: 2;
 }
 
 .cursor-circle {
   position: absolute;
   top: 0;
   left: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 12px;
-  background-color: white;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: var(--cursor-size);
+  background: var(--cursor-color);
   transform-origin: center center;
-  // transition: all 200ms ease;
-  mix-blend-mode: exclusion;
-  filter: grayscale(1);
-  z-index: 999999999;
-  display: none;
-}
-
-.cursor--out {
-  width: 0px;
-  height: 0px;
 }
 
 .goo {
   display: none;
+}
+
+$size: 24px;
+
+.cb-cursor {
+  $root: &;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999999999999;
+
+  contain: layout style size;
+  pointer-events: none;
+  will-change: transform;
+
+  transition: opacity 0.3s, color 0.4s;
+  mix-blend-mode: difference;
+
+  // filter: url(#goo);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -$size;
+    left: -$size;
+    display: block;
+    width: $size * 2;
+    height: $size * 2;
+    transform: scale(0);
+
+    background: white;
+    border-radius: 50%;
+
+    transition: transform 0.3s ease-in-out, opacity 0.1s;
+  }
+
+  &-text {
+    position: absolute;
+    top: -36px;
+    left: -36px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0) rotate(10deg);
+
+    opacity: 0;
+    color: white;
+
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: -0.01em;
+
+    transition: opacity 0.4s, transform 0.3s;
+  }
+
+  &.-exclusion {
+    @supports (mix-blend-mode: exclusion) {
+      mix-blend-mode: exclusion;
+    }
+
+    &:before {
+      @supports (mix-blend-mode: exclusion) {
+        background: white;
+      }
+    }
+  }
+
+  &.-normal {
+    mix-blend-mode: normal;
+
+    &:before {
+      background: currentColor;
+    }
+  }
+
+  &.-inverse {
+    color: white;
+  }
+
+  &.-visible {
+    &:before {
+      transform: scale(0.2);
+    }
+
+    &.-active:before {
+      transform: scale(0.3);
+      transition-duration: 0.2s;
+    }
+  }
+
+  &.-pointer {
+    &:before {
+      transform: scale(0.4);
+    }
+  }
+
+  &.-opaque {
+    @extend .-exclusion;
+
+    &:before {
+      transform: scale(1.32);
+    }
+
+    &.-active:before {
+      transform: scale(1.2);
+    }
+  }
+
+  &.-lg {
+    &:before {
+      transform: scale(0.8);
+    }
+    &.-active:before {
+      transform: scale(1);
+    }
+  }
+
+  &.-hidden {
+    &:before {
+      transform: scale(0);
+    }
+  }
+
+  &.-text {
+    @extend .-normal;
+
+    &:before {
+      opacity: 0.85;
+      transform: scale(1.7);
+    }
+
+    #{$root} {
+      &-text {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    &.-active:before {
+      transform: scale(1.6);
+      transition-duration: 0.2s;
+    }
+  }
 }

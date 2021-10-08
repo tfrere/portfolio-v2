@@ -41,7 +41,23 @@
     position: relative;
     letter-spacing: 0.07rem;
   }
-  &:active {
-    transform: scale(1.03);
+  // &:active {
+  //   transform: scale(1.03);
+  // }
+}
+
+.black {
+  .button {
+    color: white;
+    border: 1px solid white;
+    transition: all var(--background-transition-duration)
+      var(--background-transition-ease);
+    background-color: black;
+    &:after {
+      background-image: url("data:image/svg+xml,%0A%3Csvg width='260px' height='50px' viewBox='0 0 260 50' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cg id='Symbols'  fill='white' fill-rule='evenodd'%3E%3Cg id='projects-item--big' stroke='%23979797'%3E%3Cpath d='M0,49.0000348 L0,3.19744231e-14 C16.6379265,0.351380356 29.9007236,2.11465823 39.7883915,5.28983363 C54.6198932,10.0525967 64.5212915,16.3857844 84.5532156,10.837809 C104.58514,5.28983363 120.872775,-3.92036753 141.037012,5.28983363 C161.201248,14.5000348 172.619563,5.28983363 190.17485,5.28983363 C207.730137,5.28983363 213.727639,14.5000348 228.463885,14.5000348 C243.200132,14.5000348 249.700491,5.28983363 259.5,5.28983363 C259.5,9.64332158 259.5,24.2133886 259.5,49.0000348 L0,49.0000348 Z' id='Path-13'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    &:hover span {
+      color: black !important;
+    }
   }
 }

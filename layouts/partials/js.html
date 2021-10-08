@@ -1,7 +1,7 @@
-{{- $transpiled := resources.Get "js/index.js" | babel  -}}
+{{- $transpiled := resources.Get "js/index.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}
 {{- $instantclick := resources.Get "js/lib/instantclick.min.js" -}}
 
-<script src={{$transpiled.Permalink}} type="text/javascript" ></script>
+<script src={{$transpiled.Permalink}} type="text/javascript" defer></script>
 <!-- 
 <script src={{$instantclick.Permalink}} data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script> -->

@@ -1,0 +1,17 @@
+.typewrite .cursor {
+  height: 150px;
+  margin-left: 20px;
+  display: inline-block;
+  width: 30px;
+  background: BLACK;
+}
+
+.typewrite .cursor.blinking {
+  animation: blink-animation 1.5s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}

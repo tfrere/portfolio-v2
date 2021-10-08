@@ -1,0 +1,33 @@
+/* with flexbox */
+.grid {
+  @apply flex w-full;
+}
+
+.grid-col {
+  @apply flex-grow w-full;
+}
+
+.grid-item {
+  padding: 1rem;
+  @apply w-full;
+}
+
+/* 2 columns by default, hide columns 2 & 3 */
+.grid-col--2,
+.grid-col--3 {
+  display: none;
+}
+
+/* 3 columns at medium size */
+@media (min-width: 768px) {
+  .grid-col--2 {
+    display: block;
+  } /* show column 2 */
+}
+
+/* 4 columns at large size */
+@media (min-width: 1080px) {
+  .grid-col--3 {
+    display: block;
+  } /* show column 3 */
+}

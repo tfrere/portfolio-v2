@@ -6,8 +6,8 @@ var convertRange = function (value, r1, r2) {
   return ((value - r1[0]) * (r2[1] - r2[0])) / (r1[1] - r1[0]) + r2[0];
 };
 
-class Wave {
-  constructor(canvas, color) {
+export default class Wave {
+  constructor(canvas, color, direction) {
     this.canvas = canvas;
     this.acceleration = function (t) {
       return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
@@ -15,23 +15,20 @@ class Wave {
 
     this.path = [];
     this.isMoving = false;
-    this.isUp = false;
-    this.direction = "vertical";
-    this.amount = 8;
-    this.offset = -30;
+    this.hasToMoveForward = true;
+    this.direction = direction;
+    this.amount = 12;
+    this.offset = -40;
 
-    this.speedRange = [10, 250];
+    this.speedRange = [10, 100];
     this.step = 0;
     this.currentTime = 0;
     this.timeInterval = 20;
-    this.totalTime = 1200;
+    this.totalTime = 1000;
     this.color = color;
     this.timeUnit = this.totalTime / this.timeInterval;
 
     this.resize();
-    this.direction == "horizontal"
-      ? this.createHorizontalPath()
-      : this.createVerticalPath();
 
     window.addEventListener("resize", this.resize.bind(this));
   }
@@ -59,7 +56,7 @@ class Wave {
         point.border = true;
       } else {
         point.x = this.offset;
-        point.y = (this.canvas.width / (this.amount - 2)) * (i - 1);
+        point.y = (this.canvas.height / (this.amount - 2)) * (i - 1);
       }
       this.path.push(point);
     }
@@ -114,15 +111,16 @@ class Wave {
         this.currentTime += this.timeInterval;
         this.path.map((point) => {
           if (!point.fixed) {
-            var test1 = convertRange(
+            let newRange = [0, 1];
+            if (this.hasToMoveForward) newRange = [1, 0];
+            var range = convertRange(
               this.currentTime,
               [0, this.totalTime],
-              [0, 1]
+              newRange
             );
-            var test2 = this.acceleration(test1);
-            // console.log(test2);
-            var trueSpeed = total * test2 + point.speed * test2 * 5;
-            // segment.point.x = isUp ? trueSpeed : size.width - trueSpeed;
+            var acceleration = this.acceleration(range);
+            var trueSpeed =
+              total * acceleration + point.speed * acceleration * 5;
             if (this.direction == "horizontal") point.x = trueSpeed;
             else point.y = trueSpeed;
           }
@@ -132,11 +130,10 @@ class Wave {
       window.setTimeout(() => {
         clearInterval(interval);
         this.isMoving = false;
-        this.isUp = !this.isUp;
         this.currentTime = 0;
-        this.direction == "horizontal"
-          ? this.createHorizontalPath()
-          : this.createVerticalPath();
+        this.hasToMoveForward = !this.hasToMoveForward;
+        // if(!this.hasToMoveForward)
+        //   this.move();
       }, this.totalTime);
     }
   }
@@ -144,6 +141,10 @@ class Wave {
   resize(e) {
     this.canvas.width = this.canvas.clientWidth;
     this.canvas.height = this.canvas.clientHeight;
+
+    this.direction == "horizontal"
+      ? this.createHorizontalPath()
+      : this.createVerticalPath();
   }
 
   drawPath() {
@@ -166,10 +167,7 @@ class Wave {
     // ctx.stroke();
     var newColor = this.color;
     if (this.color == "background") {
-      newColor = chroma($(".page, .landing").css("background-color"));
-    }
-    if (this.color == "darkbackground") {
-      newColor = chroma($(".page, .landing").css("background-color")).darken(1);
+      newColor = chroma($(".page").css("background-color"));
     }
     ctx.fillStyle = newColor;
     ctx.fill();
@@ -181,7 +179,6 @@ class Wave {
     let ctx = this.ctx;
 
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
     this.drawPath();
 
     requestAnimationFrame(this.render.bind(this));

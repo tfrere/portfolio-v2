@@ -1,7 +1,7 @@
 ---
 title: The Marianne project
 smalltitle: Marianne project
-date: 2020-06-09T00:00:04+00:00
+date: 2021-03-08T00:00:04+00:00
 aliases: [/projects/the-marianne-project/]
 tags:
   - Art experiment
@@ -13,6 +13,7 @@ client: Obvious
 number: 02
 description: French cultural art experiment. Highlight **diversity** and **French spirit** through art by creating the next representation of Marianne with new **artificial intelligence algorithms**.
 center: true
+externalurl: https://www.behance.net/gallery/127533629/The-Marianne-project-Website
 ---
 
 {{< introduction lead="French cultural art experiment. Highlight **diversity** and **French spirit** through art by creating the next representation of Marianne with new **artificial intelligence algorithms**." text="This artistic project aims to **collect images of French women**, and **to ask AI to create the French woman representative of all of these women**, in their diversity as well as in their consistency. **The result will not look like any of the photos collected**, but the AI ​​will have used each photo for the realization of the final work."  >}}

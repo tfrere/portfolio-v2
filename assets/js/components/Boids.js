@@ -1,9 +1,14 @@
+import $ from "jquery";
+
 class Boids {
-  constructor(canvas, speed, size, number_of_boids) {
+  constructor(canvas, color, speed, size, number_of_boids) {
+    this.canvasElem = canvas;
     this.canvas = canvas;
     this.speed = speed;
     this.size = size;
+    this.color = color;
     this.boids = [];
+    this.hasToRender = true;
     this.number_of_boids = number_of_boids;
     this.distance_for_cohesion = 60;
     this.distance_between_boids = 20;
@@ -11,6 +16,8 @@ class Boids {
     this.resize();
 
     this.initRandom();
+    // this.initCircle();
+    this.observe();
 
     window.addEventListener("resize", this.resize.bind(this));
     this.canvas.addEventListener("pointermove", this.mouseMove.bind(this));
@@ -25,7 +32,7 @@ class Boids {
           x: this.randomVelocity(),
           y: this.randomVelocity(),
         },
-        c: "rgba(255,255,255," + 1 + ")",
+        c: this.color,
       });
     }
   }
@@ -40,7 +47,7 @@ class Boids {
           x: this.randomVelocity(),
           y: this.randomVelocity(),
         },
-        c: "rgba(255,255,255,1)",
+        c: this.color,
       });
     }
   }
@@ -57,7 +64,7 @@ class Boids {
           x: this.radialVelocity(),
           y: this.radialVelocity(),
         },
-        c: "rgba(255,255,255,1)",
+        c: this.color,
       });
       if (i > 4) {
         console.log(this.boids[i], this.canvas.width);
@@ -105,15 +112,31 @@ class Boids {
     }
   }
 
+  observe() {
+    var observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        console.log("boids has to render");
+        this.hasToRender = true;
+      } else {
+        console.log("boids has to stop");
+        this.hasToRender = false;
+      }
+    });
+
+    observer.observe(this.canvasElem);
+  }
+
   render() {
-    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (this.hasToRender) {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // debug mouse position
-    // ctx.fillStyle = "white";
-    // console.log(this.mousePosition);
-    // ctx.fillRect(this.mousePosition.x, this.mousePosition.y, 10, 10);
+      // debug mouse position
+      // ctx.fillStyle = "white";
+      // console.log(this.mousePosition);
+      // ctx.fillRect(this.mousePosition.x, this.mousePosition.y, 10, 10);
 
-    this.draw();
+      this.draw();
+    }
 
     requestAnimationFrame(this.render.bind(this));
     // setInterval(this.render.bind(this), 40);
@@ -275,12 +298,14 @@ class Boids {
   }
 }
 
-//   let speed = 5;
-//   let size = 2;
-//   let number_of_boids = 500;
-
-//   canvas = document.getElementById('canvas');
-
-//   var boidsInstance = new Boids(canvas, speed, size, number_of_boids);
-
-//   boidsInstance.render();
+(function () {
+  $("[data-boids]").each(function () {
+    let canvas = $(this)[0];
+    let size = $(this).data("boids-size") || 2;
+    let speed = $(this).data("boids-speed") || 2;
+    let number_of_boids = $(this).data("boids-number") || 500;
+    let color = $(this).data("boids-color") || "rgba(0,0,0,0.2)";
+    let instance = new Boids(canvas, color, speed, size, number_of_boids);
+    instance.render();
+  });
+})();
