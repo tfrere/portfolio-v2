@@ -5,8 +5,8 @@ module.exports = {
     applyComplexClasses: true,
   },
   purge: {
-    enabled: process.env.HUGO_ENVIRONMENT === "production",
-    // enabled: true,
+    // enabled: process.env.HUGO_ENVIRONMENT === "production",
+    enabled: true,
     content: [
       "./layouts/**/*.html",
       "./content/**/*.md",
