@@ -3,7 +3,7 @@
 }
 
 .lazy-image__content {
-  @apply absolute top-0 left-0 w-full h-full opacity-0 transition-opacity delay-150;
+  @apply absolute top-0 left-0 w-full h-full opacity-0 transition-opacity delay-300;
   &.loaded {
     @apply opacity-100;
   }
@@ -26,5 +26,5 @@
 }
 
 .responsive-image__content {
-  @apply absolute top-0 left-0 w-full h-full opacity-100 transition-opacity;
+  @apply absolute top-0 left-0 w-full h-full;
 }

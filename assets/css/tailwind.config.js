@@ -68,30 +68,11 @@ module.exports = {
         blue: "#82BDC6",
       },
     },
-    fontFamily: {
-      sans: ["Inter", "sans"],
-      subheadcondensed: ["Inter", "sans"],
-      subheadlarge: ["Inter", "sans"],
-      text: ["Inter", "sans"],
-      text2: ["Inter", "sans"],
-      serif: ["Inter", "sans"],
-    },
-  },
-  verticalRhythm: {
-    defaultLineHeight: "loose",
-    fontCapHeight: {
-      // Calculated using https://codepen.io/sebdesign/pen/EKmbGL?editors=0011
-      default: 0.815,
-      Oswald: 0.815,
-      "Nunito Sans": 0.71,
-    },
-    height: 1.5, // Vertical rhythm in rems
   },
   variants: {},
   plugins: [
-    require("tailwind-vertical-rhythm"),
     require("tailwindcss-font-inter")({
-      importFontFace: true,
+      importFontFace: false,
       disableUnusedFeatures: false,
     }),
   ],
