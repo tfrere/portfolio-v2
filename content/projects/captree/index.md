@@ -4,13 +4,14 @@ title: "CapTree,
 smalltitle: "CapTree,
   the game"
 date: 2021-01-02T01:00:04+01:00
-draft: false
+draft: true
 tags: ["mobile game"]
 roles:
   - UX
   - UI
   - 3D Illustrations
 client: Landskies
+color: "#00FF05"
 number: 03
 description: The Augmented Reality Game that plants real trees! Catch as many trees as possible near you and reforest soils around the world
 externalurl: https://www.behance.net/gallery/127541523/Captree-Mobile-game

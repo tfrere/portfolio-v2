@@ -24,3 +24,14 @@
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2), 1px -1px 0 rgba(0, 0, 0, 0.2),
     -1px 1px 0 rgba(0, 0, 0, 0.2), 1px 1px 0 rgba(0, 0, 0, 0.2);
 }
+
+.swiper-marquee__content__part {
+  width: auto;
+  flex-shrink: 0;
+  font-size: $base-size * 18;
+  line-height: $base-size * 18;
+  white-space: nowrap;
+  color: white;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2), 1px -1px 0 rgba(0, 0, 0, 0.2),
+    -1px 1px 0 rgba(0, 0, 0, 0.2), 1px 1px 0 rgba(0, 0, 0, 0.2);
+}

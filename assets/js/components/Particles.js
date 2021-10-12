@@ -269,9 +269,22 @@ export default class Particles {
         timeScale: 1,
         duration: 2,
       },
-      1.5
+      1
     );
 
     setTimeout(() => tl.play(), 0);
+
+    // window.addEventListener("scroll", () => scroll(), false);
+
+    // var scroll = () => {
+    //   console.log(1);
+    //   tl.set(
+    //     particles.getTimeline(),
+    //     {
+    //       timeScale: 0.1,
+    //     },
+    //     0
+    //   );
+    // };
   }
 })();

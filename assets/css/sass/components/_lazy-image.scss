@@ -1,9 +1,16 @@
 .lazy-image {
   @apply relative w-full bg-gray-100;
+  &:after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full transition-opacity delay-300;
+    box-shadow: inset 5px 5px 20px 5px rgba(0, 0, 0, 0.05);
+    z-index: 999999999999;
+  }
 }
 
 .lazy-image__content {
   @apply absolute top-0 left-0 w-full h-full opacity-0 transition-opacity delay-300;
+
   &.loaded {
     @apply opacity-100;
   }
@@ -31,4 +38,17 @@
   // &.loaded {
   //   @apply block;
   // }
+}
+
+.static-image {
+  @apply relative w-full bg-gray-100 overflow-hidden;
+}
+
+.static-image__img {
+  @apply absolute top-0 left-0 w-full h-full;
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  background-size: cover;
+  z-index: 0;
 }

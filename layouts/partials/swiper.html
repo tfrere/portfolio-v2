@@ -1,31 +1,56 @@
-{{ $section := .section }}
-{{ $context := .context }}
+<style>
+  .swiper {
+      width: 100%;
+    }
 
-<div class="swiper">
-  <div class="swiper-wrapper">
-        
-    {{range $context.Site.RegularPages}}
+    .slide {
+      width: 25%;
+    }
 
-      {{if eq .Title $section}} 
+    .swiper-wrapper {
+        will-change: transform;
+    }
+</style>
+
+<section class="section gray section--with-half-padding">
+  <div class="section__content" >
+    <div class="container mx-auto">
+      <div class="">
+        <h2 class="heading-1 heading--center vr-mt-1 vr-mb-4 entity">WORK.</h2>
+      </div>
+    </div>
+    <div class="container mx-auto vr-mt-2 vr-mb-4">
+
+      <div class="swiper">
         
-        {{ with .Resources.ByType "image" }}
-          {{ $len := len . }}
-          
-          {{ range $i, $image := . }}
-              {{ if not (in . "exclude") }}
-                <div class="swiper-slide">
-                  <!-- {{ $test := $image.Resize "1600x 80q" }} -->
-                    <!-- <a class="img-fluidbox" href="{{ $test.RelPermalink }}"> -->
-                      {{ partial "responsive-image" (dict "Site" $context.Site "image" $image "attrs" (dict "class" "swiper-image" )) }}
-                    <!-- </a> -->
-                  </div>
+        <div class="swiper-wrapper">
+          {{ range where .Site.RegularPages "Type" "projects" }}
+          <div class="swiper-slide slide">
+              <a data-cursor="-lg" data-cursor-text="see more" href="{{.Params.externalurl}}" target="_blank" rel="nofollow"  class="slide__content">
+              {{ $images := .Resources }}
+              {{ with .Resources.ByType "image" }}
+                  {{ range first 1 . }}
+                      {{ partial "responsive-image" (dict "Site" $.Site "image" .) }}
+                  {{ end }}
               {{ end }}
-          {{ end }}
-
-        {{ end }}
-
+              <div class="slide__content__infos">
+                  <span class="slide__content__infos__label entity">
+                      {{ with .Params.tags }}
+                          {{ range . }}
+                              {{ $href := print (absURL "tags/") (urlize .) }}
+                              {{ . }}
+                          {{ end }}
+                      {{ end }}
+                  </span>
+                  <h3 class="slide__content__infos__title entity">{{.Title}}</h3>
+                  <span class="slide__content__infos__misc entity">{{.Params.client}} | {{  .PublishDate.Format "January 2006" }}</span>
+              </div>
+            </a>
+        </div>
       {{ end }}
-    {{ end }}
+        </div>
+      </div>
 
-  </div>
 </div>
+
+</section>

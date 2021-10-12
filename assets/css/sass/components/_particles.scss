@@ -1,4 +1,5 @@
 $particle-color: black;
+$factor: 4;
 
 .cb-particles {
   $root: &;
@@ -9,8 +10,8 @@ $particle-color: black;
   right: 0;
   bottom: 0;
   overflow: hidden;
-  z-index: 1;
-  min-height: 250vh;
+  z-index: 0;
+  height: 150vh;
 
   contain: content;
   pointer-events: none;
@@ -112,31 +113,31 @@ $particle-color: black;
     /* Colors */
     &.-c1 {
       &:before {
-        opacity: 0.25 * 2;
+        opacity: 0.25 * $factor;
       }
     }
 
     &.-c2 {
       &:before {
-        opacity: 0.2 * 2;
+        opacity: 0.2 * $factor;
       }
     }
 
     &.-c3 {
       &:before {
-        opacity: 0.15 * 2;
+        opacity: 0.15 * $factor;
       }
     }
 
     &.-c4 {
       &:before {
-        opacity: 0.3 * 2;
+        opacity: 0.3 * $factor;
       }
     }
 
     &.-c5 {
       &:before {
-        opacity: 0.1 * 2;
+        opacity: 0.1 * $factor;
       }
     }
   }

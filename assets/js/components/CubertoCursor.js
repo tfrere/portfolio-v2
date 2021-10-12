@@ -1,13 +1,29 @@
-/*!
- * Cuberto Cursor
- *
- * @version 1.5.0
- * @author Cuberto (cuberto.com)
- * @licence Copyright (c) 2020, Cuberto. All rights reserved.
- */
-
 import $ from "jquery";
 import gsap from "gsap";
+
+// Helpers
+function getScale(diffX, diffY) {
+  const distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
+  return Math.min(distance / 800, 0.15);
+}
+
+function getAngle(diffX, diffY) {
+  return (Math.atan2(diffY, diffX) * 180) / Math.PI;
+}
+
+/**
+ * debounce function
+ * use inDebounce to maintain internal reference of timeout to clear
+ */
+const debounce = (func, delay) => {
+  let inDebounce;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(inDebounce);
+    inDebounce = setTimeout(() => func.apply(context, args), delay);
+  };
+};
 
 export default class Cursor {
   constructor(options) {
@@ -22,8 +38,15 @@ export default class Cursor {
       options
     );
     this.body = $(this.options.container);
+    this.hasToScale = false;
     this.el = $('<div class="cb-cursor"></div>');
     this.text = $('<div class="cb-cursor-text"></div>');
+
+    this.pos = { x: 0, y: 0 };
+    this.oldPos = { x: 0, y: 0 };
+    this.vel = { x: 0, y: 0 };
+    // this.hasUpdateVelStarted = false;
+
     this.init();
   }
 
@@ -31,11 +54,16 @@ export default class Cursor {
     this.el.append(this.text);
     this.body.append(this.el);
     this.bind();
-    this.move(-window.innerWidth, -window.innerHeight, 0);
+    // this.move(-window.innerWidth, -window.innerHeight, 0);
+    this.frameLoop();
   }
 
   bind() {
     const self = this;
+    let showDebounce = debounce(
+      this.mouseMove({ clientX: 0, clientY: 0 }),
+      100
+    );
 
     this.body
       .on("mouseleave", () => {
@@ -45,28 +73,26 @@ export default class Cursor {
         self.show();
       })
       .on("mousemove", (e) => {
-        this.pos = {
-          x: this.stick
-            ? this.stick.x - (this.stick.x - e.clientX) * 0.15
-            : e.clientX,
-          y: this.stick
-            ? this.stick.y - (this.stick.y - e.clientY) * 0.15
-            : e.clientY,
-        };
-        this.update();
+        showDebounce = debounce(this.mouseMove(e), 20);
       })
+      // .on("mousemove", (e) => {
+      //   let showDebounce = debounce(this.mouseMove(e), 100);
+      //   // self.mouseMove(e);
+      // })
       .on("mousedown", () => {
         self.setState("-active");
       })
       .on("mouseup", () => {
         self.removeState("-active");
       })
-      // .on("mouseenter", "a,input,textarea,button", () => {
-      //   self.setState("-pointer");
-      // })
-      // .on("mouseleave", "a,input,textarea,button", () => {
-      //   self.removeState("-pointer");
-      // })
+      .on("mouseenter", "a,input,textarea,button, .swiper", () => {
+        self.hasToScale = true;
+        self.setState("-pointer");
+      })
+      .on("mouseleave", "a,input,textarea,button, .swiper", () => {
+        self.hasToScale = false;
+        self.removeState("-pointer");
+      })
       .on("mouseenter", "iframe", () => {
         self.hide();
       })
@@ -91,6 +117,66 @@ export default class Cursor {
       .on("mouseleave", "[data-cursor-stick]", function () {
         self.removeStick();
       });
+  }
+
+  // showDebounce = debounce(this.showBlob(true), this.state.debounceRate)
+  mouseMove(e) {
+    // console.log("mousemove");
+    this.pos = {
+      x: this.stick
+        ? this.stick.x - (this.stick.x - e.clientX) * 0.15
+        : e.clientX,
+      y: this.stick
+        ? this.stick.y - (this.stick.y - e.clientY) * 0.15
+        : e.clientY,
+    };
+    window.cursorPos = this.pos;
+    this.update();
+  }
+
+  frameLoop() {
+    this.vel.x = this.oldPos.x - this.pos.x;
+    this.vel.y = this.oldPos.y - this.pos.y;
+
+    // console.log(this.pos);
+    // console.log(this.vel);
+
+    const rotation = getAngle(this.vel.x, this.vel.y);
+    // const scale = getScale(this.vel.x, this.vel.y);
+    const scaleX = Math.min(this.vel.y / 30, 0.15);
+    const scaleY = Math.min(this.vel.x / 30, 0.15);
+
+    this.move(this.pos.x, this.pos.y, scaleX, scaleY, 1, rotation);
+
+    requestAnimationFrame(this.frameLoop.bind(this));
+  }
+
+  move(x, y, scaleX, scaleY, duration, rotation) {
+    let scale = {
+      x: 1,
+      y: 1,
+    };
+
+    if (this.hasToScale) {
+      scale = {
+        x: 1 + scaleX,
+        y: 1 + scaleY,
+      };
+    }
+
+    gsap.to(this.el, {
+      x: x,
+      y: y,
+      force3D: true,
+      overwrite: true,
+      ease: this.options.ease,
+      // rotation: rotation / 10,
+      scaleX: scale.x,
+      scaleY: scale.y,
+      // duration: this.visible ? this.options.speed : 0,
+      duration: this.visible ? duration || this.options.speed : 0,
+    });
+    this.oldPos = { x: x, y: y };
   }
 
   setState(state) {
@@ -121,7 +207,7 @@ export default class Cursor {
       y: bound.top + target.height() / 2,
       x: bound.left + target.width() / 2,
     };
-    this.move(this.stick.x, this.stick.y, 5);
+    // this.move(this.stick.x, this.stick.y, 5);
   }
 
   removeStick() {
@@ -129,19 +215,8 @@ export default class Cursor {
   }
 
   update() {
-    this.move();
+    // this.move();
     this.show();
-  }
-
-  move(x, y, duration) {
-    gsap.to(this.el, {
-      x: x || this.pos.x,
-      y: y || this.pos.y,
-      force3D: true,
-      overwrite: true,
-      ease: this.options.ease,
-      duration: this.visible ? duration || this.options.speed : 0,
-    });
   }
 
   show() {
@@ -164,6 +239,66 @@ export default class Cursor {
 (function () {
   const cursor = new Cursor();
 })();
+
+// // Save pos and velocity
+// const pos = { x: 0, y: 0 };
+// const vel = { x: 0, y: 0 };
+// let loopStarted = false;
+// let size = 1;
+
+// // Register handler on whole block
+// el.addEventListener("mousemove", (e) => {
+//   // Get cursor position relative to box with text
+//   const rect = container.getBoundingClientRect();
+//   const y = e.clientY - rect.top;
+//   const x = e.clientX - rect.left;
+
+//   // Animate object and calc velocity for every tick
+//   gsap.to(pos, {
+//     x: x,
+//     y: y,
+//     overwrite: true,
+//     ease: "expo.out",
+//     duration: 0.55,
+//     onUpdate: () => {
+//       vel.x = x - pos.x;
+//       vel.y = y - pos.y;
+//     },
+//   });
+
+//   // Start loop
+//   if (!loopStarted) {
+//     loop();
+//     loopStarted = true;
+//   }
+// });
+
+// el.addEventListener("mousedown", (e) => {
+//   console.log(1);
+//   size = 2;
+// });
+// el.addEventListener("mouseup", (e) => {
+//   console.log(2);
+//   size = 1;
+// });
+
+// // Start render loop
+// const loop = () => {
+//   // Calculate angle and scale based on velocity
+//   const rotation = getAngle(vel.x, vel.y);
+//   const scale = getScale(vel.x, vel.y);
+
+//   // Set transform data to shape
+//   gsap.set(shape, {
+//     x: pos.x,
+//     y: pos.y,
+//     rotation: rotation,
+//     scaleX: 1 + scale,
+//     scaleY: 1 - scale,
+//   });
+
+//   requestAnimationFrame(loop.bind(this));
+// };
 
 // Init cursor
 

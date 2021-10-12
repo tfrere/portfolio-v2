@@ -1,14 +1,15 @@
 ---
 title: "AI assisted paintings"
 smalltitle: AI assisted paintings
-date: 2021-10-10T01:00:04+01:00
+date: 2021-10-11T01:00:04+01:00
 draft: false
 tags: ["Art"]
 roles:
   - Concept
 client: Personal
+color: "#95D0A9"
 number: 01
-description: Toto
+description: Personal work using latest deep learning algorithms
 externalurl: "https://www.behance.net/gallery/127532391/AI-assisted-paintings"
 ---
 

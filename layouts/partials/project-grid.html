@@ -1,0 +1,78 @@
+<section class="section section--with-half-padding">
+    <div class="section__content">
+      
+        <div class="container mx-auto">
+        <div class="vr-mb-4">
+          <h2 class="heading-1 entity">WORK.</h2>
+          <p class="text-base entity w-8/12 vr-mt-1"> A showcase of <b> projects</b> that i've made this year from scenography to integration. This is another sentence to fill a bit. And this is another one.</p>
+        </div>
+      </div>
+
+      <div class="container mx-auto vr-mt-4 vr-mb-4">
+        <div class="project-grid">
+            <div class="project-grid__column project-grid__column--left">
+                {{ range $i, $item := where .Site.RegularPages "Type" "projects" }}
+                    {{if  (modBool $i 2)}}
+                        <div class="project-grid__item">
+
+                            {{ $seed := "foo" }}
+                            {{ $random := delimit (shuffle (split (md5 $seed) "" )) "" }}
+
+                            <style>
+                            .-color-{{ $random }}:before {
+                                background-color:{{$item.Params.color}}!important;
+                            }
+                            </style>
+
+                            <a data-cursor="-lg -color-{{ $random }}" data-cursor-text="see more" href="{{$item.Params.externalurl}}" target="_blank" rel="nofollow"  class="slide__content">
+                            {{ $images := $item.Resources }}
+                            {{ with $item.Resources.ByType "image" }}
+                                {{ range first 1 . }}
+                                    {{ partial "lazy-image" (dict "Site" $.Site "image" . "color" $item.Params.color) }}
+                                {{ end }}
+                            {{ end }}
+                            <span class="project-grid__item__label entity">
+                                <strong>{{$item.Title}}</strong> – {{$item.Params.description}} 
+                                <!-- | {{$item.Params.client}} -->
+                                <!-- | {{  $item.PublishDate.Format "January 2006" }} -->
+                            </span>
+                            </a>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+            <div class="project-grid__column project-grid__column--right">
+                {{ range $i, $item := where .Site.RegularPages "Type" "projects" }}
+                    {{if not (modBool $i 2) }}
+                        <div class="project-grid__item">
+
+                            {{ $seed := "foo" }}
+                            {{ $random := delimit (shuffle (split (md5 $seed) "" )) "" }}
+
+                            <style>
+                            .-color-{{ $random }}:before {
+                                background-color:{{$item.Params.color}}!important;
+                            }
+                            </style>
+
+                            <a data-cursor="-lg -color-{{ $random }}" data-cursor-text="see more" href="{{$item.Params.externalurl}}" target="_blank" rel="nofollow"  class="slide__content">
+                            {{ $images := $item.Resources }}
+                            {{ with $item.Resources.ByType "image" }}
+                                {{ range first 1 . }}
+                                    {{ partial "lazy-image" (dict "Site" $.Site "image" . "color" $item.Params.color) }}
+                                {{ end }}
+                            {{ end }}
+                            <span class="project-grid__item__label entity">
+                                <strong>{{$item.Title}}</strong> – {{$item.Params.description}} 
+                                <!-- | {{$item.Params.client}} -->
+                                <!-- | {{  $item.PublishDate.Format "January 2006" }} -->
+                            </span>
+                            </a>
+                        </div>
+                    {{ end }}
+                {{ end }}
+            </div>
+        </div>
+    </div>
+
+</section>

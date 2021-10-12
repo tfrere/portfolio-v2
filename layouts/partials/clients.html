@@ -1,0 +1,167 @@
+
+{{$site := .Site}}
+<style>
+    .swiper {
+        width: 100%;
+      }
+  
+      .slide {
+        width: 25%;
+      }
+  
+      .swiper-wrapper {
+          will-change: transform;
+      }
+    #preloadedImages
+    {
+        width: 0px;
+        height: 0px;
+        display: inline;
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/matthieuricard.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/luxtimes.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/bdrc.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/amapa.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/bpifrance.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/radio-latina.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/femis.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/obvious.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/humabio.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/labrh.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/cite-des-sciences.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/landskies.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/wort.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/ideo.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/42.png);
+        background-image: url({{ $site.BaseURL }}images/logos-black/png/telecomparis.png);
+    }
+</style>
+  
+<section class="section section--with-half-padding">
+    <div class="section__content">
+
+        <div class="container mx-auto">
+            <h2 class="heading-1 vr-mt-1 vr-mb-4 entity">WE WORKED<br/> TOGETHER.</h2>
+            <!-- <p class="text-base vr-mb-4 entity ">And they loved it.</p> -->
+            <div data-swiper-marquee data-swiper-marquee-from="-600" data-swiper-marquee-to="-300" >
+                    <!-- data-cursor-text="g" -->
+                <div class="swiper vr-mb-1" data-cursor="-lg"> 
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/luxtimes.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/bdrc.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/matthieuricard.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/cite-des-sciences.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/femis.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/radio-latina.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/obvious.png"/></div>
+                    </div>
+                </div>
+            </div>
+            <div data-swiper-marquee data-swiper-marquee-from="-300" data-swiper-marquee-to="-600" >
+                    <!-- data-cursor-text="g" -->
+                <div class="swiper" data-cursor="-lg"> 
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/humabio.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/amapa.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/labrh.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/universcience.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/landskies.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/wort.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/bpifrance.png"/></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- <section class="section--with-half-padding section ">
+    <div class="section__content">
+        <div class="container mx-auto">
+            <h2 class="entity heading-2 font-bold uppercase vr-mb-4">We worked<br/> together.</h2>
+        </div>
+        {{$site := .Site}}
+        <style>
+            #preloadedImages
+            {
+                width: 0px;
+                height: 0px;
+                display: inline;
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/matthieuricard.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/luxtimes.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/bdrc.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/amapa.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/bpifrance.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/radio-latina.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/femis.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/obvious.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/humabio.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/labrh.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/cite-des-sciences.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/landskies.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/wort.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/ideo.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/42.png);
+                background-image: url({{ $site.BaseURL }}images/logos-black/png/telecomparis.png);
+            }
+        </style>
+        <div data-marquee data-marquee-start="-600" data-marquee-end="-500" class="clients__marquee">
+            <div data-marquee-container  class="clients__marquee__content">
+                {{ range $index, $num := (seq 3) }}
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/luxtimes.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/bdrc.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/matthieuricard.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/cite-des-sciences.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/femis.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/radio-latina.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/obvious.png"/></div>
+                {{ end }}
+
+            </div>
+        </div>                    
+        <div data-marquee data-marquee-start="-300" data-marquee-end="-400" class="clients__marquee clients__marquee--2">
+            <div data-marquee-container class="clients__marquee__content">
+                {{ range $index, $num := (seq 3) }}
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/humabio.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/amapa.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/labrh.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/universcience.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/landskies.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/wort.png"/></div>
+                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/bpifrance.png"/></div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+  </section>
+  <section class="section section--with-half-padding">
+    <div class="about__content__prices-container section__content container" >
+        <h2 class="entity heading-1 entity" >AWARDS.</h2>
+        <div class="about__content__prices vr-mt-3">
+            <div class="about__content__prices__item">
+                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/png/ideo.png" />
+                <div class="about__content__prices__item__infos">
+                  <h3 class="about__content__prices__item__infos__title entity">Design thinking</h3>
+                  <p class="about__content__prices__item__infos__place entity">HEC Paris</p>
+                </div>
+            </div>
+            <div class="about__content__prices__item">
+                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/png/42.png" />
+                <div class="about__content__prices__item__infos">
+                  <h3 class="about__content__prices__item__infos__title entity">Wearhacks Myo</h3>
+                  <p class="about__content__prices__item__infos__place entity">42 Paris</p>
+                </div>
+            </div>
+            <div class="about__content__prices__item">
+                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/png/telecomparis.png" />
+                <div class="about__content__prices__item__infos">
+                  <h3 class="about__content__prices__item__infos__title entity">Innovators in motion</h3>
+                  <p class="about__content__prices__item__infos__place entity">Telecom Paris</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section> -->

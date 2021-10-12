@@ -61,7 +61,7 @@ $size: 24px;
     background: white;
     border-radius: 50%;
 
-    transition: transform 0.3s ease-in-out, opacity 0.1s;
+    transition: transform 0.3s ease-in-out, opacity 0.1s, background-color 0.1s;
   }
 
   &-text {
@@ -74,11 +74,12 @@ $size: 24px;
     align-items: center;
     justify-content: center;
     transform: scale(0) rotate(10deg);
+    font-weight: 900;
 
     opacity: 0;
     color: white;
 
-    font-size: 12px;
+    font-size: 14px;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: -0.01em;
@@ -160,6 +161,7 @@ $size: 24px;
     &:before {
       opacity: 0.85;
       transform: scale(1.7);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     #{$root} {

@@ -1,54 +1,6 @@
 import $ from "jquery";
 import gsap from "gsap";
 import anime from "animejs";
-import { tns } from "./node_modules/tiny-slider/src/tiny-slider";
-
-$(document).ready(function () {
-  var slider = tns({
-    container: ".slider",
-    items: 3,
-    slideBy: "page",
-    loop: true,
-    autoplay: false,
-    mouseDrag: true,
-    // center: false,
-    swipeAngle: false,
-    speed: 400,
-    gutter: 24,
-    edgePadding: 192 + 48,
-    nav: false,
-    controls: false,
-    responsive: {
-      640: {
-        items: 2,
-      },
-
-      768: {
-        items: 3,
-      },
-    },
-  });
-
-  window.isSlideClickable = true;
-
-  slider.events.on("touchMove", () => {
-    console.log("touchMove");
-    window.isSlideClickable = false;
-  });
-  slider.events.on("dragMove", () => {
-    console.log("dragMove");
-    window.isSlideClickable = false;
-  });
-  slider.events.on("transitionEnd", () => {
-    console.log("transitionEnd");
-    window.isSlideClickable = true;
-  });
-
-  $(".slide__content").on("click", (e) => {
-    console.log("window.isSlideClickable", window.isSlideClickable);
-    if (!window.isSlideClickable) e.preventDefault();
-  });
-});
 
 import "./components/CubertoCursor";
 import "./components/Cursor";
@@ -64,6 +16,7 @@ import "./components/Blob";
 import "./components/Boids";
 import "./components/Particles";
 import "./components/ColorSplat";
+import "./components/SwiperMarquee";
 // import "./components/MovinLines";
 // import "./components/MaskHoverTextEffect";
 
@@ -104,10 +57,12 @@ $(document).ready(function () {
   const tl = gsap.timeline({ paused: true });
   const titleElem = document.querySelector(".landing__title");
   const textElem = document.querySelector(".landing__text");
+  const blobElem = document.querySelector(".blob");
   const preloaderElem = document.querySelector("#preloader");
 
-  gsap.set(titleElem, { opacity: 1, yPercent: 60, skewY: 5, duration: 0 });
+  gsap.set(titleElem, { opacity: 1, yPercent: 60, skewY: -10, duration: 0 });
   gsap.set(textElem, { opacity: 0, yPercent: 60, duration: 0 });
+  gsap.set(blobElem, { opacity: 0, yPercent: 20, duration: 0 });
   gsap.set(preloaderElem, { opacity: 1 });
 
   var waveCanvas = document.getElementById("wave-transition");
@@ -181,6 +136,16 @@ $(document).ready(function () {
         ease: "expo.out",
       },
       1.7
+    )
+    .to(
+      blobElem,
+      {
+        opacity: 1,
+        yPercent: 0,
+        duration: 2,
+        ease: "expo.out",
+      },
+      1.4
     );
 
   tl.play();

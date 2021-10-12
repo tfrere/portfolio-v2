@@ -1,7 +1,7 @@
 ---
 title: The Marianne project
 smalltitle: Marianne project
-date: 2021-03-08T00:00:04+00:00
+date: 2021-04-08T00:00:02+00:00
 aliases: [/projects/the-marianne-project/]
 tags:
   - Art experiment
@@ -10,8 +10,9 @@ roles:
   - UI
   - Developement
 client: Obvious
+color: "#82BDC6"
 number: 02
-description: French cultural art experiment. Highlight **diversity** and **French spirit** through art by creating the next representation of Marianne with new **artificial intelligence algorithms**.
+description: French cultural art experiment. Highlight diversity and French spirit through art.
 center: true
 externalurl: https://www.behance.net/gallery/127533629/The-Marianne-project-Website
 ---

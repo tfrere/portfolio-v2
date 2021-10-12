@@ -1,7 +1,7 @@
 ---
-title: "Cité des sciences - Le banquet"
+title: "Cité des sciences"
 smalltitle: Cité des sciences
-date: 2021-09-02T01:00:04+01:00
+date: 2021-10-10T01:00:04+01:00
 draft: false
 tags: ["UX / UI"]
 roles:
@@ -10,8 +10,9 @@ roles:
   - Concept
   - Developement
 client: Obvious
+color: "#F7CD1E"
 number: 01
-description: For the exposition **« Le banquet »**. A french experimentation about the future of food. New scientific approaches of meal composition. An Obvious project.
+description: A french experimentation about the future of food.
 externalurl: https://www.behance.net/gallery/127541523/Captree-Mobile-game
 ---
 

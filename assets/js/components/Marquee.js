@@ -7,10 +7,12 @@ gsap.registerPlugin(ScrollTrigger);
 export default class Marquee {
   constructor(el, options = {}) {
     this.el = $(el);
+    this.carousel = $(el).find("data-carousel");
     this.speed = $(el).data("marquee-start") || 0;
     this.offset = $(el).data("marquee-end") || 300;
     this.hasToRender = true;
     this.tween = null;
+    this.currentPosition = 0;
     // this.bind();
     this.observe();
     this.render();
@@ -48,16 +50,18 @@ export default class Marquee {
 
   bind() {
     let that = this;
-    gsap.set(this.el.find("[data-marquee-part]").get(), {
+    let parts = this.el.find("[data-marquee-part]").get();
+    let container = this.el.find("[data-marquee-container]").get();
+    gsap.set(parts, {
       willChange: "transform",
     });
 
-    gsap.set(this.el.find("[data-marquee-container]").get(), { xPercent: -50 });
+    gsap.set(container, { xPercent: -50 });
 
     // this.tl = new gsap.timeline({ repeat: -1 });
 
     this.tween = gsap
-      .to(this.el.find("[data-marquee-part]").get(), {
+      .to(parts, {
         xPercent: -100,
         repeat: -1,
         duration: 30,
@@ -88,3 +92,11 @@ export default class Marquee {
     new Marquee(this);
   });
 })();
+
+{
+  /* <div data-marquee  data-marquee-start="0" data-marquee-end="-300" class="marquee" >
+  <div data-marquee-container  class="marquee__content entity">
+    <div data-marquee-item class="marquee__content__part shape shape--one"></div>
+  </div>
+</div>  */
+}

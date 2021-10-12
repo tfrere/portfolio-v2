@@ -1,11 +1,5 @@
 .contact {
-  transform: translateY(1px);
-  // text-align: center;
-  overflow: hidden;
-  .button {
-    text-transform: none;
-    @apply ml-4;
-  }
+  // height: calc(100vh + 80px);
 }
 
 .click-to-copy {

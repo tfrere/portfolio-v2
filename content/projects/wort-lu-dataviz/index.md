@@ -1,7 +1,7 @@
 ---
 title: Wort.lu - Dataviz
 smalltitle: Wort.lu - Dataviz
-date: 2020-11-09T00:00:04+00:00
+date: 2021-10-09T00:00:04+00:00
 aliases: [/projects/wort-lu-dataviz/]
 tags:
   - UX / UI
@@ -10,8 +10,9 @@ roles:
   - UI
   - Developement
 client: Wort
+color: "#F38949"
 number: 02
-description: French cultural art experiment. Highlight **diversity** and **French spirit** through art by creating the next representation of Marianne with new **artificial intelligence algorithms**.
+description: Data visualisation design system
 center: true
 externalurl: https://www.behance.net/gallery/127533629/The-Marianne-project-Website
 ---

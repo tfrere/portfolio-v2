@@ -1,20 +1,10 @@
 {{ define "main" }}
-  <div class="cb-particles">
-    <div class="cb-particles-item -black -dot -v1 -s1 -c3"></div>
-    <div class="cb-particles-item -black -dot -v2 -s2 -c4"></div>
-    <div class="cb-particles-item -black -dot -v3 -s3 -c5"></div>
-    <div class="cb-particles-item -black -dot -v4 -s1 -c1"></div>
-    <div class="cb-particles-item -black -dot -v5 -s2 -c4"></div>
-    <div class="cb-particles-item -black -dot -v6 -s3 -c2"></div>
-    <div class="cb-particles-item -black -dot -v7 -s4 -c1"></div>
-    <div class="cb-particles-item -black -dot -v8 -s2 -c4"></div>
-    <div class="cb-particles-item -black -dot -v9 -s3 -c5"></div>
-    <div class="cb-particles-item -black -dot -v10 -s3 -c1"></div>
-    <div class="cb-particles-item -black -dot -v11 -s3 -c3"></div>
-  </div>
+
+
   <section id="landing" class="section landing">
     <div class="landing__content container" >
-        <h1 class="heading-0 entity uppercase landing__title">
+      <canvas class="canvas blob entity" data-blob data-blob-offset="50" data-blob-color="rgba(0,0,0,0.2)" ></canvas>
+      <h1 class="heading-0 entity uppercase landing__title">
             Hello,
           <br/>
           I'm a senior <span data-change-text data-change-text-values="Designer, Developer">designer</span>
@@ -23,155 +13,26 @@
     </div>
     <div class="invite-to-scroll-with-text"></div>
   </section>
-  <div data-marquee  data-marquee-start="0" data-marquee-end="-300" class="marquee" >
-    <div data-marquee-container  class="marquee__content entity">
-      <h3 data-marquee-item class="marquee__content__part text-stroke"> CAREFULY CRAFTING SINCE SINCE 2008 </h3>
-    </div>
-  </div>
-  <section class="section">
-    <div class="section__content container">
-        <p class="entity text-lead">
-            I lead front-end development for companies and organizations, building <strong class="overline">resilient UI foundations</strong>. I’ve worked on projects of different scales from <strong class="">small micro-sites</strong> to <strong class="">larger Web applications</strong>.
-        </p>
-        <p class="entity text-small columns vr-mt-1">
-            I’m a design-minded front-end developer. Sometimes people who do what I do are also called front-end designers, UI developers, UI engineers, or design engineers.
-            That is, <strong>my work lies at the intersection of design and back-end</strong>. I write HTML, CSS, SVG, and presentational JavaScript that powers Web user interfaces. With a <strong>focus on responsive design, semantic markup, and performance</strong>. I build <strong>resilient, inclusive foundations for user interfaces</strong>, marrying cutting-edge techniques with foundational Web standards.
-            I collaborate with designers — preferrably in the design phase — to <strong>translate designs into live prototypes</strong>, resilient Web user interfaces, and design systems. As a design engineer, <strong>I provide feedback to designers to ensure that the design translates well to the browser</strong>, ensuring usability of the product by as many people as possible, regardless of their context and how they use it.
-        </p>
-    </div>
-  </section>
-  <!-- {{ partial "stamp" }} -->
-  <section class="black section--with-padding section ">
-    <div class="section__content">
-        <div class="container mx-auto">
-            <h2 class="entity heading-2 font-bold uppercase vr-mb-4">We worked<br/> together.</h2>
-        </div>
-        {{$site := .Site}}
-        <style>
-            #preloadedImages
-            {
-                width: 0px;
-                height: 0px;
-                display: inline;
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/matthieuricard.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/luxtimes.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/bdrc.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/amapa.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/bpifrance.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/radio-latina.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/femis.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/obvious.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/humabio.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/labrh.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/cite-des-sciences.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/landskies.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/wort.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/ideo.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/42.jpg);
-                background-image: url({{ $site.BaseURL }}images/logos-black/jpg/telecomparis.jpg);
-            }
-        </style>
-        <div data-marquee data-marquee-start="-600" data-marquee-end="-500" class="clients__marquee">
-            <div data-marquee-container  class="clients__marquee__content">
-                {{ range $index, $num := (seq 3) }}
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/luxtimes.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/bdrc.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/matthieuricard.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/cite-des-sciences.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/femis.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/radio-latina.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/obvious.jpg"/></div>
-                {{ end }}
 
-            </div>
-        </div>                    
-        <div data-marquee data-marquee-start="-300" data-marquee-end="-400" class="clients__marquee clients__marquee--2">
-            <div data-marquee-container class="clients__marquee__content">
-                {{ range $index, $num := (seq 3) }}
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/humabio.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/amapa.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/labrh.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/universcience.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/landskies.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/wort.jpg"/></div>
-                    <div data-marquee-item class="clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/bpifrance.jpg"/></div>
-                {{ end }}
-            </div>
-        </div>
-    </div>
-  </section>
-  <section class="section section--with-half-padding">
-    <div class="about__content__prices-container section__content container" >
-        <h2 class="entity heading-1 heading--center entity" >AWARDS.</h2>
-        <div class="about__content__prices vr-mt-3">
-            <div class="about__content__prices__item">
-                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/jpg/ideo.jpg" />
-                <div class="about__content__prices__item__infos">
-                  <h3 class="about__content__prices__item__infos__title entity">Design thinking</h3>
-                  <p class="about__content__prices__item__infos__place entity">HEC Paris</p>
-                </div>
-            </div>
-            <div class="about__content__prices__item">
-                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/jpg/42.jpg" />
-                <div class="about__content__prices__item__infos">
-                  <h3 class="about__content__prices__item__infos__title entity">Wearhacks Myo</h3>
-                  <p class="about__content__prices__item__infos__place entity">42 Paris</p>
-                </div>
-            </div>
-            <div class="about__content__prices__item">
-                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/jpg/telecomparis.jpg" />
-                <div class="about__content__prices__item__infos">
-                  <h3 class="about__content__prices__item__infos__title entity">Innovators in motion</h3>
-                  <p class="about__content__prices__item__infos__place entity">Telecom Paris</p>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section>
-  <section class="section gray section--with-half-padding">
-    <div class="section__content" >
-      <div class="container mx-auto">
-        <div class="">
-          <h2 class="heading-1 heading--center vr-mt-1 vr-mb-4 entity">WORK.</h2>
-        </div>
-      </div>
-      <div class="slider vr-mt-2 vr-mb-4">
-        {{ range where .Site.RegularPages "Type" "projects" }}
-            <div class="slide">
-                <a data-cursor="-lg" data-cursor-text="see more" href="{{.Params.externalurl}}" target="_blank" rel="nofollow"  class="slide__content">
-                {{ $images := .Resources }}
-                {{ with .Resources.ByType "image" }}
-                    {{ range first 1 . }}
-                        {{ partial "responsive-image" (dict "Site" $.Site "image" .) }}
-                    {{ end }}
-                {{ end }}
-                <div class="slide__content__infos">
-                    <span class="slide__content__infos__label entity">
-                        {{ with .Params.tags }}
-                            {{ range . }}
-                                {{ $href := print (absURL "tags/") (urlize .) }}
-                                {{ . }}
-                            {{ end }}
-                        {{ end }}
-                    </span>
-                    <h3 class="slide__content__infos__title entity">{{.Title}}</h3>
-                    <span class="slide__content__infos__misc entity">{{.Params.client}} | {{  .PublishDate.Format "January 2006" }}</span>
-                </div>
-              </a>
-          </div>
-        {{ end }}
-      </div>
-  </section>
-  <section class="black section overflow-hidden">
+  {{ partial "craft-sentence" }}
+
+  {{ partial "description" (dict "Site" $.Site) }}
+
+  <!-- {{ partial "stamp" }} -->
+
+  {{ partial "clients" (dict "Site" $.Site) }}
+
+  {{ partial "project-grid" (dict "Site" $.Site) }}
+
+
+  <section class="black section contact">
+
+    <!-- <div  class="shape shape--one"></div> -->
+
     <canvas class="canvas entity" data-boids data-boids-color="rgba(255,255,255,0.5)"></canvas>
     <div
       class="section__content container z-0" 
     >
-
-    <!--       data-scroll-anim
-      data-to='{"yPercent": "0"}'
-      data-from='{"yPercent": "-99"}' 
-     -->
         <h2 class="heading-1 entity uppercase"> 
             Always keen
             <br/>
@@ -181,7 +42,8 @@
         </h2>
           <p class="click-to-copy">
               Feel free to write me an email at
-              <a data-click-to-copy id="click-to-copy" href="mailto:write@tfrere.fr" class="button" data-cursor="-lg" >
+              <!-- data-cursor-text="copy" -->
+              <a data-click-to-copy id="click-to-copy" href="mailto:write@tfrere.fr" class="button" data-cursor="-lg">
                 <span class="button__content click-to-copy__email show">write@tfrere.com</span>
                 <span class="button__content click-to-copy__info-message">Copied !</span>
             </a>

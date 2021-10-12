@@ -127,7 +127,8 @@ class Blob {
     let dist = Math.sqrt(diff.x * diff.x + diff.y * diff.y);
     let angle = null;
 
-    this.mousePos = { x: pos.x - clientX, y: pos.y - clientY };
+    this.mousePos = window.cursorPos;
+    // this.mousePos = { x: pos.x - clientX, y: pos.y - clientY };
 
     if (dist < this.radius && this.hover === false) {
       let vector = { x: clientX - pos.x, y: clientY - pos.y };
@@ -316,6 +317,16 @@ class Blob {
       this.isTurbulenceActive = false;
       clearInterval(this.turbulenceInterval);
     }
+  }
+
+  instantPertubation() {
+    this.points.map((point) => {
+      if (Math.random() > 0.5) {
+        point.acceleration -= Math.random() * 0.3;
+      } else {
+        point.acceleration += Math.random() * 0.3;
+      }
+    });
   }
 
   render() {
@@ -565,11 +576,15 @@ class Point {
 (function () {
   $("[data-blob]").each(function () {
     var canvas = $(this)[0];
-    var margin = $(this).data("blob-margin") || 40;
+    var margin = $(this).data("blob-margin") || 100;
     console.log(margin);
     var numPoints = $(this).data("blob-points") || 32;
     var color = $(this).data("blob-color") || "rgba(0,0,0,0.2)";
     var blobInstance = new Blob(canvas, color, numPoints, margin);
+
     blobInstance.render();
+    window.addEventListener("click", () => {
+      blobInstance.instantPertubation();
+    });
   });
 })();
