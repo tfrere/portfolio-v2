@@ -1,6 +1,5 @@
 {{ define "main" }}
 
-
   <section id="landing" class="section landing">
     <div class="landing__content container" >
       <canvas class="canvas blob entity" data-blob data-blob-offset="50" data-blob-color="rgba(0,0,0,0.2)" ></canvas>
@@ -15,21 +14,15 @@
   </section>
 
   {{ partial "craft-sentence" }}
-
   {{ partial "description" (dict "Site" $.Site) }}
-
   <!-- {{ partial "stamp" }} -->
-
   {{ partial "clients" (dict "Site" $.Site) }}
-
   {{ partial "project-grid" (dict "Site" $.Site) }}
 
-
   <section class="black section contact">
-
     <!-- <div  class="shape shape--one"></div> -->
-
     <canvas class="canvas entity" data-boids data-boids-color="rgba(255,255,255,0.5)"></canvas>
+
     <div
       class="section__content container z-0" 
     >
