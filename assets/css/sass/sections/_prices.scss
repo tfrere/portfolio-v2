@@ -1,31 +1,35 @@
-.about__content__prices-container {
+.prices {
+  @apply flex flex-row w-full overflow-hidden relative text-center;
+}
+.prices-container {
   @apply flex flex-col vr-mt-2;
 }
 
-.about__content__prices {
-  @apply flex flex-row w-full justify-center;
-}
-
-.about__content__prices__item {
-  @apply flex flex-col px-3 vr-mt-1 items-center;
+.prices__item {
+  @apply flex flex-col px-3 vr-mt-1;
   // border: 1px solid black;
 }
 
-.about__content__prices__item__image {
+.prices__item__number {
+  @apply heading-1 entity vr-mb-2;
+  @apply text-stroke;
+}
+
+.prices__item__image {
   @apply mb-8;
   width: 50%;
   max-width: 50%;
-  // display: none;
+  display: none;
 }
 
-.about__content__prices__item__infos {
+.prices__item__infos {
   @apply flex flex-col;
 }
 
-.about__content__prices__item__infos__title {
-  @apply heading-4;
+.prices__item__infos__title {
+  @apply heading-5 uppercase;
 }
 
-.about__content__prices__item__infos__place {
+.prices__item__infos__place {
   @apply mb-4 text-base;
 }

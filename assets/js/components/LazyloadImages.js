@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
       if (entry.isIntersecting) {
         var image = entry.target;
         // console.log(entry.target);
-        image.src = image.dataset.src;
-        // image.srcset = image.dataset.srcset;
+        // image.src = image.dataset.src;
+        image.srcset = image.dataset.srcset;
         window.setTimeout(() => {
           image.classList.add("loaded");
         }, 250);

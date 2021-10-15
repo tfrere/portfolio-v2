@@ -1,0 +1,76 @@
+* {
+  user-select: none !important;
+  // cursor: none !important;
+}
+
+//   scroll-behavior: smooth;
+// overscroll-behavior-x: contain;
+//   overscroll-behavior-y: none;
+//   *::selection {
+//     color: --text-color;
+//     background-color: rgba(0, 0, 0, 0.1);
+//   }
+
+body,
+html {
+  @apply antialiased w-screen p-0 m-0 overflow-x-hidden;
+  //   @apply min-h-screen;
+  background-color: var(--background-color);
+  font-family: "Oswald";
+}
+
+#page {
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 1;
+}
+
+.wave-separator {
+  display: none;
+  position: absolute;
+  top: -100px;
+  width: 105vw;
+  left: -5px;
+  right: 0;
+  img {
+    width: 105vw;
+  }
+}
+
+.blob {
+  left: auto;
+  right: 0px;
+  z-index: 9999999;
+}
+
+.black {
+  @apply relative w-full;
+
+  background: var(--reverse-background-color);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    color: var(--reverse-text-color);
+  }
+}
+
+.gray {
+  background-color: rgba(0, 0, 0, 0.02);
+}

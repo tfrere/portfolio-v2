@@ -298,14 +298,18 @@ class Boids {
   }
 }
 
-(function () {
-  $("[data-boids]").each(function () {
-    let canvas = $(this)[0];
-    let size = $(this).data("boids-size") || 2;
-    let speed = $(this).data("boids-speed") || 2;
-    let number_of_boids = $(this).data("boids-number") || 500;
-    let color = $(this).data("boids-color") || "rgba(0,0,0,0.2)";
-    let instance = new Boids(canvas, color, speed, size, number_of_boids);
-    instance.render();
-  });
-})();
+$(function () {
+  // TO FIX : canvas size is not computed before initialisation
+  // need to remove timeout
+  window.setTimeout(() => {
+    $("[data-boids]").each(function () {
+      let canvas = $(this)[0];
+      let size = $(this).data("boids-size") || 2;
+      let speed = $(this).data("boids-speed") || 2;
+      let number_of_boids = $(this).data("boids-number") || 500;
+      let color = $(this).data("boids-color") || "rgba(0,0,0,0.2)";
+      let instance = new Boids(canvas, color, speed, size, number_of_boids);
+      instance.render();
+    });
+  }, 100);
+});

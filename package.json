@@ -7,6 +7,7 @@
     "develop": "hugo server",
     "dev": " hugo server  --disableFastRender --environment=dev",
     "build": "hugo",
+    "build-modernizr": "cd assets/js/lib; modernizr -c modernizr-config.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -23,7 +24,9 @@
     "gsap": "^3.3.0",
     "intersection-observer": "^0.11.0",
     "jquery": "^3.6.0",
+    "locomotive-scroll": "^4.1.2",
     "smooth-scrollbar": "^8.5.2",
+    "stats.js": "^0.17.0",
     "swiper": "^7.0.6",
     "three": "^0.133.1",
     "tiny-slider": "^2.9.3"

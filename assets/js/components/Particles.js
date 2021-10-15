@@ -263,7 +263,7 @@ export default class Particles {
     tl.fromTo(
       particles.getTimeline(),
       {
-        timeScale: 10,
+        timeScale: 8,
       },
       {
         timeScale: 1,

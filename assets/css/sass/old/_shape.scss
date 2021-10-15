@@ -1,0 +1,23 @@
+$background: transparent;
+$maskColor: white;
+$maskColorBorder: grey;
+
+.shape {
+  width: 100%;
+  min-height: 50px;
+  background-color: $background;
+  margin: 0;
+  margin-bottom: $base-size;
+  position: absolute;
+  background-repeat: no-repeat;
+}
+
+.shape--one {
+  top: -20px;
+  background-image: url('data:image/svg+xml;utf8, <svg class="lego-element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 81" width="100%" height="48" preserveAspectRatio="none"><path d="M456.464,41.978119 C277.158,40.5963012 0,81.4549827 0,81.4549827 L0,-2.27373675e-13 C960,-2.27373675e-13 1440,-2.27373675e-13 1440,-2.27373675e-13 C1440,-2.27373675e-13 1440,81.4549827 1440,81.4549827 C1440,81.4549827 1320.4,66.5859187 1243.09,63.2956477 C1099.33,57.1763077 1019.08,83.9703427 875.138,81.4549827 C710.527,78.5782767 621.108,43.2469408 456.464,41.978119 Z" fill="#{$maskColor}"></path></svg>');
+}
+
+.shape--two {
+  top: -20px;
+  background-image: url('data:image/svg+xml;utf8, <svg class="lego-element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 48" width="100%" height="48" preserveAspectRatio="none"> <path style="fill:#{$maskColor}" d="M0 46.3V0h1440v26.8C878.3 3.7 232.8 46.9 0 46.3z"></path> </svg>');
+}

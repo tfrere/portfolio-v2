@@ -1,0 +1,13 @@
+{
+  "minify": true,
+  "options": ["setClasses"],
+  "feature-detects": [
+    "test/canvas",
+    "test/svg",
+    "test/touchevents",
+    "test/vibration",
+    "test/video",
+    "test/battery/lowbattery",
+    "test/css/pointerevents"
+  ]
+}

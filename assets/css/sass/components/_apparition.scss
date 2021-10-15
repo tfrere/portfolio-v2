@@ -6,13 +6,13 @@
   &.is-in-viewport {
     @apply opacity-100 transform translate-y-0;
   }
-  &.fade-in-top--delay-1 {
+  &--delay-1 {
     @apply delay-100;
   }
-  &.fade-in-top--delay-2 {
+  &--delay-2 {
     @apply delay-300;
   }
-  &.fade-in-top--delay-3 {
+  &--delay-3 {
     @apply delay-500;
   }
 }
@@ -25,13 +25,13 @@
   &.is-in-viewport {
     @apply opacity-100;
   }
-  &.fade-in--delay-1 {
+  &--delay-1 {
     @apply delay-100;
   }
-  &.fade-in--delay-2 {
+  &--delay-2 {
     @apply delay-300;
   }
-  &.fade-in--delay-3 {
+  &--delay-3 {
     @apply delay-500;
   }
 }
@@ -44,4 +44,29 @@
 }
 .delay-3 {
   @apply delay-500;
+}
+
+.growing {
+  transform: scaleX(0);
+  transition: transform duration("screen") ease("in-expo");
+  &.is-in-viewport {
+    transform: scaleX(1);
+  }
+  &--delay-1 {
+    @apply delay-100;
+  }
+  &--delay-2 {
+    @apply delay-300;
+  }
+  &--delay-3 {
+    @apply delay-500;
+  }
+}
+
+.growing--left {
+  transform-origin: left;
+}
+
+.growing--right {
+  transform-origin: right;
 }

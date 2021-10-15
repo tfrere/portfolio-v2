@@ -1,0 +1,17 @@
+.wave {
+  @apply relative inline-block;
+  width: 100px;
+  height: 40px;
+}
+
+.wave:after {
+  content: "";
+  position: absolute;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 4 20'%3E%3Cstyle type='text/css'%3E.st0{animation:shift .7s linear infinite;}@keyframes shift {from {transform:translateY(-20px);}to {transform:translateY(0);}}%3C/style%3E%3Cpath fill='none' stroke='%23000' stroke-width='1' class='st0' d='M.5,0 c 0,5,3,5,3,10 s -3,5,-3,10 c 0,5,3,5,3,10 s -3,5,-3,10'/%3E%3C/svg%3E");
+  width: 10px;
+  height: 100px;
+  top: -30px;
+  left: 45px;
+  transform: rotate(270deg);
+  transition: transform 0.7s linear;
+}

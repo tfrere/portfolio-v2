@@ -70,7 +70,7 @@ export default class SwiperMarquee {
 
     this.tl.set(this.el, { willChange: "auto" });
 
-    ScrollTrigger.create({
+    window.ScrollTrigger.create({
       trigger: this.el,
       animation: this.tl,
       start: "top bottom",

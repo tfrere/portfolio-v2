@@ -16,11 +16,12 @@ export default class Wave {
     this.path = [];
     this.isMoving = false;
     this.hasToMoveForward = true;
+    this.hasToRender = true;
     this.direction = direction;
     this.amount = 12;
     this.offset = -40;
 
-    this.speedRange = [10, 100];
+    this.speedRange = [10, 300];
     this.step = 0;
     this.currentTime = 0;
     this.timeInterval = 20;
@@ -91,6 +92,21 @@ export default class Wave {
     }
   }
 
+  observe() {
+    this.observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        console.log("wave has  to stop");
+        this.hasToRender = false;
+      } else {
+        console.log("wave has  to render");
+        this.start();
+        this.hasToRender = true;
+      }
+    });
+
+    this.observer.observe(this.canvasElem);
+  }
+
   setPointsSpeed() {
     this.path.map((point) => {
       if (!point.fixed) {
@@ -102,6 +118,7 @@ export default class Wave {
   move() {
     if (!this.isMoving) {
       this.isMoving = true;
+
       const total =
         this.direction == "horizontal" ? this.canvas.height : this.canvas.width;
       this.step = total / this.timeUnit;
@@ -132,6 +149,8 @@ export default class Wave {
         this.isMoving = false;
         this.currentTime = 0;
         this.hasToMoveForward = !this.hasToMoveForward;
+
+        this.hasToRender = false;
         // if(!this.hasToMoveForward)
         //   this.move();
       }, this.totalTime);
@@ -176,10 +195,12 @@ export default class Wave {
   updateSize() {}
 
   render() {
-    let ctx = this.ctx;
+    if (this.hasToRender) {
+      let ctx = this.ctx;
 
-    ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.drawPath();
+      ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.drawPath();
+    }
 
     requestAnimationFrame(this.render.bind(this));
   }

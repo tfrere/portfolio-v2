@@ -31,11 +31,12 @@ $vr-number-of-steps: 24;
 
 .text-stroke {
   color: var(--background-color);
-  text-shadow: -1px -1px 0 var(--text-color), 1px -1px 0 var(--text-color),
-    -1px 1px 0 var(--text-color), 1px 1px 0 var(--text-color);
+  // TO FIX : take care of IE 11
+  -webkit-text-stroke: 1px black;
+  // Alternative ( heavier in term of perfs ) ->
+  // text-shadow: -1px -1px 0 var(--text-color), 1px -1px 0 var(--text-color),
+  //   -1px 1px 0 var(--text-color), 1px 1px 0 var(--text-color);
 }
-
-// <!-- .vr{-fontFamily?}-{lineHeight}-{fontSize} classes to set line height, font size, and possibly non-default font family at the same time. -->
 
 h1,
 h2,
@@ -60,58 +61,59 @@ p {
 }
 
 .heading-0 {
-  // text-transform: none;
   display: block;
-  font-size: ($base-size * 14); // to compensate strokes
+  font-size: ($base-size * 14);
   line-height: ($base-size * 14);
   font-family: Oswald;
   @apply my-0 py-0 font-bold;
-  color: var(--text-color);
-  // margin-top: $base-size * 2;
 }
 
 .heading-1 {
-  // text-transform: none;
   display: block;
-  font-size: ($base-size * 12); // to compensate strokes
+  font-size: ($base-size * 12);
   line-height: ($base-size * 12);
   font-family: Oswald;
   @apply my-0 py-0 font-bold;
-  color: var(--text-color);
-  // margin-top: $base-size * 2;
 }
 
 .heading-2 {
-  // text-transform: none;
   display: block;
-  font-size: ($base-size * 10); // to compensate strokes
+  font-size: ($base-size * 10);
   line-height: ($base-size * 10);
   font-family: Oswald;
   @apply my-0 py-0 font-bold;
-  color: var(--text-color);
-  // margin-top: $base-size * 2;
 }
 
 .heading-3 {
-  // text-transform: none;
   display: block;
-  font-size: ($base-size * 4); // to compensate strokes
-  line-height: ($base-size * 4);
+  font-size: ($base-size * 8);
+  line-height: ($base-size * 8);
   font-family: Oswald;
   @apply my-0 py-0 font-bold;
-  color: var(--text-color);
-  // margin-top: $base-size * 2;
 }
 
 .heading-4 {
-  // text-transform: none;
   display: block;
-  font-size: ($base-size * 2); // to compensate strokes
+  font-size: ($base-size * 6);
+  line-height: ($base-size * 6);
+  font-family: Oswald;
+  @apply my-0 py-0 font-bold;
+}
+
+.heading-5 {
+  display: block;
+  font-size: ($base-size * 4);
+  line-height: ($base-size * 4);
+  font-family: Oswald;
+  @apply my-0 py-0 font-bold;
+}
+
+.heading-6 {
+  display: block;
+  font-size: ($base-size * 2);
   line-height: ($base-size * 2);
   font-family: Oswald;
   @apply my-0 py-0 font-bold;
-  color: var(--text-color);
-  // margin-top: $base-size * 2;
 }
 
 // TITLE EFFECTS
@@ -136,9 +138,16 @@ p {
 
 // TEXTS
 
+.text-hero {
+  @apply inline-block my-0 py-0;
+  font-size: ($base-size * 6);
+  line-height: ($base-size * 7);
+  font-family: Nunito Sans;
+}
+
 .text-lead {
   display: inline-block;
-  font-size: ($base-size * 4); // to compensate strokes
+  font-size: ($base-size * 4);
   line-height: ($base-size * 5);
   font-family: Nunito Sans;
   @apply my-0 py-0;
@@ -146,7 +155,7 @@ p {
 
 .text-half-lead {
   // width: 50ch;
-  font-size: ($base-size * 3); // to compensate strokes
+  font-size: ($base-size * 3);
   line-height: ($base-size * 4);
   font-family: Nunito Sans;
   @apply my-0 py-0;
@@ -155,29 +164,22 @@ p {
 
 .text-base {
   // width: 50ch;
-  font-size: ($base-size * 2); // to compensate strokes
+  font-size: ($base-size * 2);
   line-height: ($base-size * 3);
   font-family: Nunito Sans;
   @apply my-0 py-0;
   margin-bottom: $base-size * 2;
+  font-weight: 500;
 }
 
 .text-small {
   // width: 50ch;
-  font-size: ($base-size * 1.5); // to compensate strokes
+  font-size: ($base-size * 1.5);
   line-height: ($base-size * 2.5);
   font-family: Nunito Sans;
   @apply my-0 py-0;
   margin-bottom: $base-size * 2;
-}
-
-.text-tag {
-  font-size: ($base-size * 1.5); // to compensate strokes
-  line-height: ($base-size * 2.5);
-  font-family: Oswald;
-  text-transform: uppercase;
-  @apply my-0 py-0;
-  margin-bottom: $base-size * 2;
+  font-weight: 500;
 }
 
 .text--center {
@@ -221,4 +223,9 @@ p {
   .vr-mr-#{$i} {
     margin-right: #{$i * $vr-font-size};
   }
+}
+
+a.underline[target="_blank"]::after {
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+  margin: 0 3px 0 5px;
 }

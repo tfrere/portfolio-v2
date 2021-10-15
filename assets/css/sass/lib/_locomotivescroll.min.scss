@@ -14,6 +14,9 @@ html.has-scroll-dragging {
 .has-scroll-smooth [data-scroll-container] {
   min-height: 100vh;
 }
+// [data-scroll-container] {
+//   min-height: 100vh;
+// }
 [data-scroll-direction="horizontal"] [data-scroll-container] {
   height: 100vh;
   display: inline-block;

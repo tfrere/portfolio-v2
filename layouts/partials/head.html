@@ -21,63 +21,8 @@
 
     <base href="{{ .Site.BaseURL }}">
 
-    <style>
-
-
-        #fps-counter {
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        z-index: 999999999999999999999999;
-        color: red;
-        font-weight: 900;
-        }
-
-        #color-splat,
-        #cursor,
-        #wave-transition {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        pointer-events: none;
-        z-index: 999999999999999999999999;
-        }
-
-        #wave-transition {
-        }
-
-        #color-splat {
-        mix-blend-mode: difference;
-        }
-
-
-        .preloader {
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            background: black;
-            pointer-events: none;
-            z-index: 999999999999999999999999;
-            position: fixed;
-            display: flex;
-            align-items:center;
-            justify-content: center;
-            top: 0;
-            left: 0;
-        }
-
-        .preloader__content {
-            color:white;
-            text-transform: uppercase;
-        }
-
-
-    
-    </style>
-
     {{ partialCached "css.html" . }}
+    
     {{ $title := print .Site.Title " | " .Title }}
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
@@ -85,20 +30,8 @@
 
     {{ $dateTime := .PublishDate.Format "2006-01-02" }}
     {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-    
     <!-- <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> -->
     
-    <!-- 
-        DO NOT USE THEM ANYMORE
-    <meta name="keywords" content=""/>
-    {{ with .Params.tags }}
-        {{ range . }}
-            {{ $href := print (absURL "tags/") (urlize .) }}
-            {{ . }}
-        {{ end }}
-    {{ end }}
-    -->
-        
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Thibaud Frere Portfolio" />
     <meta property="og:description" content="A French designer / developer and artist" />

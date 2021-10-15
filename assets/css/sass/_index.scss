@@ -15,31 +15,27 @@
   mix-blend-mode: difference;
 }
 
-// .slide {
-//   width: 100%;
-// }
-
 @import "typeface/_index.scss";
+
+@import "lib/_locomotivescroll.min.scss";
+@import "lib/_swiper.scss";
+
+@import "_base.scss";
 
 @import "components/_separator.scss";
 @import "components/_button.scss";
-
-@import "lib/_tiny-slider.scss";
-@import "lib/_fluidbox.scss";
-@import "lib/_swiper.scss";
-
 @import "components/_cursor.scss";
 @import "components/_marquee.scss";
 @import "components/_stamp.scss";
 @import "components/_particles.scss";
-@import "components/_typewrite.scss";
 @import "components/invite-to-scroll.scss";
 @import "components/underline.scss";
-@import "components/colcade.scss";
-@import "components/hover-text-effect";
 @import "components/section";
 @import "components/lazy-image";
-@import "components/project-grid";
+@import "components/sentence-focus";
+@import "components/growing-line";
+@import "components/wave";
+@import "components/apparition";
 
 @import "sections/_nav.scss";
 @import "sections/_landing.scss";
@@ -49,124 +45,3 @@
 @import "sections/_prices.scss";
 @import "sections/_contact.scss";
 @import "sections/_more.scss";
-
-* {
-  user-select: none !important;
-  // cursor: none !important;
-}
-
-body,
-html {
-  overflow-x: hidden;
-  background-color: var(--background-color);
-  padding: 0;
-  margin: 0;
-  @apply antialiased;
-  font-family: "Oswald";
-  // scroll-behavior: smooth;
-  // overscroll-behavior-x: contain;
-  // overscroll-behavior-y: none;
-  *::selection {
-    color: --text-color;
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-a.underline[target="_blank"]::after {
-  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
-  margin: 0 3px 0 5px;
-}
-
-.canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-}
-
-.blob {
-  left: auto;
-  right: 0px;
-}
-
-.lines {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  padding-bottom: 125%;
-  // height: 200vh;
-  z-index: 1;
-  overflow: hidden;
-  svg {
-    width: 100%;
-  }
-}
-
-canvas[data-blob] {
-  z-index: 9999999;
-}
-
-.black {
-  @apply relative w-full;
-
-  background: var(--reverse-background-color);
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span {
-    color: var(--reverse-text-color);
-  }
-}
-
-.gray {
-  background-color: rgba(0, 0, 0, 0.02);
-}
-
-.wave-separator {
-  display: none;
-  position: absolute;
-  top: -100px;
-  width: 105vw;
-  left: -5px;
-  right: 0;
-  img {
-    width: 105vw;
-  }
-}
-
-$background: transparent;
-$maskColor: white;
-$maskColorBorder: grey;
-
-.shape {
-  width: 100%;
-  min-height: 50px;
-  background-color: $background;
-  margin: 0;
-  margin-bottom: $base-size;
-  position: absolute;
-  background-repeat: no-repeat;
-}
-
-.shape--one {
-  top: -20px;
-  background-image: url('data:image/svg+xml;utf8, <svg class="lego-element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 81" width="100%" height="48" preserveAspectRatio="none"><path d="M456.464,41.978119 C277.158,40.5963012 0,81.4549827 0,81.4549827 L0,-2.27373675e-13 C960,-2.27373675e-13 1440,-2.27373675e-13 1440,-2.27373675e-13 C1440,-2.27373675e-13 1440,81.4549827 1440,81.4549827 C1440,81.4549827 1320.4,66.5859187 1243.09,63.2956477 C1099.33,57.1763077 1019.08,83.9703427 875.138,81.4549827 C710.527,78.5782767 621.108,43.2469408 456.464,41.978119 Z" fill="#{$maskColor}"></path></svg>');
-}
-
-.shape--two {
-  top: -20px;
-  background-image: url('data:image/svg+xml;utf8, <svg class="lego-element" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 48" width="100%" height="48" preserveAspectRatio="none"> <path style="fill:#{$maskColor}" d="M0 46.3V0h1440v26.8C878.3 3.7 232.8 46.9 0 46.3z"></path> </svg>');
-}

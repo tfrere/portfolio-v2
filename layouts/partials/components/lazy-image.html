@@ -1,5 +1,5 @@
 {{ $image := .image }}
-
+{{ $color := .color }}
 
 <!-- variables used for img tag -->
 {{ $imgSrc := "" }}
@@ -18,12 +18,9 @@
 -->
 {{ range $widths }}
   {{ $srcUrl := (printf "%dx" . | $image.Resize).RelPermalink }}
-  {{ if eq $imgSrc "" }}
-        {{ $imgSrc = $srcUrl }}
-    {{ end }}
+  {{ if eq $imgSrc "" }}{{ $imgSrc = $srcUrl }}{{ end }}
   {{ $imgSrcSet = $imgSrcSet | append (printf "%s %dw" $srcUrl .) }}
 {{ end }}
-
 {{ $imgSrcSet = (delimit $imgSrcSet ",") }}
 
 <!-- Format additional HTML attributes -->
@@ -41,8 +38,10 @@
 
 {{ $test := $image.Resize "1600x 80q" }}
 
-<div class="responsive-image" style=" padding-bottom:{{ print $padding }}%;">
+
+<div class="lazy-image" style="background-color:{{$color}}; padding-bottom:{{ print $padding }}%;">
   <!-- <a  data-cursor-text="+"  data-cursor="-lg" class="img-fluidbox" href="{{ $test.RelPermalink }}"> -->
-    <img class="responsive-image__content" alt="{{$image.Title}}" data-lazy src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
+    <!-- <img class="lazy-image__content" alt="{{$image.Title}}" data-lazy src="{{ $imgSrc }}" data-src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}> -->
+    <img class="lazy-image__content" alt="{{$image.Title}}" data-src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
   <!-- </a> -->
 </div>

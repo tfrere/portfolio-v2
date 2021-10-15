@@ -1,6 +1,5 @@
 {{ $image := .image }}
 {{ $color := .color }}
-
 <!-- variables used for img tag -->
 {{ $imgSrc := "" }}
 {{ $imgSrcSet := slice }}
@@ -39,9 +38,8 @@
 {{ $test := $image.Resize "1600x 80q" }}
 
 
-<div class="lazy-image" style="background-color:{{$color}}; padding-bottom:{{ print $padding }}%;">
-  <!-- <a  data-cursor-text="+"  data-cursor="-lg" class="img-fluidbox" href="{{ $test.RelPermalink }}"> -->
-    <!-- <img class="lazy-image__content" alt="{{$image.Title}}" data-lazy src="{{ $imgSrc }}" data-src="{{ $imgSrc }}" srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}> -->
-    <img class="lazy-image__content loaded" alt="{{$image.Title}}" src="{{ $imgSrc }}" {{ print $attributes | safeHTMLAttr }}>
-  <!-- </a> -->
+<div class="lazy-image parallax-image" style="background-color:{{$color}};">
+  <div data-scroll data-scroll-speed="-2" style="padding-bottom:{{ print $padding }}%; will-change:transform;">
+    <img class="lazy-image__content" alt="{{$image.Title}}" data-lazy data-src="{{ $imgSrc }}" data-srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
+  </div>
 </div>

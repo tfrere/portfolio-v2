@@ -1,57 +1,34 @@
-{{ define "main" }}
+<!DOCTYPE html>
+<html lang="en">
+    {{- partial "head.html" . -}}
+    <body>
+        <div id="grid"></div>
 
-  <section id="landing" class="section landing">
-    <div class="landing__content container" >
-      <canvas class="canvas blob entity" data-blob data-blob-offset="50" data-blob-color="rgba(0,0,0,0.2)" ></canvas>
-      <h1 class="heading-0 entity uppercase landing__title">
-            Hello,
-          <br/>
-          I'm a senior <span data-change-text data-change-text-values="Designer, Developer">designer</span>
-        </h1>
-        <p class="entity text-base landing__text vr-mt-1 ml-2">Focused on creating <strong>long lasting experiences</strong>.</p>
-    </div>
-    <div class="invite-to-scroll-with-text"></div>
-  </section>
+        <div id="preloader" class="preloader">
+            <div id="preloader" class="preloader__content">
+                loading
+            </div>
+        </div>
+        <canvas id="wave-transition"></canvas>
 
-  {{ partial "craft-sentence" }}
-  {{ partial "description" (dict "Site" $.Site) }}
-  <!-- {{ partial "stamp" }} -->
-  {{ partial "clients" (dict "Site" $.Site) }}
-  {{ partial "project-grid" (dict "Site" $.Site) }}
+        <div id="cursor"></div>
+        <canvas id="color-splat"></canvas>
 
-  <section class="black section contact">
-    <!-- <div  class="shape shape--one"></div> -->
-    <canvas class="canvas entity" data-boids data-boids-color="rgba(255,255,255,0.5)"></canvas>
+        <div id="page" data-scroll-container>
+            {{ partial "sections/landing" }}
+            {{ partial "components/craft-sentence" }}
+            {{ partial "sections/description" (dict "Site" $.Site) }}
+            {{ partial "sections/clients" (dict "Site" $.Site) }}
+            {{ partial "sections/projects" (dict "Site" $.Site) }}
+            <!-- <section class="container mx-auto" data-scroll-section>
+                <div class="growing-line growing-line--left" data-scroll data-scroll-offset="10%, -50%" data-scroll-class="growing-line--active" > </div>
+            </section> -->
+            {{ partial "sections/prices" (dict "Site" $.Site) }}
+            {{ partial "sections/contact" (dict "Site" $.Site) }}
+        </div>
 
-    <div
-      class="section__content container z-0" 
-    >
-        <h2 class="heading-1 entity uppercase"> 
-            Always keen
-            <br/>
-            for a good
-            <br/> 
-            collab
-        </h2>
-          <p class="click-to-copy">
-              Feel free to write me an email at
-              <!-- data-cursor-text="copy" -->
-              <a data-click-to-copy id="click-to-copy" href="mailto:write@tfrere.fr" class="button" data-cursor="-lg">
-                <span class="button__content click-to-copy__email show">write@tfrere.com</span>
-                <span class="button__content click-to-copy__info-message">Copied !</span>
-            </a>
-          </p>
-          <p class="text-base entity vr-mb-0">I’m available in <span class="underline underline--small">full remote</span> from Metz, France</p>
-    </div>
-  </section>
-  <script>
-    var elem = document.getElementById('grid');
-    document.addEventListener('keydown', function(e) {
-        if(e.key == "f") {
-            elem.classList.toggle('vr-grid');
-        }
-    }, false);
-  </script>    
-  {{- partial "js.html" . -}}
+        {{- $transpiled := resources.Get "js/index.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}
+        <script src={{$transpiled.Permalink}} type="text/javascript"></script>
 
-{{ end }}
+      </body>
+</html>

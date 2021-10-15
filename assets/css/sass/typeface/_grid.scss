@@ -3,11 +3,12 @@ $vr-base-size: $base-size * 4;
 $vr-half-size: $vr-base-size / 2;
 $vr-line-thickness: 0.5px;
 
-.vr-grid {
+.vr-show-entities .entity {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.vr-show-grid {
   height: 100%;
-  .entity {
-    background: rgba(0, 0, 0, 0.05) !important;
-  }
   &:before,
   &:after {
     content: "";

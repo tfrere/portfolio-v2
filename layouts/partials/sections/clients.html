@@ -1,4 +1,5 @@
 
+
 {{$site := .Site}}
 <style>
     .swiper {
@@ -36,23 +37,28 @@
     }
 </style>
   
-<section class="section section--with-half-padding">
+<section class="section section--with-half-padding" data-scroll-section>
     <div class="section__content">
 
-        <div class="container mx-auto">
-            <h2 class="heading-1 vr-mt-1 vr-mb-4 entity">WE WORKED<br/> TOGETHER.</h2>
+        <div class="container mx-auto" >
+            <div class="relative">
+                <div style="position:absolute; right:20%; top:80px;">
+                    {{ partial "components/stamp" (dict "Site" $.Site) }}
+                </div>
+            </div>
+            <h2 class="heading-2 vr-mt-1 vr-mb-4 entity">WITH <br/>SOME NICE<br/> CLIENTS*</h2>
             <!-- <p class="text-base vr-mb-4 entity ">And they loved it.</p> -->
             <div data-swiper-marquee data-swiper-marquee-from="-600" data-swiper-marquee-to="-300" >
                     <!-- data-cursor-text="g" -->
                 <div class="swiper vr-mb-1" data-cursor="-lg"> 
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/luxtimes.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/bdrc.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/matthieuricard.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/cite-des-sciences.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/femis.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/radio-latina.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/obvious.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/cite-des-sciences.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/bdrc.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/matthieuricard.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/femis.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/luxtimes.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/radio-latina.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/obvious.jpg"/></div>
                     </div>
                 </div>
             </div>
@@ -60,13 +66,13 @@
                     <!-- data-cursor-text="g" -->
                 <div class="swiper" data-cursor="-lg"> 
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/humabio.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/amapa.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/labrh.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/universcience.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/landskies.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/wort.png"/></div>
-                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/png/bpifrance.png"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/humabio.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/amapa.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/labrh.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/universcience.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/landskies.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/wort.jpg"/></div>
+                        <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logos-black/jpg/bpifrance.jpg"/></div>
                     </div>
                 </div>
             </div>
@@ -137,31 +143,4 @@
         </div>
     </div>
   </section>
-  <section class="section section--with-half-padding">
-    <div class="about__content__prices-container section__content container" >
-        <h2 class="entity heading-1 entity" >AWARDS.</h2>
-        <div class="about__content__prices vr-mt-3">
-            <div class="about__content__prices__item">
-                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/png/ideo.png" />
-                <div class="about__content__prices__item__infos">
-                  <h3 class="about__content__prices__item__infos__title entity">Design thinking</h3>
-                  <p class="about__content__prices__item__infos__place entity">HEC Paris</p>
-                </div>
-            </div>
-            <div class="about__content__prices__item">
-                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/png/42.png" />
-                <div class="about__content__prices__item__infos">
-                  <h3 class="about__content__prices__item__infos__title entity">Wearhacks Myo</h3>
-                  <p class="about__content__prices__item__infos__place entity">42 Paris</p>
-                </div>
-            </div>
-            <div class="about__content__prices__item">
-                <img class="about__content__prices__item__image" src="{{ $site.BaseURL }}images/logos-black/png/telecomparis.png" />
-                <div class="about__content__prices__item__infos">
-                  <h3 class="about__content__prices__item__infos__title entity">Innovators in motion</h3>
-                  <p class="about__content__prices__item__infos__place entity">Telecom Paris</p>
-                </div>
-            </div>
-        </div>
-    </div>
-  </section> -->
+-->

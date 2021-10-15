@@ -36,7 +36,7 @@
     transform: translateY(160px);
     transition: all 400ms $easeOutQuart;
     display: inline-block;
-    will-change: transform;
+    // will-change: transform;
   }
 
   &.is-in-viewport {

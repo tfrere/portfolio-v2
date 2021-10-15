@@ -1,3 +1,0 @@
-{{- $transpiled := resources.Get "js/index.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}
-
-<script src={{$transpiled.Permalink}} type="text/javascript" defer></script>

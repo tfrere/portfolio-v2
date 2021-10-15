@@ -7,11 +7,11 @@
   // transform: translate(calc(50vw - 100px), 100px);
   z-index: 999999999999;
   border-radius: 100%;
-  background: black;
 }
 
 .stamp__text {
   font-size: 70px;
+  // TO FIX : Change font face
   font-family: "Inter";
   font-weight: 500;
   fill: #111;
@@ -22,6 +22,7 @@
   font-size: 450px;
   transform: translate(133px, 485px);
   line-height: 1;
+  // TO FIX : Change font face
   font-family: "Inter";
   font-weight: 500;
 }

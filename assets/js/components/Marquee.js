@@ -13,12 +13,12 @@ export default class Marquee {
     this.hasToRender = true;
     this.tween = null;
     this.currentPosition = 0;
-    // this.bind();
-    this.observe();
-    this.render();
+    this.marqueeEffect();
+    // this.observe();
+    // this.scrollBasedMarqueeEffect();
   }
 
-  render() {
+  scrollBasedMarqueeEffect() {
     const tl = new gsap.timeline();
     let elem = this.el.find("[data-marquee-container]");
 
@@ -48,26 +48,56 @@ export default class Marquee {
     });
   }
 
-  bind() {
+  marqueeEffect() {
     let that = this;
-    let parts = this.el.find("[data-marquee-part]").get();
+    let parts = this.el.find("[data-marquee-item]").get();
     let container = this.el.find("[data-marquee-container]").get();
     gsap.set(parts, {
       willChange: "transform",
     });
 
-    gsap.set(container, { xPercent: -50 });
-
-    // this.tl = new gsap.timeline({ repeat: -1 });
+    // gsap.config({
+    //   force3D: true,
+    // });
 
     this.tween = gsap
-      .to(parts, {
-        xPercent: -100,
-        repeat: -1,
-        duration: 30,
-        ease: "linear",
-      })
-      .totalProgress(0.5);
+      .fromTo(
+        parts,
+        {
+          x: "0",
+          translate: {
+            x: 0,
+            y: 0,
+            z: 0,
+          },
+          repeat: -1,
+          duration: 30,
+          // force3D: true,
+          ease: "linear",
+        },
+        {
+          x: "-50%",
+          translate: {
+            x: -50,
+            y: 0,
+            z: 0,
+          },
+          repeat: -1,
+          duration: 30,
+          // force3D: true,
+          ease: "linear",
+        }
+      )
+      .totalProgress(0);
+
+    // ScrollTrigger.create({
+    //   trigger: this.el,
+    //   animation: tl,
+    //   start: "top bottom",
+    //   end: "bottom top",
+    //   scrub: 0.3,
+    //   refreshPriority: -14,
+    // });
   }
 
   observe() {
