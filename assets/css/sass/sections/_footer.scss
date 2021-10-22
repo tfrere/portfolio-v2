@@ -1,0 +1,11 @@
+.footer {
+  @apply w-full absolute bottom-0 left-0;
+}
+
+.footer__container {
+}
+
+.black .footer__container__copyright {
+  @apply text-small;
+  color: var(--text-subtle-gray-color);
+}

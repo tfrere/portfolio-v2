@@ -9,7 +9,6 @@ export default class SwiperMarquee {
   constructor(el, options = {}) {
     this.el = $(el).find(".swiper").get();
     this.carousel = $(el).find(".swiper").get();
-    console.log(this.carousel);
     this.loop =
       $(el).data("swiper-marquee-loop") != undefined
         ? $(el).data("swiper-marquee-loop")
@@ -70,7 +69,7 @@ export default class SwiperMarquee {
 
     this.tl.set(this.el, { willChange: "auto" });
 
-    window.ScrollTrigger.create({
+    ScrollTrigger.create({
       trigger: this.el,
       animation: this.tl,
       start: "top bottom",

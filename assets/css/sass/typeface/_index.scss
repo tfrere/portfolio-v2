@@ -1,14 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;700&display=swap");
 
-// :root {
-//   --base-size: 12px;
-//   --line-height: 1.5rem;
-
-//   --vr-spacing--1: var(--line-height);
-//   --vr-spacing--2: calc(2 * var(--line-height));
-//   --vr-spacing--3: calc(3 * var(--line-height));
-// }
-
 $base-size: 12px;
 
 $oswald-cap-height: 0.815;
@@ -19,25 +10,6 @@ $vr-number-of-steps: 24;
 
 @import "_grid.scss";
 
-.typeface {
-  @apply w-full overflow-hidden; //pt-32
-}
-
-.typeface__switch {
-  @apply top-2 left-2;
-  position: fixed !important;
-  z-index: 99999999;
-}
-
-.text-stroke {
-  color: var(--background-color);
-  // TO FIX : take care of IE 11
-  -webkit-text-stroke: 1px black;
-  // Alternative ( heavier in term of perfs ) ->
-  // text-shadow: -1px -1px 0 var(--text-color), 1px -1px 0 var(--text-color),
-  //   -1px 1px 0 var(--text-color), 1px 1px 0 var(--text-color);
-}
-
 h1,
 h2,
 h3,
@@ -47,14 +19,29 @@ h6 {
   margin: 0;
   font-weight: 900;
   pointer-events: none;
+  color: var(--text-color);
 }
 
-p {
-  // pointer-events: none;
+p,
+span {
   font-family: "Nunito Sans";
+  color: var(--text-color);
 }
 
-// TITLE
+.black {
+  @apply relative w-full;
+  background: var(--background-color);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span {
+    color: var(--text-color);
+  }
+}
 
 .heading--center {
   @apply text-center w-full inline-block;
@@ -65,6 +52,7 @@ p {
   font-size: ($base-size * 14);
   line-height: ($base-size * 14);
   font-family: Oswald;
+  // font-kerning: normal;
   @apply my-0 py-0 font-bold;
 }
 
@@ -73,6 +61,7 @@ p {
   font-size: ($base-size * 12);
   line-height: ($base-size * 12);
   font-family: Oswald;
+  // font-kerning: normal;
   @apply my-0 py-0 font-bold;
 }
 
@@ -81,6 +70,7 @@ p {
   font-size: ($base-size * 10);
   line-height: ($base-size * 10);
   font-family: Oswald;
+  // font-kerning: normal;
   @apply my-0 py-0 font-bold;
 }
 
@@ -89,6 +79,7 @@ p {
   font-size: ($base-size * 8);
   line-height: ($base-size * 8);
   font-family: Oswald;
+  // font-kerning: normal;
   @apply my-0 py-0 font-bold;
 }
 
@@ -97,6 +88,7 @@ p {
   font-size: ($base-size * 6);
   line-height: ($base-size * 6);
   font-family: Oswald;
+  // font-kerning: normal;
   @apply my-0 py-0 font-bold;
 }
 
@@ -105,6 +97,7 @@ p {
   font-size: ($base-size * 4);
   line-height: ($base-size * 4);
   font-family: Oswald;
+  // font-kerning: normal;
   @apply my-0 py-0 font-bold;
 }
 
@@ -113,6 +106,7 @@ p {
   font-size: ($base-size * 2);
   line-height: ($base-size * 2);
   font-family: Oswald;
+  // font-kerning: normal;
   @apply my-0 py-0 font-bold;
 }
 
@@ -186,46 +180,13 @@ p {
   @apply text-center w-3/4 mx-auto block;
 }
 
-// .base:first-letter {
-//   float: left;
-//   color: white;
-//   background: black;
-//   font-size: ($base-size * 6);
-//   line-height: ($base-size * 6);
-//   width: ($base-size * 6);
-//   padding-right: 8px;
-// }
+@import "vertical-rythm-space";
 
-// MODIFIERS
-
-.line-clamp-4 {
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.columns {
-  columns: 2;
-  column-gap: $base-size * 4;
-}
-
-@for $i from 0 through $vr-number-of-steps {
-  .vr-mt-#{$i} {
-    margin-top: #{$i * $vr-font-size};
-  }
-  .vr-mb-#{$i} {
-    margin-bottom: #{$i * $vr-font-size};
-  }
-  .vr-ml-#{$i} {
-    margin-left: #{$i * $vr-font-size};
-  }
-  .vr-mr-#{$i} {
-    margin-right: #{$i * $vr-font-size};
-  }
-}
-
-a.underline[target="_blank"]::after {
-  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
-  margin: 0 3px 0 5px;
+.text-stroke {
+  color: var(--background-color) !important;
+  // TO FIX : take care of IE 11
+  -webkit-text-stroke: 1px var(--text-color) !important;
+  // Alternative ( heavier in term of perfs ) ->
+  // text-shadow: -1px -1px 0 var(--text-color), 1px -1px 0 var(--text-color),
+  //   -1px 1px 0 var(--text-color), 1px 1px 0 var(--text-color);
 }

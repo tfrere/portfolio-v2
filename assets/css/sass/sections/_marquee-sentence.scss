@@ -1,0 +1,29 @@
+.marquee-sentence {
+  @apply relative w-full overflow-hidden;
+  z-index: $marquee-sentence-z-index;
+  height: $base-size * 8;
+  @include up-to-md {
+    height: $base-size * 16;
+  }
+}
+
+.marquee-sentence__content {
+  @apply w-full absolute flex flex-row;
+}
+
+.marquee-sentence__content__part {
+  flex-shrink: 0;
+  white-space: nowrap;
+  @apply entity;
+
+  color: var(--background-color) !important;
+  -webkit-text-stroke: 1px var(--text-color) !important;
+
+  font-size: $base-size * 8;
+  line-height: $base-size * 8;
+
+  @include up-to-md {
+    font-size: $base-size * 16;
+    line-height: $base-size * 16;
+  }
+}

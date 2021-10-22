@@ -1,0 +1,72 @@
+
+
+{{$site := .Site}}
+{{$color := "white"}}
+{{$format := "webp"}}
+
+<style>
+    #preloadedImages
+    {
+        width: 0px;
+        height: 0px;
+        display: inline;
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/matthieuricard.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/luxtimes.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bdrc.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/amapa.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bpifrance.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/radio-latina.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/femis.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/obvious.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/humabio.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/labrh.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/cite-des-sciences.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/landskies.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/wort.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/ideo.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/42.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/telecomparis.{{$format}}");
+    }
+</style>
+
+<!-- <div class="relative">
+    <div style="position:absolute; right:15%; top:0px;">
+        {{ partial "components/stamp" (dict "Site" $.Site) }}
+    </div>
+</div> -->
+<h2 class="clients__container__title">FOR NICE<br/> CLIENTS</h2>
+<!-- style="transform:rotate(-2deg);" -->
+<div  >
+    <div data-swiper-marquee data-swiper-marquee-from="-600" data-swiper-marquee-to="-300" >
+        <div class="swiper vr-mb-1" data-cursor="-lg"> 
+            <div class="swiper-wrapper">
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/cite-des-sciences.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bdrc.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/matthieuricard.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/femis.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/luxtimes.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/radio-latina.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/obvious.{{$format}}"/></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- style="transform:rotate(-2deg);" -->
+<div >
+    <div data-swiper-marquee data-swiper-marquee-from="-300" data-swiper-marquee-to="-600" >
+        <div class="swiper vr-mb-1" data-cursor="-lg"> 
+            <div class="swiper-wrapper">
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/humabio.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/amapa.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/rockhal.{{$format}}"/></div>
+                <!-- <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/labrh.{{$format}}"/></div> -->
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/universcience.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/landskies.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/wort.{{$format}}"/></div>
+                <div class="swiper-slide clients__marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bpifrance.{{$format}}"/></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

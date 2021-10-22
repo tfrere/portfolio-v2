@@ -8,6 +8,7 @@
     "test/vibration",
     "test/video",
     "test/battery/lowbattery",
-    "test/css/pointerevents"
+    "test/css/pointerevents",
+    "test/css/backgroundcliptext"
   ]
 }

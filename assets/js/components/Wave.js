@@ -18,7 +18,7 @@ export default class Wave {
     this.hasToMoveForward = true;
     this.hasToRender = true;
     this.direction = direction;
-    this.amount = 12;
+    this.amount = Math.min(Math.round(this.canvas.clientWidth / 60), 12);
     this.offset = -40;
 
     this.speedRange = [10, 300];

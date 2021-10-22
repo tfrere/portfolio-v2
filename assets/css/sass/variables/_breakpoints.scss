@@ -1,0 +1,46 @@
+$sizes: (
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1440px,
+);
+
+// Dynamic mixins names not working
+// @each $size_name, $size_value in $sizes {
+//   @mixin #{$size_name} {
+//     @media (min-width: #{$size_value}) {
+//       @content;
+//     }
+//   }
+// }
+
+@mixin up-to-sm {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+
+@mixin up-to-md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin up-to-lg {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin up-to-xl {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin up-to-2xl {
+  @media (min-width: 1536px) {
+    @content;
+  }
+}

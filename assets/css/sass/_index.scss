@@ -1,47 +1,55 @@
-@import "_variables.scss";
+@import "variables/breakpoints";
+@import "variables/css-variables";
+@import "variables/duration";
+@import "variables/z-index";
+@import "variables/ease";
 
-:root {
-  --cursor-size: 32px;
-  --cursor-color: white;
+@import "typeface/index";
 
-  --background-color: white; //#f5f5f7
-  --text-color: black; //#1d1d1f
+@import "lib/locomotivescroll.min";
+@import "lib/swiper";
 
-  --reverse-background-color: black; //#f5f5f7
-  --reverse-text-color: white;
-}
+@import "base";
 
-.reverse {
-  mix-blend-mode: difference;
-}
-
-@import "typeface/_index.scss";
-
-@import "lib/_locomotivescroll.min.scss";
-@import "lib/_swiper.scss";
-
-@import "_base.scss";
-
-@import "components/_separator.scss";
-@import "components/_button.scss";
-@import "components/_cursor.scss";
-@import "components/_marquee.scss";
-@import "components/_stamp.scss";
-@import "components/_particles.scss";
-@import "components/invite-to-scroll.scss";
-@import "components/underline.scss";
+@import "components/separator";
+@import "components/button";
+@import "components/tag";
+@import "components/cursor";
+@import "components/stamp";
+@import "components/particles";
+@import "components/invite-to-scroll";
+@import "components/underline";
+@import "components/square-grid";
 @import "components/section";
 @import "components/lazy-image";
-@import "components/sentence-focus";
 @import "components/growing-line";
 @import "components/wave";
 @import "components/apparition";
+@import "components/scroll-shape";
 
-@import "sections/_nav.scss";
-@import "sections/_landing.scss";
-@import "sections/_clients.scss";
-@import "sections/_description.scss";
-@import "sections/_projects.scss";
-@import "sections/_prices.scss";
-@import "sections/_contact.scss";
-@import "sections/_more.scss";
+@import "sections/nav";
+@import "sections/landing";
+@import "sections/marquee-sentence";
+@import "sections/description";
+@import "sections/clients";
+@import "sections/prices";
+@import "sections/projects";
+@import "sections/contact";
+@import "sections/footer";
+
+.sea-shape {
+  @apply absolute w-full left-0;
+  height: 100px;
+  top: 0px;
+}
+
+// .sea-shape__content {
+//   @apply w-full absolute flex flex-row;
+// }
+
+// .sea-shape__content__part {
+//   flex-shrink: 0;
+//   svg {
+//     width: 100%;
+//   }
+// }

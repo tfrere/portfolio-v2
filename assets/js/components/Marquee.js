@@ -10,12 +10,12 @@ export default class Marquee {
     this.carousel = $(el).find("data-carousel");
     this.speed = $(el).data("marquee-start") || 0;
     this.offset = $(el).data("marquee-end") || 300;
+    this.isScrollBased = $(el).data("marquee-scroll-based") || false;
     this.hasToRender = true;
     this.tween = null;
     this.currentPosition = 0;
-    this.marqueeEffect();
-    // this.observe();
-    // this.scrollBasedMarqueeEffect();
+    if (this.isScrollBased) this.scrollBasedMarqueeEffect();
+    else this.marqueeEffect();
   }
 
   scrollBasedMarqueeEffect() {

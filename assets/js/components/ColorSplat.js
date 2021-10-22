@@ -73,6 +73,7 @@ $(function () {
 
     var removeAnimation = function (animation) {
       var index = animations.indexOf(animation);
+      if (index == -1) canvas.style.display = "none";
       if (index > -1) animations.splice(index, 1);
     };
 
@@ -112,10 +113,11 @@ $(function () {
     });
 
     $("html").on("click", (e) => {
-      console.log(e.target);
+      // console.log(e.target);
       // e.preventDefault();
       // e.stopPropagation();
       if (window.isSlideClickable) {
+        canvas.style.display = "block";
         updateCoords(e);
         animateParticules(x, y);
       }

@@ -1,6 +1,6 @@
 .growing-line {
   @apply w-full;
-  background-color: rgb(0, 0, 0);
+  background-color: var(--text-gray-color);
   transform: scaleX(0);
   transition: transform duration("screen") ease("in-expo");
   height: 2px;

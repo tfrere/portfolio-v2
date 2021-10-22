@@ -1,22 +1,34 @@
 <nav class="nav">
     <div class="nav__content">
-      <a href="/" data-cursor="-lg"  class="nav__content__name entity">Thibaud frere</a>
-      <ul class="nav__content__socials entity">
+      <a href="/" data-cursor="-lg"  class="nav__content__name">Thibaud frere</a>
+      <ul class="nav__content__socials">
         <li class="nav__content__socials__item" id="linkedin-stick-area">
           <!-- data-magnetic data-cursor-stick="#linkedin-stick-area" -->
-            <a target="_blank" data-cursor="-lg" class="nav__content__socials__item__link" href="https://linkedin.com/in/thibaud-frere"><img alt="linkedin" src="/images/linkedin.svg"/></a>
+            <a target="_blank" data-cursor="-lg" class="nav__content__socials__item__link" href="https://linkedin.com/in/thibaud-frere">
+              {{ readFile "static/images/linkedin.svg" | safeHTML }}
+              <!-- <img alt="linkedin" src="/images/linkedin.svg"/> -->
+            </a>
         </li>
         <li class="nav__content__socials__item" id="behance-stick-area">
           <!-- data-magnetic data-cursor-stick="#behance-stick-area" -->
-            <a target="_blank" data-cursor="-lg" class="nav__content__socials__item__link" href="https://behance.net/frerethibaud9207"><img alt="behance" src="/images/behance.png"/></a>
+            <a target="_blank" data-cursor="-lg" class="nav__content__socials__item__link" href="https://behance.net/frerethibaud9207">
+              {{ readFile "static/images/behance.svg" | safeHTML }}
+              <!-- <img alt="behance" src="/images/behance.svg"/> -->
+            </a>
         </li>
         <li class="nav__content__socials__item" id="github-stick-area">
           <!-- data-magnetic data-cursor-stick="#github-stick-area" -->
-            <a target="_blank" data-cursor="-lg" class="nav__content__socials__item__link" href="https://github.com/tfrere"><img alt="github" src="/images/github.svg"/></a>
+            <a target="_blank" data-cursor="-lg" class="nav__content__socials__item__link" href="https://github.com/tfrere">
+              {{ readFile "static/images/github.svg" | safeHTML }}
+              <!-- <img alt="github" src="/images/github.svg"/> -->
+            </a>
         </li>
         <li class="nav__content__socials__item" id="codepen-stick-area">
           <!-- data-magnetic data-cursor-stick="#codepen-stick-area" -->
-            <a target="_blank" data-cursor="-lg" class="nav__content__socials__item__link" href="https://codepen.io/tfrere"><img alt="codepen" src="/images/codepen.png"/></a>
+            <a target="_blank" data-cursor="-lg" class="nav__content__socials__item__link" href="https://codepen.io/tfrere">
+              {{ readFile "static/images/codepen.svg" | safeHTML }}
+              <!-- <img alt="codepen" src="/images/codepen.svg"/> -->
+            </a>
         </li>
     </ul>
   </div>

@@ -3,29 +3,28 @@
   // cursor: none !important;
 }
 
+img {
+  user-select: none !important;
+}
+
 //   scroll-behavior: smooth;
-// overscroll-behavior-x: contain;
+
+//   overscroll-behavior-x: contain;
 //   overscroll-behavior-y: none;
+
 //   *::selection {
 //     color: --text-color;
 //     background-color: rgba(0, 0, 0, 0.1);
 //   }
 
+// @media (prefers-reduced-motion: reduce) {
+// }
+
 body,
 html {
   @apply antialiased w-screen p-0 m-0 overflow-x-hidden;
-  //   @apply min-h-screen;
   background-color: var(--background-color);
   font-family: "Oswald";
-}
-
-#page {
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
 
 .canvas {
@@ -34,7 +33,7 @@ html {
   left: 0;
   width: 100vw;
   height: 100%;
-  z-index: 1;
+  z-index: $canvas-z-index;
 }
 
 .wave-separator {
@@ -52,25 +51,13 @@ html {
 .blob {
   left: auto;
   right: 0px;
-  z-index: 9999999;
-}
-
-.black {
-  @apply relative w-full;
-
-  background: var(--reverse-background-color);
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span {
-    color: var(--reverse-text-color);
-  }
+  z-index: $blob-z-index;
 }
 
 .gray {
-  background-color: rgba(0, 0, 0, 0.02);
+  background-color: var(--gray-color);
+}
+
+.radial-black {
+  background-image: radial-gradient(at 30% 30%, #161616 31%, #000000 100%);
 }

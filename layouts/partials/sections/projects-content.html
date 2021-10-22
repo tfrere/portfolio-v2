@@ -1,0 +1,79 @@
+
+<!-- <div class="absolute left-0 right-0 w-full opacity-50">
+    {{ readFile "static/images/lines.svg" | safeHTML }}
+</div> -->
+    
+<div class="container mx-auto">
+    <div class="vr-mb-4">
+        <h2 class="projects__title">LATEST<br/> WORK</h2>
+        <p class="projects__text"> A showcase of <b> projects</b> that i've made this year from scenography to integration. This is another sentence to fill a bit. And this is another one.</p>
+    </div>
+</div>
+<div class="container mx-auto vr-mt-4 ">
+    <div class="projects__grid">
+        <div class="projects__grid__column projects__grid__column--left">
+            {{ range $i, $item := where .Site.RegularPages "Type" "projects" }}
+                {{if  (modBool $i 2)}}
+                    <div class="projects__grid__item">
+
+                        {{ $seed := "foo" }}
+                        {{ $random := delimit (shuffle (split (md5 $seed) "" )) "" }}
+
+                        <style>
+                            .-color-{{ $random }}:before {
+                                background-color:{{$item.Params.color}}!important;
+                            }
+                        </style>
+
+                        <a data-cursor="-lg -color-{{ $random }}" data-cursor-text="see more" href="{{$item.Params.externalurl}}" target="_blank" rel="nofollow"  class="slide__content">
+                        {{ $images := $item.Resources }}
+                        {{ with $item.Resources.ByType "image" }}
+                            {{ range first 1 . }}
+                            {{ partial "components/responsive-image" (dict "Site" $.Site "image" . "color" $item.Params.color "hasToScrub" false) }}
+                            <!--    <img src="{{.Permalink}}"/>-->
+                            {{ end }}
+                        {{ end }}
+                        <span class="projects__grid__item__label entity">
+                            <strong>{{$item.Title}}</strong> – {{$item.Params.description}} 
+                            <!-- | {{$item.Params.client}} -->
+                            <!-- | {{  $item.PublishDate.Format "January 2006" }} -->
+                        </span>
+                        </a>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+        <div class="projects__grid__column projects__grid__column--right">
+            {{ range $i, $item := where .Site.RegularPages "Type" "projects" }}
+                {{if not (modBool $i 2) }}
+                    <div class="projects__grid__item">
+
+                        {{ $seed := "foo" }}
+                        {{ $random := delimit (shuffle (split (md5 $seed) "" )) "" }}
+
+                        <style>
+                            .-color-{{ $random }}:before {
+                                background-color:{{$item.Params.color}}!important;
+                            }
+                        </style>
+
+                        <a data-cursor="-lg -color-{{ $random }}" data-cursor-text="see more" href="{{$item.Params.externalurl}}" target="_blank" rel="nofollow"  class="slide__content">
+                        {{ $images := $item.Resources }}
+                        {{ with $item.Resources.ByType "image" }}
+                            {{ range first 1 . }}
+                            {{ partial "components/responsive-image" (dict "Site" $.Site "image" . "color" $item.Params.color "hasToScrub" false) }}
+                            <!--    <img src="{{.Permalink}}"/>-->
+                            {{ end }}
+                        {{ end }}
+                        <span class="projects__grid__item__label entity">
+                            <strong>{{$item.Title}}</strong> – {{$item.Params.description}} 
+                            <!-- | {{$item.Params.client}} -->
+                            <!-- | {{  $item.PublishDate.Format "January 2006" }} -->
+                        </span>
+                        </a>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</div>

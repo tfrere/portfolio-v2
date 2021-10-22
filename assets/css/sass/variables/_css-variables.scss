@@ -1,0 +1,23 @@
+$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easeOutExp: cubic-bezier(0.165, 0.34, 0.84, 1);
+
+:root {
+  --cursor-size: 32px;
+  --cursor-color: white;
+
+  --background-color: white; //#f5f5f7
+  --background-gray-color: rgb(245, 245, 245);
+  --background-subtle-gray-color: rgba(0, 0, 0, 0.05);
+  --text-color: black; //#1d1d1f
+  --text-gray-color: rgb(220, 220, 220);
+  --text-subtle-gray-color: rgba(0, 0, 0, 0.2);
+}
+
+.black {
+  --background-color: black;
+  --background-gray-color: rgb(30, 30, 10);
+  --background-subtle-gray-color: rgba(255, 255, 255, 0.1);
+  --text-color: white; //#1d1d1f
+  --text-gray-color: rgb(75, 75, 75);
+  --text-subtle-gray-color: rgba(255, 255, 255, 0.2);
+}

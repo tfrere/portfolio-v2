@@ -1,0 +1,11 @@
+.tag {
+  @apply py-3 mr-6 mb-2 inline-block text-half-lead entity relative whitespace-nowrap;
+  //   px-6
+  //   border: 1px solid var(--text-gray-color);
+  color: var(--text-color);
+  &:before {
+    // @apply absolute left-0;
+    @apply mr-3;
+    content: "•";
+  }
+}

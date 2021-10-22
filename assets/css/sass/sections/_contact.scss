@@ -3,19 +3,46 @@
   // height: calc(100vh + 80px);
 }
 
-.click-to-copy {
-  @apply text-lead flex items-center entity vr-mt-1;
-  display: flex !important;
-  .button {
-    @apply vr-ml-1;
+.contact__container {
+}
+
+.contact__container__blob {
+  right: -10%;
+  display: none;
+  @include up-to-md {
+    display: block;
   }
 }
 
-.text-center .click-to-copy {
+.contact__container__title {
+  @apply heading-3 entity uppercase;
+  @include up-to-md {
+    @apply heading-1;
+  }
+}
+
+.contact__container__email-sentence {
+  @apply text-base items-center entity;
+  @include up-to-md {
+    @apply text-lead;
+    @apply flex;
+    @apply vr-mt-1;
+  }
+}
+
+.text-center .contact__container__email-sentence {
   @apply justify-center;
 }
 
-.click-to-copy__email {
+.contact__container__email-sentence__button {
+  @apply button;
+  @apply block;
+  @include up-to-md {
+    @apply inline-block vr-ml-1;
+  }
+}
+
+.contact__container__email-sentence__button__email {
   opacity: 0;
   transition: all 100ms ease;
   &.show {
@@ -24,7 +51,7 @@
   }
 }
 
-.click-to-copy__info-message {
+.contact__container__email-sentence__button__info-message {
   @apply absolute font-semibold top-0 left-0 right-0 -bottom-3 m-auto w-24 text-center;
   height: $base-size;
   transition: all 100ms ease;
@@ -33,5 +60,12 @@
     @apply bottom-1;
     transition: all 100ms ease;
     opacity: 1;
+  }
+}
+
+.contact__container__text {
+  @apply text-small entity vr-mb-0;
+  @include up-to-md {
+    @apply text-base;
   }
 }

@@ -1,16 +1,42 @@
 .landing {
-  // overflow: hidden;
-  height: 100vh !important;
-  min-height: 100vh !important;
-  h1 {
-    @apply pointer-events-none;
-    // @apply text-center;
-  }
-  .blob {
-    transform: translateX(300px);
+  .invite-to-scroll-with-text {
+    @apply hidden;
+    @include up-to-xl {
+      @apply block;
+    }
   }
 }
 
-.landing .landing__title {
-  @apply pointer-events-none;
+.landing__content {
+}
+
+.landing__content__title {
+  @apply heading-3 entity uppercase;
+
+  @include up-to-md {
+    @apply heading-1;
+  }
+
+  @include up-to-xl {
+    @apply heading-0;
+  }
+}
+
+.backgroundcliptext .landing__content__title {
+  background: radial-gradient(black, rgb(26, 26, 26));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.landing__content__title__span {
+  display: none;
+}
+
+.landing__content__title__span--visible {
+  display: block;
+}
+
+.landing__content__text {
+  @apply text-base vr-mt-1 ml-2 entity;
+  @apply mb-0;
 }

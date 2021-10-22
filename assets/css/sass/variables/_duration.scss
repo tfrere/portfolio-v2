@@ -1,0 +1,15 @@
+$duration: (
+  smallest: 150ms,
+  small: 300ms,
+  elem: 450ms,
+  screen: 600ms,
+);
+
+@function duration($key) {
+  @if map-has-key($duration, $key) {
+    @return map-get($duration, $key);
+  }
+
+  @warn "Unkown '#{$key}' in $duration.";
+  @return null;
+}

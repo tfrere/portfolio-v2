@@ -1,5 +1,6 @@
 {{ $image := .image }}
 {{ $color := .color }}
+{{ $hasToScrub := .hasToScrub }}
 <!-- variables used for img tag -->
 {{ $imgSrc := "" }}
 {{ $imgSrcSet := slice }}
@@ -39,7 +40,7 @@
 
 
 <div class="lazy-image parallax-image" style="background-color:{{$color}};">
-  <div data-scroll data-scroll-speed="-2" style="padding-bottom:{{ print $padding }}%; will-change:transform;">
+  <div data-scroll-parallax data-scroll-parallax-has-to-scrub="{{$hasToScrub}}" style="padding-bottom:{{ print $padding }}%; will-change:transform;">
     <img class="lazy-image__content" alt="{{$image.Title}}" data-lazy data-src="{{ $imgSrc }}" data-srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
   </div>
 </div>

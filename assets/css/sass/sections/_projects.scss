@@ -1,38 +1,49 @@
 .projects {
-  @apply w-full flex flex-row gap-12;
 }
-.projects__column {
+
+.projects__title {
+  @apply heading-3 entity;
+  @include up-to-md {
+    @apply heading-1 entity;
+  }
+}
+
+.projects__text {
+  @apply text-base entity w-full vr-mt-1;
+  @include up-to-md {
+    @apply w-8/12;
+  }
+}
+
+.projects__grid {
+  @apply w-full  md:flex md:gap-12;
+}
+
+.projects__grid__text {
+  @apply w-full  md:flex md:gap-12;
+}
+
+.projects__grid__column {
   @apply w-full;
 }
 
-.projects__column--right {
+.projects__grid__column--right {
   @apply mt-32;
 }
 
-.projects__item {
+.projects__grid__item {
   @apply w-full mb-12 text-center vr-mt-1 relative;
 }
 
-.projects__item__label {
+.projects__grid__item__label {
   @apply block vr-mt-1 w-10/12 mx-auto text-base;
 }
 
-// .projects__item .lazy-image__content {
-//     transform: scale(1);
-//     transition: transform 550ms $easeOutQuart;
-//   }
+.projects__grid__item .lazy-image__content img {
+  transform: scale(1);
+  transition: transform 550ms $easeOutQuart;
+}
 
-//   .projects__item:hover .lazy-image__content {
-//     transform: scale(1.05);
-//   }
-
-// .projects__item .lazy-image:after {
-//   content: "";
-//   @apply w-full h-full absolute top-0 left-0;
-//   background-color: rgba(0, 0, 0, 0.05);
-//   transition: background-color 500ms ease;
-// }
-
-// .projects__item:hover .lazy-image:after {
-//   background-color: rgba(0, 0, 0, 0.1);
-// }
+.projects__grid__item:hover .lazy-image__content img {
+  transform: scale(1.05);
+}

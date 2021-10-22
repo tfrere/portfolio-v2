@@ -1,2 +1,26 @@
 .description {
 }
+
+.description__item span {
+  @apply transition-colors text-lead font-semibold entity;
+  color: var(--text-gray-color);
+  will-change: color;
+  @include up-to-xl {
+    @apply text-hero;
+  }
+}
+
+.description__item--active span {
+  color: var(--text-color);
+  .description__item__list__item {
+    color: var(--text-color);
+  }
+}
+
+.description__item__list {
+  @apply m-0 p-0 flex flex-row flex-wrap;
+}
+
+.description__item__list__item {
+  @apply text-gray-200;
+}

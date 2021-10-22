@@ -1,65 +1,32 @@
 .fade-in-top {
   @apply opacity-0 transform -translate-y-4;
-  transition: all 400ms $easeOutQuart;
+  transition-property: all;
+  transition-duration: 400ms;
+  transition-timing-function: $easeOutQuart;
   will-change: transform, opacity;
-
   &.is-in-viewport {
     @apply opacity-100 transform translate-y-0;
-  }
-  &--delay-1 {
-    @apply delay-100;
-  }
-  &--delay-2 {
-    @apply delay-300;
-  }
-  &--delay-3 {
-    @apply delay-500;
   }
 }
 
 .fade-in {
   @apply opacity-0;
-  transition: all 400ms $easeOutQuart;
+  transition-property: all;
+  transition-duration: 400ms;
+  transition-timing-function: $easeOutQuart;
   will-change: transform, opacity;
-
   &.is-in-viewport {
     @apply opacity-100;
   }
-  &--delay-1 {
-    @apply delay-100;
-  }
-  &--delay-2 {
-    @apply delay-300;
-  }
-  &--delay-3 {
-    @apply delay-500;
-  }
-}
-
-.delay-1 {
-  @apply delay-100;
-}
-.delay-2 {
-  @apply delay-300;
-}
-.delay-3 {
-  @apply delay-500;
 }
 
 .growing {
   transform: scaleX(0);
-  transition: transform duration("screen") ease("in-expo");
+  transition-property: all;
+  transition-duration: duration("screen");
+  transition-timing-function: ease("in-expo");
   &.is-in-viewport {
     transform: scaleX(1);
-  }
-  &--delay-1 {
-    @apply delay-100;
-  }
-  &--delay-2 {
-    @apply delay-300;
-  }
-  &--delay-3 {
-    @apply delay-500;
   }
 }
 

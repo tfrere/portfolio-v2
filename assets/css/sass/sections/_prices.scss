@@ -1,8 +1,9 @@
 .prices {
-  @apply flex flex-row w-full overflow-hidden relative text-center;
+  @apply flex flex-row overflow-hidden relative text-center;
 }
+
 .prices-container {
-  @apply flex flex-col vr-mt-2;
+  @apply flex flex-col;
 }
 
 .prices__item {
@@ -10,26 +11,14 @@
   // border: 1px solid black;
 }
 
-.prices__item__number {
-  @apply heading-1 entity vr-mb-2;
-  @apply text-stroke;
-}
-
-.prices__item__image {
-  @apply mb-8;
-  width: 50%;
-  max-width: 50%;
-  display: none;
-}
-
 .prices__item__infos {
   @apply flex flex-col;
 }
 
 .prices__item__infos__title {
-  @apply heading-5 uppercase;
+  @apply heading-6 uppercase;
 }
 
 .prices__item__infos__place {
-  @apply mb-4 text-base;
+  @apply mb-4 text-small;
 }

@@ -1,0 +1,39 @@
+@for $i from 0 through $vr-number-of-steps {
+  .vr-mt-#{$i} {
+    margin-top: #{$i * $vr-font-size} !important;
+  }
+  .vr-mb-#{$i} {
+    margin-bottom: #{$i * $vr-font-size} !important;
+  }
+  .vr-ml-#{$i} {
+    margin-left: #{$i * $vr-font-size} !important;
+  }
+  .vr-mr-#{$i} {
+    margin-right: #{$i * $vr-font-size} !important;
+  }
+  .vr-mx-#{$i} {
+    margin: 0 #{$i * $vr-font-size} !important;
+  }
+  .vr-my-#{$i} {
+    margin-bottom: #{$i * $vr-font-size} 0 !important;
+  }
+
+  .vr-pt-#{$i} {
+    padding-top: #{$i * $vr-font-size} !important;
+  }
+  .vr-pb-#{$i} {
+    padding-bottom: #{$i * $vr-font-size} !important;
+  }
+  .vr-pl-#{$i} {
+    padding-left: #{$i * $vr-font-size} !important;
+  }
+  .vr-pr-#{$i} {
+    padding-right: #{$i * $vr-font-size} !important;
+  }
+  .vr-px-#{$i} {
+    padding: 0 #{$i * $vr-font-size} !important;
+  }
+  .vr-py-#{$i} {
+    padding-bottom: #{$i * $vr-font-size} 0 !important;
+  }
+}

@@ -4,8 +4,8 @@
     <body>
         <div id="grid"></div>
 
-        <div id="preloader" class="preloader">
-            <div id="preloader" class="preloader__content">
+        <div class="preloader">
+            <div class="preloader__content">
                 loading
             </div>
         </div>
@@ -15,16 +15,97 @@
         <canvas id="color-splat"></canvas>
 
         <div id="page" data-scroll-container>
-            {{ partial "sections/landing" }}
-            {{ partial "components/craft-sentence" }}
-            {{ partial "sections/description" (dict "Site" $.Site) }}
-            {{ partial "sections/clients" (dict "Site" $.Site) }}
-            {{ partial "sections/projects" (dict "Site" $.Site) }}
-            <!-- <section class="container mx-auto" data-scroll-section>
-                <div class="growing-line growing-line--left" data-scroll data-scroll-offset="10%, -50%" data-scroll-class="growing-line--active" > </div>
+
+            <div data-scroll-section>
+                <div class="particles">
+                    <div class="particles-item -dot -v1 -s1 -c3"></div>
+                    <div class="particles-item -dot -v2 -s2 -c4"></div>
+                    <div class="particles-item -dot -v3 -s3 -c5"></div>
+                    <div class="particles-item -dot -v4 -s1 -c1"></div>
+                    <div class="particles-item -dot -v5 -s2 -c4"></div>
+                    <div class="particles-item -dot -v6 -s3 -c2"></div>
+                    <div class="particles-item -dot -v7 -s4 -c1"></div>
+                    <div class="particles-item -dot -v8 -s2 -c4"></div>
+                    <div class="particles-item -dot -v9 -s3 -c5"></div>
+                    <div class="particles-item -dot -v10 -s3 -c1"></div>
+                    <div class="particles-item -dot -v11 -s3 -c3"></div>
+                    <div class="particles-item -dot -v6 -s3 -c2"></div>
+                    <div class="particles-item -dot -v7 -s4 -c1"></div>
+                    <div class="particles-item -dot -v8 -s2 -c4"></div>
+                    <div class="particles-item -dot -v9 -s3 -c5"></div>
+                    <div class="particles-item -dot -v10 -s3 -c1"></div>
+                    <div class="particles-item -dot -v11 -s3 -c3"></div>
+                </div>
+                <section class="section landing">
+                    {{ partial "sections/nav" }}
+                    <div class="landing__content container">
+                        {{ partial "sections/landing-content" }}
+                    </div>
+                    <div class="invite-to-scroll-with-text"  ></div>
+                </section>
+    
+                <section>
+                    {{ partial "sections/marquee-sentence" }}
+                </section>
+    
+                <section class="section section--padding description" >
+                    <div class="container">
+                        {{ partial "sections/description-content" (dict "Site" $.Site) }}
+                    </div>
+                </section>
+    
+            </div>
+
+            <section class="black radial-black section section--with-wave-separator section--half-height section--padding description" data-scroll-section >
+            
+                
+                <canvas class="canvas sea-shape" data-wave-separator></canvas>
+                
+                <!-- <canvas class="canvas" data-boids data-boids-color="rgba(255,255,255,0.9)"></canvas> -->
+                <div class="section__container container vr-mt-2 vr-mb-1">
+                    {{ partial "sections/ten-years-content" }}
+                    
+                </div>
+
+            </section>
+
+            <section class="clients section section--padding" data-scroll-section>
+                <div class="clients__container">
+                    {{ partial "sections/clients-content" (dict "Site" $.Site) }}
+                    <!-- {{ partial "sections/clients-content-alt" (dict "Site" $.Site) }} -->
+                </div>
+            </section>
+
+            <!-- <section class="black section prices section--half-padding" data-scroll-section>
+                <div class="absolute opacity-50">
+                    {{ readFile "static/images/lines-2.svg" | safeHTML }}
+                </div>
+                <div class="prices-container text-centers section__container container" >
+                    {{ partial "sections/prices-content" (dict "Site" $.Site) }}
+                </div>  
             </section> -->
-            {{ partial "sections/prices" (dict "Site" $.Site) }}
-            {{ partial "sections/contact" (dict "Site" $.Site) }}
+
+            <section class="section projects overflow-hidden section--half-padding pt-0" data-scroll-section >
+                <div>
+                    {{ partial "sections/projects-content" (dict "Site" $.Site) }}
+                    <!-- {{ partial "sections/projects-square-grid" (dict "Site" $.Site) }} -->
+                </div>
+            </section>
+
+            <div data-scroll-section>
+                <section class="black radial-black section  contact" >
+                    <canvas class="canvas sea-shape" data-wave-separator></canvas>
+                    <div class="contact__container container" data-scroll data-scroll-speed="-5vh" >
+                        <!-- <canvas data-scroll-parallax class="canvas blob contact__container__blob" data-blob data-blob-offset="50" data-blob-color="rgba(255,255,255,0.4)"></canvas> -->
+                        {{ partial "sections/contact-content" (dict "Site" $.Site) }}
+                    </div>
+                    <!-- <footer class="footer">
+                        <div class="footer__container container mx-auto">
+                            <p class="footer__container__copyright">Copyright {{  .Date.Format "2006" }}.</p>
+                        </div>
+                    </footer> -->
+                </section>
+            </div>
         </div>
 
         {{- $transpiled := resources.Get "js/index.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}

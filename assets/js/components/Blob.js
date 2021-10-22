@@ -9,7 +9,6 @@ class Blob {
     this.hover = true;
     this.margin = margin;
     this.color = color;
-    console.log(color, this.color);
     this.size = 1;
     this.sizeTime = 1;
     this.hasToRender = true;
@@ -267,13 +266,15 @@ class Blob {
   }
 
   instantPertubation() {
-    this.points.map((point) => {
-      if (Math.random() > 0.5) {
-        point.acceleration -= Math.random() * 0.3;
-      } else {
-        point.acceleration += Math.random() * 0.3;
-      }
-    });
+    if (this.hasToRender) {
+      this.points.map((point) => {
+        if (Math.random() > 0.5) {
+          point.acceleration -= Math.random() * 0.3;
+        } else {
+          point.acceleration += Math.random() * 0.3;
+        }
+      });
+    }
   }
 
   render() {
@@ -527,7 +528,6 @@ $(function () {
     $("[data-blob]").each(function () {
       var canvas = $(this)[0];
       var margin = $(this).data("blob-margin") || 100;
-      console.log(margin);
       var numPoints = $(this).data("blob-points") || 24;
       var color = $(this).data("blob-color") || "rgba(0,0,0,0.2)";
       var blobInstance = new Blob(canvas, color, numPoints, margin);

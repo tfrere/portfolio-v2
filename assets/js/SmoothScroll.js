@@ -25,32 +25,32 @@ $(function () {
     initPosition: { x: 0, y: 0 },
   });
 
-  // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
-  document.locomotiveScroll.on("scroll", ScrollTrigger.update);
+  // // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+  // document.locomotiveScroll.on("scroll", ScrollTrigger.update);
 
-  // tell ScrollTrigger to use these proxy methods for the "[data-scroll-container]" element since Locomotive Scroll is hijacking things
-  ScrollTrigger.scrollerProxy("[data-scroll-container]", {
-    scrollTop(value) {
-      return arguments.length
-        ? document.locomotiveScroll.scrollTo(value, 0, 0)
-        : document.locomotiveScroll.scroll.instance.scroll.y;
-    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
-    getBoundingClientRect() {
-      console.log(1);
-      return {
-        top: 0,
-        left: 0,
-        width: window.innerWidth,
-        height: window.innerHeight,
-      };
-    },
-    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
-    pinType: document.querySelector("[data-scroll-container]").style.transform
-      ? "transform"
-      : "fixed",
-  });
+  // // tell ScrollTrigger to use these proxy methods for the "[data-scroll-container]" element since Locomotive Scroll is hijacking things
+  // ScrollTrigger.scrollerProxy("[data-scroll-container]", {
+  //   scrollTop(value) {
+  //     return arguments.length
+  //       ? document.locomotiveScroll.scrollTo(value, 0, 0)
+  //       : document.locomotiveScroll.scroll.instance.scroll.y;
+  //   }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+  //   getBoundingClientRect() {
+  //     console.log(1);
+  //     return {
+  //       top: 0,
+  //       left: 0,
+  //       width: window.innerWidth,
+  //       height: window.innerHeight,
+  //     };
+  //   },
+  //   // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  //   pinType: document.querySelector("[data-scroll-container]").style.transform
+  //     ? "transform"
+  //     : "fixed",
+  // });
 
-  window.ScrollTrigger = ScrollTrigger;
+  // window.ScrollTrigger = ScrollTrigger;
 });
 
 // import "intersection-observer"; // if you want support IE11

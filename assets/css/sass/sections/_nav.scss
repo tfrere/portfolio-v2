@@ -1,18 +1,19 @@
 .nav {
   @apply absolute top-0 left-0 w-full;
-  // mix-blend-mode: difference;
-  z-index: 999999999999;
+  z-index: $nav-z-index;
 }
 
 .nav__content {
   @apply flex flex-row align-top items-center w-full;
   padding: $base-size * 2 $base-size * 3;
+  @apply entity;
 }
 
 .nav__content__name {
   @apply uppercase block font-bold;
   font-size: $base-size * 1.5;
   line-height: $base-size * 1.5;
+  color: var(--text-color);
 }
 
 .nav__content__socials {
@@ -24,10 +25,12 @@
 }
 
 .nav__content__socials__item__link {
+  color: var(--text-color);
   @apply flex flex-row items-center justify-center;
+  @apply entity;
   width: $base-size * 2.5;
   height: $base-size * 2.5;
-  padding: 0;
+  padding: 3px;
   margin-top: 0;
   margin-left: 12px;
   transform: rotate(0deg);
@@ -35,5 +38,9 @@
   svg {
     width: 100%;
     height: 100%;
+    fill: var(--text-color);
+    stroke-width: 0;
+    stroke: var(--text-color);
+    transition: none 0ms linear;
   }
 }

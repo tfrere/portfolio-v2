@@ -30,7 +30,7 @@ export default class Particles {
         xStart: undefined,
         xEnd: undefined,
         ease: "none",
-        duration: () => gsap.utils.random(5, 10),
+        duration: () => gsap.utils.random(5, 15),
         offset: () => gsap.utils.random(0, 20),
       },
       options
@@ -48,6 +48,8 @@ export default class Particles {
       typeof this.options.container === "string"
         ? document.querySelector(this.options.container)
         : this.options.container;
+    // console.log("parent", this.container.style.height);
+    $(this.container).css("height", this.container.parentElement.clientHeight);
     this.items = this.container.querySelectorAll(this.options.itemsSelector);
     this.tl = this.createTimeline();
 
@@ -248,43 +250,3 @@ export default class Particles {
     this.unobserve();
   }
 }
-
-(function () {
-  const demoParticles = document.querySelector(".cb-particles");
-  if (demoParticles) {
-    const particles = new Particles({
-      container: demoParticles,
-      itemsSelector: ".cb-particles-item",
-    });
-
-    const tl = gsap.timeline({ paused: true });
-
-    // Animate particles timeScale
-    tl.fromTo(
-      particles.getTimeline(),
-      {
-        timeScale: 8,
-      },
-      {
-        timeScale: 1,
-        duration: 2,
-      },
-      1
-    );
-
-    setTimeout(() => tl.play(), 0);
-
-    // window.addEventListener("scroll", () => scroll(), false);
-
-    // var scroll = () => {
-    //   console.log(1);
-    //   tl.set(
-    //     particles.getTimeline(),
-    //     {
-    //       timeScale: 0.1,
-    //     },
-    //     0
-    //   );
-    // };
-  }
-})();

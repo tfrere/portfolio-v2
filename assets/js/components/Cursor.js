@@ -14,8 +14,8 @@ export default class Cursor {
       options
     );
     this.body = $(this.options.container);
-    this.el = $('<div class="cb-cursor"></div>');
-    this.text = $('<div class="cb-cursor-text"></div>');
+    this.el = $('<div class="cursor"></div>');
+    this.text = $('<div class="cursor-text"></div>');
     this.init();
   }
 
@@ -190,8 +190,8 @@ export default class Cursor {
 //     );
 //     this.body = $(this.options.container);
 //     this.hasToScale = true;
-//     this.el = $('<div class="cb-cursor"></div>');
-//     this.text = $('<div class="cb-cursor-text"></div>');
+//     this.el = $('<div class="cursor"></div>');
+//     this.text = $('<div class="cursor-text"></div>');
 
 //     this.pos = { x: 0, y: 0 };
 //     this.oldPos = { x: 0, y: 0 };
