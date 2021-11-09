@@ -9,6 +9,7 @@ $(function () {
 
   var fireworks = (function () {
     var canvas = document.getElementById("color-splat");
+    canvas.style.display = "none";
     var ctx = canvas.getContext("2d");
     var numberOfParticules = 10;
     var distance = 80;
@@ -73,7 +74,9 @@ $(function () {
 
     var removeAnimation = function (animation) {
       var index = animations.indexOf(animation);
-      if (index == -1) canvas.style.display = "none";
+      if (animations.length == 1) {
+        canvas.style.display = "none";
+      }
       if (index > -1) animations.splice(index, 1);
     };
 
@@ -116,11 +119,11 @@ $(function () {
       // console.log(e.target);
       // e.preventDefault();
       // e.stopPropagation();
-      if (window.isSlideClickable) {
-        canvas.style.display = "block";
-        updateCoords(e);
-        animateParticules(x, y);
-      }
+      // if (window.isSlideClickable) {
+      canvas.style.display = "block";
+      updateCoords(e);
+      animateParticules(x, y);
+      // }
     });
 
     //     window.setInterval(()=>{

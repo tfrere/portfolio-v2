@@ -8,35 +8,18 @@
 }
 
 .landing__content {
+  z-index: $landing-content-z-index;
+  pointer-events: none;
+  @apply relative;
 }
 
 .landing__content__title {
-  @apply heading-3 entity uppercase;
-
+  @apply heading-3 entity select-none;
   @include up-to-md {
-    @apply heading-1;
+    @apply heading-2;
   }
 
   @include up-to-xl {
-    @apply heading-0;
+    @apply heading-1;
   }
-}
-
-.backgroundcliptext .landing__content__title {
-  background: radial-gradient(black, rgb(26, 26, 26));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.landing__content__title__span {
-  display: none;
-}
-
-.landing__content__title__span--visible {
-  display: block;
-}
-
-.landing__content__text {
-  @apply text-base vr-mt-1 ml-2 entity;
-  @apply mb-0;
 }

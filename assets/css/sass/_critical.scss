@@ -1,0 +1,44 @@
+@import "variables/breakpoints";
+@import "variables/css-variables";
+@import "variables/duration";
+@import "variables/z-index";
+@import "variables/ease";
+
+#color-splat,
+#cursor,
+#wave-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: $preloader-z-index - 1;
+}
+
+#color-splat {
+  mix-blend-mode: difference;
+}
+
+// .preloader {
+//   background: black;
+// }
+.preloader {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--text-color);
+  pointer-events: none;
+  z-index: $preloader-z-index;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+}
+
+.preloader__content {
+  color: var(--gray-color);
+  text-transform: uppercase;
+}

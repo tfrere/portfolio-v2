@@ -1,30 +1,16 @@
-* {
-  user-select: none !important;
-  // cursor: none !important;
-}
-
 img {
   user-select: none !important;
 }
-
-//   scroll-behavior: smooth;
-
-//   overscroll-behavior-x: contain;
-//   overscroll-behavior-y: none;
-
-//   *::selection {
-//     color: --text-color;
-//     background-color: rgba(0, 0, 0, 0.1);
-//   }
-
-// @media (prefers-reduced-motion: reduce) {
-// }
 
 body,
 html {
   @apply antialiased w-screen p-0 m-0 overflow-x-hidden;
   background-color: var(--background-color);
-  font-family: "Oswald";
+  font-family: "Poppins";
+}
+
+body {
+  border: $base-size * 2 solid var(--subtle-gray-color) !important;
 }
 
 .canvas {
@@ -34,30 +20,4 @@ html {
   width: 100vw;
   height: 100%;
   z-index: $canvas-z-index;
-}
-
-.wave-separator {
-  display: none;
-  position: absolute;
-  top: -100px;
-  width: 105vw;
-  left: -5px;
-  right: 0;
-  img {
-    width: 105vw;
-  }
-}
-
-.blob {
-  left: auto;
-  right: 0px;
-  z-index: $blob-z-index;
-}
-
-.gray {
-  background-color: var(--gray-color);
-}
-
-.radial-black {
-  background-image: radial-gradient(at 30% 30%, #161616 31%, #000000 100%);
 }

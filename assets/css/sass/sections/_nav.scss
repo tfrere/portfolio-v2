@@ -1,6 +1,7 @@
 .nav {
   @apply absolute top-0 left-0 w-full;
   z-index: $nav-z-index;
+  user-select: none;
 }
 
 .nav__content {

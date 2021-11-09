@@ -1,0 +1,39 @@
+.fade-in-top {
+  @apply opacity-0 transform -translate-y-4;
+  transition-property: all;
+  transition-duration: 400ms;
+  transition-timing-function: ease("out-quart");
+  will-change: transform, opacity;
+  &.is-in-viewport {
+    @apply opacity-100 transform translate-y-0;
+  }
+}
+
+.fade-in {
+  @apply opacity-0;
+  transition-property: all;
+  transition-duration: 400ms;
+  transition-timing-function: ease("out-quart");
+  will-change: transform, opacity;
+  &.is-in-viewport {
+    @apply opacity-100;
+  }
+}
+
+.growing {
+  transform: scaleX(0);
+  transition-property: all;
+  transition-duration: duration("screen");
+  transition-timing-function: ease("in-expo");
+  &.is-in-viewport {
+    transform: scaleX(1);
+  }
+}
+
+.growing--left {
+  transform-origin: left;
+}
+
+.growing--right {
+  transform-origin: right;
+}

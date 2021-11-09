@@ -1,10 +1,11 @@
-$vr-grid-color: var(--text-gray-color);
+$vr-grid-color: var(--gray-color);
 $vr-base-size: $base-size * 4;
 $vr-half-size: $vr-base-size / 2;
 $vr-line-thickness: 0.5px;
+$vr-grid-z-index: 0;
 
 .vr-show-entities .entity {
-  background: var(--background-subtle-gray-color) !important;
+  background: var(--subtle-gray-color) !important;
 }
 
 .vr-show-grid {
@@ -16,7 +17,7 @@ $vr-line-thickness: 0.5px;
     position: fixed;
     top: 0;
     left: 50%;
-    z-index: 100000;
+    z-index: $vr-grid-z-index;
     transform: translateX(-50%);
     width: 100vw;
     height: 100%;
@@ -50,63 +51,4 @@ $vr-line-thickness: 0.5px;
         $vr-grid-color $vr-base-size
       );
   }
-
-  //   &:before {
-  //     opacity: 0.6;
-  //     background: repeating-linear-gradient(
-  //         90deg,
-  //         $vr-grid-color,
-  //         $vr-grid-color $vr-line-thickness,
-  //         transparent 0,
-  //         transparent $vr-double-size - $vr-line-thickness,
-  //         $vr-grid-color 0,
-  //         $vr-grid-color $vr-double-size + $vr-line-thickness,
-  //         transparent 0,
-  //         transparent $vr-base-size + $vr-line-thickness,
-  //         $vr-grid-color 0,
-  //         $vr-grid-color $vr-base-size
-  //       ),
-  //       repeating-linear-gradient(
-  //         180deg,
-  //         $vr-grid-color,
-  //         $vr-grid-color $vr-line-thickness,
-  //         transparent 0,
-  //         transparent $vr-double-size - $vr-line-thickness,
-  //         $vr-grid-color 0,
-  //         $vr-grid-color $vr-double-size + $vr-line-thickness,
-  //         transparent 0,
-  //         transparent $vr-base-size - $vr-line-thickness,
-  //         $vr-grid-color 0,
-  //         $vr-grid-color $vr-base-size
-  //       );
-  //   }
-  //   &:before {
-  //     opacity: 0.6;
-  //     background: repeating-linear-gradient(
-  //         90deg,
-  //         $vr-grid-color,
-  //         $vr-grid-color $vr-line-thickness,
-  //         transparent 0,
-  //         transparent $vr-base-size - $vr-line-thickness,
-  //         $vr-grid-color 0,
-  //         $vr-grid-color $vr-base-size + $vr-line-thickness,
-  //         transparent 0,
-  //         transparent $vr-double-size + $vr-line-thickness,
-  //         $vr-grid-color 0,
-  //         $vr-grid-color $vr-double-size
-  //       ),
-  //       repeating-linear-gradient(
-  //         180deg,
-  //         $vr-grid-color,
-  //         $vr-grid-color $vr-line-thickness,
-  //         transparent 0,
-  //         transparent $vr-base-size - $vr-line-thickness,
-  //         $vr-grid-color 0,
-  //         $vr-grid-color $vr-base-size + $vr-line-thickness,
-  //         transparent 0,
-  //         transparent $vr-double-size - $vr-line-thickness,
-  //         $vr-grid-color 0,
-  //         $vr-grid-color $vr-double-size
-  //       );
-  //   }
 }

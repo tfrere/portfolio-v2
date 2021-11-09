@@ -11,45 +11,19 @@
 
 @import "base";
 
-@import "components/separator";
-@import "components/button";
-@import "components/tag";
 @import "components/cursor";
-@import "components/stamp";
-@import "components/particles";
 @import "components/invite-to-scroll";
 @import "components/underline";
-@import "components/square-grid";
 @import "components/section";
 @import "components/lazy-image";
-@import "components/growing-line";
-@import "components/wave";
-@import "components/apparition";
-@import "components/scroll-shape";
 
 @import "sections/nav";
 @import "sections/landing";
-@import "sections/marquee-sentence";
 @import "sections/description";
 @import "sections/clients";
-@import "sections/prices";
 @import "sections/projects";
 @import "sections/contact";
-@import "sections/footer";
 
-.sea-shape {
-  @apply absolute w-full left-0;
-  height: 100px;
-  top: 0px;
+#svg-filters {
+  display: none;
 }
-
-// .sea-shape__content {
-//   @apply w-full absolute flex flex-row;
-// }
-
-// .sea-shape__content__part {
-//   flex-shrink: 0;
-//   svg {
-//     width: 100%;
-//   }
-// }

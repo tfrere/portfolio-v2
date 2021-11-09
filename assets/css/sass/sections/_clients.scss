@@ -1,25 +1,49 @@
+.clients {
+  @apply vr-mt-0 vr-mb-8;
+  // @apply overflow-hidden h-screen;
+}
+
 .clients__container {
   @apply container mx-auto;
 }
 
-.clients__container__title {
-  @apply heading-3 vr-mb-4 entity;
-  @include up-to-md {
-    @apply heading-2 vr-mb-4;
-  }
+.clients__container__swipers {
 }
 
-.clients__marquee__content__tag {
-  width: $base-size * 20;
-  height: $base-size * 20;
+.clients__container__swipers__item {
+}
+
+.clients__container__swipers__item__tag {
+  width: $base-size * 22;
+  height: $base-size * 22;
   padding: $base-size;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: white;
-  border: 1px solid var(--text-gray-color);
+  background: var(--subtle-gray-color);
 }
 
-.clients__marquee__content__tag img {
+.clients__container__swipers__item__tag img {
   width: 100%;
+}
+
+.swiper {
+  width: 100%;
+  overflow: visible;
+  cursor: grab;
+}
+
+.slide {
+  width: auto;
+  padding-right: 12px;
+}
+
+.slide img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-wrapper {
+  will-change: transform;
 }

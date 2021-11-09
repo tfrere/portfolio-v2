@@ -1,0 +1,67 @@
+.stamp {
+  width: ($base-size * 142);
+  height: ($base-size * 142);
+  display: inline-block;
+  text-align: center;
+  // transform: translate(calc(50vw - 100px), 100px);
+  border-radius: 100%;
+  will-change: transform;
+}
+
+.stamp__text {
+  font-size: 70px;
+  // TO FIX : Change font face
+  font-family: "Inter";
+  font-weight: 500;
+  fill: #111;
+  background: #333;
+  // transform-origin: center;
+  // will-change: transform;
+  // animation-name: rotate;
+  // animation-duration: 5s;
+  // animation-iteration-count: infinite;
+  // animation-timing-function: linear;
+}
+
+.stamp__asterisk {
+  font-size: 450px;
+  transform: translate(133px, 485px);
+  line-height: 1;
+  // TO FIX : Change font face
+  font-family: "Inter";
+  font-weight: 500;
+  fill: var(--green);
+}
+
+.black {
+  @apply relative;
+  .stamp {
+    position: absolute;
+    top: -($base-size * 16);
+    left: 0;
+    right: 0;
+    margin: auto 0;
+  }
+  .stamp path {
+    fill: white;
+  }
+
+  .stamp__text {
+    fill: white;
+    background: white;
+  }
+
+  .stamp__asterisk {
+    fill: white;
+    background: white;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}

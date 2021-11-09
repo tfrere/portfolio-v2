@@ -1,16 +1,5 @@
 .lazy-image {
   @apply relative w-full bg-gray-100 overflow-hidden;
-  // filter: grayscale(1);
-  // transition: filter 200ms ease;
-  // &:hover {
-  //   filter: grayscale(0);
-  // }
-  &:after {
-    content: "";
-    @apply absolute top-0 left-0 w-full h-full transition-opacity delay-300;
-    box-shadow: inset 5px 5px 20px 5px rgba(0, 0, 0, 0.05);
-    z-index: 999999999999;
-  }
 }
 
 .lazy-image__content {

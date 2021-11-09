@@ -1,23 +1,73 @@
-$easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
-$easeOutExp: cubic-bezier(0.165, 0.34, 0.84, 1);
+$greenHue: 140;
+$greenSaturation: 39%;
+$greenLightness: 70%;
+$green: hsl($greenHue, $greenSaturation, $greenLightness);
+$darken-green: darken($green, 15%);
+$green: #83c79a;
+
+$blueHue: 188;
+$blueSaturation: 37%;
+$blueLightness: 64%;
+$blue: hsl($blueHue, $blueSaturation, $blueLightness);
+$darken-blue: darken($blue, 15%);
+$blue: #78b0b8;
+
+$pinkHue: 345;
+$pinkSaturation: 81%;
+$pinkLightness: 77%;
+$pink: hsl($pinkHue, $pinkSaturation, $pinkLightness);
+$darken-pink: darken($pink, 10%);
+$pink: #e790a6;
+
+// F38949
+$orangeHue: 23;
+$orangeSaturation: 88%;
+$orangeLightness: 62%;
+$orange: hsl($orangeHue, $orangeSaturation, $orangeLightness);
+$darken-orange: darken($orange, 15%);
+$orange: #ec8444;
+
+$yellowHue: 48;
+$yellowSaturation: 100%;
+$yellowLightness: 57%;
+$yellow: hsl($yellowHue, $yellowSaturation, $yellowLightness);
+$darken-yellow: darken($yellow, 15%);
+$yellow: #f4cc25; //#f8cf26;
+
+// ease('out-quart÷'): cubic-bezier(0.165, 0.84, 0.44, 1);
 
 :root {
   --cursor-size: 32px;
-  --cursor-color: white;
+  --cursor-color: black;
 
-  --background-color: white; //#f5f5f7
-  --background-gray-color: rgb(245, 245, 245);
-  --background-subtle-gray-color: rgba(0, 0, 0, 0.05);
-  --text-color: black; //#1d1d1f
-  --text-gray-color: rgb(220, 220, 220);
-  --text-subtle-gray-color: rgba(0, 0, 0, 0.2);
+  --text-color: #121212;
+  --gray-color: rgb(114, 114, 114);
+  --subtle-gray-color: #f5f5f5;
+  --background-color: white;
+
+  --green: #83c79a;
+  --blue: #78b0b8;
+  --pink: #e790a6;
+  --orange: #ec8444;
+  --yellow: #f4cc25;
+
+  --title-font: "Poppins";
+  --text-font: "Poppins";
 }
 
+$black: #121212;
 .black {
-  --background-color: black;
-  --background-gray-color: rgb(30, 30, 10);
-  --background-subtle-gray-color: rgba(255, 255, 255, 0.1);
-  --text-color: white; //#1d1d1f
-  --text-gray-color: rgb(75, 75, 75);
-  --text-subtle-gray-color: rgba(255, 255, 255, 0.2);
+  --text-color: white;
+  --gray-color: lighten($black, 5%);
+  --subtle-gray-color: lighten($black, 15%);
+  --background-color: #{$black};
+  background-color: var(--background-color);
+}
+
+.blue {
+  --text-color: white;
+  --gray-color: lighten(#001a28, 5%);
+  --subtle-gray-color: lighten(#001a28, 15%);
+  --background-color: #{$blue};
+  background-color: var(--background-color);
 }

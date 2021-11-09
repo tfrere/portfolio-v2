@@ -3,20 +3,16 @@ import "./SmoothScroll";
 
 import "./Stats";
 
+import "masonry-layout";
+
 import "./components/Cursor";
-import "./components/Marquee";
-import "./components/Particles";
-import "./components/SwiperMarquee";
+import "./old/SwiperMarquee";
 import "./components/LazyloadImages";
-import "./components/ClickToCopy";
-import "./components/Blob";
-import "./components/Boids";
-import "./components/ScrollAnim";
+// import "./components/ClickToCopy";
+import "./components/ScrollDescription";
 import "./components/ColorSplat";
-import "./components/ScrollParallax";
-import "./components/ScrollPrices";
-import "./components/ScrollShape";
-import "./components/ScrollRotate";
-import "./components/WaveSeparator";
+import "./components/Magnetic";
+
+import "./components/3dBlob/SceneManager";
 
 import "./init";

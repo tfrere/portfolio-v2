@@ -2,7 +2,6 @@ import jQuery from "jquery";
 let $ = jQuery;
 window.jQuery = require("jquery");
 window.$ = window.jQuery;
-require("fluidbox");
 
 document.addEventListener("DOMContentLoaded", function () {
   var lazyloadImages;
@@ -26,8 +25,4 @@ document.addEventListener("DOMContentLoaded", function () {
   lazyloadImages.forEach(function (image) {
     imageObserver.observe(image);
   });
-
-  // $(function () {
-  //   $(".img-fluidbox").fluidbox();
-  // });
 });

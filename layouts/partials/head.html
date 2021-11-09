@@ -21,6 +21,10 @@
 
     <base href="{{ .Site.BaseURL }}">
 
+    {{ $critical := resources.Get "css/sass/_critical.scss" | toCSS}}
+    <link rel="stylesheet" href='{{ $critical.Permalink }}' data>
+    
+
     {{ partialCached "css.html" . }}
     
     {{ $title := print .Site.Title " | " .Title }}

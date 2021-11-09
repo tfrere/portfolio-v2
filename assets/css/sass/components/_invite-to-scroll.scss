@@ -1,11 +1,11 @@
 .invite-to-scroll-with-text {
   width: 1px;
   height: 10vh;
-  background-color: var(--text-gray-color);
+  background-color: var(--gray-color);
   margin: 10px auto;
   position: absolute;
   left: ($base-size * 3);
-  bottom: ($base-size * 10);
+  bottom: ($base-size * 12);
 }
 
 .invite-to-scroll-with-text:after {
@@ -28,7 +28,7 @@
   height: 10vh;
   bottom: 0vh;
   background-color: var(--text-color);
-  animation: scroll 4s cubic-bezier(0.77, 0, 0.175, 1) infinite both;
+  // animation: scroll 4s cubic-bezier(0.77, 0, 0.175, 1) infinite both;
 }
 
 @keyframes scroll {

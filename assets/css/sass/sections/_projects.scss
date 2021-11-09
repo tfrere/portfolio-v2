@@ -1,49 +1,44 @@
 .projects {
+  @apply vr-mb-2;
 }
 
-.projects__title {
-  @apply heading-3 entity;
-  @include up-to-md {
-    @apply heading-1 entity;
-  }
+.projects__container {
+  @apply mx-auto;
+  width: 80%;
 }
 
 .projects__text {
   @apply text-base entity w-full vr-mt-1;
   @include up-to-md {
-    @apply w-8/12;
+    @apply w-6/12;
   }
 }
 
 .projects__grid {
-  @apply w-full  md:flex md:gap-12;
-}
-
-.projects__grid__text {
-  @apply w-full  md:flex md:gap-12;
-}
-
-.projects__grid__column {
   @apply w-full;
 }
 
-.projects__grid__column--right {
-  @apply mt-32;
+.projects__grid__text {
+  @apply w-full;
+}
+
+.projects__grid__column {
+  @apply w-6/12;
 }
 
 .projects__grid__item {
-  @apply w-full mb-12 text-center vr-mt-1 relative;
+  // @apply w-6/12;
+  // @apply relative;
+  width: calc(50% - #{$base-size * 3});
+  margin: 0 #{$base-size * 1.5};
+}
+
+.projects__grid__item--full {
+  width: calc(100% - #{$base-size * 3});
+  margin: 0 #{$base-size * 1.5};
 }
 
 .projects__grid__item__label {
-  @apply block vr-mt-1 w-10/12 mx-auto text-base;
-}
-
-.projects__grid__item .lazy-image__content img {
-  transform: scale(1);
-  transition: transform 550ms $easeOutQuart;
-}
-
-.projects__grid__item:hover .lazy-image__content img {
-  transform: scale(1.05);
+  padding-top: #{$base-size * 1.5};
+  @apply block vr-mb-1 text-base text-right;
 }

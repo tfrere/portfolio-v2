@@ -15,10 +15,10 @@ export default class Magnetic {
     this.options = $.extend(
       true,
       {
-        y: 0.2,
-        x: 0.2,
-        s: 0.2,
-        rs: 0.9,
+        y: 0.6,
+        x: 0.6,
+        s: 0.6,
+        rs: 0.5,
       },
       this.el.data("magnetic") || options
     );

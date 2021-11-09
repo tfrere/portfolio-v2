@@ -1,5 +1,10 @@
-$nav-z-index: 1;
+$nav-z-index: 0;
 $marquee-sentence-z-index: 1;
 $particles-z-index: 1;
 $blob-z-index: 0;
-$canvas-z-index: 1;
+$canvas-z-index: 0;
+$preloader-z-index: 2;
+$boids-z-index: 3;
+$landing-content-z-index: 4;
+
+$cursor-z-index: 4;

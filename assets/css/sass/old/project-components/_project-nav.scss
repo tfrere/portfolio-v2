@@ -7,7 +7,7 @@
     height: 1px;
     width: 1px;
     background-color: white;
-    transition: all 450ms $easeOutQuart;
+    transition: all 450ms ease("out-quart");
   }
 }
 

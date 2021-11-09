@@ -1,6 +1,5 @@
 
-<div id="bubble">
-  <svg  xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <svg id="svg-filters" xmlns="http://www.w3.org/2000/svg" version="1.1">
     <defs>
         <filter id="underwater">
             <feTurbulence type="fractalNoise" baseFrequency="0.02 0.01" numOctaves="1" result="warp" id="turb"/>
@@ -12,9 +11,9 @@
         </filter>
 
         <filter id="gooey">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur" />
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -10" result="filter" />
-            <feComposite in="SourceGraphic" in2="filter" operator="atop" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
         </filter>
     </defs>
 </svg>
