@@ -65,14 +65,15 @@ class SceneManager {
       false
     );
     window.addEventListener("resize", this.onWindowResize.bind(this), false);
+    this.observe();
   }
 
   observe() {
     this.observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        this.hasToRender = false;
-      } else {
         this.hasToRender = true;
+      } else {
+        this.hasToRender = false;
       }
     });
 

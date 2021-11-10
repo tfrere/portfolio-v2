@@ -6,7 +6,6 @@ class Blob {
   constructor(sceneManager) {
     this.sceneManager = sceneManager;
     this.shapeGroup = new THREE.Group();
-    this.shapeGroup.position.set(3, 0, 0);
     this.mesh = new THREE.Object3D();
     this.mat = new THREE.ShaderMaterial({
       // side:THREE.DoubleSide,
@@ -71,12 +70,9 @@ class Blob {
 
     var shapeGeo = new THREE.IcosahedronBufferGeometry(1.3, 24);
     // shapeGeo = new THREE.PlaneBufferGeometry(20, 20, 30, 30);
-    var pointsGeo = new THREE.IcosahedronBufferGeometry(1.6, 2);
 
     this.shape = new THREE.Mesh(shapeGeo, this.mat);
-    this.point = new THREE.Points(pointsGeo, this.mat);
 
-    this.shapeGroup.add(this.point);
     this.shapeGroup.add(this.shape);
 
     this.sceneManager.scene.add(this.shapeGroup);
@@ -232,6 +228,11 @@ class Blob {
   update(elapsedTime) {
     // this.shapeGroup.rotation.x += 0.01;
     // this.shapeGroup.rotation.y += 0.01;
+    if (this.sceneManager.canvas.width <= 501) {
+      this.shapeGroup.position.set(0, 0, 0);
+    } else {
+      this.shapeGroup.position.set(3, 0, 0);
+    }
 
     this.mat.uniforms["time"].value = this.options.perlin.speed * elapsedTime;
 

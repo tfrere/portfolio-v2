@@ -1,5 +1,5 @@
 ---
-title: "AI paintings #3"
+title: "AI paintings #1"
 smalltitle: tree
 date: 2021-11-05T01:00:04+01:00
 draft: false

@@ -1,4 +1,10 @@
 .landing {
+  @apply h-auto;
+
+  @include up-to-md {
+    @apply h-full;
+  }
+
   .invite-to-scroll-with-text {
     @apply hidden;
     @include up-to-xl {
@@ -14,7 +20,7 @@
 }
 
 .landing__content__title {
-  @apply heading-3 entity select-none;
+  @apply heading-4 entity select-none;
   @include up-to-md {
     @apply heading-2;
   }

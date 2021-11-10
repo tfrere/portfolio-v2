@@ -25,7 +25,8 @@ $cursor-z-index: 0;
   will-change: transform;
 
   transition: opacity 0.3s, color 0.4s;
-  mix-blend-mode: difference;
+
+  // mix-blend-mode: difference;
 
   // filter: url(#goo);
 
@@ -39,8 +40,8 @@ $cursor-z-index: 0;
     height: $size * 2;
     transform: scale(0);
 
-    background: white;
-    // background: var(--text-color);
+    // background: white;
+    background: var(--text-color);
 
     border-radius: 50%;
 
@@ -159,6 +160,7 @@ $cursor-z-index: 0;
     mix-blend-mode: difference;
     &:before {
       transform: scale(0.8);
+      background-color: var(--background-color);
     }
     &.-active:before {
       transform: scale(1);

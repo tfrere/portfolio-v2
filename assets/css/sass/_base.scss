@@ -9,6 +9,11 @@ html {
   font-family: "Poppins";
 }
 
+::selection {
+  color: red;
+  background: yellow;
+}
+
 body {
   border: $base-size * 2 solid var(--subtle-gray-color) !important;
 }
@@ -20,4 +25,15 @@ body {
   width: 100vw;
   height: 100%;
   z-index: $canvas-z-index;
+}
+
+.inline-icon {
+  display: inline-block;
+}
+
+.mobile-br {
+  display: block;
+  @include up-to-xl {
+    display: none;
+  }
 }

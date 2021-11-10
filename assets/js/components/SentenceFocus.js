@@ -11,45 +11,31 @@ export default class SentenceFocus {
     this.rootMargins = [];
     this.sentences.map((i, elem) => {
       let elemData = $(elem).data("sentence-focus-offset");
-      if (elemData.contains(",")) {
-        let offset = $(elem).data("sentence-focus-offset").split(", ");
-        this.rootMargins.push(`${offset[0]} 0px ${offset[1]} 0px`);
-      } else {
-        this.rootMargins.push(`0px 0px 0px 0px`);
-      }
+      // console.log(elemData);
+
+      // if (elemData.contains(",")) {
+      //   let offset = elemData.split(", ");
+      //   console.log(offset);
+      //   this.rootMargins.push(`${offset[0]} 0px ${offset[1]} 0px`);
+      // } else {
+      //   this.rootMargins.push(`0px 0px 0px 0px`);
+      // }
+      this.rootMargins.push(`0px 0px 0px 0px`);
     });
     console.log(this.rootMargins);
     this.observe();
   }
-
-  // render() {
-  //   const tl = new gsap.timeline();
-
-  //   tl.set(this.el, { willChange: "transform" });
-  //   tl.fromTo(this.el, this.from, this.to, 0);
-
-  //   ScrollTrigger.create({
-  //     options: {
-  //       start: "top bottom",
-  //       end: "bottom top",
-  //       scrub: 0,
-  //       refreshPriority: -14,
-  //     },
-  //     trigger: elem,
-  //     animation: tl,
-  //   });
-  // }
 
   observe() {
     this.sentences.map((i, elem) => {
       // console.log(this.rootMargins[i]);
       var observer = new IntersectionObserver(
         (entries) => {
-          // $(this.sentences).removeClass("sentence-focus__item--active");
+          // $(this.sentences).removeClass("description__item--active");
           if (entries[0].isIntersecting) {
-            $(entries[0].target).addClass("sentence-focus__item--active");
+            $(entries[0].target).addClass("description__item--active");
           } else {
-            $(entries[0].target).removeClass("sentence-focus__item--active");
+            $(entries[0].target).removeClass("description__item--active");
           }
         },
         {

@@ -1,16 +1,10 @@
 .description {
-  @apply relative ml-9 md:ml-0 vr-mb-1;
+  @apply relative ml-0 vr-mb-1;
 }
 
 .description__active-circle {
   @apply absolute w-8 h-8 top-6 -left-16;
   will-change: transform;
-  // filter: url("#gooey");
-  // &:after {
-  //   content: "";
-  //   @apply absolute w-8 h-8 top-2 left-2;
-  //   background-color: #000;
-  // }
 }
 
 .description__active-circle__element {
@@ -33,7 +27,7 @@
 }
 
 .description__item--title span {
-  @apply heading-3 entity;
+  @apply heading-4 entity;
   @include up-to-md {
     @apply heading-1 entity;
   }

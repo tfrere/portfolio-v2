@@ -1,5 +1,5 @@
 ---
-title: "cat"
+title: "AI paintings #4"
 smalltitle: cat
 date: 2021-10-11T01:00:04+01:00
 draft: false

@@ -13,44 +13,44 @@
 
         <div id="page" data-scroll-container>
             
-            <section class="section landing" data-scroll-section>
-                <canvas class="canvas" id="canvas"></canvas>
-                {{ partial "sections/nav" }}
-                <div class="landing__content container">
-                    {{ partial "sections/landing-content" }}
-                </div>
-                <div class="invite-to-scroll-with-text"></div>
-            </section>
+            <div data-scroll-section>
+                <section class="section landing">
+                    <canvas class="canvas" id="canvas"></canvas>
+                    {{ partial "sections/nav" }}
+                    <div class="landing__content container">
+                        {{ partial "sections/landing-content" }}
+                    </div>
+                    <div class="invite-to-scroll-with-text"></div>
+                </section>
 
-            <section class="section description" data-scroll-section >
-                <div class="container">
-                    {{ partial "sections/whoiam-content" (dict "Site" $.Site) }}
-                </div>
-            </section>
+                <section class="section description" >
+                    <div class="container">
+                        {{ partial "sections/whoiam-content" (dict "Site" $.Site) }}
+                    </div>
+                </section>
 
-            <section class="clients" data-scroll-section>
-                <div class="clients__container">
-                    {{ partial "sections/clients-content" (dict "Site" $.Site) }}
-                </div>
-            </section>
+                <section class="clients">
+                        {{ partial "sections/clients-content" (dict "Site" $.Site) }}
+                </section>
 
-            <section class="section" data-scroll-section>
-                <div class="mx-auto container">
-                    {{ partial "sections/wheretofindmywork-content" (dict "Site" $.Site) }}
-                </div>
-            </section>
+                <section class="section">
+                    <div class="mx-auto container">
+                        {{ partial "sections/wheretofindmywork-content" (dict "Site" $.Site) }}
+                    </div>
+                </section>
 
-            <section class="section projects" data-scroll-section>
-                <div class="projects__container">
-                    {{ partial "sections/projects-content" (dict "Site" $.Site) }}
-                </div>
-            </section>
+                <section class="section projects">
+                    <div class="projects__container">
+                        {{ partial "sections/projects-content" (dict "Site" $.Site) }}
+                    </div>
+                </section>
 
-            <section class="section contact" data-scroll-section>
-                <div class="contact__container container">
-                    {{ partial "sections/contact-content" (dict "Site" $.Site) }}
-                </div>
-            </section>
+                <section class="section contact">
+                    <div class="contact__container container">
+                        {{ partial "sections/contact-content" (dict "Site" $.Site) }}
+                    </div>
+                </section>
+            </div>
 
         </div>
 

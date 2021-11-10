@@ -1,6 +1,30 @@
 import $ from "jquery";
 import gsap from "gsap";
 
+// Helpers
+function getScale(diffX, diffY) {
+  const distance = Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
+  return Math.min(distance / 800, 0.15);
+}
+
+function getAngle(diffX, diffY) {
+  return (Math.atan2(diffY, diffX) * 180) / Math.PI;
+}
+
+/**
+ * debounce function
+ * use inDebounce to maintain internal reference of timeout to clear
+ */
+const debounce = (func, delay) => {
+  let inDebounce;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(inDebounce);
+    inDebounce = setTimeout(() => func.apply(context, args), delay);
+  };
+};
+
 export default class Cursor {
   constructor(options) {
     this.options = $.extend(
@@ -14,11 +38,16 @@ export default class Cursor {
       options
     );
     this.body = $(this.options.container);
+    this.hasToScale = false;
     this.el = $('<div class="cursor"></div>');
     this.text = $('<div class="cursor-text"></div>');
     this.video = $(
       '<div class="cursor-media"><video src="/images/obvious.mp4" preload="auto" autoplay="" muted="" loop="" id="obvious" style="opacity: 0; z-index: 1;"></video><video src="/images/personal.mp4" preload="auto" autoplay="" muted="" loop="" id="personal" style="opacity: 0; z-index: 1;"></video></div>'
     );
+    this.pos = { x: 0, y: 0 };
+    this.oldPos = { x: 0, y: 0 };
+    this.vel = { x: 0, y: 0 };
+
     this.init();
   }
 
@@ -27,11 +56,15 @@ export default class Cursor {
     this.el.append(this.video);
     this.body.append(this.el);
     this.bind();
-    this.move(-window.innerWidth, -window.innerHeight, 0);
+    this.frameLoop();
   }
 
   bind() {
     const self = this;
+    let showDebounce = debounce(
+      this.mouseMove({ clientX: 0, clientY: 0 }),
+      100
+    );
 
     this.body
       .on("mouseleave", () => {
@@ -41,15 +74,7 @@ export default class Cursor {
         self.show();
       })
       .on("mousemove", (e) => {
-        this.pos = {
-          x: this.stick
-            ? this.stick.x - (this.stick.x - e.clientX) * 0.15
-            : e.clientX,
-          y: this.stick
-            ? this.stick.y - (this.stick.y - e.clientY) * 0.15
-            : e.clientY,
-        };
-        this.update();
+        showDebounce = debounce(this.mouseMove(e), 1000 / 40);
       })
       .on("mousedown", () => {
         self.setState("-active");
@@ -57,24 +82,14 @@ export default class Cursor {
       .on("mouseup", () => {
         self.removeState("-active");
       })
-      // .on("mouseenter", "a,input,textarea,button", () => {
-      //   self.setState("-pointer");
-      // })
-      // .on("mouseleave", "a,input,textarea,button", () => {
-      //   self.removeState("-pointer");
-      // })
-      .on("mouseenter", "iframe", () => {
-        self.hide();
-      })
-      .on("mouseleave", "iframe", () => {
-        self.show();
-      })
       .on("mouseenter", "[data-media-video]", function (event) {
+        self.hasToScale = true;
         document.getElementById(
           event.target.getAttribute("data-media-video")
         ).style.opacity = "1";
       })
       .on("mouseleave", "[data-media-video]", function (event) {
+        self.hasToScale = false;
         document.getElementById(
           event.target.getAttribute("data-media-video")
         ).style.opacity = "0";
@@ -84,19 +99,60 @@ export default class Cursor {
       })
       .on("mouseleave", "[data-cursor]", function () {
         self.removeState(this.dataset.cursor);
-      })
-      .on("mouseenter", "[data-cursor-text]", function () {
-        self.setText(this.dataset.cursorText);
-      })
-      .on("mouseleave", "[data-cursor-text]", function () {
-        self.removeText();
-      })
-      .on("mouseenter", "[data-cursor-stick]", function () {
-        self.setStick(this.dataset.cursorStick);
-      })
-      .on("mouseleave", "[data-cursor-stick]", function () {
-        self.removeStick();
       });
+  }
+
+  mouseMove(e) {
+    this.pos = {
+      x: this.stick
+        ? this.stick.x - (this.stick.x - e.clientX) * 0.15
+        : e.clientX,
+      y: this.stick
+        ? this.stick.y - (this.stick.y - e.clientY) * 0.15
+        : e.clientY,
+    };
+    window.cursorPos = this.pos;
+    this.update();
+  }
+
+  frameLoop() {
+    this.vel.x = this.oldPos.x - this.pos.x;
+    this.vel.y = this.oldPos.y - this.pos.y;
+
+    let scaleX = Math.min(-Math.abs(this.vel.y) / 50, 0.35);
+    let scaleY = Math.min(-Math.abs(this.vel.x) / 50, 0.35);
+
+    this.move(this.pos.x, this.pos.y, scaleX, scaleY, 1, 0);
+
+    requestAnimationFrame(this.frameLoop.bind(this));
+  }
+
+  move(x, y, scaleX, scaleY, duration, rotation) {
+    let scale = {
+      x: 1,
+      y: 1,
+    };
+
+    if (this.hasToScale) {
+      scale = {
+        x: 1 + scaleX,
+        y: 1 + scaleY,
+      };
+    }
+
+    gsap.to(this.el, {
+      x: x,
+      y: y,
+      force3D: true,
+      overwrite: true,
+      ease: this.options.ease,
+      // rotation: rotation / 10,
+      scaleX: scale.x,
+      scaleY: scale.y,
+      // duration: this.visible ? this.options.speed : 0,
+      duration: this.visible ? duration || this.options.speed : 0,
+    });
+    this.oldPos = { x: x, y: y };
   }
 
   setState(state) {
@@ -127,7 +183,6 @@ export default class Cursor {
       y: bound.top + target.height() / 2,
       x: bound.left + target.width() / 2,
     };
-    this.move(this.stick.x, this.stick.y, 5);
   }
 
   removeStick() {
@@ -135,19 +190,7 @@ export default class Cursor {
   }
 
   update() {
-    this.move();
     this.show();
-  }
-
-  move(x, y, duration) {
-    gsap.to(this.el, {
-      x: x || this.pos.x,
-      y: y || this.pos.y,
-      force3D: true,
-      overwrite: true,
-      ease: this.options.ease,
-      duration: this.visible ? duration || this.options.speed : 0,
-    });
   }
 
   show() {

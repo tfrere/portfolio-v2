@@ -2,5 +2,24 @@
 }
 
 .contact__container {
-  @apply vr-mb-8;
+  @apply vr-mb-4 vr-mt-6;
+  @include up-to-md {
+    @apply vr-mb-8;
+  }
+}
+
+.contact__container__email-sentence {
+}
+
+.email {
+  @apply underline relative;
+  &__info-message {
+    @apply -bottom-7 text-base absolute top-4 left-0 transform transform-gpu -translate-y-4 duration-200 ease-in;
+    font-size: #{$base-size * 2} !important;
+    opacity: 0;
+    &.show {
+      opacity: 1;
+      @apply translate-y-0 ease-out;
+    }
+  }
 }

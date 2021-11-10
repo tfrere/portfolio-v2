@@ -23,44 +23,99 @@
         background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/cite-des-sciences.{{$format}}");
         background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/landskies.{{$format}}");
         background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/wort.{{$format}}");
-        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/ideo.{{$format}}");
-        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/42.{{$format}}");
-        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/telecomparis.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/europa.{{$format}}");
+        background-image: url("{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/mediafutures.{{$format}}");
     }
 </style>
 
-<div  class="clients__container__swipers" data-cursor="-hidden">
-    <div  class="clients__container__swipers__item">
-        <div data-swiper-marquee data-swiper-marquee-from="-600" data-swiper-marquee-to="-300" data-swiper-marquee-direction="horizontal">
-             <div class="swiper vr-mb-1" > 
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/cite-des-sciences.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bdrc.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/matthieuricard.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/femis.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/luxtimes.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/radio-latina.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/obvious.{{$format}}"/></div>
+<!-- 
+<div class="marquee">
+    <div class="marquee__content">
+        <div class="marquee__content__tag">
+            <img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/matthieuricard.{{$format}}"/>
+        </div>
+        <div class="marquee__content__tag">
+            <img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/luxtimes.{{$format}}"/>
+        </div>
+        <div class="marquee__content__tag">
+            <img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bdrc.{{$format}}"/>
+        </div>
+        <div class="marquee__content__tag">
+            <img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/amapa.{{$format}}"/>
+        </div>
+        <div class="marquee__content__tag">
+            <img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/radio-latina.{{$format}}"/>
+        </div>
+    </div>
+</div>
+<div class="marquee marquee--2">
+    <div class="marquee__content">
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/femis.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/humabio.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/labrh.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/femis.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/humabio.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/labrh.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/femis.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/humabio.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/labrh.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/femis.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/humabio.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/labrh.{{$format}}"/></div>
+    </div>
+</div>
+<div class="marquee marquee--3">
+    <div class="marquee__content">
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/landskies.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/wort.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bpifrance.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/landskies.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/wort.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bpifrance.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/landskies.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/wort.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bpifrance.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/landskies.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/wort.{{$format}}"/></div>
+        <div class="marquee__content__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bpifrance.{{$format}}"/></div>
+    </div>
+</div> -->
+
+
+
+<div class="clients__container">
+    <div class="clients__container__swipers">
+        <div class="clients__container__swipers__item">
+            <div data-swiper-marquee data-swiper-marquee-from="-600" data-swiper-marquee-to="-300" data-swiper-marquee-direction="horizontal">
+                <div class="swiper vr-mb-1" > 
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/cite-des-sciences.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bdrc.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/matthieuricard.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/femis.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/luxtimes.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/radio-latina.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/obvious.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/mediafutures.{{$format}}"/></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clients__container__swipers__item">
+            <div data-swiper-marquee data-swiper-marquee-from="-300" data-swiper-marquee-to="-600" data-swiper-marquee-direction="horizontal">
+                <div class="swiper vr-mb-1" > 
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/humabio.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/amapa.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/rockhal.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/universcience.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/landskies.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/wort.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bpifrance.{{$format}}"/></div>
+                        <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/europa.{{$format}}"/></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="clients__container__swipers__item">
-        <div data-swiper-marquee data-swiper-marquee-from="-300" data-swiper-marquee-to="-600" data-swiper-marquee-direction="horizontal">
-             <div class="swiper vr-mb-1" > 
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/humabio.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/amapa.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/rockhal.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/universcience.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/landskies.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/wort.{{$format}}"/></div>
-                    <div class="swiper-slide clients__container__swipers__item__tag"><img src="{{ $site.BaseURL }}images/logo-{{$color}}/{{$format}}/bpifrance.{{$format}}"/></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    
 </div>
