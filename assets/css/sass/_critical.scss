@@ -16,18 +16,11 @@
   z-index: $preloader-z-index - 1;
 }
 
-#color-splat {
-  mix-blend-mode: difference;
-}
-
-// .preloader {
-//   background: black;
-// }
 .preloader {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: var(--text-color);
+  background: white;
   pointer-events: none;
   z-index: $preloader-z-index;
   position: fixed;
@@ -39,6 +32,8 @@
 }
 
 .preloader__content {
-  color: var(--gray-color);
+  color: var(--text-color);
+  font-weight: 500;
+  letter-spacing: 0.05rem;
   text-transform: uppercase;
 }

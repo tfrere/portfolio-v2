@@ -114,6 +114,11 @@ class SceneManager {
     this.realMousePosition.y = event.gamma; // In degree in the range [-90,90)
   }
 
+  onLoad(event) {
+    for (let i = 0; i < this.sceneComponents.length; i++)
+      if (this.sceneComponents[i].onLoad) this.sceneComponents[i].onLoad();
+  }
+
   onClick(event) {
     for (let i = 0; i < this.sceneComponents.length; i++)
       if (this.sceneComponents[i].onClick) this.sceneComponents[i].onClick();
@@ -155,7 +160,7 @@ class SceneManager {
 
 export default SceneManager;
 
-const canvas = document.getElementById("canvas");
-const sceneManager = new SceneManager(canvas);
+const canvas = document.getElementById("blob");
+window.sceneManager = new SceneManager(canvas);
 
-sceneManager.init();
+window.sceneManager.init();

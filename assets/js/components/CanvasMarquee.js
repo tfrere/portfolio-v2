@@ -154,8 +154,11 @@ class CanvasMarquee {
     this.setFont();
 
     for (let i = 0; i < this.duplicator; i += 1) {
-      // this.context.fillText(this.options.text, this.x[i], 5);
-      this.context.strokeText(this.options.text, this.x[i], 5);
+      if (this.options.hasToBeStroke) {
+        this.context.strokeText(this.options.text, this.x[i], 5);
+      } else {
+        this.context.fillText(this.options.text, this.x[i], 5);
+      }
     }
   }
 
@@ -220,13 +223,23 @@ function getRandomInt(min, max) {
 $(() => {
   //   waitForWebfonts(["Oswald"], () => {
   const $canvas = document.querySelectorAll("[data-canvas-marquee]");
+
   $canvas.forEach((el, i) => {
+    const text =
+      $(el).data("canvas-marquee-text") ||
+      "CAREFULY CRAFTING THINGS SINCE 2008 · ";
+
+    const speed = $(el).data("canvas-marquee-speed") || 2;
+    const hasToBeStroke = $(el).data("canvas-marquee-stroke") || true;
+    const height = $(el).data("canvas-marquee-height") || "200px";
+
     const canvasMarquee = new CanvasMarquee(el, {
-      text: "CAREFULY CRAFTING THINGS SINCE 2008 · ",
-      speed: 2,
+      text: text,
+      speed: speed,
       textColor: "#f5f5f5",
-      height: "200px",
-      font: "900 200px Oswald",
+      height: height,
+      hasToBeStroke: hasToBeStroke,
+      font: "900 " + height + " Poppins",
       padding: 0,
     });
 

@@ -9,7 +9,7 @@
 
 .description__active-circle__element {
   @apply absolute w-8 h-8 top-0 left-0;
-  will-change: transform;
+  // will-change: transform;
   background-color: var(--text-color);
   border-radius: 100%;
 }

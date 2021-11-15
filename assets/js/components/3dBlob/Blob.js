@@ -84,8 +84,8 @@ class Blob {
         perlins: 1.0,
         decay: 1.2,
         displace: 1.0,
-        complex: 0.5,
-        waves: 1.0,
+        complex: 0.1,
+        waves: 0,
         eqcolor: 4.0,
         rcolor: 1,
         gcolor: 0.9,
@@ -134,6 +134,25 @@ class Blob {
         });
       },
     };
+  }
+
+  onLoad() {
+    console.log(1);
+    gsap.to(this.options.perlin, {
+      // size: "0.45",
+      waves: "1",
+      complex: "1",
+      ease: "ease.out",
+      // ease: "elastic.out(1, 1)",
+      duration: 1.5,
+      overwrite: "auto",
+    });
+    // .to(this.options.perlin, {
+    //   complex: "1",
+    //   ease: "elastic.out(1, 1)",
+    //   duration: 0.5,
+    //   overwrite: "auto",
+    // });
   }
 
   onDoubleClick() {

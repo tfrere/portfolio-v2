@@ -44,7 +44,7 @@ export default class Cursor {
     this.video = $(
       '<div class="cursor-media"><video src="/images/obvious.mp4" preload="auto" autoplay="" muted="" loop="" id="obvious" style="opacity: 0; z-index: 1;"></video><video src="/images/personal.mp4" preload="auto" autoplay="" muted="" loop="" id="personal" style="opacity: 0; z-index: 1;"></video></div>'
     );
-    this.pos = { x: 0, y: 0 };
+    this.pos = { x: -10, y: -10 };
     this.oldPos = { x: 0, y: 0 };
     this.vel = { x: 0, y: 0 };
 
@@ -81,6 +81,12 @@ export default class Cursor {
       })
       .on("mouseup", () => {
         self.removeState("-active");
+      })
+      .on("mouseenter", "iframe", () => {
+        self.hide();
+      })
+      .on("mouseleave", "iframe", () => {
+        self.show();
       })
       .on("mouseenter", "[data-media-video]", function (event) {
         self.hasToScale = true;

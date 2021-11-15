@@ -15,7 +15,7 @@ $(function () {
     var distance = 80;
     var x = 0;
     var y = 0;
-    var color = "#fff";
+    var color = "#000";
     var animations = [];
 
     var setCanvasSize = function () {

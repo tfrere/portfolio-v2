@@ -1,4 +1,4 @@
-<div class="projects__grid" data-masonry='{ "itemSelector": ".projects__grid__item", "percentPosition": "true", "columnWidth": ".projects__grid__column" }'>
+<div class="projects__grid" >
     <div class="projects__grid__column"></div>
     {{ range $i, $item := where .Site.RegularPages "Type" "projects" }}
         <div class="projects__grid__item projects__grid__item--{{$item.Params.width}}">

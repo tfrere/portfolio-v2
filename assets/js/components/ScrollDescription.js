@@ -19,14 +19,13 @@ export default class ScrollDescription {
     let offset = $(target).hasClass("description__item--title") ? 30 : 0;
     tl.to(this.circleElem, {
       scaleX: 0.7,
-      // xPercent: -100,
+      xPercent: -10,
       ease: "circ.in",
       duration: 0.2,
       overwrite: "auto",
     })
       .to(this.circleElem, {
         scaleX: 1,
-        // xPercent: 0,
         ease: "circ.out",
         duration: 0.2,
         overwrite: "auto",
@@ -36,6 +35,7 @@ export default class ScrollDescription {
         {
           y: this.currentPosition + offset,
           duration: 1,
+          xPercent: 0,
           ease: "elastic.out(1, 1)",
           force3D: true,
           overwrite: "auto",

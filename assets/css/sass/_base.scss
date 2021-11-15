@@ -10,8 +10,8 @@ html {
 }
 
 ::selection {
-  color: red;
-  background: yellow;
+  color: var(--background-color);
+  background: var(--text-color);
 }
 
 body {

@@ -8,14 +8,14 @@
                 loading
             </div>
         </div>
-        {{ readFile "static/images/svg-filters.svg" | safeHTML }}
+        <!-- {{ readFile "static/images/svg-filters.svg" | safeHTML }} -->
         <canvas id="color-splat" style="display:none"></canvas>
 
         <div id="page" data-scroll-container>
             
             <div data-scroll-section>
                 <section class="section landing">
-                    <canvas class="canvas" id="canvas"></canvas>
+                    <canvas class="canvas" id="blob"></canvas>
                     {{ partial "sections/nav" }}
                     <div class="landing__content container">
                         {{ partial "sections/landing-content" }}
@@ -23,11 +23,15 @@
                     <div class="invite-to-scroll-with-text"></div>
                 </section>
 
+                <canvas class="w-full vr-mb-7" data-canvas-marquee data-canvas-marquee-speed="2" data-canvas-marquee-stroke="true" data-canvas-marquee-height="200px" style="height:200px;" ></canvas>
+                
                 <section class="section description" >
                     <div class="container">
                         {{ partial "sections/whoiam-content" (dict "Site" $.Site) }}
                     </div>
                 </section>
+
+
 
                 <section class="clients">
                         {{ partial "sections/clients-content" (dict "Site" $.Site) }}
@@ -44,6 +48,11 @@
                         {{ partial "sections/projects-content" (dict "Site" $.Site) }}
                     </div>
                 </section>
+                <!-- <canvas class="w-full" data-canvas-marquee data-canvas-marquee-speed="2" data-canvas-marquee-stroke="" ></canvas>
+                <canvas class="w-full" data-canvas-marquee data-canvas-marquee-speed="2.2" ></canvas>
+                <canvas class="w-full" data-canvas-marquee data-canvas-marquee-speed="2.4" ></canvas>
+                <canvas class="w-full" data-canvas-marquee data-canvas-marquee-speed="2.8" ></canvas>
+                <canvas class="w-full" data-canvas-marquee data-canvas-marquee-speed="3" ></canvas> -->
 
                 <section class="section contact">
                     <div class="contact__container container">
