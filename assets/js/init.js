@@ -1,6 +1,7 @@
 import $ from "jquery";
 import gsap from "gsap";
 import Masonry from "masonry-layout";
+import "fluidbox";
 
 $(function () {
   const tl = gsap.timeline({ paused: true });
@@ -18,6 +19,11 @@ $(function () {
     itemSelector: ".projects__grid__item",
     columnWidth: ".projects__grid__column",
     percentPosition: true,
+  });
+
+  $("a.img-fluidbox").fluidbox();
+  $(window).on("scroll", function () {
+    $("a.img-fluidbox").trigger("close.fluidbox");
   });
 
   // <!-- data-masonry='{ "itemSelector": ".projects__grid__item", "percentPosition": "true", "columnWidth": ".projects__grid__column" }' -->

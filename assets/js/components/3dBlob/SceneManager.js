@@ -19,10 +19,11 @@ class SceneManager {
     this.clock.start();
 
     this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(this.options.backgroundColor);
     this.renderer = new THREE.WebGLRenderer({
       canvas: canvas,
-      antialias: true,
-      alpha: true,
+      antialias: false,
+      alpha: false,
       powerPreference: "high-performance",
     });
     this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -71,8 +72,10 @@ class SceneManager {
   observe() {
     this.observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
+        console.log(1);
         this.hasToRender = true;
       } else {
+        console.log(0);
         this.hasToRender = false;
       }
     });

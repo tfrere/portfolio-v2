@@ -24,8 +24,7 @@
 
             {{ with $item.Resources.ByType "image" }}
                 {{ range first 1 . }}
-                {{ partial "components/responsive-image" (dict "Site" $.Site "image" . "color" $item.Params.color "hasToScrub" false) }}
-                <!--    <img src="{{.Permalink}}"/>-->
+                    {{ partial "components/responsive-image" (dict "Site" $.Site "image" . "color" $item.Params.color "hasToScrub" false) }}
                 {{ end }}
             {{ end }}
             <span class="projects__grid__item__label entity">

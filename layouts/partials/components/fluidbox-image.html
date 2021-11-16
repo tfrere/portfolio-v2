@@ -42,8 +42,6 @@
 {{ $test := $image.Resize "1600x 80q" }}
 
 <a class="img-fluidbox" href="{{ .RelPermalink }}">
-  <div class="lazy-image" style="background-color:{{$color}}; padding-bottom:{{ print $padding }}%;">
-    <img class="lazy-image__content" alt="{{$image.Title}}" data-lazy data-src="{{ $imgSrc }}" data-srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
-  </div>
+    <img class="" alt="{{$image.Title}}" data-lazy data-src="{{ $imgSrc }}" data-srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
 </a>
   
