@@ -10,6 +10,8 @@ $(function () {
   const preloaderElem = document.querySelector(".preloader");
   const preloaderContentElem = document.querySelector(".preloader__content");
 
+  window.scrollTo(0, 0);
+
   gsap.set(titleElem, { opacity: 0, yPercent: 60, skewY: -10, duration: 0 });
   gsap.set(preloaderElem, { opacity: 1, duration: 0 });
   gsap.set(blobElem, { opacity: 0, duration: 0, yPercent: 10 });

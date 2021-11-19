@@ -15,7 +15,10 @@ html {
 }
 
 body {
-  border: $base-size * 2 solid var(--subtle-gray-color) !important;
+  border: $base-size * 1 solid var(--subtle-gray-color) !important;
+  @include up-to-md {
+    border: $base-size * 2 solid var(--subtle-gray-color) !important;
+  }
 }
 
 .canvas {
@@ -35,5 +38,12 @@ body {
   display: block;
   @include up-to-xl {
     display: none;
+  }
+}
+
+.sentence-marquee {
+  @apply w-full vr-mb-7 hidden;
+  @include up-to-xl {
+    @apply block;
   }
 }

@@ -113,8 +113,8 @@ class SceneManager {
   }
 
   onDeviceOrientationChange(event) {
-    this.realMousePosition.x = event.beta; // In degree in the range [-180,180)
-    this.realMousePosition.y = event.gamma; // In degree in the range [-90,90)
+    this.realMousePosition.x = event.beta + 180; // In degree in the range [-180,180)
+    this.realMousePosition.y = event.gamma + 90; // In degree in the range [-90,90)
   }
 
   onLoad(event) {

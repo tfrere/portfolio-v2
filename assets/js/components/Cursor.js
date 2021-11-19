@@ -37,12 +37,14 @@ export default class Cursor {
       },
       options
     );
+    this.mediaTimeout = null;
     this.body = $(this.options.container);
     this.hasToScale = false;
+    this.isMobile = false;
     this.el = $('<div class="cursor"></div>');
     this.text = $('<div class="cursor-text"></div>');
     this.video = $(
-      '<div class="cursor-media"><video src="/images/obvious.mp4" preload="auto" autoplay="" muted="" loop="" id="obvious" style="opacity: 0; z-index: 1;"></video><video src="/images/personal.mp4" preload="auto" autoplay="" muted="" loop="" id="personal" style="opacity: 0; z-index: 1;"></video></div>'
+      '<div class="cursor-media"><video src="/images/obvious.mp4" preload="auto" autoplay="" muted="" loop="" id="obvious" style="display: none; z-index: 1;"></video><video src="/images/personal.mp4" preload="auto" autoplay="" muted="" loop="" id="personal" style="display: none; z-index: 1;"></video></div>'
     );
     this.pos = { x: -10, y: -10 };
     this.oldPos = { x: 0, y: 0 };
@@ -56,6 +58,7 @@ export default class Cursor {
     this.el.append(this.video);
     this.body.append(this.el);
     this.bind();
+    this.hide();
     this.frameLoop();
   }
 
@@ -67,6 +70,13 @@ export default class Cursor {
     );
 
     this.body
+      .on("resize", () => {
+        if (window.innerWidth < 500) {
+          this.isMobile = false;
+        } else {
+          this.isMobile = true;
+        }
+      })
       .on("mouseleave", () => {
         self.hide();
       })
@@ -92,13 +102,16 @@ export default class Cursor {
         self.hasToScale = true;
         document.getElementById(
           event.target.getAttribute("data-media-video")
-        ).style.opacity = "1";
+        ).style.display = "block";
+        clearTimeout(this.mediaTimeout);
       })
       .on("mouseleave", "[data-media-video]", function (event) {
         self.hasToScale = false;
-        document.getElementById(
-          event.target.getAttribute("data-media-video")
-        ).style.opacity = "0";
+        this.mediaTimeout = window.setTimeout(() => {
+          document.getElementById(
+            event.target.getAttribute("data-media-video")
+          ).style.display = "none";
+        }, 1000);
       })
       .on("mouseenter", "[data-cursor]", function () {
         self.setState(this.dataset.cursor);
@@ -125,8 +138,8 @@ export default class Cursor {
     this.vel.x = this.oldPos.x - this.pos.x;
     this.vel.y = this.oldPos.y - this.pos.y;
 
-    let scaleX = Math.min(-Math.abs(this.vel.y) / 50, 0.35);
-    let scaleY = Math.min(-Math.abs(this.vel.x) / 50, 0.35);
+    let scaleX = Math.min(-Math.abs(this.vel.y) / 50, 0.15);
+    let scaleY = Math.min(-Math.abs(this.vel.x) / 50, 0.15);
 
     this.move(this.pos.x, this.pos.y, scaleX, scaleY, 1, 0);
 

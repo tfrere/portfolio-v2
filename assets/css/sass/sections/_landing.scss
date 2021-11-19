@@ -1,8 +1,8 @@
 .landing {
-  @apply h-auto;
+  min-height: 75vh;
 
   @include up-to-md {
-    @apply h-full;
+    min-height: calc(100vh - #{$base-size * 2});
   }
 
   .invite-to-scroll-with-text {

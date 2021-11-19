@@ -2,20 +2,11 @@
   @apply relative ml-0 vr-mb-1;
 }
 
-.description__active-circle {
-  @apply absolute w-8 h-8 top-6 -left-16;
-  will-change: transform;
-}
-
-.description__active-circle__element {
-  @apply absolute w-8 h-8 top-0 left-0;
-  // will-change: transform;
-  background-color: var(--text-color);
-  border-radius: 100%;
-}
-
 .description__item {
-  @apply relative vr-pb-2;
+  @apply relative vr-pb-1;
+  @include up-to-xl {
+    @apply vr-pb-4;
+  }
 }
 
 .description__item span {
