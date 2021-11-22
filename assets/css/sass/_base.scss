@@ -4,9 +4,9 @@ img {
 
 body,
 html {
-  @apply antialiased w-screen p-0 m-0 overflow-x-hidden;
-  background-color: var(--background-color);
+  @apply antialiased w-full p-0 m-0 overflow-x-hidden;
   font-family: "Poppins";
+  background-color: var(--background-color);
 }
 
 ::selection {
@@ -14,24 +14,18 @@ html {
   background: var(--text-color);
 }
 
-body {
-  border: $base-size * 1 solid var(--subtle-gray-color) !important;
+#page {
   @include up-to-md {
     border: $base-size * 2 solid var(--subtle-gray-color) !important;
   }
 }
 
-.canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100%;
-  z-index: $canvas-z-index;
-}
-
 .inline-icon {
   display: inline-block;
+}
+
+.overline {
+  text-decoration: line-through;
 }
 
 .mobile-br {
@@ -43,6 +37,8 @@ body {
 
 .sentence-marquee {
   @apply w-full vr-mb-7 hidden;
+  z-index: $marquee-z-index;
+  transform: translatex(1px);
   @include up-to-xl {
     @apply block;
   }

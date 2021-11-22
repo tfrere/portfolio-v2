@@ -111,7 +111,6 @@ class Blob {
   }
 
   onLoad() {
-    console.log(1);
     gsap.to(this.options.perlin, {
       waves: "1",
       complex: "1",
@@ -148,28 +147,19 @@ class Blob {
   }
 
   update(elapsedTime) {
-    if (this.sceneManager.canvas.width <= 501) {
+    // console.log(
+    //   this.sceneManager.canvas.width,
+    //   this.sceneManager.canvas.height
+    // );
+    if (this.sceneManager.canvas.width < this.sceneManager.canvas.height) {
       this.shapeGroup.position.set(0, 0, 0);
     } else {
       this.shapeGroup.position.set(3, 0, 0);
     }
 
     this.mat.uniforms["time"].value = this.options.perlin.speed * elapsedTime;
-
-    // this.mat.uniforms["pointscale"].value = this.options.perlin.perlins;
-    // this.mat.uniforms["decay"].value = this.options.perlin.decay;
-    // this.mat.uniforms["size"].value = this.options.perlin.size;
-    // this.mat.uniforms["displace"].value = this.options.perlin.displace;
     this.mat.uniforms["complex"].value = this.options.perlin.complex;
     this.mat.uniforms["waves"].value = this.options.perlin.waves;
-    // this.mat.uniforms["fragment"].value = this.options.perlin.fragment;
-    // this.mat.wireframe = this.options.perlin.wireframe;
-
-    // this.mat.uniforms["redhell"].value = this.options.perlin.redhell;
-    // this.mat.uniforms["eqcolor"].value = this.options.perlin.eqcolor;
-    // this.mat.uniforms["rcolor"].value = this.options.perlin.rcolor;
-    // this.mat.uniforms["gcolor"].value = this.options.perlin.gcolor;
-    // this.mat.uniforms["bcolor"].value = this.options.perlin.bcolor;
   }
 }
 

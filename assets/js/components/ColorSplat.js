@@ -17,6 +17,7 @@ $(function () {
     var y = 0;
     var color = "#000";
     var animations = [];
+    let mousedown = undefined;
 
     var setCanvasSize = function () {
       canvas.width = window.innerWidth;
@@ -116,14 +117,20 @@ $(function () {
     });
 
     $("html").on("click", (e) => {
-      // console.log(e.target);
-      // e.preventDefault();
-      // e.stopPropagation();
-      // if (window.isSlideClickable) {
-      canvas.style.display = "block";
-      updateCoords(e);
-      animateParticules(x, y);
-      // }
+      var elapsed = Date.now() - mousedown;
+      mousedown = undefined;
+      if (elapsed >= 300) {
+        const isALink =
+          e.target.tagName.length == 1 && e.target.tagName.includes("A");
+        const isEmail =
+          e.target.classList && e.target.classList[0].includes("email");
+
+        if (!isALink && !isEmail) {
+          canvas.style.display = "block";
+          updateCoords(e);
+          animateParticules(x, y);
+        }
+      }
     });
 
     //     window.setInterval(()=>{
@@ -142,6 +149,20 @@ $(function () {
     // );
 
     window.addEventListener("resize", setCanvasSize, false);
+    window.addEventListener(
+      "mousedown",
+      function () {
+        mousedown = Date.now();
+      },
+      false
+    );
+    // window.addEventListener("mouseup", function() {
+    //   var elapsed = Date.now() - mousedown;
+    //   mousedown = undefined;
+    //   if (elapsed >= 1000) {
+    //       // A second or more
+    //   }
+    // }, false);
 
     return {
       boom: animateParticules,

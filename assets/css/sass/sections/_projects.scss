@@ -1,12 +1,15 @@
 .projects {
-  @apply vr-mb-2;
+  @apply vr-mb-0;
+  @include up-to-md {
+    @apply vr-mb-2;
+  }
 }
 
 .projects__container {
   @apply mx-auto px-6;
   width: 100%;
   @include up-to-md {
-    @apply mx-0;
+    @apply mx-0 px-0;
     width: 80%;
   }
 }
@@ -40,11 +43,18 @@
 }
 
 .projects__grid__item--full {
-  width: calc(100% - #{$base-size * 3});
-  margin: 0 #{$base-size * 1.5};
+  width: 100%;
+  margin: 0;
+  @include up-to-md {
+    width: calc(100% - #{$base-size * 3});
+    margin: 0 #{$base-size * 1.5};
+  }
 }
 
 .projects__grid__item__label {
   padding-top: #{$base-size * 1.5};
-  @apply block vr-mb-1 text-base text-right;
+  @apply block vr-mb-1 text-small;
+  @include up-to-md {
+    @apply text-right text-base;
+  }
 }

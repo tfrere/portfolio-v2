@@ -1,7 +1,9 @@
 .landing {
-  min-height: 75vh;
+  min-height: auto;
+  @apply vr-pt-2 vr-pb-2 block;
 
   @include up-to-md {
+    @apply vr-pt-0 vr-pb-0 flex;
     min-height: calc(100vh - #{$base-size * 2});
   }
 
@@ -13,14 +15,28 @@
   }
 }
 
-.landing__content {
-  z-index: $landing-content-z-index;
-  pointer-events: none;
-  @apply relative;
+.landing__blob {
+  @apply top-0 left-0 z-0;
+  width: 60%;
+  height: 40vh;
+  margin: 0 auto;
+  transform: translateX(-40px) translateY(-30px) scale(1.2);
+  @include up-to-md {
+    @apply absolute;
+    transform: translateX(0) translateY(0);
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.landing__content__title {
-  @apply heading-4 entity select-none;
+.landing__container {
+  z-index: $landing-content-z-index;
+  pointer-events: none;
+  @apply relative container;
+}
+
+.landing__container__title {
+  @apply heading-5 entity select-none;
   @include up-to-md {
     @apply heading-2;
   }

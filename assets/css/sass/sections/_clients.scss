@@ -1,54 +1,52 @@
 .clients {
-  @apply vr-mt-0 vr-mb-8;
+  @apply vr-mb-2;
+  @include up-to-md {
+    @apply vr-mb-8;
+  }
 }
 
-.marquee {
+.clients__marquee {
   width: 100%;
   box-sizing: border-box;
-  padding: $base-size;
-  color: #fff;
-  font-weight: 200;
   display: flex;
   align-items: center;
   overflow: hidden;
   user-select: none;
 }
 
-.marquee__content {
+.clients__marquee__content {
   display: flex;
-  animation: marquee 30s linear infinite running;
+  animation: clients__marquee 30s linear infinite running;
 }
 
-.marquee--2 .marquee__content {
-  animation: marquee-reverse 40s linear infinite running;
+.clients__marquee--2 .clients__marquee__content {
+  animation: clients__marquee-reverse 40s linear infinite running;
 }
-.marquee--3 .marquee__content {
-  animation: marquee 20s linear infinite running;
+.clients__marquee--3 .clients__marquee__content {
+  animation: clients__marquee 20s linear infinite running;
 }
-.marquee__content__tag {
-  width: $base-size * 22;
-  height: $base-size * 22;
+.clients__marquee__content__tag {
+  width: $base-size * 10;
+  height: $base-size * 10;
+  padding: $base-size;
+  margin: #{$base-size / 2};
   @include up-to-md {
     width: $base-size * 22;
     height: $base-size * 22;
+    margin: $base-size;
   }
-  margin: 0 $base-size;
-  padding: $base-size;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: #f5f5f5;
   user-select: none;
 }
-.marquee__content__tag img {
-  // opacity: 0.8;
+.clients__marquee__content__tag img {
   width: 100%;
   user-select: none;
 }
-// .marquee__content__tag img:hover {
-//   opacity: 1;
-// }
-@-moz-keyframes marquee {
+
+@keyframes clients__marquee {
   0% {
     transform: translateX(0);
   }
@@ -56,55 +54,8 @@
     transform: translate(-50%);
   }
 }
-@-webkit-keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translate(-50%);
-  }
-}
-@-o-keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translate(-50%);
-  }
-}
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translate(-50%);
-  }
-}
-@-moz-keyframes marquee-reverse {
-  0% {
-    transform: translate(-50%);
-  }
-  100% {
-    transform: translate(0%);
-  }
-}
-@-webkit-keyframes marquee-reverse {
-  0% {
-    transform: translate(-50%);
-  }
-  100% {
-    transform: translate(0%);
-  }
-}
-@-o-keyframes marquee-reverse {
-  0% {
-    transform: translate(-50%);
-  }
-  100% {
-    transform: translate(0%);
-  }
-}
-@keyframes marquee-reverse {
+
+@keyframes clients__marquee-reverse {
   0% {
     transform: translate(-50%);
   }

@@ -1,5 +1,4 @@
 import "./lib/modernizr";
-import "./SmoothScroll";
 
 import "./Stats";
 

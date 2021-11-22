@@ -2,6 +2,11 @@ import * as THREE from "three";
 import gsap from "gsap";
 import Blob from "./Blob.js";
 
+let convertRange = (value, r1, r2) => {
+  value = ((value - r1[0]) * (r2[1] - r2[0])) / (r1[1] - r1[0]) + r2[0];
+  return (value * 1000) / 1000;
+};
+
 class SceneManager {
   constructor(canvas) {
     this.canvas = canvas;
@@ -19,19 +24,19 @@ class SceneManager {
     this.clock.start();
 
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color(this.options.backgroundColor);
+    // this.scene.background = new THREE.Color(this.options.backgroundColor);
     this.renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: false,
-      alpha: false,
+      alpha: true,
       powerPreference: "high-performance",
     });
     this.renderer.setPixelRatio(window.devicePixelRatio);
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
 
     this.camera = new THREE.PerspectiveCamera(
       35,
-      window.innerWidth / window.innerHeight,
+      this.canvas.clientWidth / this.canvas.clientHeight,
       1,
       2500
     );
@@ -57,6 +62,8 @@ class SceneManager {
       // new Bubbles(this),
     ];
 
+    this.onWindowResize();
+
     window.addEventListener("mousemove", this.onMouseMove.bind(this), false);
     window.addEventListener("click", this.onClick.bind(this), false);
     window.addEventListener("dblclick", this.onDoubleClick.bind(this), false);
@@ -72,10 +79,8 @@ class SceneManager {
   observe() {
     this.observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting) {
-        console.log(1);
         this.hasToRender = true;
       } else {
-        console.log(0);
         this.hasToRender = false;
       }
     });
@@ -90,6 +95,7 @@ class SceneManager {
   }
 
   updateControls() {
+    // console.log(this.realMousePosition);
     gsap.to(this.mousePosition, {
       x: this.realMousePosition.x,
       y: this.realMousePosition.y,
@@ -104,17 +110,17 @@ class SceneManager {
   }
 
   onWindowResize() {
-    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.aspect = this.canvas.clientWidth / this.canvas.clientHeight;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
     for (let i = 0; i < this.sceneComponents.length; i++)
       if (this.sceneComponents[i].onWindowResize)
         this.sceneComponents[i].onWindowResize();
   }
 
   onDeviceOrientationChange(event) {
-    this.realMousePosition.x = event.beta + 180; // In degree in the range [-180,180)
-    this.realMousePosition.y = event.gamma + 90; // In degree in the range [-90,90)
+    this.realMousePosition.y = convertRange(event.beta, [-180, 180], [-4, 4]);
+    this.realMousePosition.x = convertRange(event.gamma, [-90, 90], [-4, 4]);
   }
 
   onLoad(event) {

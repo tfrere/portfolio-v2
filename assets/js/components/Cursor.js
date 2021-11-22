@@ -40,13 +40,13 @@ export default class Cursor {
     this.mediaTimeout = null;
     this.body = $(this.options.container);
     this.hasToScale = false;
-    this.isMobile = false;
+    // this.isMobile = false;
     this.el = $('<div class="cursor"></div>');
     this.text = $('<div class="cursor-text"></div>');
     this.video = $(
-      '<div class="cursor-media"><video src="/images/obvious.mp4" preload="auto" autoplay="" muted="" loop="" id="obvious" style="display: none; z-index: 1;"></video><video src="/images/personal.mp4" preload="auto" autoplay="" muted="" loop="" id="personal" style="display: none; z-index: 1;"></video></div>'
+      '<div class="cursor-media"><video class="cursor-media__video"  src="/images/obvious.mp4" preload="auto" autoplay="" muted="" loop="" id="obvious" style="display: none;"></video><video  class="cursor-media__video" src="/images/personal.mp4" preload="auto" autoplay="" muted="" loop="" id="personal" style="display: none;"></video></div>'
     );
-    this.pos = { x: -10, y: -10 };
+    this.pos = { x: 0, y: 0 };
     this.oldPos = { x: 0, y: 0 };
     this.vel = { x: 0, y: 0 };
 
@@ -70,13 +70,15 @@ export default class Cursor {
     );
 
     this.body
-      .on("resize", () => {
-        if (window.innerWidth < 500) {
-          this.isMobile = false;
-        } else {
-          this.isMobile = true;
-        }
-      })
+      // .on("resize", () => {
+      //   if (window.innerWidth < 500) {
+      //     this.isMobile = true;
+      //     console.log("mobile");
+      //   } else {
+      //     this.isMobile = false;
+      //     console.log("desktop");
+      //   }
+      // })
       .on("mouseleave", () => {
         self.hide();
       })

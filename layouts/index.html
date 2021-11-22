@@ -8,52 +8,96 @@
                 loading
             </div>
         </div>
-        <!-- {{ readFile "static/images/svg-filters.svg" | safeHTML }} -->
         <canvas id="color-splat" style="display:none"></canvas>
-
-        <div id="page" data-scroll-container>
+        <div id="page">
+            <section class="section landing">
+                <canvas class="landing__blob" id="blob"></canvas>
+                {{ partial "sections/nav" }}
+                <div class="landing__container">
+                    <h1 class="landing__container__title">
+                        Hello,<br class="mobile-br"/> I’m an
+                        <br/>
+                        interactive
+                        designer.
+                    </h1>
+                </div>
+                <div class="invite-to-scroll-with-text"></div>
+            </section>
+            <!-- · -->
+            <canvas class="sentence-marquee" data-canvas-marquee data-canvas-marquee-text="WITH  MORE  THAN  10  YEARS  IN  THE  GAME   -  " data-canvas-marquee-speed="2" data-canvas-marquee-stroke="true" data-canvas-marquee-height="200px" style="height:200px;" ></canvas>
             
-            <div data-scroll-section>
-                <section class="section landing">
-                    <canvas class="canvas" id="blob"></canvas>
-                    {{ partial "sections/nav" }}
-                    <div class="landing__content container">
-                        {{ partial "sections/landing-content" }}
+            <section class="section" >
+                <div class="container">
+                    <div class="description">
+                        <div  class="description__item" >
+                            <span>I <strong>lead front-end development</strong> for companies and organizations.</span>
+                        </div>
+                        <div  class="description__item" >
+                            <span>I also help <a class="description__item__link" data-media-video="obvious" data-cursor="-media" href="https://obvious-art.com" target="_blank" rel="noopener">international artists</a> to make <strong>interactive experiments</strong>.</span>
+                        </div>
+                        <div  class="description__item" >
+                            <span>I’ve worked on projects of different scales — from <strong>small micro-sites </strong> to <strong>larger Web applications</strong>.</span>
+                        </div>
+                        <div  class="description__item" >
+                            <span>For wonderful people ↓
+                                <!-- <img class="inline-icon ml-1" src="images/pointing.png"/> -->
+                            </span>
+                        </div>
                     </div>
-                    <div class="invite-to-scroll-with-text"></div>
-                </section>
+                </div>
+            </section>
 
-                <canvas class="sentence-marquee" data-canvas-marquee data-canvas-marquee-text="WITH MORE THAN 10 YEARS IN THE GAME  · " data-canvas-marquee-speed="2" data-canvas-marquee-stroke="true" data-canvas-marquee-height="200px" style="height:200px;" ></canvas>
-                
-                <section class="section description" >
-                    <div class="container">
-                        {{ partial "sections/whoiam-content" (dict "Site" $.Site) }}
+            <section class="clients">
+                    {{ partial "sections/clients-content" (dict "Site" $.Site) }}
+            </section>
+
+            <section class="section">
+                <div class="mx-auto container">
+                    <div  class="description">
+                        <div class="description__item description__item--title" >
+                            <span class="description__item--title" >Most of my UI work can be found <a data-media-video="personal" data-cursor="-media"  class="description__item__link" target="_blank" rel="nofollow" href="https://www.behance.net/frerethibaud9207">here</a>.</span>
+                        </div>
+                        <div class="w-8/12 description__item" >
+                            <span>Some of my <strong>recent visual projects</strong> are just below ↓
+                                <!-- <img class="inline-icon ml-1" src="images/pointing.png"/></span> -->
+                        </div>
                     </div>
-                </section>
+                </div>
+            </section>
 
-                <section class="clients">
-                        {{ partial "sections/clients-content" (dict "Site" $.Site) }}
-                </section>
+            <section class="section projects">
+                <div class="projects__container">
+                    {{ partial "sections/projects-content" (dict "Site" $.Site) }}
+                </div>
+            </section>
 
-                <section class="section">
-                    <div class="mx-auto container">
-                        {{ partial "sections/wheretofindmywork-content" (dict "Site" $.Site) }}
+            <section class="section contact">
+                <div class="contact__container">
+                    <div class="description">
+                        <div class="description__item description__item--title">
+                            <span>
+                            Feel free to write me an email.
+                            </span>
+                        </div>
+                        
+                        <div class="description__item">
+                            <span>
+                            I’m <strong>available</strong> in 
+                            <strong>full remote</strong><br/> 
+                            from Metz, France.
+                            </span>
+                        </div>
+                        
+                        <div class="description__item">
+                            <span>Say&nbsp;</span>
+                            <a data-click-to-copy href="mailto:hello@tfrere.com" class="email" data-cursor="-lg">
+                                <span class="email">hello@tfrere.com</span>
+                                <span data-click-to-copy-info-message class="email__info-message">Copied !</span>
+                            </a>
+                        </div>
                     </div>
-                </section>
-
-                <section class="section projects">
-                    <div class="projects__container">
-                        {{ partial "sections/projects-content" (dict "Site" $.Site) }}
-                    </div>
-                </section>
-
-                <section class="section contact">
-                    <div class="contact__container container">
-                        {{ partial "sections/contact-content" (dict "Site" $.Site) }}
-                    </div>
-                </section>
-            </div>
-
+                </div>
+            </section>
         </div>
 
         {{- $transpiled := resources.Get "js/index.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}

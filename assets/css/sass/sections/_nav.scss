@@ -2,6 +2,10 @@
   @apply absolute top-0 left-0 w-full;
   z-index: $nav-z-index;
   user-select: none;
+  @apply hidden;
+  @include up-to-md {
+    @apply flex;
+  }
 }
 
 .nav__content {
@@ -18,11 +22,8 @@
 }
 
 .nav__content__socials {
-  @apply self-end hidden flex-row;
+  @apply flex self-end flex-row;
   margin-left: auto;
-  @include up-to-md {
-    @apply flex;
-  }
 }
 
 .nav__content__socials__item {

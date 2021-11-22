@@ -9,19 +9,34 @@
   }
 }
 
+.description__item__link {
+  @apply underline font-black;
+}
+
 .description__item span {
-  @apply transition-colors text-lead font-semibold entity;
+  @apply transition-colors text-base font-semibold entity;
+  // word-break: break-all;
+  // hyphenate-limit-chars: 10 3 4;
+  // hyphens: manual;
   color: var(--text-color);
+  @include up-to-md {
+    @apply text-lead;
+  }
   @include up-to-xl {
     @apply text-hero;
   }
 }
 
 .description__item--title span {
-  @apply heading-4 entity;
+  @apply heading-5 entity;
+  word-break: keep-all;
   @include up-to-md {
     @apply heading-1 entity;
   }
+}
+
+.description__item--title .description__item__link {
+  @apply font-bold;
 }
 
 .description__item__list {
