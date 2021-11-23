@@ -1,6 +1,8 @@
 import $ from "jquery";
 import gsap from "gsap";
 import Masonry from "masonry-layout";
+// const hyphenopoly = require("hyphenopoly");
+// import "hyphenopoly";
 
 $(function () {
   const tl = gsap.timeline({ paused: true });
@@ -118,4 +120,19 @@ $(function () {
   }
 
   tl.play();
+
+  // const hyphenator = hyphenopoly.config({
+  //   require: ["de", "en-us"],
+  //   hyphen: "•",
+  //   exceptions: {
+  //     "en-us": "en-han-ces",
+  //   },
+  // });
+
+  // async function hyphenate_en(text) {
+  //   const hyphenateText = await hyphenator.get("en-us");
+  //   console.log(hyphenateText(text));
+  // }
+
+  // hyphenate_en("hyphenation enhances justification.");
 });

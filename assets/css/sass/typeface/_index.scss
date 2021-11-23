@@ -28,21 +28,6 @@ span {
   color: var(--text-color);
 }
 
-.black {
-  @apply relative w-full;
-  background: var(--background-color);
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  span {
-    color: var(--text-color);
-  }
-}
-
 .heading--center {
   @apply text-center w-full inline-block;
 }

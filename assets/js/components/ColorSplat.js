@@ -29,31 +29,11 @@ $(function () {
       y = e.clientY || e.touches[0].clientY;
     };
 
-    var createCircle = function (x, y) {
-      var p = {};
-      p.x = x;
-      p.y = y;
-      p.color = color;
-      p.radius = 0;
-      p.alpha = 0.6;
-      p.lineWidth = 6;
-      p.draw = function () {
-        ctx.globalAlpha = p.alpha;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI, true);
-        ctx.lineWidth = p.lineWidth;
-        ctx.strokeStyle = p.color;
-        ctx.stroke();
-        ctx.globalAlpha = 0.6;
-      };
-      return p;
-    };
-
     var createParticule = function (x, y) {
       var p = {};
       p.x = x;
       p.y = y;
-      p.color = color;
+      p.color = getComputedStyle(canvas).getPropertyValue("--text-color");
       p.radius = anime.random(2, 10);
       p.draw = function () {
         ctx.beginPath();
@@ -84,7 +64,7 @@ $(function () {
     var animateParticules = function (x, y) {
       setCanvasSize();
       var particules = createParticles(x, y);
-      var circle = createCircle(x, y);
+
       var particulesAnimation = anime({
         targets: particules,
         x: function (p) {

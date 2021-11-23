@@ -15,7 +15,7 @@
                 {{ partial "sections/nav" }}
                 <div class="landing__container">
                     <h1 class="landing__container__title">
-                        Hello,<br class="mobile-br"/> I’m an
+                        Hello,&nbsp;<br class="mobile-br"/> I’m an
                         <br/>
                         interactive
                         designer.
@@ -57,7 +57,7 @@
                         <div class="description__item description__item--title" >
                             <span class="description__item--title" >Most of my UI work can be found <a data-media-video="personal" data-cursor="-media"  class="description__item__link" target="_blank" rel="nofollow" href="https://www.behance.net/frerethibaud9207">here</a>.</span>
                         </div>
-                        <div class="w-8/12 description__item" >
+                        <div class="md:w-8/12 description__item" >
                             <span>Some of my <strong>recent visual projects</strong> are just below ↓
                                 <!-- <img class="inline-icon ml-1" src="images/pointing.png"/></span> -->
                         </div>
@@ -71,12 +71,13 @@
                 </div>
             </section>
 
+
             <section class="section contact">
                 <div class="contact__container">
                     <div class="description">
                         <div class="description__item description__item--title">
                             <span>
-                            Feel free to write me an email.
+                            Always keen for a good collab.
                             </span>
                         </div>
                         
@@ -89,16 +90,26 @@
                         </div>
                         
                         <div class="description__item">
-                            <span>Say&nbsp;</span>
+                            <span>Say&nbsp;
+                        </span>
+
                             <a data-click-to-copy href="mailto:hello@tfrere.com" class="email" data-cursor="-lg">
                                 <span class="email">hello@tfrere.com</span>
                                 <span data-click-to-copy-info-message class="email__info-message">Copied !</span>
                             </a>
                         </div>
+
                     </div>
                 </div>
             </section>
+
         </div>
+
+        {{ $toto := getenv "HUGO_ENV"}}
+        {{ if eq $toto "dev" }} 
+            {{- $transpiled := resources.Get "js/Stats.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}
+            <script src={{$transpiled.Permalink}} type="text/javascript"></script>
+        {{end}}
 
         {{- $transpiled := resources.Get "js/index.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}
         <script src={{$transpiled.Permalink}} type="text/javascript"></script>

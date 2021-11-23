@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "develop": "hugo server",
-    "dev": " hugo server  --disableFastRender --environment=dev",
-    "build": "hugo",
+    "dev": " env HUGO_ENV=dev  hugo server  --disableFastRender --environment=dev",
+    "build": "env HUGO_ENV=prod  hugo --environment=prod",
     "build-modernizr": "cd assets/js/lib; modernizr -c modernizr-config.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -36,6 +36,7 @@
     "@babel/cli": "^7.13.10",
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
+    "hyphenopoly": "^5.0.0-beta.2",
     "postcss": "^8.2.8",
     "postcss-cli": "^7.1.0",
     "tailwind": "^4.0.0",

@@ -56,18 +56,18 @@ $yellow: #f4cc25; //#f8cf26;
 }
 
 $black: #121212;
+
 .black {
   --text-color: white;
-  --gray-color: lighten($black, 5%);
-  --subtle-gray-color: lighten($black, 15%);
+  --gray-color: rgb(100, 100, 100);
+  --subtle-gray-color: rgb(30, 30, 30);
   --background-color: #{$black};
-  background-color: var(--background-color);
 }
 
-.blue {
-  --text-color: white;
-  --gray-color: lighten(#001a28, 5%);
-  --subtle-gray-color: lighten(#001a28, 15%);
-  --background-color: #{$blue};
-  background-color: var(--background-color);
-}
+// .blue {
+//   --text-color: white;
+//   --gray-color: lighten(#001a28, 5%);
+//   --subtle-gray-color: lighten(#001a28, 15%);
+//   --background-color: #{$blue};
+//   background-color: var(--background-color);
+// }

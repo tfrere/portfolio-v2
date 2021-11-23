@@ -11,6 +11,12 @@ $size: 24px;
   color: var(--background-color);
   transform: translate3d(0, 0, 0);
 }
+// dirty fix
+.black {
+  [data-cursor="-media"] {
+    color: white;
+  }
+}
 
 .cursor {
   $root: &;

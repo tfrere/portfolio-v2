@@ -30,7 +30,6 @@
     {{ $title := print .Site.Title " | " .Title }}
     {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
     <title>{{ $title }}</title>
-    
 
     {{ $dateTime := .PublishDate.Format "2006-01-02" }}
     {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
@@ -38,17 +37,16 @@
     
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Thibaud Frere Portfolio" />
-    <meta property="og:description" content="A French designer / developer and artist" />
+    <meta property="og:description" content="A French interaction designer" />
     <!-- <meta property="og:image" content="LINK TO THE IMAGE FILE" /> -->
     <!-- <meta property="og:url" content="PERMALINK" /> -->
     <meta property="og:site_name" content="Thibaud Frere Portfolio" />
     
     <meta name="twitter:title" content="Thibaud Frere Portfolio">
-    <meta name="twitter:description" content="A French designer / developer and artist">
+    <meta name="twitter:description" content="A French interaction designer">
     <!-- <meta name="twitter:image" content="LINK TO IMAGE"> -->
     <meta name="twitter:site" content="@tfrere">
     <meta name="twitter:creator" content="@tfrere">
     
 
 </head>
-

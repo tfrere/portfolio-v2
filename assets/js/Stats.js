@@ -5,7 +5,7 @@ $(function () {
   var stats = new Stats();
   stats.showPanel(0);
   stats.dom.style.top = "20px";
-  stats.dom.style.left = "180px";
+  stats.dom.style.left = "20px";
   stats.dom.style.zIndex = "99999999999";
   stats.dom.style.display = "none";
   document.body.appendChild(stats.dom);

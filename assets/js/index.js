@@ -1,7 +1,5 @@
 import "./lib/modernizr";
 
-import "./Stats";
-
 import "./components/Cursor";
 import "./components/LazyloadImages";
 import "./components/ClickToCopy";

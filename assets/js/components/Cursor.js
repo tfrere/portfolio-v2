@@ -140,8 +140,8 @@ export default class Cursor {
     this.vel.x = this.oldPos.x - this.pos.x;
     this.vel.y = this.oldPos.y - this.pos.y;
 
-    let scaleX = Math.min(-Math.abs(this.vel.y) / 50, 0.15);
-    let scaleY = Math.min(-Math.abs(this.vel.x) / 50, 0.15);
+    let scaleX = Math.max(1 + -Math.abs(this.vel.y) / 50, 0.15);
+    let scaleY = Math.max(1 + -Math.abs(this.vel.x) / 50, 0.15);
 
     this.move(this.pos.x, this.pos.y, scaleX, scaleY, 1, 0);
 
@@ -156,8 +156,8 @@ export default class Cursor {
 
     if (this.hasToScale) {
       scale = {
-        x: 1 + scaleX,
-        y: 1 + scaleY,
+        x: scaleX,
+        y: scaleY,
       };
     }
 

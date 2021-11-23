@@ -15,12 +15,15 @@
 
 .description__item span {
   @apply transition-colors text-base font-semibold entity;
-  // word-break: break-all;
-  // hyphenate-limit-chars: 10 3 4;
-  // hyphens: manual;
+  hyphenate-limit-chars: 10 3 4;
+  -webkit-hyphenate-limit-chars: 10 3 4;
+  hyphens: auto;
+  -webkit-hyphens: auto;
   color: var(--text-color);
   @include up-to-md {
     @apply text-lead;
+    hyphens: none;
+    -webkit-hyphens: none;
   }
   @include up-to-xl {
     @apply text-hero;
