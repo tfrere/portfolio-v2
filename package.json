@@ -6,7 +6,7 @@
   "scripts": {
     "develop": "hugo server",
     "dev": " env HUGO_ENV=dev  hugo server  --disableFastRender --environment=dev",
-    "build": "env HUGO_ENV=prod  hugo --environment=prod",
+    "build": "env HUGO_ENV=prod  hugo --environment=prod && gzip -k -6 $(find public -type f)",
     "build-modernizr": "cd assets/js/lib; modernizr -c modernizr-config.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

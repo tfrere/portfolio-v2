@@ -47,3 +47,10 @@ html {
     @apply block;
   }
 }
+
+#work {
+  @apply vr-pt-2;
+  @include up-to-md {
+    @apply vr-pt-8;
+  }
+}

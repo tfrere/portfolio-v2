@@ -6,7 +6,7 @@ import Masonry from "masonry-layout";
 
 $(function () {
   const tl = gsap.timeline({ paused: true });
-  const titleElem = document.querySelector(".landing__container__title");
+  const titleElem = document.querySelector(".landing__container");
   const blobElem = document.getElementById("blob");
   const preloaderElem = document.querySelector(".preloader");
   const preloaderContentElem = document.querySelector(".preloader__content");

@@ -45,3 +45,11 @@
     @apply heading-1;
   }
 }
+
+.landing__container__text {
+  @apply text-small inline-block entity select-none;
+  margin-top: $base-size / 2;
+  @include up-to-md {
+    @apply text-base;
+  }
+}

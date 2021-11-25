@@ -1,8 +1,4 @@
 .clients {
-  @apply vr-mb-2;
-  @include up-to-md {
-    @apply vr-mb-8;
-  }
 }
 
 .clients__marquee {

@@ -125,9 +125,13 @@ class Blob {
     tl.to(this.options.perlin, {
       waves: "4",
       complex: "2",
+      wireframe: true,
       ease: "ease.in",
       duration: 0.25,
       overwrite: "auto",
+      onComplete: () => {
+        this.options.perlin.wireframe = false;
+      },
     }).to(this.options.perlin, {
       waves: "1",
       complex: "1",
@@ -160,6 +164,7 @@ class Blob {
     this.mat.uniforms["time"].value = this.options.perlin.speed * elapsedTime;
     this.mat.uniforms["complex"].value = this.options.perlin.complex;
     this.mat.uniforms["waves"].value = this.options.perlin.waves;
+    this.mat.wireframe = this.options.perlin.wireframe;
   }
 }
 
