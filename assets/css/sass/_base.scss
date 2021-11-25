@@ -22,6 +22,10 @@ html {
 
 .inline-icon {
   display: inline-block;
+  transform: scale(0.5);
+  @include up-to-md {
+    transform: scale(1);
+  }
 }
 
 .overline {

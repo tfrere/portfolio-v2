@@ -41,7 +41,7 @@ $yellow: #f4cc25; //#f8cf26;
   --cursor-color: black;
 
   --text-color: #121212;
-  --gray-color: rgb(114, 114, 114);
+  --gray-color: rgb(180, 180, 180);
   --subtle-gray-color: #f5f5f5;
   --background-color: white;
 
@@ -60,8 +60,8 @@ $black: #121212;
 .black {
   --text-color: white;
   --gray-color: rgb(100, 100, 100);
-  --subtle-gray-color: rgb(30, 30, 30);
-  --background-color: #{$black};
+  --subtle-gray-color: rgb(0, 0, 0);
+  --background-color: rgb(30, 30, 30);
 }
 
 // .blue {

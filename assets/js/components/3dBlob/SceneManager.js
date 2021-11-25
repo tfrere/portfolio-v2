@@ -24,11 +24,10 @@ class SceneManager {
     this.clock.start();
 
     this.scene = new THREE.Scene();
-    // this.scene.background = new THREE.Color(this.options.backgroundColor);
     this.renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: false,
-      alpha: true,
+      alpha: false,
       powerPreference: "high-performance",
     });
     this.renderer.setPixelRatio(window.devicePixelRatio);
@@ -161,7 +160,12 @@ class SceneManager {
 
   update() {
     window.requestAnimationFrame(this.update.bind(this));
+
     if (this.hasToRender) {
+      this.scene.background = new THREE.Color(
+        getComputedStyle(this.canvas).getPropertyValue("--background-color")
+      );
+
       this.render();
     }
   }

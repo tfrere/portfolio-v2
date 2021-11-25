@@ -44,8 +44,9 @@ export default class Cursor {
     this.el = $('<div class="cursor"></div>');
     this.text = $('<div class="cursor-text"></div>');
     this.video = $(
-      '<div class="cursor-media"><video class="cursor-media__video"  src="/images/obvious.mp4" preload="auto" autoplay="" muted="" loop="" id="obvious" style="display: none;"></video><video  class="cursor-media__video" src="/images/personal.mp4" preload="auto" autoplay="" muted="" loop="" id="personal" style="display: none;"></video></div>'
+      '<div class="cursor-media"><video class="cursor-media__video"  src="/images/obvious.mp4" preload="auto" autoplay="" muted="" loop="" id="obvious" style="display: none;"></video><video  class="cursor-media__video" src="/images/personal.mp4" preload="auto" autoplay="" muted="" loop="" id="personal" style="display: none;"></video><video class="cursor-media__video"  src="/images/ui.mp4" preload="auto" autoplay="" muted="" loop="" id="ui" style="display: none;"></video></div>'
     );
+    this.oldTarget = null;
     this.pos = { x: 0, y: 0 };
     this.oldPos = { x: 0, y: 0 };
     this.vel = { x: 0, y: 0 };
@@ -105,15 +106,24 @@ export default class Cursor {
         document.getElementById(
           event.target.getAttribute("data-media-video")
         ).style.display = "block";
+        this.oldTarget = event.target;
         clearTimeout(this.mediaTimeout);
       })
       .on("mouseleave", "[data-media-video]", function (event) {
         self.hasToScale = false;
-        this.mediaTimeout = window.setTimeout(() => {
+        if (this.oldTarget) {
           document.getElementById(
             event.target.getAttribute("data-media-video")
           ).style.display = "none";
-        }, 1000);
+          this.oldTarget = null;
+        } else {
+          this.mediaTimeout = window.setTimeout(() => {
+            document.getElementById(
+              event.target.getAttribute("data-media-video")
+            ).style.display = "none";
+            this.oldTarget = null;
+          }, 1000);
+        }
       })
       .on("mouseenter", "[data-cursor]", function () {
         self.setState(this.dataset.cursor);

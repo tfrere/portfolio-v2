@@ -31,9 +31,9 @@ export default class SentenceFocus {
         (entries) => {
           console.log(entries);
           if (entries[0].isIntersecting) {
-            $(entries[0].target).addClass("description__item--active");
+            $(entries[0].target).addClass("description__list__item--active");
           } else {
-            $(entries[0].target).removeClass("description__item--active");
+            $(entries[0].target).removeClass("description__list__item--active");
           }
         },
         {
