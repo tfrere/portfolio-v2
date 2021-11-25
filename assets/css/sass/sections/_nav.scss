@@ -27,9 +27,9 @@
 
 .nav__content__name {
   @apply block uppercase font-medium tracking-wider;
-  font-size: $base-size * 1.5;
-  line-height: $base-size * 1.5;
-  color: var(--text-color);
+  font-size: $base-size * 1.3;
+  line-height: $base-size * 1.3;
+  color: var(--gray-color);
 }
 
 .nav__content__socials {

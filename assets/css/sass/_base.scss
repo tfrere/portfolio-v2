@@ -40,7 +40,7 @@ html {
 }
 
 .sentence-marquee {
-  @apply w-full vr-mb-7 hidden;
+  @apply w-full hidden;
   z-index: $marquee-z-index;
   transform: translatex(1px);
   @include up-to-xl {
@@ -48,9 +48,13 @@ html {
   }
 }
 
+#about {
+  @apply vr-pt-7;
+}
+
 #work {
   @apply vr-pt-2;
   @include up-to-md {
-    @apply vr-pt-8;
+    @apply vr-pt-6;
   }
 }
