@@ -50,10 +50,7 @@
 }
 
 .description__label {
-  @apply text-label uppercase vr-pb-1 inline-block;
-  @include up-to-md {
-    @apply vr-pb-0;
-  }
+  @apply text-label uppercase vr-pb-0 inline-block;
   color: var(--text-color);
 }
 
@@ -68,19 +65,24 @@
   }
   @include up-to-md {
     @apply heading-2 vr-pt-1 vr-pb-1;
-    @apply font-light;
+    @apply font-medium;
     &:last-child {
       @apply vr-pb-1;
     }
   }
+
   color: var(--text-color);
 
   @include up-to-md {
+    -webkit-text-stroke: 1px var(--text-color);
+    color: transparent;
+
     &:hover {
       mix-blend-mode: difference;
+      color: var(--background-color);
       // color: var(--background-color);
-      -webkit-text-stroke: 1px var(--background-color);
-      color: transparent;
+      // -webkit-text-stroke: 1px var(--background-color);
+      // color: transparent;
     }
   }
 }

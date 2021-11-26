@@ -49,7 +49,7 @@ html {
 }
 
 #about {
-  @apply vr-pt-2;
+  @apply vr-pt-0;
   @include up-to-md {
     @apply vr-pt-7;
   }
