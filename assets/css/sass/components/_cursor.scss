@@ -4,27 +4,6 @@
 
 $size: 24px;
 
-[data-cursor="-media"] {
-  z-index: $cursor-z-index + 1;
-  position: relative;
-  &:hover {
-    mix-blend-mode: difference;
-    // color: var(--background-color);
-    color: transparent;
-    -webkit-text-stroke: 1px var(--background-color) !important;
-  }
-  transform: translate3d(0, 0, 0);
-}
-// dirty fix
-.black {
-  [data-cursor="-media"] {
-    &:hover {
-      mix-blend-mode: difference;
-      color: white;
-    }
-  }
-}
-
 .cursor {
   $root: &;
 

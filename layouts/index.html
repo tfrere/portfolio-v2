@@ -27,7 +27,8 @@
                 <div class="invite-to-scroll-with-text"></div>
             </section>
             <!-- · -->
-            <canvas class="sentence-marquee" data-canvas-marquee data-canvas-marquee-text="LESS  IS  MORE  -  " data-canvas-marquee-speed="2" data-canvas-marquee-stroke="true" data-canvas-marquee-height="200px" style="height:200px;" ></canvas>
+            <canvas class="sentence-marquee" data-canvas-marquee data-canvas-marquee-text="NICE  TO  MEET  YOU  !  " data-canvas-marquee-speed="2" data-canvas-marquee-stroke="true" data-canvas-marquee-height="200px" style="height:200px;" ></canvas>
+            <!-- <canvas class="sentence-marquee" data-canvas-marquee data-canvas-marquee-text="LESS  IS  MORE  -  " data-canvas-marquee-speed="2" data-canvas-marquee-stroke="true" data-canvas-marquee-height="200px" style="height:200px;" ></canvas> -->
             <div data-nav id="fixed-nav-content">
                 <ul class="fixed-nav">
                     <li data-nav-item class="fixed-nav__item fixed-nav__item--active">
@@ -51,29 +52,22 @@
                         <div class="container">
                             <div class="description">
 
-                                <div  class="description__item" >
-                                    <span>
+                                <p  class="description__item" >
                                         I help companies to build <strong>resilient UI foundations</strong> for their online experiences.
-                                    </span>
-                                </div>
+                                </p>
 
-                                <div  class="description__item" >
-                                    <span>
+                                <p  class="description__item" >
                                         My work lies at the intersection of <strong>design</strong> and <strong>backend</strong>.
-                                    </span>
-                                </div>
+                                </p>
 
-                                <div  class="description__item" >
-                                    <span>
+                                <p  class="description__item" >
                                         Translating designs into <strong>live prototypes</strong>, resilient <strong>user interfaces</strong>, and <strong>design systems</strong>.
-                                    </span>
-                                </div>
-                                <div class="description__item">
-                                    <span>I have some expertise in
+                                </p>
 
-                                        <!-- <a  data-media-video="personal" data-cursor="-media" >art direction</a> -->
-                                    </span>
-                                </div>
+                                <!-- <p  class="description__item" >
+                                    With some expertise in
+                                </p> -->
+
                                 <!-- <canvas class="sentence-marquee" data-canvas-marquee data-canvas-marquee-text="art direction  - " data-canvas-marquee-speed="2" data-canvas-marquee-stroke="true" data-canvas-marquee-height="200px" style="height:200px;" ></canvas> -->
                                 <!-- <canvas class="sentence-marquee" data-canvas-marquee data-canvas-marquee-text="developement  -  " data-canvas-marquee-speed="2" data-canvas-marquee-stroke="true" data-canvas-marquee-height="200px" style="height:200px;" ></canvas> -->
                                 <!-- <canvas class="sentence-marquee" data-canvas-marquee data-canvas-marquee-text="scenography  -  " data-canvas-marquee-speed="2" data-canvas-marquee-stroke="true" data-canvas-marquee-height="200px" style="height:200px;" ></canvas> -->
@@ -83,45 +77,41 @@
                                     <li data-scroll-description-item data-scroll-offset="50%, 49.999%"  data-media-video="obvious" data-cursor="-media"  class="description__list__item">ux - ui design</li>
                                     <li data-scroll-description-item data-scroll-offset="50%, 49.999%"  data-media-video="personal" data-cursor="-media" class="description__list__item">developement</li>
                                 </ul> -->
-                                <!-- <div class="description__separator"></div> -->
-
+                                <div class="description__separator"></div>
+                                <label class="description__label">
+                                    Expertises
+                                </label>
                                 <ul class="description__list">
-                                    <li data-media-video="obvious" data-cursor="-media"  class="description__list__item">• art direction</li>
-                                    <!-- •  -->
-                                    <li data-media-video="ui" data-cursor="-media"  class="description__list__item">• ux-ui design</li>
-                                    <!-- •  -->
-                                    <li data-media-video="personal" data-cursor="-media" class="description__list__item">• developement</li>
-                                    <!-- •  -->
+                                    <li class="description__list__item" data-media-video="obvious" data-cursor="-media"  >art direction</li>
+                                    <!-- •  👉  -->
+                                    <li  class="description__list__item" data-media-video="ui" data-cursor="-media" >ux-ui design</li>
+                                    <!-- •  👉  -->
+                                    <li  class="description__list__item" data-media-video="personal" data-cursor="-media">developement</li>
+                                    <!-- •  👉  -->
                                 </ul>
-
-                                <!-- <div class="description__separator"></div> -->
-                                <!-- <div  class="description__item" >
-                                    <span>
+                                <div class="description__separator"></div>
+                                <!-- <p  class="description__item" >
                                         From time to time,
                                         I also help
                                         <a class="description__item__link" data-media-video="obvious" data-cursor="-media" >international artists</a>
                                         to make <strong>interactive experiments</strong>.
-                                    </span>
-                                </div> -->
-                                <!-- <div  class="description__item" >
-                                    <span>
+                                </p> 
+                                <p  class="description__item" >
                                         Sometimes, people who do what I do are also called <strong>design engineers</strong> or <strong>creative programmers</strong>.
-                                    </span>
-                                </div> -->
-                                <div  class="description__item" >
-                                    <span>I’ve worked on projects of different scales — from <strong>small micro-sites </strong> to <strong>larger Web applications</strong>.</span>
-                                </div>
-                                <div  class="description__item" >
-                                    <span>For wonderful people ↓
+                                </p> -->
+                                <p  class="description__item" >
+                                        I’ve worked on projects of different scales — from <strong>small micro-sites </strong> to <strong>larger Web applications</strong>.
+                                </p>
+                                <p  class="description__item" >
+                                        For wonderful people ↓
                                         <!-- <img class="inline-icon ml-1" src="images/pointing.png"/> -->
-                                    </span>
-                                </div>
+                                </p>
                             </div>
                         </div>
-                    </section>
+                    </section> 
 
                     <section data-nav-hide class="clients">
-                            {{ partial "sections/clients-content" (dict "Site" $.Site) }}
+                            {{ partial "sections/clients-content-alt" (dict "Site" $.Site) }}
                     </section>
 
                 </div>
@@ -130,14 +120,13 @@
                     <section class="section">
                         <div class="mx-auto container">
                             <div  class="description">
-                                <div class="description__item description__item--title" >
-                                    <span class="description__item--title" >Most of my work is on <a data-cursor="-lg" class="description__item__link" target="_blank" rel="nofollow" href="https://www.behance.net/frerethibaud9207">Behance</a>.</span>
-                                </div>
-                                <div class="md:w-8/12 description__item" >
-                                    <span>And some of my <strong>visual projects</strong> are just below ↓
+                                <p class="description__title" >
+                                    Most of my work is on <a data-cursor="-lg" class="description__item__link" target="_blank" rel="noopener" href="https://www.behance.net/frerethibaud9207">Behance</a>.
+                                </p>
+                                <p class="md:w-8/12 description__item" >
+                                        And some of my <strong>visual projects</strong> are just below ↓
                                         <!-- <img class="inline-icon ml-1" src="images/pointing.png"/> -->
-                                    </span>
-                                </div>
+                                </p>
                             </div>
                         </div>
                     </section>
@@ -152,27 +141,23 @@
                 <section class="section contact" id="contact">
                     <div class="contact__container">
                         <div class="description">
-                            <div class="description__item description__item--title">
-                                <span>
+                            <p class="description__title">
                                 Always keen for a good collab.
-                                </span>
-                            </div>
+                            </p>
                             
-                            <div class="description__item">
-                                <span>
+                            <p class="description__item">
                                 I’m <strong>available</strong> in 
                                 <strong>full remote</strong><br/> 
                                 from Metz, France.
-                                </span>
-                            </div>
+                            </p>
                             
-                            <div class="description__item">
-                                <span>Say&nbsp;</span>
+                            <p class="description__item">
+                                Say&nbsp;
                                 <a data-click-to-copy href="mailto:hello@tfrere.com" class="email" data-cursor="-lg">
                                     <span class="email">hello@tfrere.com</span>
                                     <span data-click-to-copy-info-message class="email__info-message">Copied !</span>
                                 </a>
-                            </div>
+                            </p>
 
                         </div>
                     </div>

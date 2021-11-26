@@ -14,7 +14,7 @@
 .email {
   @apply underline relative;
   &__info-message {
-    @apply -bottom-7 text-base absolute top-4 left-0 transform transform-gpu -translate-y-4 duration-200 ease-in;
+    @apply -bottom-16 text-base absolute left-0 transform transform-gpu -translate-y-4 duration-200 ease-in;
     font-size: #{$base-size * 2} !important;
     opacity: 0;
     &.show {

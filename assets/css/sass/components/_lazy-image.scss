@@ -1,5 +1,6 @@
 .lazy-image {
-  @apply relative w-full bg-gray-100 overflow-hidden;
+  @apply relative w-full overflow-hidden;
+  background-color: var(--subtle-gray-color);
 }
 
 .lazy-image__content {

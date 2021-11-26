@@ -103,6 +103,9 @@ export default class Cursor {
       })
       .on("mouseenter", "[data-media-video]", function (event) {
         self.hasToScale = true;
+        console.log(
+          document.getElementById(event.target.getAttribute("data-media-video"))
+        );
         document.getElementById(
           event.target.getAttribute("data-media-video")
         ).style.display = "block";

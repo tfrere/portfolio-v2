@@ -52,7 +52,8 @@ $yellow: #f4cc25; //#f8cf26;
   --yellow: #f4cc25;
 
   --title-font: "Poppins";
-  --text-font: "Poppins";
+  --text-font: "Nunito Sans"; // "Poppins";
+  // --text-font: "Poppins"; // "Poppins";
 }
 
 $black: #121212;
@@ -64,10 +65,11 @@ $black: #121212;
   --background-color: rgb(30, 30, 30);
 }
 
-// .blue {
-//   --text-color: white;
-//   --gray-color: lighten(#001a28, 5%);
-//   --subtle-gray-color: lighten(#001a28, 15%);
-//   --background-color: #{$blue};
-//   background-color: var(--background-color);
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --text-color: white;
+//     --gray-color: rgb(100, 100, 100);
+//     --subtle-gray-color: rgb(0, 0, 0);
+//     --background-color: rgb(30, 30, 30);
+//   }
 // }
