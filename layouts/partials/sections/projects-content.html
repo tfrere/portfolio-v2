@@ -14,19 +14,26 @@
 
             {{ $images := $item.Resources }}
 
-            <!-- {{ range $item.Resources }}
-                {{ if (in .MediaType.Suffixes "mp4") }}
-                    <video class="projects__grid__item__video" autoplay loop muted>
-                        <source src="{{ .Permalink }}" type="video/mp4">
-                    </video>    
-                {{ end }}
-            {{ end }} -->
+            {{ if eq $item.Params.mediatype "video" }} 
 
-            {{ with $item.Resources.ByType "image" }}
-                {{ range first 1 . }}
-                    {{ partial "components/responsive-image" (dict "Site" $.Site "image" . "color" $item.Params.color "hasToScrub" false) }}
+                {{ range $item.Resources }}
+                    {{ if (in .MediaType.Suffixes "mp4") }}
+                        {{ partial "components/responsive-video" (dict "Name" .Name "Permalink" .Permalink "image" . "color" $item.Params.color) }}
+                    {{ end }}
                 {{ end }}
+
             {{ end }}
+
+            {{ if eq $item.Params.mediatype "image" }} 
+
+                {{ with $item.Resources.ByType "image" }}
+                    {{ range first 1 . }}
+                        {{ partial "components/responsive-image" (dict "Site" $.Site "image" . "color" $item.Params.color "hasToScrub" false) }}
+                    {{ end }}
+                {{ end }}
+
+            {{ end }}
+            
             <span class="projects__grid__item__label entity">
                 {{$item.Title}}
                 <!-- #{{$i}} -->

@@ -1,0 +1,28 @@
+.socials {
+  @apply flex self-end flex-row;
+  margin-left: auto;
+}
+
+.socials__item {
+}
+
+.socials__item__link {
+  color: var(--text-color);
+  @apply flex flex-row items-center justify-center;
+  @apply entity;
+  width: $base-size * 5;
+  height: $base-size * 5;
+  // padding: 3px;
+  margin-top: 0;
+  padding-left: 12px;
+  transform: rotate(0deg);
+  transition: all 200ms ease;
+  svg {
+    width: 100%;
+    height: 100%;
+    transition: none 0ms linear;
+  }
+  svg path {
+    fill: var(--text-color);
+  }
+}

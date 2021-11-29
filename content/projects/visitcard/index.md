@@ -12,6 +12,7 @@ client: Landskies
 color: "#EFF3F6"
 number: 03
 width: "half"
+mediatype: "image"
 description: The Augmented Reality Game that plants real trees! Catch as many trees as possible near you and reforest soils around the world
 externalurl: https://www.behance.net/gallery/127541523/Captree-Mobile-game
 ---

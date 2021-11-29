@@ -42,6 +42,6 @@
 {{ $test := $image.Resize "1600x 80q" }}
 
 <div class="lazy-image" style="background-color:{{$color}}; padding-bottom:{{ print $padding }}%;">
-  <img class="lazy-image__content" alt="{{$image.Title}}" data-lazy data-src="{{ $imgSrc }}" data-srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
+  <img class="lazy-image__content" alt="{{$image.Title}}" data-lazy-image data-src="{{ $imgSrc }}" data-srcset="{{ $imgSrcSet }}" {{ print $attributes | safeHTMLAttr }}>
 </div>
   

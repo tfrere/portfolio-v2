@@ -10,6 +10,7 @@ client: Personal
 color: "#EFF3F6"
 number: 01
 width: "full"
+mediatype: "image"
 description: Personal work using latest deep learning algorithms
 externalurl: "https://www.behance.net/gallery/127532391/AI-assisted-paintings"
 ---

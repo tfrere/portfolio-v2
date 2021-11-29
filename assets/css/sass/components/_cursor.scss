@@ -4,6 +4,13 @@
 
 $size: 24px;
 
+.cursor-hold-circle {
+  @apply absolute top-0 left-0;
+  background: red;
+  width: 100%;
+  height: 100%;
+}
+
 .cursor {
   $root: &;
 
@@ -23,11 +30,7 @@ $size: 24px;
     @apply block;
   }
 
-  // mix-blend-mode: difference;
-
-  // filter: url(#goo);
-
-  &:before {
+  .cursor-circle {
     content: "";
     position: absolute;
     top: -$size;
@@ -37,35 +40,63 @@ $size: 24px;
     height: $size * 2;
     transform: scale(0);
 
-    // background: white;
     background: var(--text-color);
 
     border-radius: 50%;
+    overflow: hidden;
 
     transition: transform 0.3s ease-in-out, opacity 0.1s, background-color 0.1s;
+    &:before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: 0%;
+      display: block;
+      width: 100%;
+      height: 120%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(100%);
+      transition: all 500ms ease;
+      z-index: 0;
+    }
+    &.-holding:before {
+      transform: translateY(0%);
+      transition: all 1500ms ease;
+    }
   }
 
   &-text {
     position: absolute;
-    top: -36px;
-    left: -36px;
-    width: 72px;
-    height: 72px;
+    top: -#{$base-size * 7};
+    left: -#{$base-size * 7};
+    width: #{$base-size * 14};
+    height: #{$base-size * 14};
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: scale(0) rotate(10deg);
-    font-weight: 900;
+    transform: scale(0);
+    font-weight: 500;
+    z-index: 1;
 
     opacity: 0;
     color: white;
-
-    font-size: 14px;
-    text-transform: uppercase;
     text-align: center;
-    letter-spacing: -0.01em;
 
-    transition: opacity 0.4s, transform 0.3s;
+    transition: opacity 0.4s, transform 0.1s;
+    .cursor-text__title {
+      transform: translateY(10px);
+      font-weight: 700;
+      font-size: $base-size * 2;
+      letter-spacing: -0.01em;
+      margin-bottom: $base-size;
+    }
+    .cursor-text__instruction {
+      transform: translateY(10px);
+      font-size: $base-size * 1.2;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
   }
 
   &-media {
@@ -97,16 +128,12 @@ $size: 24px;
     position: absolute;
   }
 
-  &.-big-font .cursor-text {
-    font-size: 24px;
-  }
-
   &.-exclusion {
     @supports (mix-blend-mode: exclusion) {
       mix-blend-mode: exclusion;
     }
 
-    &:before {
+    .cursor-circle {
       @supports (mix-blend-mode: exclusion) {
         background: white;
       }
@@ -116,7 +143,7 @@ $size: 24px;
   &.-normal {
     mix-blend-mode: normal;
 
-    &:before {
+    .cursor-circle {
       background: currentColor;
     }
   }
@@ -126,18 +153,18 @@ $size: 24px;
   }
 
   &.-visible {
-    &:before {
-      transform: scale(0.2);
+    .cursor-circle {
+      transform: scale(0.5);
     }
 
-    &.-active:before {
+    &.-active .cursor-circle {
       transform: scale(0.1);
-      transition-duration: 0.2s;
+      transition-duration: 0.5s;
     }
   }
 
   &.-pointer {
-    &:before {
+    .cursor-circle {
       transform: scale(0.4);
     }
   }
@@ -145,28 +172,28 @@ $size: 24px;
   &.-opaque {
     @extend .-exclusion;
 
-    &:before {
+    .cursor-circle {
       transform: scale(1.32);
     }
 
-    &.-active:before {
+    &.-active .cursor-circle {
       transform: scale(1.2);
     }
   }
 
   &.-lg {
     mix-blend-mode: difference;
-    &:before {
+    .cursor-circle {
       transform: scale(0.8);
       background-color: var(--background-color);
     }
-    &.-active:before {
+    &.-active .cursor-circle {
       transform: scale(0.6);
     }
   }
 
   &.-hidden {
-    &:before {
+    .cursor-circle {
       transform: scale(0) !important;
     }
   }
@@ -175,10 +202,10 @@ $size: 24px;
     @extend .-normal;
     mix-blend-mode: normal;
 
-    &:before {
+    .cursor-circle {
       opacity: 1;
-      transform: scale(1.7);
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      transform: scale(5);
+      // border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     #{$root} {
@@ -188,9 +215,24 @@ $size: 24px;
       }
     }
 
-    &.-active:before {
-      transform: scale(1.4);
+    &.-active .cursor-circle {
+      transform: scale(5.2);
       transition-duration: 0.2s;
     }
+  }
+}
+
+[data-cursor-link] {
+  user-select: none;
+  user-drag: none;
+  -webkit-user-drag: none;
+}
+
+a[target="_blank"]::after {
+  @apply inline-block;
+  content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+  margin: 0 3px 0 5px;
+  @include up-to-md {
+    @apply hidden;
   }
 }

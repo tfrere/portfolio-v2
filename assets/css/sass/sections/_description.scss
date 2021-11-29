@@ -29,14 +29,6 @@
   }
 }
 
-.description__item .description__item__link {
-  @apply underline font-black inline;
-}
-
-.description__title .description__item__link {
-  @apply font-bold;
-}
-
 .description__list {
   @apply vr-mb-1 m-0 p-0 flex flex-col;
   @include up-to-md {
@@ -85,6 +77,11 @@
       // color: transparent;
     }
   }
+}
+
+.description__item__link,
+.description__text__link {
+  @apply underline font-bold inline;
 }
 
 .description__separator {

@@ -1,0 +1,18 @@
+{{ $permalink := .Permalink }}
+{{ $name := .Name }}
+{{ $image := .image }}
+{{ $color := .color }}
+
+{{ $dims := split (index (split (index (last 1 (split $name "-")) 0) ".") 0) "x" }}
+{{ $width := index $dims 0 }}
+{{ $height := index $dims 1 }}
+
+{{ $floatWidth := float $width }}
+{{ $floatHeight := float $height }}
+{{ $division := div $floatHeight $floatWidth }}
+{{ $padding := mul $division 100 }}
+
+<div class="lazy-video" style="background-color:{{$color}}; padding-bottom:{{ print $padding }}%;">
+    <video class="lazy-video__content" data-lazy-video class="projects__grid__item__video" autoplay loop muted data-src="{{ $permalink }}" type="video/mp4">
+    </video>    
+</div>  

@@ -38,11 +38,15 @@ export default class Cursor {
       options
     );
     this.mediaTimeout = null;
+    this.linkTimeout = null;
     this.body = $(this.options.container);
     this.hasToScale = false;
-    // this.isMobile = false;
+    this.isMobile = false;
     this.el = $('<div class="cursor"></div>');
-    this.text = $('<div class="cursor-text"></div>');
+    this.elCircle = $('<div class="cursor-circle"></div>');
+    this.text = $(
+      '<div class="cursor-text"><div class="cursor-text__title">Visit website.</div><div class="cursor-text__instruction">click and hold<br/> to open</div></div>'
+    );
     this.video = $(
       '<div class="cursor-media"><video class="cursor-media__video"  src="/images/obvious.mp4" preload="auto" autoplay="" muted="" loop="" id="obvious" style="display: none;"></video><video  class="cursor-media__video" src="/images/personal.mp4" preload="auto" autoplay="" muted="" loop="" id="personal" style="display: none;"></video><video class="cursor-media__video"  src="/images/ui.mp4" preload="auto" autoplay="" muted="" loop="" id="ui" style="display: none;"></video></div>'
     );
@@ -57,8 +61,10 @@ export default class Cursor {
   init() {
     this.el.append(this.text);
     this.el.append(this.video);
+    this.el.append(this.elCircle);
     this.body.append(this.el);
     this.bind();
+    this.computeResize();
     this.hide();
     this.frameLoop();
   }
@@ -66,20 +72,14 @@ export default class Cursor {
   bind() {
     const self = this;
     let showDebounce = debounce(
-      this.mouseMove({ clientX: 0, clientY: 0 }),
+      this.mouseMove({ clientX: -100, clientY: -100 }),
       100
     );
 
     this.body
-      // .on("resize", () => {
-      //   if (window.innerWidth < 500) {
-      //     this.isMobile = true;
-      //     console.log("mobile");
-      //   } else {
-      //     this.isMobile = false;
-      //     console.log("desktop");
-      //   }
-      // })
+      .on("resize", () => {
+        self.computeResize();
+      })
       .on("mouseleave", () => {
         self.hide();
       })
@@ -93,7 +93,39 @@ export default class Cursor {
         self.setState("-active");
       })
       .on("mouseup", () => {
+        console.log("mouseup");
         self.removeState("-active");
+      })
+      .on("mouseenter", "[data-cursor-text]", function () {
+        self.hasToScale = true;
+        self.setText(this.dataset.cursorText);
+      })
+      .on("mouseleave", "[data-cursor-text]", function () {
+        self.hasToScale = false;
+        self.removeText();
+      })
+      .on("mousedown", "[data-cursor-link]", (event) => {
+        $(this.elCircle).addClass("-holding");
+        // self.setText("hold to open");
+        this.linkTimeout = window.setTimeout(() => {
+          $(this.elCircle).removeClass("-holding");
+          window.open($(event.target).attr("href"), "_blank");
+        }, 1500);
+      })
+      .on("mouseup", "[data-cursor-link]", (event) => {
+        $(this.elCircle).removeClass("-holding");
+        clearTimeout(this.linkTimeout);
+      })
+      .on("mouseleave", "[data-cursor-link]", () => {
+        $(this.elCircle).removeClass("-holding");
+        clearTimeout(this.linkTimeout);
+      })
+      .on("click", "[data-cursor-link]", (event) => {
+        console.log("ismobile", this.isMobile);
+        if (!this.isMobile) {
+          event.stopPropagation();
+          event.preventDefault();
+        }
       })
       .on("mouseenter", "iframe", () => {
         self.hide();
@@ -149,16 +181,28 @@ export default class Cursor {
     this.update();
   }
 
+  computeResize() {
+    if (window.innerWidth < 500) {
+      this.isMobile = true;
+      console.log("mobile");
+    } else {
+      this.isMobile = false;
+      console.log("desktop");
+    }
+  }
+
   frameLoop() {
-    this.vel.x = this.oldPos.x - this.pos.x;
-    this.vel.y = this.oldPos.y - this.pos.y;
+    if (!this.isMobile) {
+      this.vel.x = this.oldPos.x - this.pos.x;
+      this.vel.y = this.oldPos.y - this.pos.y;
 
-    let scaleX = Math.max(1 + -Math.abs(this.vel.y) / 50, 0.15);
-    let scaleY = Math.max(1 + -Math.abs(this.vel.x) / 50, 0.15);
+      let scaleX = Math.max(1 + -Math.abs(this.vel.y) / 50, 0.15);
+      let scaleY = Math.max(1 + -Math.abs(this.vel.x) / 50, 0.15);
 
-    this.move(this.pos.x, this.pos.y, scaleX, scaleY, 1, 0);
+      this.move(this.pos.x, this.pos.y, scaleX, scaleY, 1, 0);
 
-    requestAnimationFrame(this.frameLoop.bind(this));
+      requestAnimationFrame(this.frameLoop.bind(this));
+    }
   }
 
   move(x, y, scaleX, scaleY, duration, rotation) {
@@ -202,7 +246,7 @@ export default class Cursor {
   }
 
   setText(text) {
-    this.text.html(text);
+    // this.text.html(text);
     this.el.addClass("-text");
   }
 
