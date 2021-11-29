@@ -108,9 +108,11 @@ export default class Cursor {
         $(this.elCircle).addClass("-holding");
         // self.setText("hold to open");
         this.linkTimeout = window.setTimeout(() => {
-          $(this.elCircle).removeClass("-holding");
           window.open($(event.target).attr("href"), "_blank");
-        }, 1500);
+          this.linkTimeout = window.setTimeout(() => {
+            $(this.elCircle).removeClass("-holding");
+          }, 100);
+        }, 1000);
       })
       .on("mouseup", "[data-cursor-link]", (event) => {
         $(this.elCircle).removeClass("-holding");
