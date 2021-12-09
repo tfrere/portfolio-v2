@@ -9,7 +9,8 @@
             </div>
         </div>
         <canvas id="color-splat" style="display:none"></canvas>
-        <div id="page">
+        <div id="page" data-scroll-visualizer>
+            <div class="scroll-bar" data-scroll-visualizer-scrollbar></div>
             <section class="section landing">
                 <canvas class="landing__blob" id="blob"></canvas>
                 {{ partial "sections/nav" }}
@@ -70,15 +71,28 @@
                                         Translating designs into <strong>live prototypes</strong>, resilient <strong>user interfaces</strong>, and <strong>design systems</strong>.
                                 </p>
 
+                                <!-- <p  class="description__item" >
+                                    Some of my work was rewarded by <strong>HEC</strong>, <strong>42</strong> and <strong>Telecom Paris</strong>.
+                                </p> -->
+
                                 <div class="description__separator"></div>
                                 <label class="description__label">
-                                    → Expertises
+                                    <span data-eye class="eye">{{ readFile "static/images/eye.svg" | safeHTML }}</span> Expertises
                                 </label>
                                 <ul class="description__list">
-                                    <li class="description__list__item" data-media-video="obvious" data-cursor="-media"  >art direction</li>
+                                    <li data-eye-trigger  class="description__list__item" data-media-video="obvious" data-cursor="-media"  >
+                                    art direction
+                                    <span class="description__list__item__index">01</span>
+                                    </li>
                                     <!-- •  👉  → -->
-                                    <li  class="description__list__item" data-media-video="ui" data-cursor="-media" >ux-ui design</li>
-                                    <li  class="description__list__item" data-media-video="personal" data-cursor="-media">developement</li>
+                                    <li data-eye-trigger   class="description__list__item" data-media-video="ui" data-cursor="-media" >
+                                        ux-ui design
+                                        <span class="description__list__item__index">02</span>
+                                    </li>
+                                    <li data-eye-trigger   class="description__list__item" data-media-video="personal" data-cursor="-media">
+                                        developement
+                                        <span class="description__list__item__index">03</span>
+                                    </li>
                                 </ul>
                                 <div class="description__separator"></div>
                                 <!-- <p  class="description__item" >
@@ -106,7 +120,7 @@
                         <div class="mx-auto container">
                             <div  class="description">
                                 <p class="description__title" >
-                                    Most of my work is on <a class="description__item__link" target="_blank" rel="noopener" href="https://www.behance.net/frerethibaud9207" data-cursor-link data-cursor-text="See more" >Bēhance</a>.
+                                    Most of my work is on <a class="description__item__link" target="_blank" rel="noopener" href="https://www.behance.net/frerethibaud9207" data-cursor-link data-cursor-text="See more" >Bēhance</a>
                                 </p>
                                 <!-- <ul class="socials"> -->
                                 <!-- <li class="socials__item" id="linkedin-stick-area">
@@ -136,7 +150,7 @@
                                 </p> -->
                                 
                                 <p class="md:w-8/12 description__item" >
-                                        And some of my <strong>visual projects</strong> are just below ↓
+                                        and just below,<br/> some <span class='overline'>random</span> recent <strong>visual stuff</strong> ↓
                                         <!-- <img class="inline-icon ml-1" src="images/pointing.png"/> -->
                                 </p>
                             </div>

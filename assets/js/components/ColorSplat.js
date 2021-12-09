@@ -113,16 +113,14 @@ $(function () {
       }
     });
 
-    //     window.setInterval(()=>{
-    //       updateCoords({clientX: 500, clientY: 500});
-    //       animateParticules(x, y);
-
-    //     }, 1000);
-
-    // document.addEventListener(
-    //   tap,
-    //   function (e) {
-    //     updateCoords(e);
+    // window.addEventListener(
+    //   "endOfPageReached",
+    //   (e) => {
+    //     canvas.style.display = "block";
+    //     updateCoords({
+    //       clientX: 30,
+    //       clientY: canvas.height - 30,
+    //     });
     //     animateParticules(x, y);
     //   },
     //   false
@@ -136,13 +134,6 @@ $(function () {
       },
       false
     );
-    // window.addEventListener("mouseup", function() {
-    //   var elapsed = Date.now() - mousedown;
-    //   mousedown = undefined;
-    //   if (elapsed >= 1000) {
-    //       // A second or more
-    //   }
-    // }, false);
 
     return {
       boom: animateParticules,

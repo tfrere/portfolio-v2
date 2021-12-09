@@ -1,4 +1,5 @@
 import $ from "jquery";
+// import waitForWebfonts from "../helpers/waitForWebfonts.js";
 
 class CanvasMarquee {
   constructor(canvas, options = {}) {
@@ -9,7 +10,6 @@ class CanvasMarquee {
     this.initialOffset = -(this.canvas.clientWidth * this.ratio);
     this.hasToRender = false;
 
-    this.textHeight = this.measureFontHeight().height;
     this.resize();
 
     this.animId;
@@ -177,7 +177,7 @@ function getRandomInt(min, max) {
 }
 
 $(() => {
-  //   waitForWebfonts(["Oswald"], () => {
+  // waitForWebfonts(["Oswald"], () => {
   const $canvas = document.querySelectorAll("[data-canvas-marquee]");
 
   $canvas.forEach((el, i) => {
@@ -206,5 +206,5 @@ $(() => {
 
     canvasMarquee.animate();
   });
-  //   });
+  // });
 });

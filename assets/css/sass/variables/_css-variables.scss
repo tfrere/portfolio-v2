@@ -31,7 +31,7 @@ $yellowHue: 48;
 $yellowSaturation: 100%;
 $yellowLightness: 57%;
 $yellow: hsl($yellowHue, $yellowSaturation, $yellowLightness);
-$darken-yellow: darken($yellow, 15%);
+$darken-yellow: darken($yellow, 12%);
 $yellow: #f4cc25; //#f8cf26;
 
 // ease('out-quart÷'): cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -50,6 +50,7 @@ $yellow: #f4cc25; //#f8cf26;
   --pink: #e790a6;
   --orange: #ec8444;
   --yellow: #f4cc25;
+  --darken-yellow: #{$darken-yellow};
 
   --title-font: "Poppins";
   --text-font: "Nunito Sans"; // "Poppins";

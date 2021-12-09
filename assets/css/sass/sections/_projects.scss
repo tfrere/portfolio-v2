@@ -54,6 +54,7 @@
 .projects__grid__item__label {
   padding-top: #{$base-size * 1.5};
   @apply block vr-mb-1 text-small;
+  font-size: $base-size * 1;
   @include up-to-md {
     @apply text-right text-base;
   }

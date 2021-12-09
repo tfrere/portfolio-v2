@@ -8,11 +8,9 @@
   }
 }
 
-.contact__container__email-sentence {
-}
-
 .email {
   @apply underline relative;
+  color: var(--yellow);
   &__info-message {
     @apply -bottom-16 text-base absolute left-0 transform transform-gpu -translate-y-4 duration-200 ease-in;
     font-size: #{$base-size * 2} !important;

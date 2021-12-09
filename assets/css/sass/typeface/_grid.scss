@@ -2,7 +2,7 @@ $vr-grid-color: var(--gray-color);
 $vr-base-size: $base-size * 4;
 $vr-half-size: $vr-base-size / 2;
 $vr-line-thickness: 0.5px;
-$vr-grid-z-index: 0;
+$vr-grid-z-index: 10;
 
 .vr-show-entities .entity {
   background: var(--subtle-gray-color) !important;

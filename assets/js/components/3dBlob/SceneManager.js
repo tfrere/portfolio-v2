@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import gsap from "gsap";
 import Blob from "./Blob.js";
+import Bubbles from "./Bubbles.js";
 
 let convertRange = (value, r1, r2) => {
   value = ((value - r1[0]) * (r2[1] - r2[0])) / (r1[1] - r1[0]) + r2[0];
@@ -160,12 +161,10 @@ class SceneManager {
 
   update() {
     window.requestAnimationFrame(this.update.bind(this));
-
     if (this.hasToRender) {
       this.scene.background = new THREE.Color(
         getComputedStyle(this.canvas).getPropertyValue("--background-color")
       );
-
       this.render();
     }
   }

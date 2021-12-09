@@ -1,8 +1,8 @@
 ---
-title: "CapTree's world"
-smalltitle: "CapTree's world'"
-date: 2021-01-02T01:00:04+01:00
-draft: false
+title: "Collectivz, logo"
+smalltitle: "Interakt"
+date: 2021-11-04T01:00:04+01:00
+draft: true
 tags: ["mobile game"]
 roles:
   - UX
@@ -12,7 +12,7 @@ client: Landskies
 color: "#EFF3F6"
 number: 03
 width: "half"
-mediatype: "image"
+mediatype: "video"
 description: The Augmented Reality Game that plants real trees! Catch as many trees as possible near you and reforest soils around the world
 externalurl: https://www.behance.net/gallery/127541523/Captree-Mobile-game
 ---

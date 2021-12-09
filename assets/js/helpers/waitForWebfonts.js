@@ -1,4 +1,4 @@
-function waitForWebfonts(fonts, callback) {
+export default function waitForWebfonts(fonts, callback) {
   var loadedFonts = 0;
   for (var i = 0, l = fonts.length; i < l; ++i) {
     (function (font) {

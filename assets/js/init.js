@@ -1,8 +1,6 @@
 import $ from "jquery";
 import gsap from "gsap";
 import Masonry from "masonry-layout";
-// const hyphenopoly = require("hyphenopoly");
-// import "hyphenopoly";
 
 $(function () {
   const tl = gsap.timeline({ paused: true });

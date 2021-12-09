@@ -12,24 +12,24 @@
   @apply flex flex-row align-top items-center w-full relative;
   padding: $base-size * 2 $base-size * 2;
   @apply entity;
-  &:after {
-    position: absolute;
-    right: 0;
-    top: 0;
-    content: "";
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 #{$base-size * 5} #{$base-size * 5} 0;
-    border-color: transparent var(--subtle-gray-color) transparent transparent;
-  }
+  // &:after {
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   content: "";
+  //   width: 0;
+  //   height: 0;
+  //   border-style: solid;
+  //   border-width: 0 #{$base-size * 5} #{$base-size * 5} 0;
+  //   border-color: transparent var(--subtle-gray-color) transparent transparent;
+  // }
 }
 
 .nav__content__name {
-  @apply block uppercase font-medium tracking-wider;
-  font-size: $base-size * 1.3;
-  line-height: $base-size * 1.3;
-  color: var(--gray-color);
+  @apply block lowercase font-medium;
+  font-size: $base-size * 1.5;
+  line-height: $base-size * 1.5;
+  color: var(--text-color);
 }
 
 $anim-curve: cubic-bezier(0.23, 1, 0.32, 1);
@@ -37,7 +37,7 @@ $anim-timing: 0.3s;
 
 .fixed-nav {
   @apply fixed top-1/2 transform -rotate-90 flex-row-reverse;
-  left: -60px;
+  left: -72px;
   z-index: 1;
   opacity: 1;
   // transition: opacity 200ms ease;
@@ -113,6 +113,13 @@ $anim-timing: 0.3s;
 //   transform: rotate(0.001deg);
 //   transition: max-width $anim-timing $anim-curve;
 // }
+
+.fixed-nav__item--active .fixed-nav__item__link__text {
+  color: var(--yellow);
+  &:after {
+    background: var(--yellow);
+  }
+}
 
 .fixed-nav__item:hover .fixed-nav__item__link__text:after,
 .fixed-nav__item--active .fixed-nav__item__link__text:after {

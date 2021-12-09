@@ -93,7 +93,6 @@ export default class Cursor {
         self.setState("-active");
       })
       .on("mouseup", () => {
-        console.log("mouseup");
         self.removeState("-active");
       })
       .on("mouseenter", "[data-cursor-text]", function () {
@@ -123,7 +122,6 @@ export default class Cursor {
         clearTimeout(this.linkTimeout);
       })
       .on("click", "[data-cursor-link]", (event) => {
-        console.log("ismobile", this.isMobile);
         if (!this.isMobile) {
           event.stopPropagation();
           event.preventDefault();
@@ -137,9 +135,6 @@ export default class Cursor {
       })
       .on("mouseenter", "[data-media-video]", function (event) {
         self.hasToScale = true;
-        console.log(
-          document.getElementById(event.target.getAttribute("data-media-video"))
-        );
         document.getElementById(
           event.target.getAttribute("data-media-video")
         ).style.display = "block";
@@ -186,10 +181,8 @@ export default class Cursor {
   computeResize() {
     if (window.innerWidth < 500) {
       this.isMobile = true;
-      console.log("mobile");
     } else {
       this.isMobile = false;
-      console.log("desktop");
     }
   }
 
