@@ -15,7 +15,7 @@ $(function () {
     var distance = 80;
     var x = 0;
     var y = 0;
-    var color = "#000";
+    var color = getComputedStyle(canvas).getPropertyValue("--text-color");
     var animations = [];
     let mousedown = undefined;
 
@@ -33,7 +33,7 @@ $(function () {
       var p = {};
       p.x = x;
       p.y = y;
-      p.color = getComputedStyle(canvas).getPropertyValue("--text-color");
+      p.color = color;
       p.radius = anime.random(2, 10);
       p.draw = function () {
         ctx.beginPath();
@@ -61,17 +61,27 @@ $(function () {
       if (index > -1) animations.splice(index, 1);
     };
 
-    var animateParticules = function (x, y) {
+    var animateParticules = function (x, y, isOriented) {
       setCanvasSize();
       var particules = createParticles(x, y);
 
       var particulesAnimation = anime({
         targets: particules,
         x: function (p) {
-          return p.x + anime.random(-distance, distance);
+          return (
+            p.x +
+            (isOriented
+              ? anime.random(0, distance)
+              : anime.random(-distance, distance))
+          );
         },
         y: function (p) {
-          return p.y + anime.random(-distance, distance);
+          return (
+            p.y +
+            (isOriented
+              ? anime.random(-distance, 0)
+              : anime.random(-distance, distance))
+          );
         },
         radius: 0,
         duration: function () {
@@ -99,6 +109,7 @@ $(function () {
     $("html").on("click", (e) => {
       var elapsed = Date.now() - mousedown;
       mousedown = undefined;
+      color = getComputedStyle(canvas).getPropertyValue("--text-color");
       if (elapsed >= 300) {
         const isALink =
           e.target.tagName.length == 1 && e.target.tagName.includes("A");
@@ -113,18 +124,19 @@ $(function () {
       }
     });
 
-    // window.addEventListener(
-    //   "endOfPageReached",
-    //   (e) => {
-    //     canvas.style.display = "block";
-    //     updateCoords({
-    //       clientX: 30,
-    //       clientY: canvas.height - 30,
-    //     });
-    //     animateParticules(x, y);
-    //   },
-    //   false
-    // );
+    window.addEventListener(
+      "endOfPageReached",
+      (e) => {
+        canvas.style.display = "block";
+        color = getComputedStyle(canvas).getPropertyValue("--yellow");
+        updateCoords({
+          clientX: 15,
+          clientY: canvas.height - 15,
+        });
+        animateParticules(x, y, true);
+      },
+      false
+    );
 
     window.addEventListener("resize", setCanvasSize, false);
     window.addEventListener(

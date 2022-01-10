@@ -230,9 +230,9 @@ $size: 24px;
   -webkit-user-drag: none;
 }
 
-a[target="_blank"] {
-  @apply vr-mr-1 relative;
-}
+// a[target="_blank"] {
+//   @apply vr-mr-1 relative;
+// }
 
 // a[target="_blank"]::after {
 //   @apply absolute top-0 inline-block -top-5;

@@ -21,7 +21,7 @@ html {
       content: "";
       @apply h-full fixed top-0 left-0;
       width: $base-size;
-      background: var(--yellow);
+      background: var(--subtle-gray-color);
       z-index: 9;
     }
     // border: $base-size * 2 solid var(--subtle-gray-color) !important;
@@ -33,7 +33,7 @@ html {
     @apply h-full fixed top-0 left-0;
     width: $base-size;
     height: 0px;
-    background: var(--darken-yellow);
+    background: var(--yellow);
     z-index: 9;
   }
 }
