@@ -110,9 +110,16 @@ class SceneManager {
   }
 
   onWindowResize() {
-    this.camera.aspect = this.canvas.clientWidth / this.canvas.clientHeight;
+    this.canvas.style.width = null;
+    this.canvas.style.height = null;
+
+    const width = this.canvas.clientWidth;
+    const height = this.canvas.clientHeight;
+
+    this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
-    this.renderer.setSize(this.canvas.clientWidth, this.canvas.clientHeight);
+    this.renderer.setSize(width, height);
+
     for (let i = 0; i < this.sceneComponents.length; i++)
       if (this.sceneComponents[i].onWindowResize)
         this.sceneComponents[i].onWindowResize();

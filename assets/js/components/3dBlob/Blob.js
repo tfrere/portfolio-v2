@@ -151,10 +151,6 @@ class Blob {
   }
 
   update(elapsedTime) {
-    // console.log(
-    //   this.sceneManager.canvas.width,
-    //   this.sceneManager.canvas.height
-    // );
     if (this.sceneManager.canvas.width < this.sceneManager.canvas.height) {
       this.shapeGroup.position.set(0, 0, 0);
     } else {

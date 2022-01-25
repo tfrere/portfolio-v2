@@ -18,8 +18,8 @@ timeout = 600000
 # Every landscape image will also be scaled down to 1500px and 1000px,
 # and portrait photos to 1000px and 750px wide.
 [params]
-landscapePhotoWidths = [1500, 1000, 500]
-portraitPhotoWidths = [1250, 750, 350]
+landscapePhotoWidths = [2000, 1500, 1000, 500]
+portraitPhotoWidths = [1500, 1250, 750, 350]
 
 [imaging]
 quality = 70

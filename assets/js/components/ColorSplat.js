@@ -124,19 +124,19 @@ $(function () {
       }
     });
 
-    window.addEventListener(
-      "endOfPageReached",
-      (e) => {
-        canvas.style.display = "block";
-        color = getComputedStyle(canvas).getPropertyValue("--yellow");
-        updateCoords({
-          clientX: 15,
-          clientY: canvas.height - 15,
-        });
-        animateParticules(x, y, true);
-      },
-      false
-    );
+    // window.addEventListener(
+    //   "endOfPageReached",
+    //   (e) => {
+    //     canvas.style.display = "block";
+    //     color = getComputedStyle(canvas).getPropertyValue("--yellow");
+    //     updateCoords({
+    //       clientX: 15,
+    //       clientY: canvas.height - 15,
+    //     });
+    //     animateParticules(x, y, true);
+    //   },
+    //   false
+    // );
 
     window.addEventListener("resize", setCanvasSize, false);
     window.addEventListener(

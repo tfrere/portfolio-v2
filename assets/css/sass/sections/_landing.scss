@@ -47,9 +47,9 @@
 }
 
 .landing__container__text {
-  @apply text-small inline-block entity select-none;
+  @apply text-small inline-block entity select-none hidden;
   margin-top: $base-size / 2;
   @include up-to-md {
-    @apply text-base;
+    @apply text-base block;
   }
 }

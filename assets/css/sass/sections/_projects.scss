@@ -36,23 +36,27 @@
 .projects__grid__item {
   width: 100%;
   margin: 0;
+  margin-bottom: $base-size * 4;
   @include up-to-md {
-    width: calc(50% - #{$base-size * 3});
-    margin: 0 #{$base-size * 1.5};
+    width: calc(50% - #{$base-size * 2});
+    margin: 0 #{$base-size * 1};
+    margin-bottom: $base-size * 2;
   }
 }
 
 .projects__grid__item--full {
   width: 100%;
   margin: 0;
+  margin-bottom: $base-size * 4;
   @include up-to-md {
-    width: calc(100% - #{$base-size * 3});
-    margin: 0 #{$base-size * 1.5};
+    width: calc(100% - #{$base-size * 2});
+    margin: 0 #{$base-size * 1};
+    margin-bottom: $base-size * 2;
   }
 }
 
 .projects__grid__item__label {
-  padding-top: #{$base-size * 1.5};
+  padding-top: #{$base-size * 1};
   @apply block vr-mb-1 text-small;
   font-size: $base-size * 1;
   @include up-to-md {

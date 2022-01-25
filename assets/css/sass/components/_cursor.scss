@@ -61,6 +61,7 @@ $size: 24px;
     }
     &.-holding:before {
       transform: translateY(0%);
+      // border: 1px solid yellow;
       transition: all 1500ms ease;
     }
   }

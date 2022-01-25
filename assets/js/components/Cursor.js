@@ -72,7 +72,7 @@ export default class Cursor {
   bind() {
     const self = this;
     let showDebounce = debounce(
-      this.mouseMove({ clientX: -100, clientY: -100 }),
+      this.mouseMove({ clientX: -300, clientY: -300 }),
       100
     );
 
