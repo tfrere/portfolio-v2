@@ -11,6 +11,7 @@ $(function () {
     var canvas = document.getElementById("color-splat");
     canvas.style.display = "none";
     var ctx = canvas.getContext("2d");
+    var splatEvent = new Event("colorSplat");
     var numberOfParticules = 10;
     var distance = 80;
     var x = 0;
@@ -117,6 +118,7 @@ $(function () {
           e.target.classList && e.target.classList[0].includes("email");
 
         if (!isALink && !isEmail) {
+          window.dispatchEvent(splatEvent);
           canvas.style.display = "block";
           updateCoords(e);
           animateParticules(x, y);

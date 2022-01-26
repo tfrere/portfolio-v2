@@ -120,7 +120,7 @@ class Blob {
     });
   }
 
-  onDoubleClick() {
+  onColorSplat() {
     var tl = new gsap.timeline({});
     tl.to(this.options.perlin, {
       waves: "4",
@@ -144,10 +144,19 @@ class Blob {
   initGUI() {}
 
   start() {
+    var self = this;
     if (this.sceneManager.isDebugEnabled) {
       this.initGUI();
     }
     var tl = new gsap.timeline({});
+
+    window.addEventListener(
+      "colorSplat",
+      (e) => {
+        self.onColorSplat();
+      },
+      false
+    );
   }
 
   update(elapsedTime) {
