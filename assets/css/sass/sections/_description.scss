@@ -47,29 +47,29 @@
 }
 
 .description__list__item {
-  @apply relative heading-5 vr-pt-0 vr-pb-1 entity;
-  @apply font-light inline-block select-none;
+  @apply relative heading-6 vr-pt-0 vr-pb-1 entity;
+  @apply font-medium inline-block select-none;
   z-index: $cursor-z-index + 1;
+  color: var(--text-color);
 
   &:last-child {
     @apply vr-pb-0;
   }
+  @include up-to-ssm {
+    @apply heading-5;
+    @apply inline-block;
+  }
   @include up-to-md {
     @apply heading-2 vr-pt-1 vr-pb-1;
     @apply font-medium inline-block;
-    &:last-child {
-      @apply vr-pb-1;
-    }
-  }
 
-  color: var(--text-color);
-
-  @include up-to-md {
     // -webkit-text-stroke: 1px var(--text-color);
     // color: transparent;
     color: var(--yellow);
     // @apply underline;
-
+    &:last-child {
+      @apply vr-pb-1;
+    }
     &:hover {
       mix-blend-mode: difference;
       // color: var(--background-color);

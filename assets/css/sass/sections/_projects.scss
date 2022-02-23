@@ -36,22 +36,22 @@
 .projects__grid__item {
   width: 100%;
   margin: 0;
-  margin-bottom: $base-size * 4;
+  margin-bottom: $base-size * 2;
   @include up-to-md {
-    width: calc(50% - #{$base-size * 2});
     margin: 0 #{$base-size * 1};
     margin-bottom: $base-size * 2;
+    width: calc(50% - #{$base-size * 2});
   }
 }
 
 .projects__grid__item--full {
   width: 100%;
   margin: 0;
-  margin-bottom: $base-size * 4;
+  margin-bottom: $base-size * 2;
   @include up-to-md {
-    width: calc(100% - #{$base-size * 2});
     margin: 0 #{$base-size * 1};
     margin-bottom: $base-size * 2;
+    width: calc(100% - #{$base-size * 2});
   }
 }
 

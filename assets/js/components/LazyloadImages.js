@@ -13,11 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
         var image = entry.target;
         // console.log(entry.target);
         // image.src = image.dataset.src;
-        image.srcset = image.dataset.srcset;
+        if (!image.srcset) image.srcset = image.dataset.srcset;
+        imageObserver.unobserve(image);
         window.setTimeout(() => {
           image.classList.add("loaded");
         }, 250);
-        imageObserver.unobserve(image);
       }
     });
   });
@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
       if (entry.isIntersecting) {
         var image = entry.target;
         image.src = image.dataset.src;
+        imageObserver.unobserve(image);
         window.setTimeout(() => {
           image.classList.add("loaded");
         }, 250);
-        imageObserver.unobserve(image);
       }
     });
   });

@@ -10,7 +10,7 @@ class CanvasMarquee {
     this.initialOffset = -(this.canvas.clientWidth * this.ratio);
     this.hasToRender = false;
 
-    this.resize();
+    if (this.canvas.clientWidth > 500) this.resize();
 
     this.animId;
     this.init();

@@ -1,4 +1,5 @@
 $sizes: (
+  ssm: 400px,
   sm: 640px,
   md: 768px,
   lg: 1024px,
@@ -14,6 +15,12 @@ $sizes: (
 //     }
 //   }
 // }
+
+@mixin up-to-ssm {
+  @media (min-width: 400px) {
+    @content;
+  }
+}
 
 @mixin up-to-sm {
   @media (min-width: 640px) {

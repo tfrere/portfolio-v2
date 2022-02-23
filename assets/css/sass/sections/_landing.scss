@@ -23,7 +23,7 @@
   transform: translateX(-40px) translateY(-30px) scale(1.2);
   @include up-to-md {
     @apply absolute;
-    transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0) scale(1);
     width: 100%;
     height: 100%;
   }
