@@ -1,6 +1,6 @@
 ---
-title: "Wort storytelling"
-smalltitle: Wort storytelling
+title: "AI Paintings"
+smalltitle: AI Paintings
 date: 2021-11-02T01:00:04+01:00
 draft: false
 tags: ["UI"]

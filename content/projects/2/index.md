@@ -1,6 +1,6 @@
 ---
-title: "Collectivz, logo"
-smalltitle: "Interakt"
+title: "Captree's world"
+smalltitle: "Captree"
 date: 2021-11-04T01:00:04+01:00
 draft: false
 tags: ["mobile game"]

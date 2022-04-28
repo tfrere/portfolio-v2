@@ -10,6 +10,14 @@ extensions = [
 ]
 timeout = 600000
 
+[menu]
+  [[menu.main]]
+  	identifier = "lab"
+    name = "Lab"
+    pre = "pen-tool"
+    url = "/lab/"
+    weight = 1
+
 [markup.goldmark.renderer]
   hardWraps = true
 

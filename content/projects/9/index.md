@@ -1,6 +1,6 @@
 ---
-title: "AI paintings"
-smalltitle: cat
+title: "Visit cards"
+smalltitle: cards
 date: 2021-10-11T01:00:04+01:00
 draft: false
 tags: ["Art"]

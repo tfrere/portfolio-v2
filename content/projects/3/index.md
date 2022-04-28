@@ -1,5 +1,5 @@
 ---
-title: "Visit card"
+title: "Luxtimes"
 smalltitle: "Visit card'"
 date: 2021-11-03T01:00:04+01:00
 draft: false

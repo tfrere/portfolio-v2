@@ -1,0 +1,55 @@
+{{ define "main" }}
+
+<div class="projects__grid" >
+    <div class="projects__grid__column"></div>
+    {{ range $i, $item := where .Site.RegularPages "Type" "lab" }}
+        <div class="projects__grid__item projects__grid__item--{{$item.Params.width}}">
+
+            {{ $seed := "foo" }}
+            {{ $random := delimit (shuffle (split (md5 $seed) "" )) "" }}
+
+            <style>
+                .-color-{{ $random }}:before {
+                    background-color:{{$item.Params.color}}!important;
+                }
+            </style>
+
+            {{ $images := $item.Resources }}
+
+            {{ if eq $item.Params.mediatype "video" }} 
+
+                {{ range $item.Resources }}
+                    {{ if (in .MediaType.Suffixes "mp4") }}
+                        {{ partial "components/responsive-video" (dict "Name" .Name "Permalink" .Permalink "image" . "color" $item.Params.color) }}
+                    {{ end }}
+                {{ end }}
+
+            {{ end }}
+
+            {{ if eq $item.Params.mediatype "image" }} 
+
+                {{ with $item.Resources.ByType "image" }}
+                    {{ range first 1 . }}
+                        {{ partial "components/responsive-image" (dict "Site" $.Site "image" . "color" $item.Params.color "hasToScrub" false) }}
+                    {{ end }}
+                {{ end }}
+
+            {{ end }}
+                <!--<br class='block p-0 h-0 mb-6'/>-->
+                
+                <span class="projects__grid__item__label entity">
+                <!--•--> 
+                <span class="projects__grid__item__label_list-symbol">
+                    ↳
+                </span>
+                <span class="projects__grid__item__label__text">{{$item.Title}}</span>
+                <span class="projects__grid__item__label__index"> #{{$i}}</span>
+            </span>
+        </div>
+    {{ end }}
+</div>
+
+
+{{- partial "js.html" . -}}
+
+{{end}}

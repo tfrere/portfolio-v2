@@ -1,6 +1,6 @@
 ---
-title: "CapTree's world"
-smalltitle: "CapTree's world'"
+title: "Collectivz logo"
+smalltitle: "Collectivz logo'"
 date: 2021-01-05T01:00:04+01:00
 draft: false
 tags: ["mobile game"]

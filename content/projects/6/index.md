@@ -1,6 +1,6 @@
 ---
-title: "Luxtimes"
-smalltitle: Luxtimes
+title: "Wort - dataviz"
+smalltitle: Wort - dataviz
 date: 2021-11-02T01:00:04+01:00
 draft: false
 tags: ["UI"]

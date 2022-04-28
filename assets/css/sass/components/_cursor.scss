@@ -25,6 +25,7 @@ $size: 24px;
   will-change: transform;
 
   transition: opacity 0.3s, color 0.4s;
+  // transition-timing-function:cubic-bezier(0.6, -0.28, 0.735, 0.045);
 
   @include up-to-md {
     @apply block;
@@ -185,10 +186,10 @@ $size: 24px;
   }
 
   &.-lg {
-    mix-blend-mode: difference;
+    // mix-blend-mode: difference;
     .cursor-circle {
       transform: scale(0.8);
-      background-color: var(--background-color);
+      background-color: var(--text-color);
     }
     &.-active .cursor-circle {
       transform: scale(0.6);
