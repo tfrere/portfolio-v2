@@ -3,7 +3,7 @@
   z-index: $nav-z-index;
   user-select: none;
   @apply hidden;
-  @include up-to-md {
+  @include up-to-lg {
     @apply flex;
   }
 }
@@ -12,17 +12,6 @@
   @apply flex flex-row align-top items-center w-full relative;
   padding: $base-size * 2 $base-size * 2;
   @apply entity;
-  // &:after {
-  //   position: absolute;
-  //   right: 0;
-  //   top: 0;
-  //   content: "";
-  //   width: 0;
-  //   height: 0;
-  //   border-style: solid;
-  //   border-width: 0 #{$base-size * 5} #{$base-size * 5} 0;
-  //   border-color: transparent var(--subtle-gray-color) transparent transparent;
-  // }
 }
 
 .nav__content__name {
@@ -40,11 +29,10 @@ $anim-timing: 0.3s;
   left: -72px;
   z-index: 1;
   opacity: 1;
-  // transition: opacity 200ms ease;
   will-change: opacity;
 
   @apply hidden;
-  @include up-to-md {
+  @include up-to-lg {
     @apply flex;
   }
 }

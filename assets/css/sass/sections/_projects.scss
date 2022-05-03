@@ -10,6 +10,10 @@
   width: 100%;
   @include up-to-md {
     @apply mx-0 px-0;
+    width: 90%;
+  }
+  @include up-to-lg {
+    @apply mx-0 px-0;
     width: 80%;
   }
 }
@@ -42,6 +46,10 @@
     margin-bottom: $base-size * 2;
     width: calc(50% - #{$base-size * 2});
   }
+}
+
+.projects__grid__item--lab {
+  .lazy-video, .lazy-image { border:1px solid var(--subtle-gray-color); }
 }
 
 .projects__grid__item--full {

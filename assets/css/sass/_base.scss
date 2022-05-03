@@ -9,14 +9,24 @@ html {
   background-color: var(--background-color);
 }
 
+#app {
+  opacity: 0;
+  transition: opacity 0s ease;
+}
+
+#app.app--is-loaded {
+  opacity: 1;
+  transition: opacity 0.25s 0.25s ease;
+}
+
 ::selection {
   color: var(--background-color);
   background: var(--text-color);
 }
 
 #page {
-  margin-left: $base-size;
   @include up-to-md {
+    margin-left: $base-size;
     &:before {
       content: "";
       @apply h-full fixed top-0 left-0;
@@ -50,18 +60,11 @@ html {
   text-decoration: line-through;
 }
 
-.mobile-br {
-  display: block;
-  @include up-to-xl {
-    display: none;
-  }
-}
-
 .sentence-marquee {
   @apply w-full hidden;
   z-index: $marquee-z-index;
   transform: translatex(1px);
-  @include up-to-xl {
+  @include up-to-md {
     @apply block;
   }
 }
@@ -89,4 +92,12 @@ html {
     display: inline-block;
     width: 100%;
   }
+}
+
+.eye svg path {
+  stroke: var(--text-color);
+}
+
+.eye svg circle,.eye svg polygon {
+  fill: var(--text-color);
 }

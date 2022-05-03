@@ -7,10 +7,8 @@ class CanvasMarquee {
     this.context = this.canvas.getContext("2d");
     this.options = Object.assign({}, this.getDefaultOptions, options);
     this.ratio = window.devicePixelRatio || 1;
-    this.initialOffset = -(this.canvas.clientWidth * this.ratio);
+    this.resize();
     this.hasToRender = false;
-
-    if (this.canvas.clientWidth > 500) this.resize();
 
     this.animId;
     this.init();
@@ -43,6 +41,7 @@ class CanvasMarquee {
   }
 
   resize() {
+    this.initialOffset = -(this.canvas.clientWidth * this.ratio);
     this.canvas.width = this.canvas.clientWidth * this.ratio;
 
     this.textHeight = this.measureFontHeight().height + 30;

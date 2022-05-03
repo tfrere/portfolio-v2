@@ -31,66 +31,94 @@ span {
 }
 
 .heading-0 {
-  display: block;
   font-size: ($base-size * 14);
   line-height: ($base-size * 14);
   font-family: var(--title-font);
-  // font-kerning: normal;
-  @apply my-0 py-0 font-bold;
+  @apply font-bold;
+}
+
+.heading-05 {
+  font-size: ($base-size * 13);
+  line-height: ($base-size * 13);
+  font-family: var(--title-font);
+  @apply font-bold;
 }
 
 .heading-1 {
-  display: block;
   font-size: ($base-size * 12);
   line-height: ($base-size * 12);
   font-family: var(--title-font);
-  // font-kerning: normal;
-  @apply my-0 py-0 font-bold;
+  @apply font-bold;
+}
+
+.heading-15 {
+  font-size: ($base-size * 11);
+  line-height: ($base-size * 11);
+  font-family: var(--title-font);
+  @apply font-bold;
 }
 
 .heading-2 {
-  display: block;
   font-size: ($base-size * 10);
   line-height: ($base-size * 10);
   font-family: var(--title-font);
-  // font-kerning: normal;
-  @apply my-0 py-0 font-bold;
+  @apply font-bold;
+}
+
+.heading-25 {
+  font-size: ($base-size * 9);
+  line-height: ($base-size * 9);
+  font-family: var(--title-font);
+  @apply font-bold;
 }
 
 .heading-3 {
-  display: block;
   font-size: ($base-size * 8);
   line-height: ($base-size * 8);
   font-family: var(--title-font);
-  // font-kerning: normal;
-  @apply my-0 py-0 font-bold;
+  @apply font-bold;
+}
+
+.heading-35 {
+  font-size: ($base-size * 7);
+  line-height: ($base-size * 7);
+  font-family: var(--title-font);
+  @apply font-bold;
 }
 
 .heading-4 {
-  display: block;
   font-size: ($base-size * 6);
   line-height: ($base-size * 6);
   font-family: var(--title-font);
-  // font-kerning: normal;
-  @apply my-0 py-0 font-bold;
+  @apply font-bold;
+}
+
+.heading-45 {
+  font-size: ($base-size * 5);
+  line-height: ($base-size * 5);
+  font-family: var(--title-font);
+  @apply font-bold;
 }
 
 .heading-5 {
-  display: block;
   font-size: ($base-size * 4);
   line-height: ($base-size * 4);
   font-family: var(--title-font);
-  // font-kerning: normal;
-  @apply my-0 py-0 font-bold;
+  @apply font-bold;
+}
+
+.heading-55 {
+  font-size: ($base-size * 3);
+  line-height: ($base-size * 3);
+  font-family: var(--title-font);
+  @apply font-bold;
 }
 
 .heading-6 {
-  display: block;
   font-size: ($base-size * 2);
   line-height: ($base-size * 2);
   font-family: var(--title-font);
-  // font-kerning: normal;
-  @apply my-0 py-0 font-bold;
+  @apply font-bold;
 }
 
 .heading-label {

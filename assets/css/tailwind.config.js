@@ -47,7 +47,7 @@ module.exports = {
     container: {
       screens: {
         sm: "100%",
-        md: "100%",
+        md: "820px",
         lg: "1024px",
         xl: "1280px",
       },

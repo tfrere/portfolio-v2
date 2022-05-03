@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     {{- partial "head.html" . -}}
-    <body>
+    <body id="app">
         <div id="grid"></div> 
         <div class="preloader">
             <div class="preloader__content">
-                loading
+                0
             </div>
         </div>
         <canvas id="color-splat" style="display:none"></canvas>
@@ -23,7 +23,7 @@
                         <br/>
                         <span data-text-scramble data-text-scrambles-sentences="test2,test3,test5"></span> -->
                     </h1>
-                    <p class="landing__container__text">Focused on creating&nbsp;<br class="mobile-br"/> <strong>long lasting experiences.</strong></p>
+                    <p class="landing__container__text">Focused on creating&nbsp;<br class="md-br"/> <strong>long lasting experiences.</strong></p>
                 </div>
                 <div class="invite-to-scroll-with-text"></div>
             </section>
@@ -79,19 +79,19 @@
                                 <label class="description__label">
                                     <span data-eye class="eye">{{ readFile "static/images/eye.svg" | safeHTML }}</span> Expertises
                                 </label>
-                                <ul class="description__list">
-                                    <li data-eye-trigger  class="description__list__item" data-media-video="personal" data-cursor="-media"  >
+                                <ul class="expertise">
+                                    <li data-eye-trigger  class="expertise__item" data-media-video="personal" data-cursor="-media"  >
                                         developement
-                                    <span class="description__list__item__index">01</span>
+                                    <span class="expertise__item__index">01</span>
                                     </li>
                                     <!-- •  👉  → -->
-                                    <li data-eye-trigger   class="description__list__item" data-media-video="ui" data-cursor="-media" >
+                                    <li data-eye-trigger   class="expertise__item" data-media-video="ui" data-cursor="-media" >
                                         ux-ui design
-                                        <span class="description__list__item__index">02</span>
+                                        <span class="expertise__item__index">02</span>
                                     </li>
-                                    <li data-eye-trigger   class="description__list__item" data-media-video="obvious" data-cursor="-media">
+                                    <li data-eye-trigger   class="expertise__item" data-media-video="obvious" data-cursor="-media">
                                         art direction
-                                        <span class="description__list__item__index">03</span>
+                                        <span class="expertise__item__index">03</span>
                                     </li>
                                 </ul>
                                 <div class="description__separator"></div>
@@ -99,6 +99,7 @@
                                         Sometimes, people who do what I do are also called <strong>design engineers</strong> or <strong>creative programmers</strong>.
                                 </p> -->
                                 <p  class="description__item" >
+                                        <!-- I’ve worked on projects of different scales — from <strong>small applications </strong> to <strong>websites used by millions </strong>. -->
                                         I’ve worked on projects of different scales — from <strong>small micro-sites </strong> to <strong>larger Web applications</strong>.
                                 </p>
                                 <p  class="description__item" >
@@ -205,6 +206,8 @@
         {{ if eq $toto "dev" }} 
             {{- $transpiled := resources.Get "js/Stats.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}
             <script src={{$transpiled.Permalink}} type="text/javascript"></script>
+
+            <div class="breakpoint-debug"></div>
         {{end}}
 
         {{- $transpiled := resources.Get "js/index.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}

@@ -1,5 +1,5 @@
-@import "variables/breakpoints";
 @import "variables/css-variables";
+@import "variables/breakpoints";
 @import "variables/duration";
 @import "variables/z-index";
 @import "variables/ease";
@@ -9,15 +9,18 @@
 @import "base";
 
 @import "components/cursor";
-@import "components/invite-to-scroll";
 @import "components/section";
 @import "components/lazy-image";
 @import "components/lazy-video";
+@import "components/invite-to-scroll";
 
 @import "sections/nav";
 @import "sections/landing";
 @import "sections/description";
+@import "sections/expertises";
 @import "sections/clients";
 @import "sections/projects";
-@import "sections/contact";
 @import "sections/socials";
+@import "sections/contact";
+
+@import "pages/lab";

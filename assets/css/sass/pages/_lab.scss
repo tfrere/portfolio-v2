@@ -1,0 +1,25 @@
+.lab {
+    @apply pb-48;
+}
+
+.lab__section {
+    @apply flex-col flex-wrap items-center;
+    min-height:80vh;
+}
+
+
+.lab__sub-title {
+    @apply text-label;
+    @apply mb-0;
+}
+ 
+
+.lab__title {
+    @apply heading-2;
+}
+ 
+.lab__text {
+    @apply text-base w-3/6 text-center;
+    @apply mt-6 hidden;
+}
+ 

@@ -37,3 +37,89 @@
     padding-bottom: #{$i * $vr-font-size} 0 !important;
   }
 }
+
+
+
+
+.ssm-br {
+  display: block;
+  @include up-to-ssm {
+    display: none;
+  }
+}
+
+.sm-br {
+  display: block;
+  @include up-to-sm {
+    display: none;
+  }
+}
+.md-br {
+  display: block;
+  @include up-to-md {
+    display: none;
+  }
+}
+.lg-br {
+  display: block;
+  @include up-to-lg {
+    display: none;
+  }
+}
+.xl-br {
+  display: block;
+  @include up-to-xl {
+    display: none;
+  }
+}
+
+.xxl-br {
+  display: block;
+  @include up-to-2xl {
+    display: none;
+  }
+}
+
+.vr-show-entities .breakpoint-debug {
+  @apply fixed top-0 right-0 z-100 px-4 py-2 text-white font-black;
+  background:#92dc7e;
+  &:after {
+    content:"sssm";
+  }
+  @include up-to-ssm {
+    background:#64c987;
+    &:after {
+      content:"ssm";
+    }
+  }
+  @include up-to-sm {
+    background:#39b48e;
+    &:after {
+      content:"sm";
+    }
+  }
+  @include up-to-md {
+    background:#00898a;
+    &:after {
+      content:"md";
+    }
+  }
+  @include up-to-lg {
+    background:#08737f;
+    &:after {
+      content:"lg";
+    }
+  }
+  @include up-to-xl {
+    background:#215d6e;
+    &:after {
+      content:"xl";
+    }
+  }
+  @include up-to-2xl {
+    background:#2a4858;
+    &:after {
+      content:"2xl";
+    }
+  }
+}

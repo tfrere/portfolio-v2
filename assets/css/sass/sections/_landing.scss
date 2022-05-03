@@ -29,6 +29,10 @@
   }
 }
 
+.black .landing__blob {
+  opacity: 0.8;
+}
+
 .landing__container {
   z-index: $landing-content-z-index;
   pointer-events: none;

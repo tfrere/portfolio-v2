@@ -5,20 +5,25 @@ export default class Eye {
   constructor(el) {
     this.el = $(el);
     this.triggers = $("[data-eye-trigger]");
-    this.hideEye();
+    this.el.find("#eye").hide();
+    this.el.find("#arrow").show();
     this.triggers
       .on("mouseenter", this.showEye.bind(this))
       .on("mouseleave", this.hideEye.bind(this));
   }
 
   showEye(e) {
-    this.el.find("#eye").show();
-    this.el.find("#arrow").hide();
+    if (window.innerWidth > 768) {
+      this.el.find("#eye").show();
+      this.el.find("#arrow").hide();
+    }
   }
 
   hideEye(e) {
-    this.el.find("#eye").hide();
-    this.el.find("#arrow").show();
+    if (window.innerWidth > 768) {
+      this.el.find("#eye").hide();
+      this.el.find("#arrow").show();
+    }
   }
 }
 

@@ -12,14 +12,14 @@
 
 .clients__marquee__content {
   display: flex;
-  animation: clients__marquee 30s linear infinite running;
+  animation: clients__marquee 60s linear infinite running;
 }
 
 .clients__marquee--2 .clients__marquee__content {
-  animation: clients__marquee-reverse 40s linear infinite running;
+  animation: clients__marquee-reverse 70s linear infinite running;
 }
 .clients__marquee--3 .clients__marquee__content {
-  animation: clients__marquee 20s linear infinite running;
+  animation: clients__marquee 45s linear infinite running;
 }
 .clients__marquee__content__tag {
   width: $base-size * 10;

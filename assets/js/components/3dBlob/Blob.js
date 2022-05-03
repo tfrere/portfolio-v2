@@ -88,7 +88,7 @@ class Blob {
         waves: 0,
         eqcolor: 4.0,
         rcolor: 1,
-        gcolor: 0.9,
+        gcolor: 0.5,
         bcolor: 0.7,
         redhell: true,
         wireframe: false,
