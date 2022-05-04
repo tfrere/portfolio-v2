@@ -11,7 +11,7 @@ color: "#EFF3F6"
 number: 07
 width: "half"
 mediatype: "image"
-hastobehighlight: true
+hastobehighlight: false
 description: Personal work using latest deep learning algorithms
 externalurl: "https://www.behance.net/gallery/127532391/AI-assisted-paintings"
 ---
