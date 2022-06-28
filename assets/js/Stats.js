@@ -27,6 +27,7 @@ $(function () {
       }
       if (e.key == "b") {
         document.body.classList.toggle("black");
+        document.body.classList.toggle("white");
       }
       if (e.key == "s") {
         let displayValue = "block";
