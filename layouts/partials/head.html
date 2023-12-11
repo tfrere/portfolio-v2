@@ -1,53 +1,68 @@
-<head>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFFPXGBSP2"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-VFFPXGBSP2');
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;900&family=Poppins:wght@300;500;900&display=swap" rel="stylesheet">
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/svg" href="/images/favicon.svg" />
-    <meta name="author" content=" Thibaud FRERE"/>
-    <meta name="copyright" content=" Thibaud FRERE"/>
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Thibaud FRERE's online portfolio.">
-    <link rel="canonical" href="{{ .Site.BaseURL }}" />
-
-    <base href="{{ .Site.BaseURL }}">
-
-    {{ $critical := resources.Get "css/sass/_critical.scss" | toCSS}}
-    <link rel="stylesheet" href='{{ $critical.Permalink }}' data>
-    
-
-    {{ partialCached "css.html" . }}
-    
-    {{ $title := print .Site.Title " | " .Title }}
-    {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
-    <title>{{ $title }}</title>
-
-    {{ $dateTime := .PublishDate.Format "2006-01-02" }}
-    {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
-    <!-- <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> -->
-    
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Thibaud Frere's online portfolio" />
-    <meta property="og:description" content="Design ingineer and creative programmer." />
-    <meta property="og:image" content="/images/og-thumb.jpg" />
-    <meta property="og:url" content="{{ .Site.BaseURL }}" />
-    <meta property="og:site_name" content="Thibaud Frere's online portfolio" />
-    
-    <meta name="twitter:title" content="Thibaud Frere's online portfolio">
-    <meta name="twitter:description" content="Design ingineer and creative programmer.">
-    <meta name="twitter:image" content="/images/og-thumb.jpg">
-    <meta name="twitter:site" content="@tfrere">
-    <meta name="twitter:creator" content="@tfrere">
-    
-
-</head>
+const parameters = { 
+    grid: 9, 
+    circleSize: 5, 
+    circleBorder: 6,
+    backgroundColor: '#000000',
+    lineColor: '#595959',
+    circleColor: '#ffffff'
+  };
+  const gui = new dat.GUI();
+  const gridController = gui.add(parameters, 'grid').min(1).max(100).step(1).name('Grid Size');
+  const circleSizeController = gui.add(parameters, 'circleSize').min(1).max(50).step(1).name('Circle Size');
+  const circleBorderController = gui.add(parameters, 'circleBorder').min(0).max(10).step(1).name('Circle Border');
+  const backgroundColorController = gui.addColor(parameters, 'backgroundColor').name('Background');
+  const lineColorController = gui.addColor(parameters, 'lineColor').name('Line');
+  const circleColorController = gui.addColor(parameters, 'circleColor').name('Circle');
+  
+  gui.add({download:function(){ downloadSVG(); }},'download').name('Download SVG');
+  
+  const svg = document.getElementById('svg');
+  gridController.onChange(value => drawGrid(value));
+  circleSizeController.onChange(value => drawGrid(parameters.grid));
+  circleBorderController.onChange(value => drawGrid(parameters.grid));
+  backgroundColorController.onChange(value => drawGrid(parameters.grid));
+  lineColorController.onChange(value => drawGrid(parameters.grid));
+  circleColorController.onChange(value => drawGrid(parameters.grid));
+  
+  drawGrid(parameters.grid);
+  
+  function drawGrid(gridSize) {
+    svg.innerHTML = '';
+    const width = svg.clientWidth;
+    const height = svg.clientHeight;
+    const cellWidth = width / gridSize;
+    const cellHeight = height / gridSize;
+    for(let i=0; i<=gridSize; i++) {
+      for(let j=0; j<=gridSize; j++) {
+        if (i < gridSize && j < gridSize) {
+          const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+          rect.setAttribute('x', i * cellWidth);
+          rect.setAttribute('y', j * cellHeight);
+          rect.setAttribute('width', cellWidth);
+          rect.setAttribute('height', cellHeight);
+          rect.setAttribute('fill', parameters.backgroundColor);
+          rect.setAttribute('stroke', parameters.lineColor);
+          svg.appendChild(rect);
+        }
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', i * cellWidth);
+        circle.setAttribute('cy', j * cellHeight);
+        circle.setAttribute('r', parameters.circleSize);
+        circle.setAttribute('fill', parameters.circleColor);
+        circle.setAttribute('stroke', parameters.backgroundColor);
+        circle.setAttribute('stroke-width', parameters.circleBorder);
+        svg.appendChild(circle);
+      }
+    }
+  }
+  
+  function downloadSVG() {
+    const serializer = new XMLSerializer();
+    const source = serializer.serializeToString(svg);
+    const blob = new Blob([source], {type: "image/svg+xml;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'grid.svg';
+    link.click();
+  }
