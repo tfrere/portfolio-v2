@@ -1,4 +1,58 @@
-const parameters = { 
+<head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFFPXGBSP2"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VFFPXGBSP2');
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;900&family=Poppins:wght@300;500;900&display=swap" rel="stylesheet">
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg" href="/images/favicon.svg" />
+  <meta name="author" content=" Thibaud FRERE"/>
+  <meta name="copyright" content=" Thibaud FRERE"/>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Thibaud FRERE's online portfolio.">
+  <link rel="canonical" href="{{ .Site.BaseURL }}" />
+
+  <base href="{{ .Site.BaseURL }}">
+
+  {{ $critical := resources.Get "css/sass/_critical.scss" | toCSS}}
+  <link rel="stylesheet" href='{{ $critical.Permalink }}' data>
+  
+
+  {{ partialCached "css.html" . }}
+  
+  {{ $title := print .Site.Title " | " .Title }}
+  {{ if .IsHome }}{{ $title = .Site.Title }}{{ end }}
+  <title>{{ $title }}</title>
+
+  {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+  {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+  <!-- <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time> -->
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Thibaud Frere's online portfolio" />
+  <meta property="og:description" content="Design ingineer and creative programmer." />
+  <meta property="og:image" content="/images/og-thumb.jpg" />
+  <meta property="og:url" content="{{ .Site.BaseURL }}" />
+  <meta property="og:site_name" content="Thibaud Frere's online portfolio" />
+  
+  <meta name="twitter:title" content="Thibaud Frere's online portfolio">
+  <meta name="twitter:description" content="Design ingineer and creative programmer.">
+  <meta name="twitter:image" content="/images/og-thumb.jpg">
+  <meta name="twitter:site" content="@tfrere">
+  <meta name="twitter:creator" content="@tfrere">
+  
+
+</head>
+
+<!-- const parameters = { 
     grid: 9, 
     circleSize: 5, 
     circleBorder: 6,
@@ -65,4 +119,4 @@ const parameters = {
     link.href = url;
     link.download = 'grid.svg';
     link.click();
-  }
+  } -->
