@@ -6,7 +6,7 @@ import $ from "jquery";
     let elem = $(e.currentTarget);
     e.preventDefault();
     // e.stopPropagation();
-    navigator.clipboard.writeText("write@tfrere.fr").then(
+    navigator.clipboard.writeText("write@tfrere.com").then(
       function () {
         elem.find("[data-click-to-copy-info-message]").addClass("show");
         clearTimeout(clickToCopyTimeout);
@@ -15,7 +15,7 @@ import $ from "jquery";
         }, 1000);
       },
       function () {
-        window.location.href = "mailto:write@tfrere.fr";
+        window.location.href = "mailto:write@tfrere.com";
       }
     );
   });
