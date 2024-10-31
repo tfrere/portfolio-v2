@@ -12,3 +12,5 @@ import "./components/ScrollVisualizer";
 import "./components/3dBlob/SceneManager";
 
 import "./init";
+
+import "./Stats";

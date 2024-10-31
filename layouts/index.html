@@ -19,6 +19,7 @@
                         Hello,<br />
                         I’m a digital
                         craftsman.
+                        <!-- <span style="display:inline-block;color:white;transform:rotate(-1.5deg) scale(1.2) translateX(30px); font-weight:900;">digital</span> -->
                         <!-- <span data-text-scramble data-text-scrambles-sentences="test2,test3,test5"></span>
                         <br/>
                         <span data-text-scramble data-text-scrambles-sentences="test2,test3,test5"></span> -->
@@ -54,13 +55,13 @@
                             <div class="description description--first-block">
 
                                 <p  class="description__item" >
-                                        I help companies build <strong>resilient UI foundations</strong> for their online experiences.
+                                        I help companies build <strong class="reversed-word">resilient UI foundations</strong> for their online experiences.
                                 </p>
 
                                 <p  class="description__item" >
                                     Sometimes, I also collaborate with
                                     <a class="description__item__link" target="_blank" rel="noopener" href="https://obvious-art.com" data-cursor-link data-cursor-text="Visit website" >international artists</a>
-                                    to make <strong>interactive experiments</strong>.
+                                    to make <strong class="reversed-word">interactive experiments</strong>.
                                  </p> 
 
                                 <p  class="description__item" >
@@ -100,7 +101,7 @@
                                         I’ve worked on projects of different scales — from <strong>small micro-sites </strong> to <strong>larger Web applications</strong>.
                                 </p>
                                 <p  class="description__item" >
-                                        For wonderful people <span class="description__item__arrow">↓</span>
+                                        With <strong class="reversed-word">wonderful</strong> people <span class="description__item__arrow">↓</span>
                                         <!-- <img class="inline-icon ml-1" src="images/pointing.png"/> -->
                                 </p>
                             </div>
@@ -118,11 +119,26 @@
                         <div class="mx-auto container">
                             <div  class="description">
                                 <p class="description__title" >
-                                    Most of my work is on <a class="description__item__link" target="_blank" rel="noopener" href="https://www.behance.net/frerethibaud9207" data-cursor-link data-cursor-text="See more" >Bēhance</a>
+                                    Most of my work is on
+                                    <a class="description__item__link" target="_blank" rel="noopener" href="https://www.behance.net/frerethibaud9207" data-cursor-link data-cursor-text="See more" >Bēhance</a>
+                                    <!-- <a class="description__item__link" target="_blank" rel="noopener" href="https://codepen.io/tfrere" data-cursor-link data-cursor-text="See more">
+                                        Codepen
+                                    </a><br/> and<br/>
+                                    <a class="description__item__link" target="_blank" rel="noopener" href="https://codepen.io/tfrere" data-cursor-link data-cursor-text="See more">
+                                        Github
+                                    </a> -->
+                                    <!-- <a class="description__item__link" target="_blank" rel="noopener" href="https://codepen.io/tfrere" data-cursor-link data-cursor-text="See more">
+                                        Codepen
+                                    </a> -->
                                 </p>
-                                <!-- <ul class="socials">
+                                <ul class="socials">
                                     <li class="socials__item" >
                                         <span class="socials__item__intro">and</span>
+                                    </li>
+                                    <li class="socials__item" >
+                                        <a target="_blank" data-cursor="-lg" class="socials__item__link" href="https://github.com/tfrere">
+                                            Github
+                                        </a>
                                     </li>
                                     <li class="socials__item" >
                                         <a target="_blank" data-cursor="-lg" class="socials__item__link" href="https://codepen.io/tfrere">
@@ -134,12 +150,7 @@
                                             Pixabay
                                         </a>
                                     </li>
-                                    <li class="socials__item" >
-                                        <a target="_blank" data-cursor="-lg" class="socials__item__link" href="https://github.com/tfrere">
-                                            Github
-                                        </a>
-                                    </li>
-                                </ul> -->
+                                </ul>
 
                                 <!-- <p class="md:w-8/12 description__text vr-mb-4" >
                                     I also have few experiments on <a class="description__text__link" target="_blank" rel="noopener" href="https://www.behance.net/frerethibaud9207" data-cursor-link data-cursor-text="See more" >Codepen</a>.
@@ -152,7 +163,7 @@
                                 </p>
                                 <p class="md:w-8/12 description__item" >
                                     <!-- <span class='overline'>random</span> -->
-                                    Let's take a look at <strong>visuals</strong> I made recently <span class="description__item__arrow">↓</span>
+                                    Let's take a look at <strong class="reversed-word">visuals</strong > I made recently <span class="description__item__arrow">↓</span>
                                         <!-- Just below, you can also find some  <strong>visuals</strong> I produced recently ↓ -->
                                         <!-- <img class="inline-icon ml-1" src="images/pointing.png"/> -->
                                 </p>
@@ -175,12 +186,12 @@
                             </p>
                             
                             <p class="description__item">
-                                I’m <strong>available</strong> for freelance projects in
-                                <strong>full remote</strong> from Metz, France.
+                                I’m <strong class="reversed-word"><span class="is-available-indicator"></span> available</strong> for freelance projects in
+                                <strong class="reversed-word">full remote</strong> from Metz, France.
                             </p>
                             
                             <p class="description__item">
-                                Say&nbsp;
+                                Say&nbsp; 
                                 <a data-click-to-copy href="mailto:hello@tfrere.com" class="email" data-cursor="-lg">
                                     <span class="email">hello@tfrere.com</span>
                                     <span data-click-to-copy-info-message class="email__info-message">Copied !</span>
@@ -194,8 +205,8 @@
 
         </div>
 
-        {{ $toto := getenv "HUGO_ENV"}}
-        {{ if eq $toto "dev" }} 
+        {{ $env := getenv "HUGO_ENV"}}
+        {{ if eq $env "dev" }} 
             {{- $transpiled := resources.Get "js/Stats.js" | js.Build (dict "minify" true "target" "es2015") | fingerprint  -}}
             <script src={{$transpiled.Permalink}} type="text/javascript"></script>
 

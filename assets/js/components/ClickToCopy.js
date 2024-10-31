@@ -2,11 +2,16 @@ import $ from "jquery";
 
 (function () {
   let clickToCopyTimeout = null;
+
   $("[data-click-to-copy]").on("click", (e) => {
-    let elem = $(e.currentTarget);
+    const elem = $(e.currentTarget);
+    const emailHref = elem.attr("href");
+    // Extract email from mailto: link
+    const email = emailHref.replace("mailto:", "").trim();
+
     e.preventDefault();
-    // e.stopPropagation();
-    navigator.clipboard.writeText("write@tfrere.com").then(
+
+    navigator.clipboard.writeText(email).then(
       function () {
         elem.find("[data-click-to-copy-info-message]").addClass("show");
         clearTimeout(clickToCopyTimeout);
@@ -15,7 +20,8 @@ import $ from "jquery";
         }, 1000);
       },
       function () {
-        window.location.href = "mailto:write@tfrere.com";
+        // Fallback to opening mail client if copy fails
+        window.location.href = emailHref;
       }
     );
   });

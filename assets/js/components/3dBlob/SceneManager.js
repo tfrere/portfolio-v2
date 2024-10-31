@@ -147,8 +147,8 @@ class SceneManager {
   }
 
   onMouseMove(event) {
-    this.realMousePosition.x = (event.clientX / window.innerWidth) * 2 - 1;
-    this.realMousePosition.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    this.realMousePosition.x = event.clientX / window.innerWidth - 1;
+    this.realMousePosition.y = -(event.clientY / window.innerHeight) + 1;
     for (let i = 0; i < this.sceneComponents.length; i++)
       if (this.sceneComponents[i].onMouseMove)
         this.sceneComponents[i].onMouseMove();

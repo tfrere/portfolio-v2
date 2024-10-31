@@ -54,6 +54,7 @@ export default class Cursor {
     this.pos = { x: 0, y: 0 };
     this.oldPos = { x: 0, y: 0 };
     this.vel = { x: 0, y: 0 };
+    this.skew = { x: 0, y: 0 };
 
     this.init();
   }
@@ -186,15 +187,43 @@ export default class Cursor {
     }
   }
 
+  // frameLoop() {
+  //   if (!this.isMobile) {
+  //     this.vel.x = this.oldPos.x - this.pos.x;
+  //     this.vel.y = this.oldPos.y - this.pos.y;
+
+  //     let scaleX = Math.max(1 + -Math.abs(this.vel.y) / 50, 0.15);
+  //     let scaleY = Math.max(1 + -Math.abs(this.vel.x) / 50, 0.15);
+
+  //     this.move(this.pos.x, this.pos.y, scaleX, scaleY, 1, 0);
+
+  //     requestAnimationFrame(this.frameLoop.bind(this));
+  //   }
+  // }
+
   frameLoop() {
     if (!this.isMobile) {
-      this.vel.x = this.oldPos.x - this.pos.x;
-      this.vel.y = this.oldPos.y - this.pos.y;
+      // Calcul de la vélocité
+      this.vel.x = this.pos.x - this.oldPos.x;
+      this.vel.y = this.pos.y - this.oldPos.y;
 
-      let scaleX = Math.max(1 + -Math.abs(this.vel.y) / 50, 0.15);
-      let scaleY = Math.max(1 + -Math.abs(this.vel.x) / 50, 0.15);
+      // Calcul du scale basé sur la vélocité
+      let scaleX = Math.max(1 + Math.abs(this.vel.x) / 50, 0.15);
+      let scaleY = Math.max(1 + Math.abs(this.vel.y) / 50, 0.15);
 
-      this.move(this.pos.x, this.pos.y, scaleX, scaleY, 1, 0);
+      // Calcul du skew basé sur la vélocité
+      this.skew.x = getAngle(this.vel.x, 0) * this.options.skewFactor;
+      this.skew.y = getAngle(0, this.vel.y) * this.options.skewFactor;
+
+      // Application des transformations
+      this.move(
+        this.pos.x,
+        this.pos.y,
+        scaleX,
+        scaleY,
+        this.skew.x,
+        this.skew.y
+      );
 
       requestAnimationFrame(this.frameLoop.bind(this));
     }

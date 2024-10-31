@@ -90,7 +90,7 @@ class Blob {
         rcolor: 1,
         gcolor: 0.9,
         bcolor: 0.7,
-        redhell: true,
+        redhell: false,
         wireframe: false,
         fragment: true,
         points: false,
@@ -121,24 +121,28 @@ class Blob {
   }
 
   onColorSplat() {
-    var tl = new gsap.timeline({});
-    tl.to(this.options.perlin, {
-      waves: "4",
-      complex: "2",
-      wireframe: true,
-      ease: "ease.in",
-      duration: 0.25,
-      overwrite: "auto",
-      onComplete: () => {
-        this.options.perlin.wireframe = false;
-      },
-    }).to(this.options.perlin, {
-      waves: "1",
-      complex: "1",
-      ease: "elastic.out(1, 1)",
-      duration: 0.5,
-      overwrite: "auto",
-    });
+    // var tl = new gsap.timeline({});
+    // tl.to(this.options.perlin, {
+    //   size: 0.1,
+    //   // waves: "1",
+    //   // complex: "2.2",
+    //   decay: 1.5,
+    //   wireframe: true,
+    //   ease: "ease.in",
+    //   duration: 0.25,
+    //   overwrite: "auto",
+    //   onComplete: () => {
+    //     this.options.perlin.wireframe = false;
+    //   },
+    // }).to(this.options.perlin, {
+    //   size: 0.45,
+    //   // waves: "1",
+    //   // complex: "1",
+    //   decay: 1.2,
+    //   // ease: "ease.out",
+    //   // duration: 0.25,
+    //   // overwrite: "auto",
+    // });
   }
 
   initGUI() {}
@@ -152,7 +156,7 @@ class Blob {
 
     // colorSplat
     window.addEventListener(
-      "dblclick",
+      "click",
       (e) => {
         self.onColorSplat();
       },

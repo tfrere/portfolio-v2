@@ -9,6 +9,10 @@ html {
   background-color: var(--background-color);
 }
 
+span {
+  font-family: "Poppins";
+}
+
 #app {
   opacity: 0;
   transition: opacity 0s ease;
@@ -98,6 +102,7 @@ html {
   stroke: var(--text-color);
 }
 
-.eye svg circle,.eye svg polygon {
+.eye svg circle,
+.eye svg polygon {
   fill: var(--text-color);
 }

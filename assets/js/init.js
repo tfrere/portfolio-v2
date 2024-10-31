@@ -34,7 +34,7 @@ $(function () {
     // DESKTOP CASE
     gsap.set(titleElem, { opacity: 0, yPercent: 60, skewY: -10, duration: 0 });
     gsap.set(preloaderElem, { opacity: 1, duration: 0 });
-    gsap.set(blobElem, { opacity: 0, duration: 0, yPercent: 10 });
+    gsap.set(blobElem, { opacity: 0, duration: 0, yPercent: 5 });
     gsap.set(preloaderContentElem, { opacity: 1, y: 0, skewY: 0 });
     gsap.set(descriptionFirstBlockElem, { opacity: 0, y: -10, skewY: 0 });
 
@@ -47,7 +47,7 @@ $(function () {
           $(preloaderContentElem).addClass("preloader__content--active");
         }
       },
-      duration: 3,
+      duration: 2.5,
       ease: "ease.out",
     })
       .to(preloaderContentElem, {
@@ -57,28 +57,33 @@ $(function () {
         duration: 1,
         ease: "expo.in",
       })
-      .to(preloaderElem, {
-        opacity: 0,
-        duration: 0.5,
-        onStart: (e) => {
-          $(window).scrollTop(0);
+      .to(
+        preloaderElem,
+        {
+          opacity: 0,
+          duration: 0.5,
+          onStart: (e) => {
+            $(window).scrollTop(0);
+          },
+          onComplete: () => {
+            $(preloaderElem).hide();
+          },
         },
-        onComplete: () => {
-          $(preloaderElem).hide();
-        },
-      })
+        "-=0.25"
+      )
       .to(
         blobElem,
         {
           opacity: isDarkTheme ? 0.9 : 1,
           duration: 0.75,
           yPercent: 0,
-          ease: "linear",
+          // duration: 1,
+          ease: "expo.inOut",
           onStart: () => {
             window.sceneManager.onLoad();
           },
         },
-        "-=0.250"
+        "-=0.550"
       )
       .to(
         titleElem,

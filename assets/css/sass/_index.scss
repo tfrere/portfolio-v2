@@ -24,3 +24,13 @@
 @import "sections/contact";
 
 @import "pages/lab";
+
+.reversed-word {
+  background-color: #f0f2f8;
+  padding-left: 5px;
+  padding-right: 5px;
+  @include up-to-md {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

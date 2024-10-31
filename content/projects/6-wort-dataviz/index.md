@@ -1,6 +1,6 @@
 ---
-title: "Wort - dataviz"
-smalltitle: Wort - dataviz
+title: "Wort - Dataviz"
+smalltitle: Wort - Dataviz
 date: 2021-11-23T01:00:04+01:00
 draft: false
 tags: ["UI"]

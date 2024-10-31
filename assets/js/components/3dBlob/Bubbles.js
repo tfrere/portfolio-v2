@@ -13,7 +13,7 @@ class Bubbles {
     const geometry = new THREE.SphereGeometry(3, 6, 6);
     const material = new THREE.MeshLambertMaterial({
       wireframe: false,
-      color: 0xff00ff,
+      color: 0xffffffff,
     });
 
     this.bubbles = [];

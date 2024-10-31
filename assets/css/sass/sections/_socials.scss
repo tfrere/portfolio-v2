@@ -1,17 +1,33 @@
 .socials {
-  @apply flex self-end flex-row vr-mt-1 vr-mb-4;
+  @apply flex flex-col vr-mt-1 vr-mb-0;
   margin-left: auto;
+
+  @include up-to-md {
+    @apply flex-row vr-mb-4;
+  }
+}
+
+.socials__item {
+  @apply flex items-center;
 }
 
 .socials__item__link {
   color: var(--text-color);
-  @apply entity;
-  padding:$base-size $base-size * 2;
+  @apply entity inline-block;
+  padding: $base-size $base-size * 2;
   margin-right: 12px;
-  border:1px solid var(--yellow);
+  border: 1px solid var(--yellow);
   border-radius: 100px;
+
+  @apply vr-mb-1;
+  @include up-to-md {
+    @apply vr-mb-0;
+  }
 }
 
 .socials__item__intro {
-  @apply vr-mr-1;
+  @apply inline-block vr-mr-1 vr-mb-2 hidden;
+  @include up-to-md {
+    @apply vr-mb-0 block;
+  }
 }

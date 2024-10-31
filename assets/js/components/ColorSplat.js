@@ -111,19 +111,22 @@ $(function () {
       var elapsed = Date.now() - mousedown;
       mousedown = undefined;
       color = getComputedStyle(canvas).getPropertyValue("--text-color");
-      if (elapsed >= 300) {
-        const isALink =
-          e.target.tagName.length == 1 && e.target.tagName.includes("A");
-        const isEmail =
-          e.target.classList && e.target.classList[0].includes("email");
+      // if (elapsed >= 300) {
+      const isALink =
+        e.target.tagName.length == 1 && e.target.tagName.includes("A");
+      const isEmail =
+        e.target.classList && e.target.classList[0].includes("email");
+      const isNav = e.target.classList && e.target.classList[0].includes("nav");
+      const isExpertise =
+        e.target.classList && e.target.classList[0].includes("expertise__item");
 
-        if (!isALink && !isEmail) {
-          window.dispatchEvent(splatEvent);
-          canvas.style.display = "block";
-          updateCoords(e);
-          animateParticules(x, y);
-        }
+      if (!isALink && !isEmail && !isNav && !isExpertise) {
+        window.dispatchEvent(splatEvent);
+        canvas.style.display = "block";
+        updateCoords(e);
+        animateParticules(x, y);
       }
+      // }
     });
 
     // window.addEventListener(
