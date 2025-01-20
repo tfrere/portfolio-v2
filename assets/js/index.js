@@ -8,6 +8,7 @@ import "./components/ColorSplat";
 import "./components/FixedNav";
 import "./components/Eye";
 import "./components/ScrollVisualizer";
+import "./components/ThemeToggle";
 
 import "./components/3dBlob/SceneManager";
 
